@@ -11,6 +11,8 @@ import {
   Heart,
   ArrowRight,
 } from "lucide-react";
+import { MeshGradient, PulsingBorder } from "@paper-design/shaders-react";
+import { motion } from "framer-motion";
 import { Section } from "./Section";
 import { Reveal } from "./Reveal";
 import { Accordion } from "./Accordion";
