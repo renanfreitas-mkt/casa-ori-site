@@ -1,32 +1,26 @@
+## Redesign da seção "O Sistema ORI"
 
-# Otimização Mobile-First + Limpeza de Duplicações
+Aplicar a direção escolhida (v3 — Moldura editorial com escalonamento): intro verde com cantos arredondados no topo + 3 cartões sobrepostos por margem negativa, com card central elevado e contraste de tons (areia-claro / areia / areia-claro).
 
-## Duplicações a remover
-1. **Carol aparece 2x** (`CarolTeaser` na Home + `QuemConduz` em Sobre) → remover `CarolTeaser` da home.
-2. **Mini-cards de 5 serviços em `ComoAjuda`** repetem o `ServicosCarousel` → substituir por 1 CTA "Ver caminhos possíveis →".
-3. **CTAs WhatsApp em 6 lugares** (HomeCta, SobreCta, ComoEscolher, ServicosCta, Antes-final, Contato) → manter só 3 momentos-chave: fim Home, fim Serviços, seção Contato. Remover `SobreCta` e o CTA repetido no fim do `Antes`.
-4. **"Empresas" duplicado** (card no carrossel + bloco dedicado no Contato) → remover bloco do Contato.
-5. **"Formas de atendimento Online/Presencial"** repete o FAQ → remover bloco.
-6. **Footer** repete @suacasa.ori/Instagram/WhatsApp já presentes no fim do Contato → manter rodapé minimalista (copyright + 2 ícones apenas).
+### Mudanças
 
-## Ajustes Mobile-First
-1. **Padding de seções**: `py-20 md:py-28 lg:py-32` → `py-14 md:py-24 lg:py-32` (menos peso no mobile).
-2. **Hero**: trocar `min-h-screen` por `min-h-[88svh]`, ajustar paddings.
-3. **ServicosCarousel mobile**: ocultar imagens laterais (efeito 3D só a partir de `md`); imagem ativa única no mobile; altura `h-[260px]` no mobile.
-4. **SistemaOriEixos**: virar accordion no mobile (`md:hidden` + accordion / `hidden md:grid` para 3 colunas) — reduz scroll massivo.
-5. **InstagramGrid**: `grid-cols-2 md:grid-cols-3` (thumbs maiores no mobile).
-6. **WhatsApp flutuante**: botão fixo no canto inferior direito no mobile (`lg:hidden`), oculto quando chega no Contato.
-7. **Mini-ORI em ComoAjuda**: compactar — manter cards mas com altura reduzida e estado `active:` (mobile não tem hover).
-8. **Tipografia densa**: parágrafos longos `text-[17px]` → `text-[15px] md:text-[17px]`.
-9. **Reveal delays**: reduzir `i * 120` → `i * 60` em listas (menos espera percebida no mobile).
+**1. `src/components/site/sections.tsx`**
+- Fundir `SistemaOriIntro` + `SistemaOriEixos` em um único componente `SistemaOri` envolto por uma "moldura" sobre fundo `areia-claro`:
+  - Container externo `max-w-[1180px]` em fundo `kraft` (areia-claro), padding vertical responsivo.
+  - Bloco intro: `bg-[#26533C] rounded-t-3xl` com padding generoso e `pb-32 md:pb-48` para criar espaço de sobreposição. Mantém eyebrow "Metodologia autoral", h2 "O Sistema ORI", script em `#C4B58E` e parágrafo descritivo (textos exatos atuais).
+  - Grid de 3 cards com `-mt-24 md:-mt-32 relative z-20`, gap-8, px lateral.
+  - Cards O e I em `bg-[#E8DEC8]`, card R central em `bg-[#C4B58E]` com `md:translate-y-4` para escalonar. Todos com `rounded-2xl`, `shadow-2xl`, borda sutil, hover `-translate-y-2`.
+  - Cada card: letra grande (`text-7xl` light), label uppercase tracking-wide, h3 do título, subline italic, lista com travessão "—", divisor sutil + quote em Dancing Script.
+- Conteúdo (letras, nomes, títulos, sublines, itens, frases) vem do array `eixos` existente — sem reescrever textos.
+- Remover `SistemaOriEixos` da composição em `routes/index.tsx` (substituído pelo novo componente unificado `SistemaOri`).
 
-## Arquivos tocados
-- `src/components/site/Section.tsx` — padding responsivo.
-- `src/components/site/sections.tsx` — remover CarolTeaser, SobreCta, sub-blocos do Contato (Formas/Empresas), simplificar ComoAjuda, accordion mobile em SistemaOriEixos, InstagramGrid 2 col, ajustes tipográficos e delays.
-- `src/components/site/ServicosCarousel.tsx` — esconder slides laterais no mobile, altura reduzida.
-- `src/components/site/Nav.tsx` — botão WhatsApp flutuante mobile.
-- `src/routes/index.tsx` — remover `<CarolTeaser />` e `<SobreCta />` da composição.
+**2. `src/routes/index.tsx`**
+- Substituir `<SistemaOriIntro />` + `<SistemaOriEixos />` por `<SistemaOri />`. Demais seções (Diferencial, Aplicação, Esperar) permanecem inalteradas.
 
-## Fora de escopo
-- Textos validados pela Carol (não simplificar/reescrever).
-- Paleta, fontes, estrutura de âncoras.
+### Responsivo
+- Mobile: cards empilhados, sem `translate-y-4` no central; overlap reduzido (`-mt-20`); intro com `pb-28`.
+
+### Fora de escopo
+- Textos (mantidos exatamente como Carol validou).
+- `SistemaOriDiferencial`, `SistemaOriAplicacao`, `SistemaOriEsperar` (não tocadas).
+- Paleta e fontes (já alinhadas).
