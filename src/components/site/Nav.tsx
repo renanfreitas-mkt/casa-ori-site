@@ -117,6 +117,21 @@ export function Nav() {
           </a>
         </div>
       </div>
+
+      {/* Floating WhatsApp (mobile only, hidden when on contato section) */}
+      <a
+        href={WHATSAPP_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Falar no WhatsApp"
+        className={`lg:hidden fixed bottom-5 right-5 z-40 w-14 h-14 rounded-full bg-[#26533C] text-white shadow-lg flex items-center justify-center transition-all duration-300 ${
+          active === "contato" || open
+            ? "opacity-0 pointer-events-none translate-y-3"
+            : "opacity-100"
+        }`}
+      >
+        <MessageCircle size={24} strokeWidth={1.6} />
+      </a>
     </>
   );
 }
