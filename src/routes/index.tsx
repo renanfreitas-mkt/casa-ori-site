@@ -4,7 +4,6 @@ import {
   Hero,
   Dores,
   ComoAjuda,
-  CarolTeaser,
   Depoimentos,
   Podcast,
   InstagramGrid,
@@ -13,7 +12,6 @@ import {
   PorQue,
   QuemConduz,
   ComoConduzido,
-  SobreCta,
   AvaliacaoInicial,
   ComoEscolher,
   ServicosCta,
@@ -59,7 +57,6 @@ function Index() {
         <Hero />
         <Dores />
         <ComoAjuda />
-        <CarolTeaser />
         <Depoimentos />
         <Podcast />
         <InstagramGrid />
@@ -69,7 +66,6 @@ function Index() {
         <PorQue />
         <QuemConduz />
         <ComoConduzido />
-        <SobreCta />
 
         <AvaliacaoInicial />
         <ServicosCarousel />

@@ -27,7 +27,7 @@ export function Section({
     <section
       id={id}
       style={style}
-      className={`${bgClass[bg]} px-6 lg:px-10 py-20 md:py-28 lg:py-32 ${className}`}
+      className={`${bgClass[bg]} px-5 sm:px-6 lg:px-10 py-14 md:py-24 lg:py-32 ${className}`}
     >
       <div className="max-w-[1180px] mx-auto">{children}</div>
     </section>
