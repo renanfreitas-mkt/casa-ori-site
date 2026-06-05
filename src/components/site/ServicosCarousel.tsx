@@ -132,7 +132,7 @@ export function ServicosCarousel() {
     if (autoplayRef.current) clearInterval(autoplayRef.current);
   }, [len]);
 
-  function imgStyle(index: number): CSSProperties {
+  function imgStyle(index: number, isMobile: boolean): CSSProperties {
     const gap = calculateGap(containerWidth);
     const stickUp = gap * 0.8;
     const isActive = index === activeIndex;
@@ -148,6 +148,7 @@ export function ServicosCarousel() {
         opacity: 1,
         transform: `translateX(0) translateY(0) scale(1) rotateY(0deg)`,
       };
+    if (isMobile) return { ...base, zIndex: 1, opacity: 0 };
     if (isLeft)
       return {
         ...base,
@@ -164,6 +165,8 @@ export function ServicosCarousel() {
       };
     return { ...base, zIndex: 1, opacity: 0 };
   }
+
+  const isMobile = containerWidth > 0 && containerWidth < 640;
 
   return (
     <section className="kraft text-[#26533C] px-6 lg:px-10 py-20 md:py-28 lg:py-32">
