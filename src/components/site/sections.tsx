@@ -1251,25 +1251,6 @@ export function Antes() {
         </Reveal>
       </Section>
 
-      <Section bg="verde">
-        <div className="text-center max-w-2xl mx-auto">
-          <Reveal>
-            <p
-              className="font-light"
-              style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)", lineHeight: 1.3 }}
-            >
-              Se isso fez sentido para você, talvez seja o momento de começar.
-            </p>
-          </Reveal>
-          <Reveal delay={150}>
-            <div className="mt-10">
-              <CTA href="#contato" variant="areia">
-                Agendar conversa inicial
-              </CTA>
-            </div>
-          </Reveal>
-        </div>
-      </Section>
     </>
   );
 }
@@ -1319,67 +1300,6 @@ export function Contato() {
         </div>
       </Section>
 
-      <Section bg="areia">
-        <Reveal>
-          <span className="label-eyebrow text-[#26533C]/75">
-            Formas de atendimento
-          </span>
-        </Reveal>
-        <div className="mt-10 grid md:grid-cols-2 gap-10 md:gap-16 max-w-3xl">
-          <Reveal>
-            <h4 className="text-2xl text-[#26533C] font-light">Online</h4>
-            <p className="mt-4 text-[#26533C]/85 font-light leading-relaxed">
-              Disponível para todos os serviços, de acordo com a disponibilidade
-              de agenda.
-            </p>
-          </Reveal>
-          <Reveal delay={120}>
-            <h4 className="text-2xl text-[#26533C] font-light">Presencial</h4>
-            <p className="mt-4 text-[#26533C]/85 font-light leading-relaxed">
-              Disponível conforme o serviço e a disponibilidade de agenda.
-            </p>
-          </Reveal>
-        </div>
-      </Section>
-
-      <Section bg="verde">
-        <div className="max-w-3xl">
-          <Reveal>
-            <span className="label-eyebrow text-white/70">Empresas</span>
-            <h3
-              className="mt-4 font-light"
-              style={{ fontSize: "clamp(1.6rem, 3vw, 2.2rem)", lineHeight: 1.25 }}
-            >
-              A Casa Orí também pode atuar em organizações.
-            </h3>
-          </Reveal>
-          <Reveal delay={120}>
-            <p className="mt-6 text-white/85 font-light leading-relaxed text-[17px]">
-              Se o seu contato for para entender melhor a aplicação desse
-              trabalho em empresas ou equipes, você também pode falar pelo
-              WhatsApp.
-            </p>
-          </Reveal>
-          <Reveal delay={200}>
-            <p className="mt-4 text-white/85 font-light leading-relaxed text-[17px]">
-              A proposta é compreender a necessidade do seu contexto e avaliar
-              de que forma a Casa Orí pode contribuir.
-            </p>
-          </Reveal>
-          <Reveal delay={300}>
-            <div className="mt-10">
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center border border-white text-white px-7 py-4 rounded-[3px] tracking-wide hover:bg-white hover:text-[#26533C] transition-colors"
-              >
-                Falar sobre minha empresa
-              </a>
-            </div>
-          </Reveal>
-        </div>
-      </Section>
 
       <Section bg="branco">
         <div className="text-center max-w-2xl mx-auto">
