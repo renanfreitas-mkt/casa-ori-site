@@ -955,100 +955,107 @@ const eixos: Eixo[] = [
 
 export function SistemaOriIntro() {
   return (
-    <Section id="sistema-ori" bg="verde">
-      <div className="max-w-3xl">
+    <section id="sistema-ori" className="kraft px-5 sm:px-6 lg:px-10 py-14 md:py-24 lg:py-32">
+      <div className="max-w-[1180px] mx-auto">
+        {/* Intro band */}
         <Reveal>
-          <span className="label-eyebrow text-white/70">
-            Metodologia autoral
-          </span>
+          <div className="bg-[#26533C] rounded-t-3xl px-6 sm:px-10 md:px-16 lg:px-20 pt-14 md:pt-20 pb-28 md:pb-48 text-center relative overflow-hidden">
+            <span className="label-eyebrow text-[#E8DEC8]/70">
+              Metodologia autoral
+            </span>
+            <h2
+              className="mt-5 font-light text-[#E8DEC8]"
+              style={{ fontSize: "clamp(2.2rem, 5.2vw, 4rem)", lineHeight: 1.05 }}
+            >
+              O Sistema ORI
+            </h2>
+            <p
+              className="script mt-7 text-[#C4B58E]"
+              style={{ fontSize: "clamp(1.4rem, 3vw, 2.1rem)" }}
+            >
+              Por trás de cada processo, existe uma estrutura.
+            </p>
+            <p className="mt-6 mx-auto max-w-2xl text-[#E8DEC8]/90 font-light leading-relaxed text-[15px] md:text-[17px]">
+              O Sistema ORI é a metodologia que sustenta a forma como o trabalho
+              na Casa Orí é conduzido — em processos individuais e dentro de
+              empresas.
+            </p>
+          </div>
         </Reveal>
-        <Reveal delay={100}>
-          <h2
-            className="mt-6 font-light"
-            style={{ fontSize: "clamp(2rem, 4.6vw, 3.4rem)", lineHeight: 1.1 }}
-          >
-            O Sistema ORI
-          </h2>
-        </Reveal>
-        <Reveal delay={200}>
-          <p
-            className="script mt-8 text-[#C4B58E]"
-            style={{ fontSize: "clamp(1.4rem, 3vw, 2rem)" }}
-          >
-            Por trás de cada processo, existe uma estrutura.
-          </p>
-        </Reveal>
-        <Reveal delay={300}>
-          <p className="mt-6 text-white/85 font-light leading-relaxed text-[17px] md:text-lg">
-            O Sistema ORI é a metodologia que sustenta a forma como o trabalho
-            na Casa Orí é conduzido — em processos individuais e dentro de
-            empresas.
-          </p>
-        </Reveal>
+
+        {/* Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 px-2 sm:px-6 -mt-20 md:-mt-32 relative z-20">
+          {eixos.map((e, i) => {
+            const isMid = i === 1;
+            const surface = isMid
+              ? "bg-[#C4B58E] border-[#26533C]/10"
+              : "bg-[#E8DEC8] border-[#C4B58E]/40";
+            const divider = isMid ? "border-[#26533C]/20" : "border-[#C4B58E]/50";
+            const subtle = "text-[#26533C]/70";
+            return (
+              <Reveal key={e.letra} delay={i * 80}>
+                <div
+                  className={`${surface} border rounded-2xl p-7 md:p-9 shadow-2xl flex flex-col h-full transform ${
+                    isMid ? "md:translate-y-4" : ""
+                  } hover:-translate-y-2 transition-transform duration-300`}
+                >
+                  <div
+                    className="text-[#26533C] font-light leading-none"
+                    style={{ fontSize: "clamp(3.5rem, 5.5vw, 5rem)" }}
+                  >
+                    {e.letra}
+                  </div>
+                  <span className="mt-2 text-[10px] uppercase tracking-[0.3em] text-[#26533C]/60 font-medium">
+                    {e.nome}
+                  </span>
+
+                  <div className="flex-grow mt-8">
+                    <h3
+                      className="text-[#26533C] font-normal leading-snug"
+                      style={{ fontSize: "clamp(1.1rem, 1.4vw, 1.3rem)" }}
+                    >
+                      {e.titulo}
+                    </h3>
+                    <p className={`mt-3 italic font-light text-[14px] ${subtle}`}>
+                      {e.sub}
+                    </p>
+
+                    <ul className="mt-6 space-y-3">
+                      {e.itens.map((it, j) => (
+                        <li
+                          key={j}
+                          className="pl-5 relative font-light leading-relaxed text-[14.5px] text-[#26533C]/85"
+                        >
+                          <span
+                            className="absolute left-0 top-3 w-2.5 h-px"
+                            style={{ background: "currentColor" }}
+                          />
+                          {it}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className={`pt-6 mt-8 border-t ${divider}`}>
+                    <p
+                      className="script text-[#26533C] leading-snug"
+                      style={{ fontSize: "clamp(1.1rem, 1.6vw, 1.4rem)" }}
+                    >
+                      {e.frase}
+                    </p>
+                  </div>
+                </div>
+              </Reveal>
+            );
+          })}
+        </div>
       </div>
-    </Section>
+    </section>
   );
 }
 
 export function SistemaOriEixos() {
-  return (
-    <div className="grid md:grid-cols-3">
-      {eixos.map((e) => {
-        const tone =
-          e.bg === "verde"
-            ? "bg-[#26533C] text-white"
-            : "kraft-areia text-[#26533C]";
-        const subtle = e.bg === "verde" ? "text-white/75" : "text-[#26533C]/70";
-        const fraseColor =
-          e.bg === "verde" ? "text-[#C4B58E]" : "text-[#26533C]";
-        return (
-          <Reveal key={e.letra}>
-            <div className={`${tone} px-8 lg:px-10 py-20 md:py-24 h-full`}>
-              <div
-                className="font-light leading-none"
-                style={{ fontSize: "clamp(3.5rem, 6vw, 5.5rem)" }}
-              >
-                {e.letra}
-              </div>
-              <div className={`mt-2 text-xs uppercase tracking-[0.3em] ${subtle}`}>
-                {e.nome}
-              </div>
-
-              <h3
-                className="mt-8 font-light"
-                style={{ fontSize: "clamp(1.2rem, 1.7vw, 1.5rem)", lineHeight: 1.3 }}
-              >
-                {e.titulo}
-              </h3>
-              <p className={`mt-3 italic font-light ${subtle}`}>{e.sub}</p>
-
-              <ul className="mt-7 space-y-2">
-                {e.itens.map((it, i) => (
-                  <li
-                    key={i}
-                    className="pl-5 relative font-light leading-relaxed text-[15px]"
-                  >
-                    <span
-                      className="absolute left-0 top-3 w-2.5 h-px"
-                      style={{ background: "currentColor" }}
-                    />
-                    {it}
-                  </li>
-                ))}
-              </ul>
-
-              <p
-                className={`script mt-10 ${fraseColor}`}
-                style={{ fontSize: "clamp(1.2rem, 2vw, 1.6rem)" }}
-              >
-                {e.frase}
-              </p>
-            </div>
-          </Reveal>
-        );
-      })}
-    </div>
-  );
+  return null;
 }
 
 const diferenciais = [
