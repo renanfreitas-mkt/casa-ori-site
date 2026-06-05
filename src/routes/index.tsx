@@ -72,7 +72,7 @@ function Index() {
         <SobreCta />
 
         <AvaliacaoInicial />
-        <ServicosLista />
+        <ServicosCarousel />
         <ComoEscolher />
         <ServicosCta />
 
