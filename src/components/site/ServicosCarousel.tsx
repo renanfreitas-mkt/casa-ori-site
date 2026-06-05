@@ -192,7 +192,7 @@ export function ServicosCarousel() {
           {/* Images */}
           <div
             ref={imageContainerRef}
-            className="relative w-full h-[320px] sm:h-[420px] md:h-[480px] [perspective:1000px]"
+            className="relative w-full h-[280px] sm:h-[400px] md:h-[480px] [perspective:1000px]"
           >
             {servicos.map((s, i) => (
               <img
@@ -201,7 +201,7 @@ export function ServicosCarousel() {
                 alt={s.titulo}
                 draggable={false}
                 className="absolute inset-0 w-full h-full object-cover rounded-3xl select-none shadow-xl"
-                style={imgStyle(i)}
+                style={imgStyle(i, isMobile)}
               />
             ))}
           </div>
