@@ -26,12 +26,48 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative bg-[#26533C] text-white min-h-screen flex items-center pt-28 pb-24"
+      className="relative bg-[#1d4230] text-white min-h-screen flex items-center pt-28 pb-24 overflow-hidden"
     >
-      {/* video placeholder layer */}
+      {/* Animated shader background */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(255,255,255,0.06),_transparent_60%)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(29,66,48,0.55)_0%,rgba(29,66,48,0.85)_100%)]" />
+        <MeshGradient
+          className="absolute inset-0 w-full h-full"
+          colors={["#1d4230", "#26533C", "#3a6b50", "#C4B58E", "#E8DEC8"]}
+          speed={0.25}
+          style={{ width: "100%", height: "100%" }}
+        />
+        <MeshGradient
+          className="absolute inset-0 w-full h-full opacity-50 mix-blend-soft-light"
+          colors={["#26533C", "#1d4230", "#E8DEC8", "#26533C"]}
+          speed={0.18}
+          style={{ width: "100%", height: "100%" }}
+        />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_30%,_rgba(29,66,48,0.7)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(29,66,48,0.35)_0%,rgba(29,66,48,0.75)_100%)]" />
+
+        {/* Subtle pulsing accent in corner */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 0.55, scale: 1 }}
+          transition={{ duration: 1.6, ease: "easeOut" }}
+          className="absolute -bottom-32 -right-32 hidden md:block pointer-events-none"
+        >
+          <PulsingBorder
+            colors={["#C4B58E", "#E8DEC8", "#26533C"]}
+            colorBack="#00000000"
+            roundness={1}
+            thickness={0.08}
+            softness={0.85}
+            intensity={3}
+            spotSize={0.25}
+            pulse={0.12}
+            smoke={0.45}
+            smokeSize={3}
+            scale={0.7}
+            speed={0.6}
+            style={{ width: 420, height: 420 }}
+          />
+        </motion.div>
       </div>
 
       <div className="relative max-w-[1000px] mx-auto px-6 lg:px-10 text-center">
