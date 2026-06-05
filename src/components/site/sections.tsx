@@ -26,7 +26,7 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative bg-[#1d4230] text-white min-h-screen flex items-center pt-28 pb-24 overflow-hidden"
+      className="relative bg-[#1d4230] text-white min-h-[88svh] flex items-center pt-24 pb-16 md:pt-28 md:pb-24 overflow-hidden"
     >
       {/* Animated shader background */}
       <div className="absolute inset-0 overflow-hidden">
@@ -219,35 +219,22 @@ export function ComoAjuda() {
         ))}
       </div>
 
-      {/* Serviços miniatura */}
-      <div className="mt-20">
+      {/* Serviços teaser */}
+      <div className="mt-16 md:mt-20">
         <Reveal>
           <span className="label-eyebrow text-[#26533C]/70">Serviços</span>
-          <h3 className="mt-4 text-2xl md:text-3xl font-light text-[#26533C]">
+          <h3 className="mt-4 text-xl md:text-2xl font-light text-[#26533C] max-w-xl">
             Caminhos possíveis dentro da Casa
           </h3>
         </Reveal>
-
-        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {[
-            { t: "Terapia Sistêmica", d: "Acompanhamento contínuo" },
-            { t: "Constelação Individual", d: "Atendimento pontual" },
-            { t: "Constelação em Grupo", d: "Campo coletivo presencial" },
-            { t: "Vivências", d: "Experiências presenciais" },
-            { t: "Casa Orí para Empresas", d: "Palestras e processos" },
-          ].map((s, i) => (
-            <Reveal key={s.t} delay={i * 80}>
-              <a
-                href="#servicos"
-                className="block border border-[#C4B58E] p-7 transition-colors duration-300 hover:bg-[#26533C] hover:text-white hover:border-[#26533C] h-full"
-              >
-                <Heart size={20} strokeWidth={1.4} />
-                <div className="mt-5 text-lg">{s.t}</div>
-                <div className="mt-2 text-sm opacity-80 font-light">{s.d}</div>
-              </a>
-            </Reveal>
-          ))}
-        </div>
+        <Reveal delay={120}>
+          <a
+            href="#servicos"
+            className="mt-7 inline-flex items-center gap-2 text-[#26533C] border-b border-[#26533C] pb-1 text-sm tracking-wide hover:gap-3 transition-all"
+          >
+            Ver caminhos possíveis <ArrowRight size={16} />
+          </a>
+        </Reveal>
       </div>
     </Section>
   );
@@ -379,7 +366,7 @@ export function InstagramGrid() {
         </Reveal>
       </div>
 
-      <div className="mt-10 grid grid-cols-3 gap-3 md:gap-4">
+      <div className="mt-10 grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
         {Array.from({ length: 6 }).map((_, i) => (
           <Reveal key={i} delay={i * 60}>
             <div className="aspect-square bg-[#E8DEC8] flex items-center justify-center hover:bg-[#C4B58E] transition-colors duration-300">
