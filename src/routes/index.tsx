@@ -26,6 +26,7 @@ import {
   Contato,
   Footer,
 } from "@/components/site/sections";
+import { ServicosCarousel } from "@/components/site/ServicosCarousel";
 
 export const Route = createFileRoute("/")({
   head: () => ({
