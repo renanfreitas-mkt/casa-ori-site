@@ -1,29 +1,91 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Nav } from "@/components/site/Nav";
+import {
+  Hero,
+  Dores,
+  ComoAjuda,
+  CarolTeaser,
+  Depoimentos,
+  Podcast,
+  InstagramGrid,
+  Faq,
+  HomeCta,
+  PorQue,
+  QuemConduz,
+  ComoConduzido,
+  SobreCta,
+  AvaliacaoInicial,
+  ServicosLista,
+  ComoEscolher,
+  ServicosCta,
+  SistemaOriIntro,
+  SistemaOriEixos,
+  SistemaOriDiferencial,
+  SistemaOriAplicacao,
+  SistemaOriEsperar,
+  Antes,
+  Contato,
+  Footer,
+} from "@/components/site/sections";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Your App" },
-      { name: "description", content: "Replace this with a one-sentence description of your app." },
-      { property: "og:title", content: "Your App" },
-      { property: "og:description", content: "Replace this with a one-sentence description of your app." },
+      { title: "Casa Orí — Terapia sistêmica e constelação familiar · Carol Milhomens" },
+      {
+        name: "description",
+        content:
+          "Casa Orí é um espaço de terapia sistêmica, constelação familiar e desenvolvimento de equipes em Brasília, conduzido por Carol Milhomens.",
+      },
+      {
+        property: "og:title",
+        content: "Casa Orí — Terapia sistêmica e constelação familiar",
+      },
+      {
+        property: "og:description",
+        content:
+          "Escuta, profundidade e direção. Um lugar para olhar para a própria história.",
+      },
     ],
   }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="bg-white text-[#1C1C1C] overflow-x-hidden">
+      <Nav />
+      <main>
+        <Hero />
+        <Dores />
+        <ComoAjuda />
+        <CarolTeaser />
+        <Depoimentos />
+        <Podcast />
+        <InstagramGrid />
+        <Faq />
+        <HomeCta />
+
+        <PorQue />
+        <QuemConduz />
+        <ComoConduzido />
+        <SobreCta />
+
+        <AvaliacaoInicial />
+        <ServicosLista />
+        <ComoEscolher />
+        <ServicosCta />
+
+        <SistemaOriIntro />
+        <SistemaOriEixos />
+        <SistemaOriDiferencial />
+        <SistemaOriAplicacao />
+        <SistemaOriEsperar />
+
+        <Antes />
+        <Contato />
+      </main>
+      <Footer />
     </div>
   );
 }
