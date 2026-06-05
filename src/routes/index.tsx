@@ -15,7 +15,6 @@ import {
   ComoConduzido,
   SobreCta,
   AvaliacaoInicial,
-  ServicosLista,
   ComoEscolher,
   ServicosCta,
   SistemaOriIntro,
@@ -27,6 +26,7 @@ import {
   Contato,
   Footer,
 } from "@/components/site/sections";
+import { ServicosCarousel } from "@/components/site/ServicosCarousel";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -72,7 +72,7 @@ function Index() {
         <SobreCta />
 
         <AvaliacaoInicial />
-        <ServicosLista />
+        <ServicosCarousel />
         <ComoEscolher />
         <ServicosCta />
 
