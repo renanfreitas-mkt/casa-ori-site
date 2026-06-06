@@ -1308,29 +1308,72 @@ const antes = [
   },
 ];
 
+const antesResumo = [
+  {
+    q: "Não existe fórmula pronta",
+    a: "Cada pessoa chega com uma história e uma necessidade diferente. O caminho é construído a partir do que você vive.",
+  },
+  {
+    q: "Não se resolve tudo em uma sessão",
+    a: "Mudanças mais consistentes acontecem com tempo, repetição e comprometimento. O processo existe para sustentar isso.",
+  },
+  {
+    q: "Ninguém resolve por você",
+    a: "Existe direção, acompanhamento e suporte. Mas a mudança acontece a partir do que você está disposto a olhar e transformar.",
+  },
+];
+
+export function AntesResumo() {
+  return (
+    <Section bg="areia-claro">
+      <Reveal>
+        <span className="label-eyebrow text-[#26533C]/70">
+          Antes de começar
+        </span>
+        <h2
+          className="mt-4 font-light max-w-3xl"
+          style={{ fontSize: "clamp(1.6rem, 3vw, 2.2rem)", lineHeight: 1.25 }}
+        >
+          Antes de começar, é bom saber:
+        </h2>
+      </Reveal>
+      <Reveal delay={120}>
+        <div className="mt-10 max-w-3xl">
+          <Accordion items={antesResumo} tone="verde" />
+        </div>
+      </Reveal>
+      <Reveal delay={200}>
+        <a
+          href="#antes"
+          className="mt-8 inline-flex items-center gap-2 text-[#26533C] border-b border-[#26533C] pb-1 text-sm tracking-wide hover:gap-3 transition-all"
+        >
+          Ver todas as premissas <ArrowRight size={16} />
+        </a>
+      </Reveal>
+    </Section>
+  );
+}
+
 export function Antes() {
   return (
-    <>
-      <Section id="antes" bg="areia-claro">
-        <Reveal>
-          <span className="label-eyebrow text-[#26533C]/70">
-            Antes de começar
-          </span>
-          <h2
-            className="mt-4 font-light max-w-3xl"
-            style={{ fontSize: "clamp(1.8rem, 3.4vw, 2.6rem)", lineHeight: 1.2 }}
-          >
-            Antes de começar, é importante alinhar algumas coisas.
-          </h2>
-        </Reveal>
-        <Reveal delay={120}>
-          <div className="mt-12 max-w-3xl">
-            <Accordion items={antes} tone="verde" />
-          </div>
-        </Reveal>
-      </Section>
-
-    </>
+    <Section id="antes" bg="areia-claro">
+      <Reveal>
+        <span className="label-eyebrow text-[#26533C]/70">
+          Antes de começar
+        </span>
+        <h2
+          className="mt-4 font-light max-w-3xl"
+          style={{ fontSize: "clamp(1.8rem, 3.4vw, 2.6rem)", lineHeight: 1.2 }}
+        >
+          Antes de começar, é importante alinhar algumas coisas.
+        </h2>
+      </Reveal>
+      <Reveal delay={120}>
+        <div className="mt-12 max-w-3xl">
+          <Accordion items={antes} tone="verde" />
+        </div>
+      </Reveal>
+    </Section>
   );
 }
 
