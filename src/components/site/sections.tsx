@@ -456,8 +456,8 @@ export function HomeCta() {
         </Reveal>
         <Reveal delay={150}>
           <div className="mt-10">
-            <CTA href="#contato" variant="areia">
-              Seja bem-vindo à Casa Orí
+            <CTA href={QUIZ_URL} external variant="areia">
+              Quero entender o que está acontecendo
             </CTA>
           </div>
         </Reveal>
