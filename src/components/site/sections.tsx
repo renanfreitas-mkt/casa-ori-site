@@ -141,12 +141,12 @@ export function Hero() {
 
 /* ============== DORES ============== */
 const dores = [
-  "A sobrecarga está grande. Por fora, você tenta seguir no automático.",
-  "Aparece na dificuldade de colocar limites.",
-  "Na insegurança para tomar decisões que sabe que precisa tomar.",
-  "No medo de errar.",
-  "Na pressão da sua família.",
-  "Naqueles problemas que só mudam de forma, mas sempre voltam.",
+  "Você sente que a sobrecarga está grande. Por fora, tenta seguir no automático, dar conta de tudo e parecer que está tudo bem.",
+  "Você tem dificuldade de colocar limites — e isso te esgota.",
+  "Você sente insegurança para tomar decisões que sabe que precisa tomar.",
+  "Você tem medo de errar. Ou de decepcionar.",
+  "A pressão da sua família pesa de um jeito que é difícil de explicar.",
+  "Você percebe que os mesmos problemas só mudam de forma, mas sempre voltam.",
 ];
 
 export function Dores() {
