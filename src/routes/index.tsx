@@ -67,12 +67,12 @@ function Index() {
         <ComoConduzido />
 
         <AvaliacaoInicial />
-        <ServicosCarousel />
-        <ComoEscolher />
+        <ServicosGrid />
         <ServicosCta />
 
+        <AntesResumo />
+
         <SistemaOriIntro />
-        <SistemaOriEixos />
         <SistemaOriDiferencial />
         <SistemaOriAplicacao />
         <SistemaOriEsperar />
