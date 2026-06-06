@@ -10,6 +10,9 @@ import {
   Compass,
   Heart,
   ArrowRight,
+  CheckCircle2,
+  Clock,
+  ShieldCheck,
 } from "lucide-react";
 import { MeshGradient, PulsingBorder } from "@paper-design/shaders-react";
 import { motion } from "framer-motion";
@@ -19,6 +22,12 @@ import { Accordion } from "./Accordion";
 import { CTA, WhatsAppCTA } from "./CTA";
 
 const WHATSAPP_URL = "https://wa.me/55XXXXXXXXXX";
+const WHATSAPP_AGENDAR =
+  "https://wa.me/55XXXXXXXXXX?text=Ol%C3%A1%2C%20quero%20agendar%20uma%20conversa%20inicial";
+const WHATSAPP_GERAL =
+  "https://wa.me/55XXXXXXXXXX?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20os%20atendimentos%20da%20Casa%20Or%C3%AD";
+const WHATSAPP_EMPRESAS =
+  "https://wa.me/55XXXXXXXXXX?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20o%20trabalho%20da%20Casa%20Or%C3%AD%20para%20empresas";
 const QUIZ_URL = "QUIZ_URL";
 
 /* ============== HERO ============== */
@@ -77,12 +86,14 @@ export function Hero() {
 
         <Reveal delay={120}>
           <h1
-            className="mt-8 font-light italic text-white"
-            style={{ fontSize: "clamp(2rem, 5vw, 3.6rem)", lineHeight: 1.2 }}
+            className="mt-8 font-light text-white"
+            style={{ fontSize: "clamp(2rem, 5vw, 3.6rem)", lineHeight: 1.15 }}
           >
-            Antes de ser um método e um serviço,
+            Algo está pesando.
             <br />
-            a Casa Orí é um lugar.
+            E você já não consegue
+            <br />
+            fingir que está tudo bem.
           </h1>
         </Reveal>
 
@@ -95,28 +106,33 @@ export function Hero() {
             className="mx-auto text-white/85 font-light max-w-2xl"
             style={{ fontSize: "clamp(1rem, 1.4vw, 1.15rem)", lineHeight: 1.8 }}
           >
-            Aqui, existe escuta e respiro para quem percebeu que precisa parar
-            de fugir do que sente — e, finalmente, olhar para a própria
-            história.
+            A Casa Orí é um espaço de escuta para quem percebeu que seguir no
+            automático não está mais funcionando.
           </p>
         </Reveal>
 
         <Reveal delay={420}>
           <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <CTA href="#contato" variant="areia">
-              Preciso de ajuda
+            <CTA href={QUIZ_URL} external variant="areia">
+              Quero entender o que está acontecendo
             </CTA>
-            <button
-              type="button"
-              className="inline-flex items-center gap-3 text-white/85 hover:text-white text-sm tracking-wide transition-colors"
-              aria-label="Assistir vídeo manifesto"
-            >
-              <span className="w-11 h-11 rounded-full border border-white/60 flex items-center justify-center">
-                <Play size={16} fill="currentColor" />
-              </span>
-              Vídeo manifesto
-            </button>
+            <CTA href={WHATSAPP_URL} external variant="outlineWhite">
+              Falar com a Carol
+            </CTA>
           </div>
+        </Reveal>
+
+        <Reveal delay={520}>
+          <button
+            type="button"
+            className="mt-10 inline-flex items-center gap-3 text-white/75 hover:text-white text-sm tracking-wide transition-colors"
+            aria-label="Assistir vídeo manifesto"
+          >
+            <span className="w-11 h-11 rounded-full border border-white/60 flex items-center justify-center">
+              <Play size={16} fill="currentColor" />
+            </span>
+            Vídeo manifesto
+          </button>
         </Reveal>
       </div>
     </section>
@@ -125,12 +141,12 @@ export function Hero() {
 
 /* ============== DORES ============== */
 const dores = [
-  "A sobrecarga está grande. Por fora, você tenta seguir no automático.",
-  "Aparece na dificuldade de colocar limites.",
-  "Na insegurança para tomar decisões que sabe que precisa tomar.",
-  "No medo de errar.",
-  "Na pressão da sua família.",
-  "Naqueles problemas que só mudam de forma, mas sempre voltam.",
+  "Você sente que a sobrecarga está grande. Por fora, tenta seguir no automático, dar conta de tudo e parecer que está tudo bem.",
+  "Você tem dificuldade de colocar limites — e isso te esgota.",
+  "Você sente insegurança para tomar decisões que sabe que precisa tomar.",
+  "Você tem medo de errar. Ou de decepcionar.",
+  "A pressão da sua família pesa de um jeito que é difícil de explicar.",
+  "Você percebe que os mesmos problemas só mudam de forma, mas sempre voltam.",
 ];
 
 export function Dores() {
@@ -440,8 +456,8 @@ export function HomeCta() {
         </Reveal>
         <Reveal delay={150}>
           <div className="mt-10">
-            <CTA href="#contato" variant="areia">
-              Seja bem-vindo à Casa Orí
+            <CTA href={QUIZ_URL} external variant="areia">
+              Quero entender o que está acontecendo
             </CTA>
           </div>
         </Reveal>
@@ -520,7 +536,25 @@ export function QuemConduz() {
             Terapeuta sistêmica e criadora do Sistema ORI
           </p>
 
-          <div className="mt-8 space-y-6 text-white/85 font-light leading-relaxed text-[16px] md:text-[17px] max-w-xl">
+          <div className="mt-8 space-y-5 text-white/85 font-light leading-relaxed text-[16px] md:text-[17px] max-w-xl">
+            <p>
+              Carol começou como arquiteta. Projetava estruturas físicas —
+              fundações, plantas, sistemas que sustentam o que se constrói por
+              cima.
+            </p>
+            <p>
+              Em algum momento, percebeu que as estruturas que mais precisavam
+              de atenção não eram as de concreto. Eram as internas.
+            </p>
+            <p>
+              Não foi uma virada. Foi uma soma. O mesmo olhar que lê uma planta
+              baixa aprendeu a ler padrões de comportamento, dinâmicas
+              familiares, o que sustenta — e o que compromete — tudo que se
+              constrói na vida de uma pessoa.
+            </p>
+          </div>
+
+          <div className="mt-8 space-y-6 text-white/85 font-light leading-relaxed text-[16px] md:text-[17px] max-w-xl border-t border-white/15 pt-8">
             <p>
               “Antes de conduzir outras pessoas nesse caminho, eu também fui
               transformada por ele. O olhar sistêmico e o estudo da comunicação
@@ -673,25 +707,29 @@ const servicos: Servico[] = [
     titulo: "Terapia Sistêmica",
     meta: "Acompanhamento contínuo · Sessões semanais ou quinzenais · 1 hora",
     paraQuem: [
-      "sente que precisa de suporte mais constante",
+      "sente que precisa de suporte mais próximo neste momento",
       "está vivendo conflitos que se repetem",
-      "se sente emocionalmente sobrecarregado",
       "tem dificuldade de sustentar mudanças sozinho",
     ],
     beneficios: [
-      "observar com mais clareza o que se repete",
       "perceber mais rápido o que não está funcionando",
-      "ter um suporte mais próximo para o que vai surgindo",
+      "ter apoio próximo para o que vai surgindo no caminho",
+      "construir novas possibilidades com mais precisão",
     ],
   },
   {
     bg: "areia",
     titulo: "Constelação Familiar Individual",
-    meta: "Atendimento pontual · 2 horas · Questão específica com mais privacidade",
+    meta: "Atendimento pontual · 2 horas · Questão específica",
     paraQuem: [
-      "sente que existe um tema que precisa ser olhado com mais atenção",
-      "quer aprofundar um tema antes de começar acompanhamento contínuo",
-      "prefere viver esse processo de forma mais reservada",
+      "tem um tema específico que precisa ser olhado com mais atenção",
+      "quer entender o que está por trás de uma relação ou repetição",
+      "prefere um processo mais reservado e individual",
+    ],
+    beneficios: [
+      "aprofundar um tema com mais privacidade e direcionamento",
+      "acessar novas possibilidades de compreensão",
+      "identificar se aquele tema pede ou não continuidade",
     ],
   },
   {
@@ -701,7 +739,12 @@ const servicos: Servico[] = [
     paraQuem: [
       "deseja viver esse processo em um contexto coletivo",
       "se beneficia da força do grupo para ampliar a percepção",
-      "quer acessar novas compreensões a partir do movimento do grupo",
+      "quer acessar compreensões que surgem no movimento do grupo",
+    ],
+    beneficios: [
+      "ampliar a compreensão a partir da experiência coletiva",
+      "acessar percepções que não surgiriam em atendimento individual",
+      "identificar se o tema pede ou não continuidade",
     ],
   },
   {
@@ -709,9 +752,14 @@ const servicos: Servico[] = [
     titulo: "Vivências",
     meta: "Experiências presenciais · Desenvolvimento pessoal",
     paraQuem: [
-      "sente que alguns temas precisam ser vividos, e não só falados",
-      "quer se aprofundar em questões emocionais em contexto coletivo",
+      "sente que alguns temas precisam ser vividos, não só falados",
       "se beneficia da troca com outras pessoas",
+      "busca uma experiência mais prática e participativa",
+    ],
+    beneficios: [
+      "acessar emoções e percepções no próprio corpo",
+      "ampliar a compreensão a partir da escuta e da troca",
+      "transformar reflexões em experiências mais concretas",
     ],
   },
   {
@@ -725,150 +773,174 @@ const servicos: Servico[] = [
       "percebem que os mesmos problemas continuam voltando",
     ],
     beneficios: [
-      "dar mais clareza para a comunicação e os papéis",
+      "identificar o que está travando os resultados",
       "reduzir ruídos que impactam a execução no dia a dia",
-      "construir acordos mais claros e decisões sustentáveis",
+      "construir acordos mais claros e decisões mais sustentáveis",
+      "melhorar o alinhamento entre equipe e liderança",
     ],
     cta: {
       label: "Quero saber mais sobre o trabalho em empresas",
-      href: "#contato",
+      href: WHATSAPP_EMPRESAS,
     },
     destaque: true,
   },
 ];
 
-function ServicoBloco({ s }: { s: Servico }) {
-  const tone =
-    s.bg === "verde"
-      ? "bg-[#26533C] text-white"
-      : "kraft-areia text-[#26533C]";
-  const subtle = s.bg === "verde" ? "text-white/75" : "text-[#26533C]/70";
-  const bullet = s.bg === "verde" ? "text-white/85" : "text-[#26533C]/85";
+function ServicoCard({ s, full = false }: { s: Servico; full?: boolean }) {
+  const isVerde = s.bg === "verde";
+  const tone = isVerde
+    ? "bg-[#26533C] text-white"
+    : "bg-[#E8DEC8] text-[#26533C]";
+  const subtle = isVerde ? "text-white/70" : "text-[#26533C]/65";
+  const bullet = isVerde ? "text-white/90" : "text-[#26533C]/85";
   return (
-    <section className={`${tone} px-6 lg:px-10 py-20 md:py-24`}>
-      <div className="max-w-[1180px] mx-auto">
-        <div
-          className={`grid lg:grid-cols-[1fr_1.4fr] gap-10 lg:gap-16 ${
-            s.destaque ? "max-w-none" : ""
-          }`}
-        >
-          <Reveal>
-            <span className={`label-eyebrow ${subtle}`}>Serviço</span>
-            <h3
-              className="mt-5 font-light"
-              style={{
-                fontSize: "clamp(1.7rem, 3.2vw, 2.4rem)",
-                lineHeight: 1.2,
-              }}
-            >
-              {s.titulo}
-            </h3>
-            <p className={`mt-5 text-[14px] tracking-wide ${subtle}`}>
-              {s.meta}
-            </p>
-          </Reveal>
+    <div
+      className={`${tone} rounded-2xl p-8 md:p-10 h-full flex flex-col ${
+        full ? "lg:p-12" : ""
+      }`}
+    >
+      <span className={`text-[11px] tracking-[0.22em] uppercase ${subtle}`}>
+        {s.meta}
+      </span>
+      <h3
+        className="mt-4 font-medium"
+        style={{
+          fontSize: full
+            ? "clamp(1.7rem, 2.6vw, 2.2rem)"
+            : "clamp(1.4rem, 2vw, 1.8rem)",
+          lineHeight: 1.2,
+        }}
+      >
+        {s.titulo}
+      </h3>
 
-          <Reveal delay={120}>
-            <div>
-              <div className={`text-sm uppercase tracking-widest ${subtle}`}>
-                Para quem
-              </div>
-              <ul className="mt-4 space-y-2">
-                {s.paraQuem.map((p, i) => (
-                  <li
-                    key={i}
-                    className={`pl-5 relative font-light leading-relaxed ${bullet}`}
-                  >
-                    <span
-                      className="absolute left-0 top-3 w-2.5 h-px"
-                      style={{ background: "currentColor" }}
-                    />
-                    {p}
-                  </li>
-                ))}
-              </ul>
-
-              {s.beneficios && (
-                <>
-                  <div
-                    className={`mt-8 text-sm uppercase tracking-widest ${subtle}`}
-                  >
-                    Com esse formato é possível
-                  </div>
-                  <ul className="mt-4 space-y-2">
-                    {s.beneficios.map((p, i) => (
-                      <li
-                        key={i}
-                        className={`pl-5 relative font-light leading-relaxed ${bullet}`}
-                      >
-                        <span
-                          className="absolute left-0 top-3 w-2.5 h-px"
-                          style={{ background: "currentColor" }}
-                        />
-                        {p}
-                      </li>
-                    ))}
-                  </ul>
-                </>
-              )}
-
-              {s.cta && (
-                <div className="mt-10">
-                  <CTA
-                    href={s.cta.href}
-                    variant={s.bg === "verde" ? "areia" : "verde"}
-                  >
-                    {s.cta.label}
-                  </CTA>
-                </div>
-              )}
-            </div>
-          </Reveal>
+      <div className={full ? "mt-8 grid md:grid-cols-2 gap-10" : "mt-8"}>
+        <div>
+          <div className={`text-xs uppercase tracking-widest ${subtle}`}>
+            {full ? "Para empresas que" : "Para quem"}
+          </div>
+          <ul className="mt-3 space-y-2">
+            {s.paraQuem.map((p, i) => (
+              <li
+                key={i}
+                className={`pl-5 relative font-light leading-relaxed text-[15px] ${bullet}`}
+              >
+                <span
+                  className="absolute left-0 top-3 w-2.5 h-px"
+                  style={{ background: "currentColor" }}
+                />
+                {p}
+              </li>
+            ))}
+          </ul>
         </div>
+
+        {s.beneficios && (
+          <div className={full ? "" : "mt-6"}>
+            <div className={`text-xs uppercase tracking-widest ${subtle}`}>
+              É possível
+            </div>
+            <ul className="mt-3 space-y-2">
+              {s.beneficios.map((p, i) => (
+                <li
+                  key={i}
+                  className={`pl-5 relative font-light leading-relaxed text-[15px] ${bullet}`}
+                >
+                  <span
+                    className="absolute left-0 top-3 w-2.5 h-px"
+                    style={{ background: "currentColor" }}
+                  />
+                  {p}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
-    </section>
+
+      {s.cta && (
+        <div className="mt-10">
+          <CTA
+            href={s.cta.href}
+            external
+            variant={isVerde ? "outlineWhite" : "verde"}
+          >
+            {s.cta.label}
+          </CTA>
+        </div>
+      )}
+    </div>
   );
 }
 
-export function ServicosLista() {
-  return (
-    <>
-      {servicos.map((s) => (
-        <ServicoBloco key={s.titulo} s={s} />
-      ))}
-    </>
-  );
-}
-
-export function ComoEscolher() {
+export function ServicosGrid() {
+  const principais = servicos.filter((s) => !s.destaque);
+  const empresas = servicos.find((s) => s.destaque);
   return (
     <Section bg="branco">
-      <div className="max-w-2xl mx-auto text-center">
-        <Reveal>
+      <Reveal>
+        <div className="text-center max-w-2xl mx-auto mb-14 md:mb-20">
+          <span className="label-eyebrow text-[#26533C]/70">
+            Caminhos possíveis
+          </span>
+          <h2
+            className="mt-5 font-light text-[#26533C]"
+            style={{
+              fontSize: "clamp(1.8rem, 3.4vw, 2.6rem)",
+              lineHeight: 1.2,
+            }}
+          >
+            Cinco formas de começar
+          </h2>
+        </div>
+      </Reveal>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+        {principais.map((s, i) => (
+          <Reveal key={s.titulo} delay={i * 80}>
+            <ServicoCard s={s} />
+          </Reveal>
+        ))}
+      </div>
+
+      {empresas && (
+        <Reveal delay={120}>
+          <div className="mt-6 md:mt-8">
+            <ServicoCard s={empresas} full />
+          </div>
+        </Reveal>
+      )}
+
+      <Reveal delay={160}>
+        <div className="mt-16 md:mt-20 text-center max-w-2xl mx-auto">
           <h3
-            className="font-light"
-            style={{ fontSize: "clamp(1.6rem, 3vw, 2.2rem)", lineHeight: 1.25 }}
+            className="font-light text-[#26533C]"
+            style={{ fontSize: "clamp(1.5rem, 2.6vw, 2rem)", lineHeight: 1.25 }}
           >
             Ainda em dúvida por onde começar?
           </h3>
-        </Reveal>
-        <Reveal delay={120}>
-          <p className="mt-6 text-[17px] leading-relaxed font-light text-[#26533C]/85">
+          <p className="mt-5 text-[16px] leading-relaxed font-light text-[#26533C]/80">
             Tudo bem não saber. Na Casa Orí, o primeiro passo é a escuta. A
             partir de uma conversa inicial, entendemos o que está acontecendo e
             indicamos o melhor caminho para você.
           </p>
-        </Reveal>
-        <Reveal delay={220}>
-          <div className="mt-10">
-            <WhatsAppCTA variant="verde">
-              Vamos construir esse caminho juntos →
-            </WhatsAppCTA>
+          <div className="mt-8">
+            <CTA href={WHATSAPP_URL} external variant="verde">
+              Falar com a Carol
+            </CTA>
           </div>
-        </Reveal>
-      </div>
+        </div>
+      </Reveal>
     </Section>
   );
+}
+
+export function ServicosLista() {
+  return <ServicosGrid />;
+}
+
+export function ComoEscolher() {
+  return null;
 }
 
 export function ServicosCta() {
@@ -886,8 +958,8 @@ export function ServicosCta() {
         </Reveal>
         <Reveal delay={150}>
           <div className="mt-10">
-            <CTA href="#contato" variant="areia">
-              Quero começar
+            <CTA href={WHATSAPP_URL} external variant="areia">
+              Falar com a Carol
             </CTA>
           </div>
         </Reveal>
@@ -1236,29 +1308,72 @@ const antes = [
   },
 ];
 
+const antesResumo = [
+  {
+    q: "Não existe fórmula pronta",
+    a: "Cada pessoa chega com uma história e uma necessidade diferente. O caminho é construído a partir do que você vive.",
+  },
+  {
+    q: "Não se resolve tudo em uma sessão",
+    a: "Mudanças mais consistentes acontecem com tempo, repetição e comprometimento. O processo existe para sustentar isso.",
+  },
+  {
+    q: "Ninguém resolve por você",
+    a: "Existe direção, acompanhamento e suporte. Mas a mudança acontece a partir do que você está disposto a olhar e transformar.",
+  },
+];
+
+export function AntesResumo() {
+  return (
+    <Section bg="areia-claro">
+      <Reveal>
+        <span className="label-eyebrow text-[#26533C]/70">
+          Antes de começar
+        </span>
+        <h2
+          className="mt-4 font-light max-w-3xl"
+          style={{ fontSize: "clamp(1.6rem, 3vw, 2.2rem)", lineHeight: 1.25 }}
+        >
+          Antes de começar, é bom saber:
+        </h2>
+      </Reveal>
+      <Reveal delay={120}>
+        <div className="mt-10 max-w-3xl">
+          <Accordion items={antesResumo} tone="verde" />
+        </div>
+      </Reveal>
+      <Reveal delay={200}>
+        <a
+          href="#antes"
+          className="mt-8 inline-flex items-center gap-2 text-[#26533C] border-b border-[#26533C] pb-1 text-sm tracking-wide hover:gap-3 transition-all"
+        >
+          Ver todas as premissas <ArrowRight size={16} />
+        </a>
+      </Reveal>
+    </Section>
+  );
+}
+
 export function Antes() {
   return (
-    <>
-      <Section id="antes" bg="areia-claro">
-        <Reveal>
-          <span className="label-eyebrow text-[#26533C]/70">
-            Antes de começar
-          </span>
-          <h2
-            className="mt-4 font-light max-w-3xl"
-            style={{ fontSize: "clamp(1.8rem, 3.4vw, 2.6rem)", lineHeight: 1.2 }}
-          >
-            Antes de começar, é importante alinhar algumas coisas.
-          </h2>
-        </Reveal>
-        <Reveal delay={120}>
-          <div className="mt-12 max-w-3xl">
-            <Accordion items={antes} tone="verde" />
-          </div>
-        </Reveal>
-      </Section>
-
-    </>
+    <Section id="antes" bg="areia-claro">
+      <Reveal>
+        <span className="label-eyebrow text-[#26533C]/70">
+          Antes de começar
+        </span>
+        <h2
+          className="mt-4 font-light max-w-3xl"
+          style={{ fontSize: "clamp(1.8rem, 3.4vw, 2.6rem)", lineHeight: 1.2 }}
+        >
+          Antes de começar, é importante alinhar algumas coisas.
+        </h2>
+      </Reveal>
+      <Reveal delay={120}>
+        <div className="mt-12 max-w-3xl">
+          <Accordion items={antes} tone="verde" />
+        </div>
+      </Reveal>
+    </Section>
   );
 }
 
@@ -1296,12 +1411,50 @@ export function Contato() {
               seu momento, entre em contato pelo WhatsApp.
             </p>
           </Reveal>
-          <Reveal delay={420}>
+          <Reveal delay={380}>
+            <div className="mt-10 grid sm:grid-cols-3 gap-4 max-w-2xl">
+              {[
+                { icon: CheckCircle2, t: "Primeiro contato gratuito" },
+                { icon: Clock, t: "Sem compromisso de continuidade" },
+                {
+                  icon: ShieldCheck,
+                  t: "Online ou presencial, conforme sua necessidade",
+                },
+              ].map((it) => (
+                <div
+                  key={it.t}
+                  className="flex items-start gap-3 border-t border-white/20 pt-4 text-white/90 text-[14px] leading-snug font-light"
+                >
+                  <it.icon size={18} strokeWidth={1.6} className="mt-0.5 shrink-0 text-[#C4B58E]" />
+                  <span>{it.t}</span>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+          <Reveal delay={460}>
             <div className="mt-10">
-              <WhatsAppCTA variant="areia">
+              <CTA href={WHATSAPP_AGENDAR} external variant="areia">
                 <MessageCircle size={18} className="mr-2" />
-                Falar no WhatsApp
-              </WhatsAppCTA>
+                Agendar conversa inicial
+              </CTA>
+            </div>
+            <p className="mt-4 text-white/65 italic text-[14px] max-w-md">
+              Esse primeiro contato é simples e direto. Você pode tirar dúvidas
+              ou agendar — sem compromisso.
+            </p>
+            <div className="mt-8 pt-8 border-t border-white/15 max-w-md">
+              <p className="text-white/70 text-[13px] tracking-wide uppercase">
+                Para empresas
+              </p>
+              <div className="mt-4">
+                <CTA
+                  href={WHATSAPP_EMPRESAS}
+                  external
+                  variant="outlineWhite"
+                >
+                  Falar sobre minha empresa
+                </CTA>
+              </div>
             </div>
           </Reveal>
         </div>

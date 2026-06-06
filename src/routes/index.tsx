@@ -13,18 +13,17 @@ import {
   QuemConduz,
   ComoConduzido,
   AvaliacaoInicial,
-  ComoEscolher,
+  ServicosGrid,
   ServicosCta,
   SistemaOriIntro,
-  SistemaOriEixos,
   SistemaOriDiferencial,
   SistemaOriAplicacao,
   SistemaOriEsperar,
+  AntesResumo,
   Antes,
   Contato,
   Footer,
 } from "@/components/site/sections";
-import { ServicosCarousel } from "@/components/site/ServicosCarousel";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -68,12 +67,12 @@ function Index() {
         <ComoConduzido />
 
         <AvaliacaoInicial />
-        <ServicosCarousel />
-        <ComoEscolher />
+        <ServicosGrid />
         <ServicosCta />
 
+        <AntesResumo />
+
         <SistemaOriIntro />
-        <SistemaOriEixos />
         <SistemaOriDiferencial />
         <SistemaOriAplicacao />
         <SistemaOriEsperar />
