@@ -10,6 +10,9 @@ import {
   Compass,
   Heart,
   ArrowRight,
+  CheckCircle2,
+  Clock,
+  ShieldCheck,
 } from "lucide-react";
 import { MeshGradient, PulsingBorder } from "@paper-design/shaders-react";
 import { motion } from "framer-motion";
@@ -19,6 +22,12 @@ import { Accordion } from "./Accordion";
 import { CTA, WhatsAppCTA } from "./CTA";
 
 const WHATSAPP_URL = "https://wa.me/55XXXXXXXXXX";
+const WHATSAPP_AGENDAR =
+  "https://wa.me/55XXXXXXXXXX?text=Ol%C3%A1%2C%20quero%20agendar%20uma%20conversa%20inicial";
+const WHATSAPP_GERAL =
+  "https://wa.me/55XXXXXXXXXX?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20os%20atendimentos%20da%20Casa%20Or%C3%AD";
+const WHATSAPP_EMPRESAS =
+  "https://wa.me/55XXXXXXXXXX?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20o%20trabalho%20da%20Casa%20Or%C3%AD%20para%20empresas";
 const QUIZ_URL = "QUIZ_URL";
 
 /* ============== HERO ============== */
