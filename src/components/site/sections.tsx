@@ -1411,12 +1411,50 @@ export function Contato() {
               seu momento, entre em contato pelo WhatsApp.
             </p>
           </Reveal>
-          <Reveal delay={420}>
+          <Reveal delay={380}>
+            <div className="mt-10 grid sm:grid-cols-3 gap-4 max-w-2xl">
+              {[
+                { icon: CheckCircle2, t: "Primeiro contato gratuito" },
+                { icon: Clock, t: "Sem compromisso de continuidade" },
+                {
+                  icon: ShieldCheck,
+                  t: "Online ou presencial, conforme sua necessidade",
+                },
+              ].map((it) => (
+                <div
+                  key={it.t}
+                  className="flex items-start gap-3 border-t border-white/20 pt-4 text-white/90 text-[14px] leading-snug font-light"
+                >
+                  <it.icon size={18} strokeWidth={1.6} className="mt-0.5 shrink-0 text-[#C4B58E]" />
+                  <span>{it.t}</span>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+          <Reveal delay={460}>
             <div className="mt-10">
-              <WhatsAppCTA variant="areia">
+              <CTA href={WHATSAPP_AGENDAR} external variant="areia">
                 <MessageCircle size={18} className="mr-2" />
-                Falar no WhatsApp
-              </WhatsAppCTA>
+                Agendar conversa inicial
+              </CTA>
+            </div>
+            <p className="mt-4 text-white/65 italic text-[14px] max-w-md">
+              Esse primeiro contato é simples e direto. Você pode tirar dúvidas
+              ou agendar — sem compromisso.
+            </p>
+            <div className="mt-8 pt-8 border-t border-white/15 max-w-md">
+              <p className="text-white/70 text-[13px] tracking-wide uppercase">
+                Para empresas
+              </p>
+              <div className="mt-4">
+                <CTA
+                  href={WHATSAPP_EMPRESAS}
+                  external
+                  variant="outlineWhite"
+                >
+                  Falar sobre minha empresa
+                </CTA>
+              </div>
             </div>
           </Reveal>
         </div>
