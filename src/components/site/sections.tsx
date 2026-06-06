@@ -943,37 +943,6 @@ export function ComoEscolher() {
   return null;
 }
 
-export function ComoEscolher() {
-  return (
-    <Section bg="branco">
-      <div className="max-w-2xl mx-auto text-center">
-        <Reveal>
-          <h3
-            className="font-light"
-            style={{ fontSize: "clamp(1.6rem, 3vw, 2.2rem)", lineHeight: 1.25 }}
-          >
-            Ainda em dúvida por onde começar?
-          </h3>
-        </Reveal>
-        <Reveal delay={120}>
-          <p className="mt-6 text-[17px] leading-relaxed font-light text-[#26533C]/85">
-            Tudo bem não saber. Na Casa Orí, o primeiro passo é a escuta. A
-            partir de uma conversa inicial, entendemos o que está acontecendo e
-            indicamos o melhor caminho para você.
-          </p>
-        </Reveal>
-        <Reveal delay={220}>
-          <div className="mt-10">
-            <WhatsAppCTA variant="verde">
-              Vamos construir esse caminho juntos →
-            </WhatsAppCTA>
-          </div>
-        </Reveal>
-      </div>
-    </Section>
-  );
-}
-
 export function ServicosCta() {
   return (
     <Section bg="verde">
@@ -989,8 +958,8 @@ export function ServicosCta() {
         </Reveal>
         <Reveal delay={150}>
           <div className="mt-10">
-            <CTA href="#contato" variant="areia">
-              Quero começar
+            <CTA href={WHATSAPP_URL} external variant="areia">
+              Falar com a Carol
             </CTA>
           </div>
         </Reveal>
