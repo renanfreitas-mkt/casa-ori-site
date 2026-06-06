@@ -707,25 +707,29 @@ const servicos: Servico[] = [
     titulo: "Terapia Sistêmica",
     meta: "Acompanhamento contínuo · Sessões semanais ou quinzenais · 1 hora",
     paraQuem: [
-      "sente que precisa de suporte mais constante",
+      "sente que precisa de suporte mais próximo neste momento",
       "está vivendo conflitos que se repetem",
-      "se sente emocionalmente sobrecarregado",
       "tem dificuldade de sustentar mudanças sozinho",
     ],
     beneficios: [
-      "observar com mais clareza o que se repete",
       "perceber mais rápido o que não está funcionando",
-      "ter um suporte mais próximo para o que vai surgindo",
+      "ter apoio próximo para o que vai surgindo no caminho",
+      "construir novas possibilidades com mais precisão",
     ],
   },
   {
     bg: "areia",
     titulo: "Constelação Familiar Individual",
-    meta: "Atendimento pontual · 2 horas · Questão específica com mais privacidade",
+    meta: "Atendimento pontual · 2 horas · Questão específica",
     paraQuem: [
-      "sente que existe um tema que precisa ser olhado com mais atenção",
-      "quer aprofundar um tema antes de começar acompanhamento contínuo",
-      "prefere viver esse processo de forma mais reservada",
+      "tem um tema específico que precisa ser olhado com mais atenção",
+      "quer entender o que está por trás de uma relação ou repetição",
+      "prefere um processo mais reservado e individual",
+    ],
+    beneficios: [
+      "aprofundar um tema com mais privacidade e direcionamento",
+      "acessar novas possibilidades de compreensão",
+      "identificar se aquele tema pede ou não continuidade",
     ],
   },
   {
@@ -735,7 +739,12 @@ const servicos: Servico[] = [
     paraQuem: [
       "deseja viver esse processo em um contexto coletivo",
       "se beneficia da força do grupo para ampliar a percepção",
-      "quer acessar novas compreensões a partir do movimento do grupo",
+      "quer acessar compreensões que surgem no movimento do grupo",
+    ],
+    beneficios: [
+      "ampliar a compreensão a partir da experiência coletiva",
+      "acessar percepções que não surgiriam em atendimento individual",
+      "identificar se o tema pede ou não continuidade",
     ],
   },
   {
@@ -743,9 +752,14 @@ const servicos: Servico[] = [
     titulo: "Vivências",
     meta: "Experiências presenciais · Desenvolvimento pessoal",
     paraQuem: [
-      "sente que alguns temas precisam ser vividos, e não só falados",
-      "quer se aprofundar em questões emocionais em contexto coletivo",
+      "sente que alguns temas precisam ser vividos, não só falados",
       "se beneficia da troca com outras pessoas",
+      "busca uma experiência mais prática e participativa",
+    ],
+    beneficios: [
+      "acessar emoções e percepções no próprio corpo",
+      "ampliar a compreensão a partir da escuta e da troca",
+      "transformar reflexões em experiências mais concretas",
     ],
   },
   {
@@ -759,119 +773,174 @@ const servicos: Servico[] = [
       "percebem que os mesmos problemas continuam voltando",
     ],
     beneficios: [
-      "dar mais clareza para a comunicação e os papéis",
+      "identificar o que está travando os resultados",
       "reduzir ruídos que impactam a execução no dia a dia",
-      "construir acordos mais claros e decisões sustentáveis",
+      "construir acordos mais claros e decisões mais sustentáveis",
+      "melhorar o alinhamento entre equipe e liderança",
     ],
     cta: {
       label: "Quero saber mais sobre o trabalho em empresas",
-      href: "#contato",
+      href: WHATSAPP_EMPRESAS,
     },
     destaque: true,
   },
 ];
 
-function ServicoBloco({ s }: { s: Servico }) {
-  const tone =
-    s.bg === "verde"
-      ? "bg-[#26533C] text-white"
-      : "kraft-areia text-[#26533C]";
-  const subtle = s.bg === "verde" ? "text-white/75" : "text-[#26533C]/70";
-  const bullet = s.bg === "verde" ? "text-white/85" : "text-[#26533C]/85";
+function ServicoCard({ s, full = false }: { s: Servico; full?: boolean }) {
+  const isVerde = s.bg === "verde";
+  const tone = isVerde
+    ? "bg-[#26533C] text-white"
+    : "bg-[#E8DEC8] text-[#26533C]";
+  const subtle = isVerde ? "text-white/70" : "text-[#26533C]/65";
+  const bullet = isVerde ? "text-white/90" : "text-[#26533C]/85";
   return (
-    <section className={`${tone} px-6 lg:px-10 py-20 md:py-24`}>
-      <div className="max-w-[1180px] mx-auto">
-        <div
-          className={`grid lg:grid-cols-[1fr_1.4fr] gap-10 lg:gap-16 ${
-            s.destaque ? "max-w-none" : ""
-          }`}
-        >
-          <Reveal>
-            <span className={`label-eyebrow ${subtle}`}>Serviço</span>
-            <h3
-              className="mt-5 font-light"
-              style={{
-                fontSize: "clamp(1.7rem, 3.2vw, 2.4rem)",
-                lineHeight: 1.2,
-              }}
-            >
-              {s.titulo}
-            </h3>
-            <p className={`mt-5 text-[14px] tracking-wide ${subtle}`}>
-              {s.meta}
-            </p>
-          </Reveal>
+    <div
+      className={`${tone} rounded-2xl p-8 md:p-10 h-full flex flex-col ${
+        full ? "lg:p-12" : ""
+      }`}
+    >
+      <span className={`text-[11px] tracking-[0.22em] uppercase ${subtle}`}>
+        {s.meta}
+      </span>
+      <h3
+        className="mt-4 font-medium"
+        style={{
+          fontSize: full
+            ? "clamp(1.7rem, 2.6vw, 2.2rem)"
+            : "clamp(1.4rem, 2vw, 1.8rem)",
+          lineHeight: 1.2,
+        }}
+      >
+        {s.titulo}
+      </h3>
 
-          <Reveal delay={120}>
-            <div>
-              <div className={`text-sm uppercase tracking-widest ${subtle}`}>
-                Para quem
-              </div>
-              <ul className="mt-4 space-y-2">
-                {s.paraQuem.map((p, i) => (
-                  <li
-                    key={i}
-                    className={`pl-5 relative font-light leading-relaxed ${bullet}`}
-                  >
-                    <span
-                      className="absolute left-0 top-3 w-2.5 h-px"
-                      style={{ background: "currentColor" }}
-                    />
-                    {p}
-                  </li>
-                ))}
-              </ul>
-
-              {s.beneficios && (
-                <>
-                  <div
-                    className={`mt-8 text-sm uppercase tracking-widest ${subtle}`}
-                  >
-                    Com esse formato é possível
-                  </div>
-                  <ul className="mt-4 space-y-2">
-                    {s.beneficios.map((p, i) => (
-                      <li
-                        key={i}
-                        className={`pl-5 relative font-light leading-relaxed ${bullet}`}
-                      >
-                        <span
-                          className="absolute left-0 top-3 w-2.5 h-px"
-                          style={{ background: "currentColor" }}
-                        />
-                        {p}
-                      </li>
-                    ))}
-                  </ul>
-                </>
-              )}
-
-              {s.cta && (
-                <div className="mt-10">
-                  <CTA
-                    href={s.cta.href}
-                    variant={s.bg === "verde" ? "areia" : "verde"}
-                  >
-                    {s.cta.label}
-                  </CTA>
-                </div>
-              )}
-            </div>
-          </Reveal>
+      <div className={full ? "mt-8 grid md:grid-cols-2 gap-10" : "mt-8"}>
+        <div>
+          <div className={`text-xs uppercase tracking-widest ${subtle}`}>
+            {full ? "Para empresas que" : "Para quem"}
+          </div>
+          <ul className="mt-3 space-y-2">
+            {s.paraQuem.map((p, i) => (
+              <li
+                key={i}
+                className={`pl-5 relative font-light leading-relaxed text-[15px] ${bullet}`}
+              >
+                <span
+                  className="absolute left-0 top-3 w-2.5 h-px"
+                  style={{ background: "currentColor" }}
+                />
+                {p}
+              </li>
+            ))}
+          </ul>
         </div>
+
+        {s.beneficios && (
+          <div className={full ? "" : "mt-6"}>
+            <div className={`text-xs uppercase tracking-widest ${subtle}`}>
+              É possível
+            </div>
+            <ul className="mt-3 space-y-2">
+              {s.beneficios.map((p, i) => (
+                <li
+                  key={i}
+                  className={`pl-5 relative font-light leading-relaxed text-[15px] ${bullet}`}
+                >
+                  <span
+                    className="absolute left-0 top-3 w-2.5 h-px"
+                    style={{ background: "currentColor" }}
+                  />
+                  {p}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
-    </section>
+
+      {s.cta && (
+        <div className="mt-10">
+          <CTA
+            href={s.cta.href}
+            external
+            variant={isVerde ? "outlineWhite" : "verde"}
+          >
+            {s.cta.label}
+          </CTA>
+        </div>
+      )}
+    </div>
+  );
+}
+
+export function ServicosGrid() {
+  const principais = servicos.filter((s) => !s.destaque);
+  const empresas = servicos.find((s) => s.destaque);
+  return (
+    <Section bg="branco">
+      <Reveal>
+        <div className="text-center max-w-2xl mx-auto mb-14 md:mb-20">
+          <span className="label-eyebrow text-[#26533C]/70">
+            Caminhos possíveis
+          </span>
+          <h2
+            className="mt-5 font-light text-[#26533C]"
+            style={{
+              fontSize: "clamp(1.8rem, 3.4vw, 2.6rem)",
+              lineHeight: 1.2,
+            }}
+          >
+            Cinco formas de começar
+          </h2>
+        </div>
+      </Reveal>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+        {principais.map((s, i) => (
+          <Reveal key={s.titulo} delay={i * 80}>
+            <ServicoCard s={s} />
+          </Reveal>
+        ))}
+      </div>
+
+      {empresas && (
+        <Reveal delay={120}>
+          <div className="mt-6 md:mt-8">
+            <ServicoCard s={empresas} full />
+          </div>
+        </Reveal>
+      )}
+
+      <Reveal delay={160}>
+        <div className="mt-16 md:mt-20 text-center max-w-2xl mx-auto">
+          <h3
+            className="font-light text-[#26533C]"
+            style={{ fontSize: "clamp(1.5rem, 2.6vw, 2rem)", lineHeight: 1.25 }}
+          >
+            Ainda em dúvida por onde começar?
+          </h3>
+          <p className="mt-5 text-[16px] leading-relaxed font-light text-[#26533C]/80">
+            Tudo bem não saber. Na Casa Orí, o primeiro passo é a escuta. A
+            partir de uma conversa inicial, entendemos o que está acontecendo e
+            indicamos o melhor caminho para você.
+          </p>
+          <div className="mt-8">
+            <CTA href={WHATSAPP_URL} external variant="verde">
+              Falar com a Carol
+            </CTA>
+          </div>
+        </div>
+      </Reveal>
+    </Section>
   );
 }
 
 export function ServicosLista() {
-  return (
-    <>
-      {servicos.map((s) => (
-        <ServicoBloco key={s.titulo} s={s} />
-      ))}
-    </>
-  );
+  return <ServicosGrid />;
+}
+
+export function ComoEscolher() {
+  return null;
 }
 
 export function ComoEscolher() {
