@@ -86,12 +86,14 @@ export function Hero() {
 
         <Reveal delay={120}>
           <h1
-            className="mt-8 font-light italic text-white"
-            style={{ fontSize: "clamp(2rem, 5vw, 3.6rem)", lineHeight: 1.2 }}
+            className="mt-8 font-light text-white"
+            style={{ fontSize: "clamp(2rem, 5vw, 3.6rem)", lineHeight: 1.15 }}
           >
-            Antes de ser um método e um serviço,
+            Algo está pesando.
             <br />
-            a Casa Orí é um lugar.
+            E você já não consegue
+            <br />
+            fingir que está tudo bem.
           </h1>
         </Reveal>
 
@@ -104,28 +106,33 @@ export function Hero() {
             className="mx-auto text-white/85 font-light max-w-2xl"
             style={{ fontSize: "clamp(1rem, 1.4vw, 1.15rem)", lineHeight: 1.8 }}
           >
-            Aqui, existe escuta e respiro para quem percebeu que precisa parar
-            de fugir do que sente — e, finalmente, olhar para a própria
-            história.
+            A Casa Orí é um espaço de escuta para quem percebeu que seguir no
+            automático não está mais funcionando.
           </p>
         </Reveal>
 
         <Reveal delay={420}>
           <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <CTA href="#contato" variant="areia">
-              Preciso de ajuda
+            <CTA href={QUIZ_URL} external variant="areia">
+              Quero entender o que está acontecendo
             </CTA>
-            <button
-              type="button"
-              className="inline-flex items-center gap-3 text-white/85 hover:text-white text-sm tracking-wide transition-colors"
-              aria-label="Assistir vídeo manifesto"
-            >
-              <span className="w-11 h-11 rounded-full border border-white/60 flex items-center justify-center">
-                <Play size={16} fill="currentColor" />
-              </span>
-              Vídeo manifesto
-            </button>
+            <CTA href={WHATSAPP_URL} external variant="outlineWhite">
+              Falar com a Carol
+            </CTA>
           </div>
+        </Reveal>
+
+        <Reveal delay={520}>
+          <button
+            type="button"
+            className="mt-10 inline-flex items-center gap-3 text-white/75 hover:text-white text-sm tracking-wide transition-colors"
+            aria-label="Assistir vídeo manifesto"
+          >
+            <span className="w-11 h-11 rounded-full border border-white/60 flex items-center justify-center">
+              <Play size={16} fill="currentColor" />
+            </span>
+            Vídeo manifesto
+          </button>
         </Reveal>
       </div>
     </section>
