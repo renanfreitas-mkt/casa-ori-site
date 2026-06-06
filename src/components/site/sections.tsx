@@ -536,7 +536,25 @@ export function QuemConduz() {
             Terapeuta sistêmica e criadora do Sistema ORI
           </p>
 
-          <div className="mt-8 space-y-6 text-white/85 font-light leading-relaxed text-[16px] md:text-[17px] max-w-xl">
+          <div className="mt-8 space-y-5 text-white/85 font-light leading-relaxed text-[16px] md:text-[17px] max-w-xl">
+            <p>
+              Carol começou como arquiteta. Projetava estruturas físicas —
+              fundações, plantas, sistemas que sustentam o que se constrói por
+              cima.
+            </p>
+            <p>
+              Em algum momento, percebeu que as estruturas que mais precisavam
+              de atenção não eram as de concreto. Eram as internas.
+            </p>
+            <p>
+              Não foi uma virada. Foi uma soma. O mesmo olhar que lê uma planta
+              baixa aprendeu a ler padrões de comportamento, dinâmicas
+              familiares, o que sustenta — e o que compromete — tudo que se
+              constrói na vida de uma pessoa.
+            </p>
+          </div>
+
+          <div className="mt-8 space-y-6 text-white/85 font-light leading-relaxed text-[16px] md:text-[17px] max-w-xl border-t border-white/15 pt-8">
             <p>
               “Antes de conduzir outras pessoas nesse caminho, eu também fui
               transformada por ele. O olhar sistêmico e o estudo da comunicação
