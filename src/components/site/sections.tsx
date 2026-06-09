@@ -353,8 +353,7 @@ export function Podcast() {
           <CTA
             href="https://open.spotify.com/show/68NOAxNfohZSbC4edNFQzS"
             variant="outlineWhite"
-            target="_blank"
-            rel="noopener noreferrer"
+            external
           >
             Ouvir no Spotify
           </CTA>
