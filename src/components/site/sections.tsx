@@ -333,30 +333,50 @@ export function Depoimentos() {
 export function Podcast() {
   return (
     <Section bg="verde">
-      <div className="grid md:grid-cols-[auto_1fr_auto] items-center gap-8 md:gap-10">
-        <Reveal>
-          <div className="w-20 h-20 rounded-full border border-white/40 flex items-center justify-center">
-            <Mic size={28} strokeWidth={1.3} />
+      <div className="grid md:grid-cols-2 items-center gap-10 md:gap-14">
+        <div>
+          <Reveal>
+            <div className="flex items-center gap-4">
+              <div className="w-16 h-16 rounded-full border border-white/40 flex items-center justify-center shrink-0">
+                <Mic size={24} strokeWidth={1.3} />
+              </div>
+              <span className="label-eyebrow text-white/65">Em breve</span>
+            </div>
+          </Reveal>
+          <Reveal delay={100}>
+            <h3 className="mt-6 text-2xl md:text-3xl font-light">
+              Podcast Casa Orí
+            </h3>
+            <p className="mt-3 text-white/80 font-light max-w-lg">
+              Conversas sobre o que sustenta nossas histórias e a forma como
+              elas se repetem.
+            </p>
+          </Reveal>
+          <Reveal delay={200}>
+            <div className="mt-6">
+              <CTA
+                href="https://open.spotify.com/show/68NOAxNfohZSbC4edNFQzS"
+                variant="outlineWhite"
+                external
+              >
+                Abrir no Spotify
+              </CTA>
+            </div>
+          </Reveal>
+        </div>
+        <Reveal delay={150}>
+          <div className="rounded-2xl overflow-hidden shadow-lg bg-black/20">
+            <iframe
+              title="Podcast Casa Orí no Spotify"
+              src="https://open.spotify.com/embed/show/68NOAxNfohZSbC4edNFQzS?utm_source=generator&theme=0"
+              width="100%"
+              height="352"
+              frameBorder={0}
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+              className="block w-full"
+            />
           </div>
-        </Reveal>
-        <Reveal delay={100}>
-          <span className="label-eyebrow text-white/65">Em breve</span>
-          <h3 className="mt-3 text-2xl md:text-3xl font-light">
-            Podcast Casa Orí
-          </h3>
-          <p className="mt-3 text-white/80 font-light max-w-lg">
-            Conversas sobre o que sustenta nossas histórias e a forma como elas
-            se repetem.
-          </p>
-        </Reveal>
-        <Reveal delay={200}>
-          <CTA
-            href="https://open.spotify.com/show/68NOAxNfohZSbC4edNFQzS"
-            variant="outlineWhite"
-            external
-          >
-            Ouvir no Spotify
-          </CTA>
         </Reveal>
       </div>
     </Section>
