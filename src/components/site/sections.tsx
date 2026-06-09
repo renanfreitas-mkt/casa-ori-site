@@ -350,7 +350,12 @@ export function Podcast() {
           </p>
         </Reveal>
         <Reveal delay={200}>
-          <CTA href="#" variant="outlineWhite">
+          <CTA
+            href="https://open.spotify.com/show/68NOAxNfohZSbC4edNFQzS"
+            variant="outlineWhite"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Ouvir no Spotify
           </CTA>
         </Reveal>
