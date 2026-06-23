@@ -13,6 +13,7 @@ import { Route as SobreRouteImport } from './routes/sobre'
 import { Route as SistemaOriRouteImport } from './routes/sistema-ori'
 import { Route as ServicosRouteImport } from './routes/servicos'
 import { Route as PodcastRouteImport } from './routes/podcast'
+import { Route as ContatoRouteImport } from './routes/contato'
 import { Route as IndexRouteImport } from './routes/index'
 
 const SobreRoute = SobreRouteImport.update({
@@ -35,6 +36,11 @@ const PodcastRoute = PodcastRouteImport.update({
   path: '/podcast',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContatoRoute = ContatoRouteImport.update({
+  id: '/contato',
+  path: '/contato',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -43,6 +49,7 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/contato': typeof ContatoRoute
   '/podcast': typeof PodcastRoute
   '/servicos': typeof ServicosRoute
   '/sistema-ori': typeof SistemaOriRoute
@@ -50,6 +57,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/contato': typeof ContatoRoute
   '/podcast': typeof PodcastRoute
   '/servicos': typeof ServicosRoute
   '/sistema-ori': typeof SistemaOriRoute
@@ -58,6 +66,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/contato': typeof ContatoRoute
   '/podcast': typeof PodcastRoute
   '/servicos': typeof ServicosRoute
   '/sistema-ori': typeof SistemaOriRoute
@@ -65,14 +74,28 @@ export interface FileRoutesById {
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/podcast' | '/servicos' | '/sistema-ori' | '/sobre'
+  fullPaths:
+    | '/'
+    | '/contato'
+    | '/podcast'
+    | '/servicos'
+    | '/sistema-ori'
+    | '/sobre'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/podcast' | '/servicos' | '/sistema-ori' | '/sobre'
-  id: '__root__' | '/' | '/podcast' | '/servicos' | '/sistema-ori' | '/sobre'
+  to: '/' | '/contato' | '/podcast' | '/servicos' | '/sistema-ori' | '/sobre'
+  id:
+    | '__root__'
+    | '/'
+    | '/contato'
+    | '/podcast'
+    | '/servicos'
+    | '/sistema-ori'
+    | '/sobre'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ContatoRoute: typeof ContatoRoute
   PodcastRoute: typeof PodcastRoute
   ServicosRoute: typeof ServicosRoute
   SistemaOriRoute: typeof SistemaOriRoute
@@ -109,6 +132,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PodcastRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contato': {
+      id: '/contato'
+      path: '/contato'
+      fullPath: '/contato'
+      preLoaderRoute: typeof ContatoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -121,6 +151,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ContatoRoute: ContatoRoute,
   PodcastRoute: PodcastRoute,
   ServicosRoute: ServicosRoute,
   SistemaOriRoute: SistemaOriRoute,
