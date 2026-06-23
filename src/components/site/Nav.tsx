@@ -1,22 +1,23 @@
 import { useEffect, useState } from "react";
 import { Menu, X, MessageCircle } from "lucide-react";
+import { Link, useRouterState } from "@tanstack/react-router";
 import { Logo } from "./Logo";
 
 const links = [
-  { href: "#home", label: "Home" },
-  { href: "#sobre", label: "Sobre" },
-  { href: "#servicos", label: "Serviços" },
-  { href: "#sistema-ori", label: "Sistema ORI" },
-  { href: "#antes", label: "Antes de Começar" },
-  { href: "#contato", label: "Contato" },
-];
+  { to: "/", label: "Início" },
+  { to: "/servicos", label: "Serviços" },
+  { to: "/sistema-ori", label: "Sistema ORI" },
+  { to: "/sobre", label: "Sobre" },
+  { to: "/podcast", label: "Podcast" },
+  { to: "/contato", label: "Contato" },
+] as const;
 
 const WHATSAPP_URL = "https://wa.me/55XXXXXXXXXX";
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const [active, setActive] = useState("home");
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 80);
@@ -26,28 +27,18 @@ export function Nav() {
   }, []);
 
   useEffect(() => {
-    const ids = links.map((l) => l.href.slice(1));
-    const els = ids
-      .map((id) => document.getElementById(id))
-      .filter((el): el is HTMLElement => Boolean(el));
-    if (!els.length) return;
-    const obs = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) setActive(e.target.id);
-        });
-      },
-      { rootMargin: "-40% 0px -55% 0px", threshold: 0 }
-    );
-    els.forEach((el) => obs.observe(el));
-    return () => obs.disconnect();
-  }, []);
+    setOpen(false);
+  }, [pathname]);
+
+  const isContato = pathname === "/contato";
 
   return (
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled || open ? "bg-[#26533C] py-3 shadow-sm" : "bg-transparent py-5"
+          scrolled || open || pathname !== "/"
+            ? "bg-[#26533C] py-3 shadow-sm"
+            : "bg-transparent py-5"
         }`}
       >
         <div className="max-w-[1280px] mx-auto px-6 lg:px-10 flex items-center justify-between gap-6">
@@ -55,17 +46,17 @@ export function Nav() {
 
           <nav className="hidden lg:flex items-center gap-7">
             {links.map((l) => {
-              const isActive = active === l.href.slice(1);
+              const isActive = pathname === l.to;
               return (
-                <a
-                  key={l.href}
-                  href={l.href}
+                <Link
+                  key={l.to}
+                  to={l.to}
                   className={`text-white text-[13px] tracking-wide transition-opacity duration-300 hover:opacity-100 ${
                     isActive ? "opacity-100 border-b border-white/70 pb-1" : "opacity-75"
                   }`}
                 >
                   {l.label}
-                </a>
+                </Link>
               );
             })}
           </nav>
@@ -74,7 +65,7 @@ export function Nav() {
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden lg:inline-flex items-center border border-white text-white text-[13px] px-4 py-2 rounded-[3px] tracking-wide transition-colors duration-300 hover:bg-white hover:text-[#26533C]"
+            className="hidden lg:inline-flex items-center border border-white text-white text-[13px] px-4 py-2 rounded-full tracking-wide transition-colors duration-300 hover:bg-white hover:text-[#26533C]"
           >
             Falar no WhatsApp
           </a>
@@ -97,35 +88,34 @@ export function Nav() {
       >
         <div className="h-full flex flex-col items-center justify-center gap-7 px-6">
           {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
+            <Link
+              key={l.to}
+              to={l.to}
               onClick={() => setOpen(false)}
               className="text-white text-xl tracking-wide"
             >
               {l.label}
-            </a>
+            </Link>
           ))}
           <a
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setOpen(false)}
-            className="mt-4 border border-white text-white px-6 py-3 rounded-[3px] tracking-wide hover:bg-white hover:text-[#26533C] transition-colors"
+            className="mt-4 border border-white text-white px-6 py-3 rounded-full tracking-wide hover:bg-white hover:text-[#26533C] transition-colors"
           >
             Falar no WhatsApp
           </a>
         </div>
       </div>
 
-      {/* Floating WhatsApp (mobile only, hidden when on contato section) */}
       <a
         href={WHATSAPP_URL}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Falar no WhatsApp"
         className={`lg:hidden fixed bottom-5 right-5 z-40 w-14 h-14 rounded-full bg-[#26533C] text-white shadow-lg flex items-center justify-center transition-all duration-300 ${
-          active === "contato" || open
+          isContato || open
             ? "opacity-0 pointer-events-none translate-y-3"
             : "opacity-100"
         }`}
