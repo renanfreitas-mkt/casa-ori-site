@@ -2,7 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Nav } from "@/components/site/Nav";
 import {
   PorQue,
-  QuemConduz,
   ComoConduzido,
   Antes,
   Footer,
