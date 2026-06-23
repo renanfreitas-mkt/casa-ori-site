@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { MeshGradient, PulsingBorder } from "@paper-design/shaders-react";
 import { motion } from "framer-motion";
+import { Link } from "@tanstack/react-router";
 import { Section } from "./Section";
 import { Reveal } from "./Reveal";
 import { Accordion } from "./Accordion";
