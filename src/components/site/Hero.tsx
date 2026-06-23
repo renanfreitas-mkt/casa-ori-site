@@ -10,21 +10,11 @@ function HeroImpl() {
   return (
     <section
       id="home"
-      className="relative bg-[#1d4230] text-white min-h-[88svh] flex items-center pt-24 pb-16 md:pt-28 md:pb-24 overflow-hidden"
+      className="hero-ori relative bg-[#1d4230] text-white min-h-[88svh] flex items-center pt-24 pb-16 md:pt-28 md:pb-24 overflow-hidden"
     >
-      {/* Static layered background (lightweight, no WebGL / no JS animation) */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage: [
-            "radial-gradient(60% 50% at 20% 20%, rgba(196,181,142,0.22) 0%, transparent 60%)",
-            "radial-gradient(50% 45% at 85% 80%, rgba(58,107,80,0.45) 0%, transparent 65%)",
-            "radial-gradient(80% 60% at 50% 100%, rgba(0,0,0,0.45) 0%, transparent 70%)",
-            "linear-gradient(180deg, #1d4230 0%, #26533C 60%, #1d4230 100%)",
-          ].join(","),
-        }}
-      />
+      {/* Animated CSS gradient background (no WebGL, no per-frame JS) */}
+      <div aria-hidden="true" className="hero-ori__gradient absolute inset-0 pointer-events-none" />
+      <div aria-hidden="true" className="hero-ori__glow absolute pointer-events-none hidden md:block" />
       <div
         aria-hidden="true"
         className="absolute inset-0 pointer-events-none opacity-[0.07] mix-blend-overlay"
@@ -32,6 +22,14 @@ function HeroImpl() {
           backgroundImage:
             "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.6 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>\")",
           backgroundSize: "240px 240px",
+        }}
+      />
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse at center, transparent 30%, rgba(29,66,48,0.7) 100%)",
         }}
       />
 
