@@ -218,8 +218,8 @@ export function ComoAjuda() {
           { l: "I", t: "Impulsiona", d: "Transformar em continuidade" },
         ].map((b, i) => (
           <Reveal key={b.l} delay={i * 120}>
-            <a
-              href="#sistema-ori"
+            <Link
+              to="/sistema-ori"
               className="block bg-[#26533C] text-white p-8 md:p-10 transition-colors duration-300 hover:bg-[#C4B58E] hover:text-[#26533C] group"
             >
               <div
@@ -232,7 +232,7 @@ export function ComoAjuda() {
               <div className="mt-2 text-sm opacity-85 leading-relaxed font-light">
                 {b.d}
               </div>
-            </a>
+            </Link>
           </Reveal>
         ))}
       </div>
