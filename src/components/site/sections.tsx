@@ -1,3 +1,4 @@
+import { memo } from "react";
 import {
   User,
   Camera,
@@ -34,6 +35,12 @@ const QUIZ_URL = "QUIZ_URL";
 
 
 /* ============== DORES ============== */
+const ORI_MINI = [
+  { l: "O", t: "Observa", d: "Identificar o que está por trás" },
+  { l: "R", t: "Reorganiza", d: "Colocar no lugar o que está fora de ordem" },
+  { l: "I", t: "Impulsiona", d: "Transformar em continuidade" },
+] as const;
+
 const dores = [
   "Você sente que a sobrecarga está grande. Por fora, tenta seguir no automático, dar conta de tudo e parecer que está tudo bem.",
   "A sua emoção começou a atrapalhar a sua produtividade — e você não consegue mais separar uma coisa da outra.",
@@ -44,7 +51,7 @@ const dores = [
   "Você percebe que os mesmos problemas só mudam de forma, mas sempre voltam.",
 ];
 
-export function Dores() {
+const DoresImpl = () => {
   return (
     <Section bg="areia-claro">
       <Reveal>
@@ -79,7 +86,7 @@ export function Dores() {
 }
 
 /* ============== COMO AJUDA ============== */
-export function ComoAjuda() {
+const ComoAjudaImpl = () => {
   return (
     <Section bg="branco">
       <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
@@ -105,11 +112,8 @@ export function ComoAjuda() {
 
       {/* ORI mini */}
       <div className="mt-20 grid md:grid-cols-3 gap-4">
-        {[
-          { l: "O", t: "Observa", d: "Identificar o que está por trás" },
-          { l: "R", t: "Reorganiza", d: "Colocar no lugar o que está fora de ordem" },
-          { l: "I", t: "Impulsiona", d: "Transformar em continuidade" },
-        ].map((b, i) => (
+        {ORI_MINI.map((b, i) => (
+
           <Reveal key={b.l} delay={i * 120}>
             <Link
               to="/sistema-ori"
@@ -152,7 +156,7 @@ export function ComoAjuda() {
 }
 
 /* ============== CAROL TEASER ============== */
-export function CarolTeaser() {
+const CarolTeaserImpl = () => {
   return (
     <Section bg="areia-claro">
       <div className="grid md:grid-cols-[minmax(0,360px)_1fr] gap-12 md:gap-16 items-center">
@@ -189,7 +193,7 @@ export function CarolTeaser() {
 }
 
 /* ============== DEPOIMENTOS ============== */
-export function Depoimentos() {
+const DepoimentosImpl = () => {
   return (
     <Section bg="areia">
       <Reveal>
@@ -225,7 +229,7 @@ export function Depoimentos() {
 }
 
 /* ============== PODCAST ============== */
-export function Podcast() {
+const PodcastImpl = () => {
   return (
     <Section bg="verde">
       <div className="grid md:grid-cols-2 items-center gap-10 md:gap-14">
@@ -279,7 +283,7 @@ export function Podcast() {
 }
 
 /* ============== INSTAGRAM ============== */
-export function InstagramGrid() {
+const InstagramGridImpl = () => {
   return (
     <Section bg="branco">
       <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
@@ -338,7 +342,7 @@ const faqItems = [
   },
 ];
 
-export function Faq() {
+const FaqImpl = () => {
   return (
     <Section bg="areia-claro">
       <Reveal>
@@ -360,7 +364,7 @@ export function Faq() {
 }
 
 /* ============== HOME CTA ============== */
-export function HomeCta() {
+const HomeCtaImpl = () => {
   return (
     <Section bg="verde">
       <div className="text-center max-w-3xl mx-auto">
@@ -386,7 +390,7 @@ export function HomeCta() {
 }
 
 /* ============== SOBRE ============== */
-export function PorQue() {
+const PorQueImpl = () => {
   return (
     <Section id="sobre" bg="areia-claro">
       <div className="max-w-3xl">
@@ -434,7 +438,7 @@ export function PorQue() {
   );
 }
 
-export function QuemConduz() {
+const QuemConduzImpl = () => {
   return (
     <Section bg="verde">
       <div className="grid md:grid-cols-[minmax(0,420px)_1fr] gap-12 md:gap-16 items-start">
@@ -512,7 +516,7 @@ const pilares = [
   },
 ];
 
-export function ComoConduzido() {
+const ComoConduzidoImpl = () => {
   return (
     <Section bg="branco">
       <Reveal>
@@ -545,7 +549,7 @@ export function ComoConduzido() {
   );
 }
 
-export function SobreCta() {
+const SobreCtaImpl = () => {
   return (
     <Section bg="verde">
       <div className="text-center max-w-3xl mx-auto">
@@ -568,7 +572,7 @@ export function SobreCta() {
 }
 
 /* ============== SERVIÇOS ============== */
-export function AvaliacaoInicial() {
+const AvaliacaoInicialImpl = () => {
   return (
     <Section id="servicos" bg="areia-claro">
       <div className="max-w-2xl mx-auto text-center">
@@ -792,7 +796,7 @@ function ServicoCard({ s, full = false }: { s: Servico; full?: boolean }) {
   );
 }
 
-export function ServicosGrid() {
+const ServicosGridImpl = () => {
   const principais = servicos.filter((s) => !s.destaque);
   const empresas = servicos.find((s) => s.destaque);
   return (
@@ -854,15 +858,15 @@ export function ServicosGrid() {
   );
 }
 
-export function ServicosLista() {
+const ServicosListaImpl = () => {
   return <ServicosGrid />;
 }
 
-export function ComoEscolher() {
+const ComoEscolherImpl = () => {
   return null;
 }
 
-export function ServicosCta() {
+const ServicosCtaImpl = () => {
   return (
     <Section bg="verde">
       <div className="text-center max-w-3xl mx-auto">
@@ -944,7 +948,7 @@ const eixos: Eixo[] = [
   },
 ];
 
-export function SistemaOriIntro() {
+const SistemaOriIntroImpl = () => {
   return (
     <section id="sistema-ori" className="kraft px-5 sm:px-6 lg:px-10 py-14 md:py-24 lg:py-32">
       <div className="max-w-[1180px] mx-auto">
@@ -1045,7 +1049,7 @@ export function SistemaOriIntro() {
   );
 }
 
-export function SistemaOriEixos() {
+const SistemaOriEixosImpl = () => {
   return null;
 }
 
@@ -1056,7 +1060,7 @@ const diferenciais = [
   { icon: Layers, t: "Fortalece autonomia ao longo do caminho" },
 ];
 
-export function SistemaOriDiferencial() {
+const SistemaOriDiferencialImpl = () => {
   return (
     <Section bg="branco">
       <Reveal>
@@ -1084,7 +1088,7 @@ export function SistemaOriDiferencial() {
   );
 }
 
-export function SistemaOriAplicacao() {
+const SistemaOriAplicacaoImpl = () => {
   return (
     <Section bg="areia-claro">
       <Reveal>
@@ -1139,7 +1143,7 @@ export function SistemaOriAplicacao() {
   );
 }
 
-export function SistemaOriEsperar() {
+const SistemaOriEsperarImpl = () => {
   return (
     <Section bg="verde">
       <Reveal>
@@ -1242,7 +1246,7 @@ const antesResumo = [
   },
 ];
 
-export function AntesResumo() {
+const AntesResumoImpl = () => {
   return (
     <Section bg="areia-claro">
       <Reveal>
@@ -1273,7 +1277,7 @@ export function AntesResumo() {
   );
 }
 
-export function Antes() {
+const AntesImpl = () => {
   return (
     <Section id="antes" bg="areia-claro">
       <Reveal>
@@ -1297,7 +1301,7 @@ export function Antes() {
 }
 
 /* ============== CONTATO ============== */
-export function Contato() {
+const ContatoImpl = () => {
   return (
     <>
       <Section id="contato" bg="verde">
@@ -1427,7 +1431,7 @@ export function Contato() {
 }
 
 /* ============== FOOTER ============== */
-export function Footer() {
+const FooterImpl = () => {
   return (
     <footer className="bg-[#26533C] text-white py-6 px-6 lg:px-10">
       <div className="max-w-[1280px] mx-auto flex flex-col md:flex-row items-center justify-between gap-3 text-xs tracking-wide text-white/80">
@@ -1458,3 +1462,31 @@ export function Footer() {
     </footer>
   );
 }
+
+/* ============== Memoized exports ============== */
+export const Dores = memo(DoresImpl);
+export const ComoAjuda = memo(ComoAjudaImpl);
+export const CarolTeaser = memo(CarolTeaserImpl);
+export const Depoimentos = memo(DepoimentosImpl);
+export const Podcast = memo(PodcastImpl);
+export const InstagramGrid = memo(InstagramGridImpl);
+export const Faq = memo(FaqImpl);
+export const HomeCta = memo(HomeCtaImpl);
+export const PorQue = memo(PorQueImpl);
+export const QuemConduz = memo(QuemConduzImpl);
+export const ComoConduzido = memo(ComoConduzidoImpl);
+export const SobreCta = memo(SobreCtaImpl);
+export const AvaliacaoInicial = memo(AvaliacaoInicialImpl);
+export const ServicosGrid = memo(ServicosGridImpl);
+export const ServicosLista = memo(ServicosListaImpl);
+export const ComoEscolher = memo(ComoEscolherImpl);
+export const ServicosCta = memo(ServicosCtaImpl);
+export const SistemaOriIntro = memo(SistemaOriIntroImpl);
+export const SistemaOriEixos = memo(SistemaOriEixosImpl);
+export const SistemaOriDiferencial = memo(SistemaOriDiferencialImpl);
+export const SistemaOriAplicacao = memo(SistemaOriAplicacaoImpl);
+export const SistemaOriEsperar = memo(SistemaOriEsperarImpl);
+export const AntesResumo = memo(AntesResumoImpl);
+export const Antes = memo(AntesImpl);
+export const Contato = memo(ContatoImpl);
+export const Footer = memo(FooterImpl);

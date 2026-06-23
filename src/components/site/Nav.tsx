@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import { Menu, X, MessageCircle } from "lucide-react";
 import { Link, useRouterState } from "@tanstack/react-router";
 import { Logo } from "./Logo";
@@ -13,7 +13,7 @@ const links = [
 
 const WHATSAPP_URL = "https://wa.me/55XXXXXXXXXX";
 
-export function Nav() {
+function NavImpl() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
@@ -124,3 +124,5 @@ export function Nav() {
     </>
   );
 }
+
+export const Nav = memo(NavImpl);
