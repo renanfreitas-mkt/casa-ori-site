@@ -602,8 +602,8 @@ export function QuemConduz() {
 
 const pilares = [
   {
-    t: "Acolhimento com autorresponsabilidade",
-    d: "Aqui, a sua dor tem lugar e a sua participação no processo também.",
+    t: "Atenção com autorresponsabilidade",
+    d: "Aqui, o que você está vivendo é olhado com seriedade — e a sua participação no processo também.",
   },
   {
     t: "Profundidade com linguagem acessível",
