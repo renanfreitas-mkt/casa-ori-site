@@ -106,11 +106,8 @@ const ComoAjudaImpl = () => {
 
       {/* ORI mini */}
       <div className="mt-20 grid md:grid-cols-3 gap-4">
-        {[
-          { l: "O", t: "Observa", d: "Identificar o que está por trás" },
-          { l: "R", t: "Reorganiza", d: "Colocar no lugar o que está fora de ordem" },
-          { l: "I", t: "Impulsiona", d: "Transformar em continuidade" },
-        ].map((b, i) => (
+        {ORI_MINI.map((b, i) => (
+
           <Reveal key={b.l} delay={i * 120}>
             <Link
               to="/sistema-ori"
