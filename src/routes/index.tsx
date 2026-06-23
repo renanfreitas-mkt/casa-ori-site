@@ -5,43 +5,26 @@ import {
   Dores,
   ComoAjuda,
   Depoimentos,
-  Podcast,
   InstagramGrid,
   Faq,
   HomeCta,
-  PorQue,
-  QuemConduz,
-  ComoConduzido,
-  AvaliacaoInicial,
-  ServicosGrid,
-  ServicosCta,
-  SistemaOriIntro,
-  SistemaOriDiferencial,
-  SistemaOriAplicacao,
-  SistemaOriEsperar,
-  AntesResumo,
-  Antes,
-  Contato,
   Footer,
 } from "@/components/site/sections";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Casa Orí — Terapia sistêmica e constelação familiar · Carol Milhomens" },
+      { title: "Casa Orí — Terapia sistêmica e desenvolvimento · Carol Milhomens" },
       {
         name: "description",
         content:
-          "Casa Orí é um espaço de terapia sistêmica, constelação familiar e desenvolvimento de equipes em Brasília, conduzido por Carol Milhomens.",
+          "Casa Orí é um espaço para olhar de perto o que está pedindo atenção — na vida pessoal, nas relações e no trabalho. Conduzido por Carol Milhomens, em Brasília.",
       },
-      {
-        property: "og:title",
-        content: "Casa Orí — Terapia sistêmica e constelação familiar",
-      },
+      { property: "og:title", content: "Casa Orí — Terapia sistêmica e desenvolvimento" },
       {
         property: "og:description",
         content:
-          "Escuta, profundidade e direção. Um lugar para olhar para a própria história.",
+          "Um espaço para olhar de perto o que está pedindo atenção — na vida pessoal, nas relações e no trabalho.",
       },
     ],
   }),
@@ -57,28 +40,9 @@ function Index() {
         <Dores />
         <ComoAjuda />
         <Depoimentos />
-        <Podcast />
         <InstagramGrid />
         <Faq />
         <HomeCta />
-
-        <PorQue />
-        <QuemConduz />
-        <ComoConduzido />
-
-        <AvaliacaoInicial />
-        <ServicosGrid />
-        <ServicosCta />
-
-        <AntesResumo />
-
-        <SistemaOriIntro />
-        <SistemaOriDiferencial />
-        <SistemaOriAplicacao />
-        <SistemaOriEsperar />
-
-        <Antes />
-        <Contato />
       </main>
       <Footer />
     </div>
