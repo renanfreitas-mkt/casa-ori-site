@@ -1369,12 +1369,12 @@ export function AntesResumo() {
         </div>
       </Reveal>
       <Reveal delay={200}>
-        <a
-          href="#antes"
+        <Link
+          to="/sobre"
           className="mt-8 inline-flex items-center gap-2 text-[#26533C] border-b border-[#26533C] pb-1 text-sm tracking-wide hover:gap-3 transition-all"
         >
           Ver todas as premissas <ArrowRight size={16} />
-        </a>
+        </Link>
       </Reveal>
     </Section>
   );
