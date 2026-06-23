@@ -246,12 +246,12 @@ export function ComoAjuda() {
           </h3>
         </Reveal>
         <Reveal delay={120}>
-          <a
-            href="#servicos"
+          <Link
+            to="/servicos"
             className="mt-7 inline-flex items-center gap-2 text-[#26533C] border-b border-[#26533C] pb-1 text-sm tracking-wide hover:gap-3 transition-all"
           >
             Ver caminhos possíveis <ArrowRight size={16} />
-          </a>
+          </Link>
         </Reveal>
       </div>
     </Section>
