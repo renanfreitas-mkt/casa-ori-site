@@ -37,7 +37,7 @@
   --color-texto-suave: #555555;
 
   --font-sans: "Roboto", system-ui, -apple-system, sans-serif;
-  --font-script: "Dancing Script", cursive;
+  --font-script: "Cormorant Garamond", "Cormorant", Georgia, serif;
 }
 
 :root {
@@ -92,7 +92,8 @@ html {
 
 @utility script {
   font-family: var(--font-script);
-  font-weight: 600;
+  font-style: italic;
+  font-weight: 500;
   line-height: 1.25;
 }
 

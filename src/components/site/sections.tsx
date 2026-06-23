@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { MeshGradient, PulsingBorder } from "@paper-design/shaders-react";
 import { motion } from "framer-motion";
+import { Link } from "@tanstack/react-router";
 import { Section } from "./Section";
 import { Reveal } from "./Reveal";
 import { Accordion } from "./Accordion";
@@ -106,8 +107,8 @@ export function Hero() {
             className="mx-auto text-white/85 font-light max-w-2xl"
             style={{ fontSize: "clamp(1rem, 1.4vw, 1.15rem)", lineHeight: 1.8 }}
           >
-            A Casa Orí é um espaço de escuta para quem percebeu que seguir no
-            automático não está mais funcionando.
+            A Casa Orí é um espaço para olhar de perto o que está pedindo
+            atenção — na vida pessoal, nas relações e no trabalho.
           </p>
         </Reveal>
 
@@ -142,10 +143,11 @@ export function Hero() {
 /* ============== DORES ============== */
 const dores = [
   "Você sente que a sobrecarga está grande. Por fora, tenta seguir no automático, dar conta de tudo e parecer que está tudo bem.",
-  "Você tem dificuldade de colocar limites — e isso te esgota.",
+  "A sua emoção começou a atrapalhar a sua produtividade — e você não consegue mais separar uma coisa da outra.",
+  "Você tem dificuldade de colocar limites — e isso te esgota no trabalho e em casa.",
+  "Decisões de carreira travadas por questões que não são (só) de carreira.",
   "Você sente insegurança para tomar decisões que sabe que precisa tomar.",
-  "Você tem medo de errar. Ou de decepcionar.",
-  "A pressão da sua família pesa de um jeito que é difícil de explicar.",
+  "A pressão da sua família — ou da sua liderança — pesa de um jeito que é difícil de explicar.",
   "Você percebe que os mesmos problemas só mudam de forma, mas sempre voltam.",
 ];
 
@@ -216,8 +218,8 @@ export function ComoAjuda() {
           { l: "I", t: "Impulsiona", d: "Transformar em continuidade" },
         ].map((b, i) => (
           <Reveal key={b.l} delay={i * 120}>
-            <a
-              href="#sistema-ori"
+            <Link
+              to="/sistema-ori"
               className="block bg-[#26533C] text-white p-8 md:p-10 transition-colors duration-300 hover:bg-[#C4B58E] hover:text-[#26533C] group"
             >
               <div
@@ -230,7 +232,7 @@ export function ComoAjuda() {
               <div className="mt-2 text-sm opacity-85 leading-relaxed font-light">
                 {b.d}
               </div>
-            </a>
+            </Link>
           </Reveal>
         ))}
       </div>
@@ -244,12 +246,12 @@ export function ComoAjuda() {
           </h3>
         </Reveal>
         <Reveal delay={120}>
-          <a
-            href="#servicos"
+          <Link
+            to="/servicos"
             className="mt-7 inline-flex items-center gap-2 text-[#26533C] border-b border-[#26533C] pb-1 text-sm tracking-wide hover:gap-3 transition-all"
           >
             Ver caminhos possíveis <ArrowRight size={16} />
-          </a>
+          </Link>
         </Reveal>
       </div>
     </Section>
@@ -600,8 +602,8 @@ export function QuemConduz() {
 
 const pilares = [
   {
-    t: "Acolhimento com autorresponsabilidade",
-    d: "Aqui, a sua dor tem lugar e a sua participação no processo também.",
+    t: "Atenção com autorresponsabilidade",
+    d: "Aqui, o que você está vivendo é olhado com seriedade — e a sua participação no processo também.",
   },
   {
     t: "Profundidade com linguagem acessível",
@@ -1367,12 +1369,12 @@ export function AntesResumo() {
         </div>
       </Reveal>
       <Reveal delay={200}>
-        <a
-          href="#antes"
+        <Link
+          to="/sobre"
           className="mt-8 inline-flex items-center gap-2 text-[#26533C] border-b border-[#26533C] pb-1 text-sm tracking-wide hover:gap-3 transition-all"
         >
           Ver todas as premissas <ArrowRight size={16} />
-        </a>
+        </Link>
       </Reveal>
     </Section>
   );

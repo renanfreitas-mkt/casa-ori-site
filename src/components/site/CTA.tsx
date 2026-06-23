@@ -18,7 +18,7 @@ export function CTA({
   className?: string;
 }) {
   const base =
-    "inline-flex items-center justify-center px-7 md:px-9 py-3.5 md:py-4 rounded-[3px] tracking-wide text-[14px] md:text-[15px] transition-colors duration-300";
+    "inline-flex items-center justify-center px-7 md:px-9 py-3.5 md:py-4 rounded-full tracking-wide text-[14px] md:text-[15px] transition-colors duration-300";
   const styles: Record<Variant, string> = {
     primary:
       "bg-[#26533C] text-white hover:bg-[#1d4230] border border-[#26533C]",
