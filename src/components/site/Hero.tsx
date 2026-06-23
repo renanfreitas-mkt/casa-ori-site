@@ -115,3 +115,5 @@ function HeroImpl() {
     </section>
   );
 }
+
+export const Hero = memo(HeroImpl);
