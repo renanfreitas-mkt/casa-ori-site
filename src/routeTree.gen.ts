@@ -9,9 +9,15 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SistemaOriRouteImport } from './routes/sistema-ori'
 import { Route as ServicosRouteImport } from './routes/servicos'
 import { Route as IndexRouteImport } from './routes/index'
 
+const SistemaOriRoute = SistemaOriRouteImport.update({
+  id: '/sistema-ori',
+  path: '/sistema-ori',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ServicosRoute = ServicosRouteImport.update({
   id: '/servicos',
   path: '/servicos',
@@ -26,31 +32,42 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/servicos': typeof ServicosRoute
+  '/sistema-ori': typeof SistemaOriRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/servicos': typeof ServicosRoute
+  '/sistema-ori': typeof SistemaOriRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/servicos': typeof ServicosRoute
+  '/sistema-ori': typeof SistemaOriRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/servicos'
+  fullPaths: '/' | '/servicos' | '/sistema-ori'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/servicos'
-  id: '__root__' | '/' | '/servicos'
+  to: '/' | '/servicos' | '/sistema-ori'
+  id: '__root__' | '/' | '/servicos' | '/sistema-ori'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ServicosRoute: typeof ServicosRoute
+  SistemaOriRoute: typeof SistemaOriRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sistema-ori': {
+      id: '/sistema-ori'
+      path: '/sistema-ori'
+      fullPath: '/sistema-ori'
+      preLoaderRoute: typeof SistemaOriRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/servicos': {
       id: '/servicos'
       path: '/servicos'
@@ -71,6 +88,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ServicosRoute: ServicosRoute,
+  SistemaOriRoute: SistemaOriRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
