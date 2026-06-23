@@ -1,32 +1,15 @@
-Vou atacar a causa mais provável do travamento: animações contínuas e JavaScript pesado carregando/renderizando cedo demais.
+Vou trazer o movimento de volta para o hero, mas sem o peso do WebGL que estava travando o site.
 
-1. Substituir o fundo WebGL do Hero
-- Remover `MeshGradient` e `PulsingBorder` do Hero, que ficam animando continuamente e podem travar o navegador.
-- Trocar por um fundo CSS estático/leve com gradientes e textura, mantendo a estética verde/areia da Casa Orí.
-- Remover o `framer-motion` do Hero para o topo carregar sem custo extra.
+Opções (vou aplicar a primeira por padrão se você não disser o contrário):
 
-2. Simplificar as animações de entrada
-- Ajustar o componente `Reveal` para usar uma animação mais curta e leve.
-- Respeitar `prefers-reduced-motion`, mostrando o conteúdo direto para quem estiver com redução de movimento ativa.
-- Reduzir delays em sequência para evitar sensação de site “preso” enquanto a página aparece.
+1. Gradiente animado em CSS puro
+- Fundo verde/areia em camadas com `background-position` animando lentamente (~20s loop).
+- Brilho suave pulsando no canto inferior direito, no lugar do `PulsingBorder`.
+- Tudo em CSS (`@keyframes`), sem JS rodando a cada frame, sem canvas, sem GPU pesado.
+- Mantém o clima orgânico do hero original.
 
-3. Deixar o menu mais imediato
-- Trocar o listener de scroll que pode disparar muitos updates por uma lógica que só muda estado quando cruza o limite.
-- Encurtar/remover transições longas no header e no menu mobile.
-- Evitar `transition-all` no menu, usando apenas propriedades necessárias.
+2. Voltar o `MeshGradient` com `speed` bem reduzido e só em telas grandes
+- Reativa o shader, mas com velocidade baixa e desativado em mobile/`prefers-reduced-motion`.
+- Mais próximo do visual original, porém volta a usar WebGL (risco do travamento voltar em máquinas mais fracas).
 
-4. Corrigir o code splitting da home
-- Evitar vários `React.lazy` importando o mesmo arquivo grande de seções, porque isso pode gerar erro de chunk e atraso artificial.
-- Carregar as seções da home em um bloco único e estável, com fallback leve, ou dividir em arquivos reais depois se necessário.
-- Isso também deve reduzir o risco do erro atual de “Failed to fetch dynamically imported module”.
-
-5. Otimizar as outras páginas
-- Hoje `/servicos`, `/sobre`, `/sistema-ori` e `/contato` importam o arquivo inteiro `sections.tsx` diretamente.
-- Ajustar para carregar o conteúdo pesado dessas páginas de forma mais segura, sem travar a navegação.
-
-6. Remover animação automática pesada no carrossel de serviços
-- O carrossel usa `setInterval`, várias imagens e `framer-motion`; vou reduzir/remover autoplay e simplificar transições para não disputar processamento com o restante do site.
-
-7. Validar no preview
-- Conferir carregamento da home, troca de páginas pelo menu e rolagem.
-- Verificar se não há erro de módulo dinâmico após as mudanças.
+Se confirmar a opção 1, eu já implemento.
