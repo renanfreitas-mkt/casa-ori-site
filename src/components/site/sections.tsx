@@ -107,8 +107,8 @@ export function Hero() {
             className="mx-auto text-white/85 font-light max-w-2xl"
             style={{ fontSize: "clamp(1rem, 1.4vw, 1.15rem)", lineHeight: 1.8 }}
           >
-            A Casa Orí é um espaço de escuta para quem percebeu que seguir no
-            automático não está mais funcionando.
+            A Casa Orí é um espaço para olhar de perto o que está pedindo
+            atenção — na vida pessoal, nas relações e no trabalho.
           </p>
         </Reveal>
 
