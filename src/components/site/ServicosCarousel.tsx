@@ -114,14 +114,7 @@ export function ServicosCarousel() {
     return () => window.removeEventListener("resize", onResize);
   }, []);
 
-  useEffect(() => {
-    autoplayRef.current = setInterval(() => {
-      setActiveIndex((p) => (p + 1) % len);
-    }, 6000);
-    return () => {
-      if (autoplayRef.current) clearInterval(autoplayRef.current);
-    };
-  }, [len]);
+  // Autoplay removed to avoid background work that competes with rendering.
 
   const next = useCallback(() => {
     setActiveIndex((p) => (p + 1) % len);

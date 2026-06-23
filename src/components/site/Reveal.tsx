@@ -1,5 +1,9 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 
+const prefersReducedMotion = () =>
+  typeof window !== "undefined" &&
+  window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+
 export function Reveal({
   children,
   delay = 0,
@@ -15,18 +19,26 @@ export function Reveal({
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
+    if (prefersReducedMotion()) {
+      setVisible(true);
+      return;
+    }
     const el = ref.current;
     if (!el) return;
+    if (!("IntersectionObserver" in window)) {
+      setVisible(true);
+      return;
+    }
     const obs = new IntersectionObserver(
       (entries) => {
-        entries.forEach((e) => {
+        for (const e of entries) {
           if (e.isIntersecting) {
             setVisible(true);
             obs.unobserve(e.target);
           }
-        });
+        }
       },
-      { threshold: 0.15 }
+      { threshold: 0.1, rootMargin: "0px 0px -40px 0px" },
     );
     obs.observe(el);
     return () => obs.disconnect();
@@ -36,9 +48,12 @@ export function Reveal({
   return (
     <Component
       ref={ref as never}
-      style={{ transitionDelay: visible ? `${delay}ms` : "0ms" }}
-      className={`transition-all duration-700 ease-out ${
-        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+      style={{
+        transitionDelay: visible && delay ? `${delay}ms` : "0ms",
+        willChange: visible ? "auto" : "opacity, transform",
+      }}
+      className={`transition-[opacity,transform] duration-500 ease-out ${
+        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
       } ${className}`}
     >
       {children}
