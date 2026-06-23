@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { Play } from "lucide-react";
 import { MeshGradient, PulsingBorder } from "@paper-design/shaders-react";
 import { motion } from "framer-motion";
@@ -7,7 +8,7 @@ import { CTA } from "./CTA";
 const WHATSAPP_URL = "https://wa.me/55XXXXXXXXXX";
 const QUIZ_URL = "QUIZ_URL";
 
-export function Hero() {
+function HeroImpl() {
   return (
     <section
       id="home"
