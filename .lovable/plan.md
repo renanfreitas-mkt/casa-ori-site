@@ -1,12 +1,14 @@
-# Fix: rotas novas dão 404
+## Mudanças
 
-## Diagnóstico
+**1. Trazer a dobra da Carol (`QuemConduz`) para a home**
+- Adicionar `QuemConduz` no `src/routes/index.tsx`, posicionado depois de `ComoAjuda` e antes de `Depoimentos` (apresenta quem conduz antes da prova social).
+- Remover `QuemConduz` de `src/routes/sobre.tsx` para não duplicar — a página Sobre fica com `PorQue`, `ComoConduzido` e `Antes`.
 
-As páginas `/servicos`, `/sistema-ori`, `/sobre`, `/podcast` e `/contato` foram criadas como arquivos em `src/routes/`, mas o `src/routeTree.gen.ts` ainda lista só `IndexRoute`. O plugin do TanStack Router (que regenera esse arquivo automaticamente) não pegou os arquivos novos no dev server atual — por isso qualquer link cai no `notFoundComponent` do root.
+**2. Podcast como última dobra da home**
+- Adicionar `Podcast` em `src/routes/index.tsx` como última seção antes do `Footer` (depois do `HomeCta`).
+- Remover a rota `/podcast` (apagar `src/routes/podcast.tsx`) e o item "Podcast" do menu em `src/components/site/Nav.tsx`, já que o conteúdo passa a viver na home. Isso também reduz o "travamento" de navegação com menu mais enxuto (5 itens em vez de 6).
 
-## Correção
+**Ordem final da home:**
+Hero → Dores → ComoAjuda → QuemConduz → Depoimentos → InstagramGrid → Faq → HomeCta → Podcast → Footer
 
-1. Reiniciar o dev server para o plugin do TanStack Router regenerar `src/routeTree.gen.ts` com as 5 rotas novas + a Index.
-2. Conferir no preview que `/servicos`, `/sistema-ori`, `/sobre`, `/podcast` e `/contato` carregam sem 404 e que o item ativo do menu acompanha a rota.
-
-Nenhuma mudança de código — só restart. Se após o restart alguma rota continuar 404, aí sim eu vou no arquivo correspondente investigar (tipicamente um mismatch entre o nome do arquivo e a string do `createFileRoute`).
+Nenhuma mudança de copy ou de estilo — só recomposição das páginas.

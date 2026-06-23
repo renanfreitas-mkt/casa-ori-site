@@ -2,7 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Nav } from "@/components/site/Nav";
 import {
   PorQue,
-  QuemConduz,
   ComoConduzido,
   Antes,
   Footer,
@@ -34,7 +33,6 @@ function SobrePage() {
       <Nav />
       <main className="pt-20">
         <PorQue />
-        <QuemConduz />
         <ComoConduzido />
         <Antes />
       </main>

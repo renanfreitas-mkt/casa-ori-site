@@ -8,7 +8,6 @@ const links = [
   { to: "/servicos", label: "Serviços" },
   { to: "/sistema-ori", label: "Sistema ORI" },
   { to: "/sobre", label: "Sobre" },
-  { to: "/podcast", label: "Podcast" },
   { to: "/contato", label: "Contato" },
 ] as const;
 
