@@ -1,14 +1,32 @@
-## Mudanças
+Vou atacar a causa mais provável do travamento: animações contínuas e JavaScript pesado carregando/renderizando cedo demais.
 
-**1. Trazer a dobra da Carol (`QuemConduz`) para a home**
-- Adicionar `QuemConduz` no `src/routes/index.tsx`, posicionado depois de `ComoAjuda` e antes de `Depoimentos` (apresenta quem conduz antes da prova social).
-- Remover `QuemConduz` de `src/routes/sobre.tsx` para não duplicar — a página Sobre fica com `PorQue`, `ComoConduzido` e `Antes`.
+1. Substituir o fundo WebGL do Hero
+- Remover `MeshGradient` e `PulsingBorder` do Hero, que ficam animando continuamente e podem travar o navegador.
+- Trocar por um fundo CSS estático/leve com gradientes e textura, mantendo a estética verde/areia da Casa Orí.
+- Remover o `framer-motion` do Hero para o topo carregar sem custo extra.
 
-**2. Podcast como última dobra da home**
-- Adicionar `Podcast` em `src/routes/index.tsx` como última seção antes do `Footer` (depois do `HomeCta`).
-- Remover a rota `/podcast` (apagar `src/routes/podcast.tsx`) e o item "Podcast" do menu em `src/components/site/Nav.tsx`, já que o conteúdo passa a viver na home. Isso também reduz o "travamento" de navegação com menu mais enxuto (5 itens em vez de 6).
+2. Simplificar as animações de entrada
+- Ajustar o componente `Reveal` para usar uma animação mais curta e leve.
+- Respeitar `prefers-reduced-motion`, mostrando o conteúdo direto para quem estiver com redução de movimento ativa.
+- Reduzir delays em sequência para evitar sensação de site “preso” enquanto a página aparece.
 
-**Ordem final da home:**
-Hero → Dores → ComoAjuda → QuemConduz → Depoimentos → InstagramGrid → Faq → HomeCta → Podcast → Footer
+3. Deixar o menu mais imediato
+- Trocar o listener de scroll que pode disparar muitos updates por uma lógica que só muda estado quando cruza o limite.
+- Encurtar/remover transições longas no header e no menu mobile.
+- Evitar `transition-all` no menu, usando apenas propriedades necessárias.
 
-Nenhuma mudança de copy ou de estilo — só recomposição das páginas.
+4. Corrigir o code splitting da home
+- Evitar vários `React.lazy` importando o mesmo arquivo grande de seções, porque isso pode gerar erro de chunk e atraso artificial.
+- Carregar as seções da home em um bloco único e estável, com fallback leve, ou dividir em arquivos reais depois se necessário.
+- Isso também deve reduzir o risco do erro atual de “Failed to fetch dynamically imported module”.
+
+5. Otimizar as outras páginas
+- Hoje `/servicos`, `/sobre`, `/sistema-ori` e `/contato` importam o arquivo inteiro `sections.tsx` diretamente.
+- Ajustar para carregar o conteúdo pesado dessas páginas de forma mais segura, sem travar a navegação.
+
+6. Remover animação automática pesada no carrossel de serviços
+- O carrossel usa `setInterval`, várias imagens e `framer-motion`; vou reduzir/remover autoplay e simplificar transições para não disputar processamento com o restante do site.
+
+7. Validar no preview
+- Conferir carregamento da home, troca de páginas pelo menu e rolagem.
+- Verificar se não há erro de módulo dinâmico após as mudanças.
