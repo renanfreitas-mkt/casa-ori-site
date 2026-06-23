@@ -35,6 +35,12 @@ const QUIZ_URL = "QUIZ_URL";
 
 
 /* ============== DORES ============== */
+const ORI_MINI = [
+  { l: "O", t: "Observa", d: "Identificar o que está por trás" },
+  { l: "R", t: "Reorganiza", d: "Colocar no lugar o que está fora de ordem" },
+  { l: "I", t: "Impulsiona", d: "Transformar em continuidade" },
+] as const;
+
 const dores = [
   "Você sente que a sobrecarga está grande. Por fora, tenta seguir no automático, dar conta de tudo e parecer que está tudo bem.",
   "A sua emoção começou a atrapalhar a sua produtividade — e você não consegue mais separar uma coisa da outra.",
