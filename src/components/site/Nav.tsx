@@ -19,8 +19,21 @@ function NavImpl() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 80);
-    onScroll();
+    let ticking = false;
+    let lastState = window.scrollY > 80;
+    setScrolled(lastState);
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const next = window.scrollY > 80;
+        if (next !== lastState) {
+          lastState = next;
+          setScrolled(next);
+        }
+        ticking = false;
+      });
+    };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -34,7 +47,7 @@ function NavImpl() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-[background-color,padding] duration-200 ${
           scrolled || open || pathname !== "/"
             ? "bg-[#26533C] py-3 shadow-sm"
             : "bg-transparent py-5"
@@ -81,7 +94,7 @@ function NavImpl() {
       </header>
 
       <div
-        className={`lg:hidden fixed inset-0 z-40 bg-[#26533C] transition-opacity duration-400 ${
+        className={`lg:hidden fixed inset-0 z-40 bg-[#26533C] transition-opacity duration-150 ${
           open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
       >
@@ -113,9 +126,9 @@ function NavImpl() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Falar no WhatsApp"
-        className={`lg:hidden fixed bottom-5 right-5 z-40 w-14 h-14 rounded-full bg-[#26533C] text-white shadow-lg flex items-center justify-center transition-all duration-300 ${
+        className={`lg:hidden fixed bottom-5 right-5 z-40 w-14 h-14 rounded-full bg-[#26533C] text-white shadow-lg flex items-center justify-center transition-opacity duration-200 ${
           isContato || open
-            ? "opacity-0 pointer-events-none translate-y-3"
+            ? "opacity-0 pointer-events-none"
             : "opacity-100"
         }`}
       >
