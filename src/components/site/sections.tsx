@@ -143,10 +143,11 @@ export function Hero() {
 /* ============== DORES ============== */
 const dores = [
   "Você sente que a sobrecarga está grande. Por fora, tenta seguir no automático, dar conta de tudo e parecer que está tudo bem.",
-  "Você tem dificuldade de colocar limites — e isso te esgota.",
+  "A sua emoção começou a atrapalhar a sua produtividade — e você não consegue mais separar uma coisa da outra.",
+  "Você tem dificuldade de colocar limites — e isso te esgota no trabalho e em casa.",
+  "Decisões de carreira travadas por questões que não são (só) de carreira.",
   "Você sente insegurança para tomar decisões que sabe que precisa tomar.",
-  "Você tem medo de errar. Ou de decepcionar.",
-  "A pressão da sua família pesa de um jeito que é difícil de explicar.",
+  "A pressão da sua família — ou da sua liderança — pesa de um jeito que é difícil de explicar.",
   "Você percebe que os mesmos problemas só mudam de forma, mas sempre voltam.",
 ];
 
