@@ -4,10 +4,12 @@ import {
   Hero,
   Dores,
   ComoAjuda,
+  QuemConduz,
   Depoimentos,
   InstagramGrid,
   Faq,
   HomeCta,
+  Podcast,
   Footer,
 } from "@/components/site/sections";
 
