@@ -124,3 +124,5 @@ function NavImpl() {
     </>
   );
 }
+
+export const Nav = memo(NavImpl);
