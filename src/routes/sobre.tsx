@@ -33,7 +33,6 @@ function SobrePage() {
       <Nav />
       <main className="pt-20">
         <PorQue />
-        <QuemConduz />
         <ComoConduzido />
         <Antes />
       </main>
