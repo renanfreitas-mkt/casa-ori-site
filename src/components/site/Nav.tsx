@@ -13,7 +13,7 @@ const links = [
 
 const WHATSAPP_URL = "https://wa.me/55XXXXXXXXXX";
 
-export function Nav() {
+function NavImpl() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
