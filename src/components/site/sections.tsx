@@ -1459,3 +1459,31 @@ const FooterImpl = () => {
     </footer>
   );
 }
+
+/* ============== Memoized exports ============== */
+export const Dores = memo(DoresImpl);
+export const ComoAjuda = memo(ComoAjudaImpl);
+export const CarolTeaser = memo(CarolTeaserImpl);
+export const Depoimentos = memo(DepoimentosImpl);
+export const Podcast = memo(PodcastImpl);
+export const InstagramGrid = memo(InstagramGridImpl);
+export const Faq = memo(FaqImpl);
+export const HomeCta = memo(HomeCtaImpl);
+export const PorQue = memo(PorQueImpl);
+export const QuemConduz = memo(QuemConduzImpl);
+export const ComoConduzido = memo(ComoConduzidoImpl);
+export const SobreCta = memo(SobreCtaImpl);
+export const AvaliacaoInicial = memo(AvaliacaoInicialImpl);
+export const ServicosGrid = memo(ServicosGridImpl);
+export const ServicosLista = memo(ServicosListaImpl);
+export const ComoEscolher = memo(ComoEscolherImpl);
+export const ServicosCta = memo(ServicosCtaImpl);
+export const SistemaOriIntro = memo(SistemaOriIntroImpl);
+export const SistemaOriEixos = memo(SistemaOriEixosImpl);
+export const SistemaOriDiferencial = memo(SistemaOriDiferencialImpl);
+export const SistemaOriAplicacao = memo(SistemaOriAplicacaoImpl);
+export const SistemaOriEsperar = memo(SistemaOriEsperarImpl);
+export const AntesResumo = memo(AntesResumoImpl);
+export const Antes = memo(AntesImpl);
+export const Contato = memo(ContatoImpl);
+export const Footer = memo(FooterImpl);
