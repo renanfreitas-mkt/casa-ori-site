@@ -38,7 +38,7 @@ function HeroImpl() {
       />
 
       <div className="relative w-full max-w-[1200px] mx-auto px-6 lg:px-10">
-        <div className="grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
+        <div className="grid md:grid-cols-[1fr_1.25fr] gap-10 lg:gap-14 items-center">
           {/* Coluna esquerda: texto */}
           <div className="text-left order-2 md:order-1">
             <Reveal>
