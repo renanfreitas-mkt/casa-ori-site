@@ -38,9 +38,9 @@ function HeroImpl() {
       />
 
       <div className="relative w-full max-w-[1200px] mx-auto px-6 lg:px-10">
-        <div className="grid grid-cols-1 sm:grid-cols-[1fr_1.1fr] md:grid-cols-[1fr_1.25fr] gap-8 sm:gap-6 md:gap-10 lg:gap-14 items-center">
-          {/* Coluna esquerda: texto */}
-          <div className="text-left order-2 sm:order-1 min-w-0">
+        <div className="grid grid-cols-1 sm:grid-cols-[1.2fr_1fr] md:grid-cols-[1.3fr_1fr] gap-8 sm:gap-8 md:gap-12 lg:gap-16 items-center">
+          {/* Coluna direita (texto) */}
+          <div className="text-left order-2 sm:order-2 min-w-0">
             <Reveal>
               <span className="label-eyebrow text-white/70">Casa Orí</span>
             </Reveal>
@@ -72,7 +72,7 @@ function HeroImpl() {
 
             <Reveal delay={320}>
               <p
-                className="text-white/85 font-light max-w-[520px]"
+                className="text-white/85 font-light max-w-[460px]"
                 style={{
                   fontSize: "clamp(0.9rem, 1.1vw, 1rem)",
                   lineHeight: 1.7,
@@ -93,9 +93,9 @@ function HeroImpl() {
             </Reveal>
           </div>
 
-          {/* Coluna direita: animação do ciclo */}
+          {/* Coluna esquerda (animação) */}
           <Reveal delay={100}>
-            <div className="order-1 sm:order-2 flex items-center justify-center min-w-0">
+            <div className="order-1 sm:order-1 flex items-center justify-center min-w-0">
               <HeroCanvasCycle />
             </div>
           </Reveal>
