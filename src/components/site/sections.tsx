@@ -38,7 +38,7 @@ const QUIZ_URL = "QUIZ_URL";
 const ORI_MINI = [
   { l: "O", t: "Observa", d: "Identificar o que está por trás" },
   { l: "R", t: "Reorganiza", d: "Colocar no lugar o que está fora de ordem" },
-  { l: "I", t: "Impulsiona", d: "Transformar em continuidade" },
+  { l: "I", t: "Integra", d: "Ajustar as mudanças à sua realidade" },
 ] as const;
 
 const dores = [
