@@ -22,8 +22,19 @@ export function HeroCanvasCycle() {
     const canvas = canvasRef.current;
     const container = containerRef.current;
     if (!canvas || !container) return;
-    const ctx = canvas.getContext("2d");
+    const ctx = canvas.getContext("2d", { alpha: true });
     if (!ctx) return;
+
+    const prefersReduced =
+      typeof window !== "undefined" &&
+      window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+
+    // FPS cap: smaller viewports get lower FPS to save CPU/GPU
+    const isSmall = window.innerWidth < 768;
+    const targetFps = prefersReduced ? 0 : isSmall ? 24 : 40;
+    const frameInterval = targetFps > 0 ? 1000 / targetFps : Infinity;
+    // Cap DPR on small screens to reduce pixel work
+    const maxDpr = isSmall ? 1.5 : 2;
 
     let width = 0;
     let height = 0;
@@ -31,9 +42,15 @@ export function HeroCanvasCycle() {
     let centerY = 0;
     let animationTime = 0;
     let globalRotation = 0;
-    let lastTime = 0;
+    let lastFrameTime = 0;
+    let lastTickTime = 0;
     let isHoveringCenter = false;
+    let prevHoveringCenter = false;
     let rafId = 0;
+    let isVisible = true;
+    let isInView = true;
+    let needsRedraw = true;
+    let resizeTimer: number | null = null;
 
     function drawIcon(type: string, x: number, y: number, size: number) {
       ctx!.save();
@@ -171,9 +188,12 @@ export function HeroCanvasCycle() {
     function resizeCanvas() {
       const rect = container!.getBoundingClientRect();
       const size = Math.max(200, Math.min(rect.width, rect.height));
-      const dpr = window.devicePixelRatio || 1;
-      canvas!.width = size * dpr;
-      canvas!.height = size * dpr;
+      const dpr = Math.min(window.devicePixelRatio || 1, maxDpr);
+      const pixelSize = Math.round(size * dpr);
+      // Skip if dimensions haven't actually changed
+      if (canvas!.width === pixelSize && canvas!.height === pixelSize) return;
+      canvas!.width = pixelSize;
+      canvas!.height = pixelSize;
       ctx!.setTransform(1, 0, 0, 1, 0, 0);
       ctx!.scale(dpr, dpr);
       canvas!.style.width = `${size}px`;
@@ -182,21 +202,43 @@ export function HeroCanvasCycle() {
       height = size;
       centerX = width / 2;
       centerY = height / 2;
-      draw();
+      needsRedraw = true;
+    }
+
+    function scheduleResize() {
+      if (resizeTimer !== null) return;
+      resizeTimer = window.setTimeout(() => {
+        resizeTimer = null;
+        resizeCanvas();
+      }, 120);
     }
 
     function animate(currentTime: number) {
-      if (!lastTime) lastTime = currentTime;
-      const deltaTime = (currentTime - lastTime) / 1000;
-      lastTime = currentTime;
-      if (deltaTime > 0.1) {
-        rafId = requestAnimationFrame(animate);
+      rafId = requestAnimationFrame(animate);
+      if (!isVisible || !isInView) {
+        lastFrameTime = 0;
+        lastTickTime = 0;
         return;
       }
+      if (prefersReduced) {
+        if (needsRedraw) {
+          draw();
+          needsRedraw = false;
+        }
+        return;
+      }
+      if (!lastFrameTime) lastFrameTime = currentTime;
+      const elapsed = currentTime - lastFrameTime;
+      if (elapsed < frameInterval) return;
+      lastFrameTime = currentTime - (elapsed % frameInterval);
+
+      if (!lastTickTime) lastTickTime = currentTime;
+      const deltaTime = Math.min((currentTime - lastTickTime) / 1000, 0.1);
+      lastTickTime = currentTime;
       animationTime += deltaTime;
       globalRotation += deltaTime * 0.05;
       draw();
-      rafId = requestAnimationFrame(animate);
+      prevHoveringCenter = isHoveringCenter;
     }
 
     function onMouseMove(e: MouseEvent) {
@@ -205,19 +247,44 @@ export function HeroCanvasCycle() {
       const y = e.clientY - rect.top;
       const dist = Math.sqrt(Math.pow(x - centerX, 2) + Math.pow(y - centerY, 2));
       const centerRadius = (Math.min(width, height) / 2) * 0.4;
-      isHoveringCenter = dist < centerRadius;
+      const hovering = dist < centerRadius;
+      if (hovering !== prevHoveringCenter) needsRedraw = true;
+      isHoveringCenter = hovering;
     }
 
-    const ro = new ResizeObserver(resizeCanvas);
+    function onMouseLeave() {
+      isHoveringCenter = false;
+      needsRedraw = true;
+    }
+
+    function onVisibility() {
+      isVisible = !document.hidden;
+    }
+
+    const ro = new ResizeObserver(scheduleResize);
     ro.observe(container);
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) isInView = entry.isIntersecting;
+      },
+      { threshold: 0 },
+    );
+    io.observe(container);
     resizeCanvas();
+    draw();
     canvas.addEventListener("mousemove", onMouseMove);
+    canvas.addEventListener("mouseleave", onMouseLeave);
+    document.addEventListener("visibilitychange", onVisibility);
     rafId = requestAnimationFrame(animate);
 
     return () => {
       cancelAnimationFrame(rafId);
+      if (resizeTimer !== null) clearTimeout(resizeTimer);
       ro.disconnect();
+      io.disconnect();
       canvas.removeEventListener("mousemove", onMouseMove);
+      canvas.removeEventListener("mouseleave", onMouseLeave);
+      document.removeEventListener("visibilitychange", onVisibility);
     };
   }, []);
 
