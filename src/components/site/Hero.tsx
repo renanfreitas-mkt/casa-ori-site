@@ -38,17 +38,17 @@ function HeroImpl() {
       />
 
       <div className="relative w-full max-w-[1200px] mx-auto px-6 lg:px-10">
-        <div className="grid md:grid-cols-[1fr_1.25fr] gap-10 lg:gap-14 items-center">
+        <div className="grid grid-cols-1 sm:grid-cols-[1fr_1.1fr] md:grid-cols-[1fr_1.25fr] gap-8 sm:gap-6 md:gap-10 lg:gap-14 items-center">
           {/* Coluna esquerda: texto */}
-          <div className="text-left order-2 md:order-1">
+          <div className="text-left order-2 sm:order-1 min-w-0">
             <Reveal>
               <span className="label-eyebrow text-white/70">Casa Orí</span>
             </Reveal>
 
             <Reveal delay={120}>
               <p
-                className="mt-6 font-light text-white/90"
-                style={{ fontSize: "clamp(1.05rem, 1.6vw, 1.25rem)" }}
+                className="mt-5 md:mt-6 font-light text-white/90"
+                style={{ fontSize: "clamp(1rem, 1.5vw, 1.25rem)" }}
               >
                 Você tenta resolver só o que consegue ver.
               </p>
@@ -58,7 +58,7 @@ function HeroImpl() {
               <h1
                 className="mt-3 text-[#C4B58E] font-normal"
                 style={{
-                  fontSize: "clamp(1.75rem, 3.6vw, 2.75rem)",
+                  fontSize: "clamp(1.5rem, 3.4vw, 2.75rem)",
                   lineHeight: 1.2,
                 }}
               >
@@ -67,14 +67,14 @@ function HeroImpl() {
             </Reveal>
 
             <Reveal delay={260}>
-              <div className="my-7 h-px w-[60px] bg-[#C4B58E]" />
+              <div className="my-6 md:my-7 h-px w-[60px] bg-[#C4B58E]" />
             </Reveal>
 
             <Reveal delay={320}>
               <p
                 className="text-white/85 font-light max-w-[520px]"
                 style={{
-                  fontSize: "clamp(0.95rem, 1.15vw, 1rem)",
+                  fontSize: "clamp(0.9rem, 1.1vw, 1rem)",
                   lineHeight: 1.7,
                 }}
               >
@@ -85,22 +85,22 @@ function HeroImpl() {
             </Reveal>
 
             <Reveal delay={380}>
-              <div className="mt-8">
+              <div className="mt-7 md:mt-8">
                 <CTA href="#avaliacao" variant="areia">
                   Quero entender o que está acontecendo →
                 </CTA>
               </div>
             </Reveal>
           </div>
-        </div>
-          </div>
 
           {/* Coluna direita: animação do ciclo */}
           <Reveal delay={100}>
-            <div className="order-1 md:order-2 flex items-center justify-center">
+            <div className="order-1 sm:order-2 flex items-center justify-center min-w-0">
               <HeroCanvasCycle />
             </div>
           </Reveal>
+        </div>
+      </div>
     </section>
   );
 }
