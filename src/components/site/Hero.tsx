@@ -2,7 +2,7 @@ import { memo } from "react";
 import { Reveal } from "./Reveal";
 import { CTA } from "./CTA";
 import { HeroShader } from "./HeroShader";
-import { HeroCycle } from "./HeroCycle";
+import { HeroCanvasCycle } from "./HeroCanvasCycle";
 
 function HeroImpl() {
   return (
@@ -37,57 +37,69 @@ function HeroImpl() {
         }}
       />
 
-      <div className="relative w-full max-w-[1000px] mx-auto px-6 lg:px-10 text-center">
-        <Reveal>
-          <span className="label-eyebrow text-white/70">Casa Orí</span>
-        </Reveal>
+      <div className="relative w-full max-w-[1200px] mx-auto px-6 lg:px-10">
+        <div className="grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
+          {/* Coluna esquerda: texto */}
+          <div className="text-left order-2 md:order-1">
+            <Reveal>
+              <span className="label-eyebrow text-white/70">Casa Orí</span>
+            </Reveal>
 
-        <Reveal delay={80}>
-          <div className="mt-10 md:mt-12">
-            <HeroCycle />
+            <Reveal delay={120}>
+              <p
+                className="mt-6 font-light text-white/90"
+                style={{ fontSize: "clamp(1.05rem, 1.6vw, 1.25rem)" }}
+              >
+                Você tenta resolver só o que consegue ver.
+              </p>
+            </Reveal>
+
+            <Reveal delay={200}>
+              <h1
+                className="mt-3 text-[#C4B58E] font-normal"
+                style={{
+                  fontSize: "clamp(1.75rem, 3.6vw, 2.75rem)",
+                  lineHeight: 1.2,
+                }}
+              >
+                Mas e o que ainda está invisível?
+              </h1>
+            </Reveal>
+
+            <Reveal delay={260}>
+              <div className="my-7 h-px w-[60px] bg-[#C4B58E]" />
+            </Reveal>
+
+            <Reveal delay={320}>
+              <p
+                className="text-white/85 font-light max-w-[520px]"
+                style={{
+                  fontSize: "clamp(0.95rem, 1.15vw, 1rem)",
+                  lineHeight: 1.7,
+                }}
+              >
+                A Casa Orí ajuda pessoas e empresas a investigar o que ainda
+                não foi percebido, mas continua influenciando comportamentos,
+                relações e resultados.
+              </p>
+            </Reveal>
+
+            <Reveal delay={380}>
+              <div className="mt-8">
+                <CTA href="#avaliacao" variant="areia">
+                  Quero entender o que está acontecendo →
+                </CTA>
+              </div>
+            </Reveal>
           </div>
-        </Reveal>
 
-        <Reveal delay={160}>
-          <p
-            className="mt-10 md:mt-12 font-light text-white/90"
-            style={{ fontSize: "clamp(1.05rem, 1.6vw, 1.25rem)" }}
-          >
-            Você tenta resolver só o que consegue ver.
-          </p>
-        </Reveal>
-
-        <Reveal delay={220}>
-          <h1
-            className="mt-3 text-[#C4B58E] font-normal"
-            style={{ fontSize: "clamp(1.6rem, 3.8vw, 2.6rem)", lineHeight: 1.2 }}
-          >
-            Mas e o que ainda está invisível?
-          </h1>
-        </Reveal>
-
-        <Reveal delay={280}>
-          <div className="mx-auto my-8 h-px w-[60px] bg-[#C4B58E]" />
-        </Reveal>
-
-        <Reveal delay={320}>
-          <p
-            className="mx-auto text-white/85 font-light max-w-[560px]"
-            style={{ fontSize: "clamp(0.95rem, 1.15vw, 1rem)", lineHeight: 1.7 }}
-          >
-            A Casa Orí ajuda pessoas e empresas a investigar o que ainda não
-            foi percebido, mas continua influenciando comportamentos, relações
-            e resultados.
-          </p>
-        </Reveal>
-
-        <Reveal delay={380}>
-          <div className="mt-10">
-            <CTA href="#avaliacao" variant="areia">
-              Quero entender o que está acontecendo →
-            </CTA>
-          </div>
-        </Reveal>
+          {/* Coluna direita: animação do ciclo */}
+          <Reveal delay={100}>
+            <div className="order-1 md:order-2 flex items-center justify-center">
+              <HeroCanvasCycle />
+            </div>
+          </Reveal>
+        </div>
       </div>
     </section>
   );
