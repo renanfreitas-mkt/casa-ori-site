@@ -934,9 +934,9 @@ const eixos: Eixo[] = [
   },
   {
     letra: "I",
-    nome: "Impulsiona",
-    titulo: "Transformar as novas possibilidades em continuidade.",
-    sub: "Não basta entender e agir uma vez.",
+    nome: "Integra",
+    titulo: "E o que fazer a partir daqui?",
+    sub: "Acompanhamos e ajustamos essas mudanças à sua realidade para que elas aconteçam de forma consistente.",
     itens: [
       "ajustar o que não funcionou",
       "adaptar as ações à vida real",
