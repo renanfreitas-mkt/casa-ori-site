@@ -93,7 +93,14 @@ function HeroImpl() {
             </Reveal>
           </div>
         </div>
-      </div>
+          </div>
+
+          {/* Coluna direita: animação do ciclo */}
+          <Reveal delay={100}>
+            <div className="order-1 md:order-2 flex items-center justify-center">
+              <HeroCanvasCycle />
+            </div>
+          </Reveal>
     </section>
   );
 }
