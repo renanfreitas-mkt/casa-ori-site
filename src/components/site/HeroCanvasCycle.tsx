@@ -230,6 +230,5 @@ export function HeroCanvasCycle() {
     >
       <canvas ref={canvasRef} className="block w-full h-full" />
     </div>
-    </div>
   );
 }
