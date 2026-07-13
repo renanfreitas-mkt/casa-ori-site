@@ -224,7 +224,7 @@ export function HeroCanvasCycle() {
   return (
     <div
       ref={containerRef}
-      className="relative w-full max-w-[460px] aspect-square mx-auto"
+      className="relative w-full max-w-[620px] aspect-square mx-auto"
       aria-hidden="true"
     >
       <canvas ref={canvasRef} className="block w-full h-full" />
