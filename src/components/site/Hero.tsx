@@ -38,16 +38,9 @@ function HeroImpl() {
       />
 
       <div className="relative w-full max-w-[1200px] mx-auto px-6 lg:px-10">
-        <div className="grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
-          {/* Coluna esquerda: animação do ciclo */}
-          <Reveal delay={100}>
-            <div className="order-1 flex items-center justify-center">
-              <HeroCanvasCycle />
-            </div>
-          </Reveal>
-
-          {/* Coluna direita: texto */}
-          <div className="text-left order-2">
+        <div className="grid md:grid-cols-[1fr_1.25fr] gap-10 lg:gap-14 items-center">
+          {/* Coluna esquerda: texto */}
+          <div className="text-left order-2 md:order-1">
             <Reveal>
               <span className="label-eyebrow text-white/70">Casa Orí</span>
             </Reveal>
@@ -100,7 +93,14 @@ function HeroImpl() {
             </Reveal>
           </div>
         </div>
-      </div>
+          </div>
+
+          {/* Coluna direita: animação do ciclo */}
+          <Reveal delay={100}>
+            <div className="order-1 md:order-2 flex items-center justify-center">
+              <HeroCanvasCycle />
+            </div>
+          </Reveal>
     </section>
   );
 }
