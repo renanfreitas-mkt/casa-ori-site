@@ -99,7 +99,6 @@ function HeroImpl() {
               </div>
             </Reveal>
           </div>
-          </Reveal>
         </div>
       </div>
     </section>
