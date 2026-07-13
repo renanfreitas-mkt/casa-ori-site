@@ -38,7 +38,7 @@ const QUIZ_URL = "QUIZ_URL";
 const ORI_MINI = [
   { l: "O", t: "Observa", d: "Identificar o que está por trás" },
   { l: "R", t: "Reorganiza", d: "Colocar no lugar o que está fora de ordem" },
-  { l: "I", t: "Impulsiona", d: "Transformar em continuidade" },
+  { l: "I", t: "Integra", d: "Ajustar as mudanças à sua realidade" },
 ] as const;
 
 const dores = [
@@ -934,9 +934,9 @@ const eixos: Eixo[] = [
   },
   {
     letra: "I",
-    nome: "Impulsiona",
-    titulo: "Transformar as novas possibilidades em continuidade.",
-    sub: "Não basta entender e agir uma vez.",
+    nome: "Integra",
+    titulo: "E o que fazer a partir daqui?",
+    sub: "Acompanhamos e ajustamos essas mudanças à sua realidade para que elas aconteçam de forma consistente.",
     itens: [
       "ajustar o que não funcionou",
       "adaptar as ações à vida real",

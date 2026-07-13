@@ -30,11 +30,14 @@
   --color-ring: var(--ring);
 
   --color-verde: #26533C;
-  --color-verde-escuro: #1d4230;
+  --color-verde-escuro: #1A2E25;
+  --color-verde-claro: #4A7A5E;
   --color-areia: #C4B58E;
   --color-areia-claro: #E8DEC8;
   --color-texto: #1C1C1C;
   --color-texto-suave: #555555;
+
+  --animate-arrow-pulse: arrow-pulse 2s ease-in-out infinite;
 
   --font-sans: "Roboto", system-ui, -apple-system, sans-serif;
   --font-script: "Cormorant Garamond", "Cormorant", Georgia, serif;
@@ -164,6 +167,11 @@ html {
     opacity: 0.75;
     transform: scale(1.08);
   }
+}
+
+@keyframes arrow-pulse {
+  0%, 100% { opacity: 0.55; }
+  50%      { opacity: 1; }
 }
 
 @media (prefers-reduced-motion: reduce) {

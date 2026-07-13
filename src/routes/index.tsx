@@ -1,17 +1,18 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Nav } from "@/components/site/Nav";
 import { Hero } from "@/components/site/Hero";
+import { Footer } from "@/components/site/sections";
 import {
-  Dores,
-  ComoAjuda,
-  QuemConduz,
-  Depoimentos,
-  InstagramGrid,
-  Faq,
-  HomeCta,
-  Podcast,
-  Footer,
-} from "@/components/site/sections";
+  Explicacao,
+  DoresV3,
+  SistemaOriV3,
+  AvaliacaoV3,
+  ServicosV3,
+  CarolV3,
+  ContinueConversa,
+  DepoimentosV3,
+  CtaFinal,
+} from "@/components/site/HomeV3";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -20,13 +21,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Casa Orí é um espaço para olhar de perto o que está pedindo atenção — na vida pessoal, nas relações e no trabalho. Conduzido por Carol Milhomens, em Brasília.",
+          "A Casa Orí ajuda pessoas e empresas a investigar o que ainda não foi percebido, mas continua influenciando comportamentos, relações e resultados.",
       },
       { property: "og:title", content: "Casa Orí — Terapia sistêmica e desenvolvimento" },
       {
         property: "og:description",
         content:
-          "Um espaço para olhar de perto o que está pedindo atenção — na vida pessoal, nas relações e no trabalho.",
+          "Investigar o que ainda não foi percebido e construir novas possibilidades de ação — para pessoas e para empresas.",
       },
     ],
   }),
@@ -39,14 +40,15 @@ function Index() {
       <Nav />
       <main>
         <Hero />
-        <Dores />
-        <ComoAjuda />
-        <QuemConduz />
-        <Depoimentos />
-        <InstagramGrid />
-        <Faq />
-        <HomeCta />
-        <Podcast />
+        <Explicacao />
+        <DoresV3 />
+        <SistemaOriV3 />
+        <AvaliacaoV3 />
+        <ServicosV3 />
+        <CarolV3 />
+        <ContinueConversa />
+        <DepoimentosV3 />
+        <CtaFinal />
       </main>
       <Footer />
     </div>

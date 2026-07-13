@@ -1,22 +1,23 @@
 import { memo } from "react";
-import { Play } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { CTA } from "./CTA";
 import { HeroShader } from "./HeroShader";
-
-const WHATSAPP_URL = "https://wa.me/55XXXXXXXXXX";
-const QUIZ_URL = "QUIZ_URL";
+import { HeroCycle } from "./HeroCycle";
 
 function HeroImpl() {
   return (
     <section
       id="home"
-      className="hero-ori relative bg-[#1d4230] text-white min-h-[88svh] flex items-center pt-24 pb-16 md:pt-28 md:pb-24 overflow-hidden"
+      className="hero-ori relative bg-[#1A2E25] text-white min-h-[88svh] flex items-center pt-24 pb-16 md:pt-28 md:pb-24 overflow-hidden"
     >
-      {/* Animated CSS gradient background (fallback for mobile / reduced-motion) */}
-      <div aria-hidden="true" className="hero-ori__gradient absolute inset-0 pointer-events-none" />
-      <div aria-hidden="true" className="hero-ori__glow absolute pointer-events-none hidden md:block" />
-      {/* WebGL shader — desktop only, respects prefers-reduced-motion */}
+      <div
+        aria-hidden="true"
+        className="hero-ori__gradient absolute inset-0 pointer-events-none"
+      />
+      <div
+        aria-hidden="true"
+        className="hero-ori__glow absolute pointer-events-none hidden md:block"
+      />
       <HeroShader />
       <div
         aria-hidden="true"
@@ -32,64 +33,60 @@ function HeroImpl() {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse at center, transparent 30%, rgba(29,66,48,0.7) 100%)",
+            "radial-gradient(ellipse at center, transparent 30%, rgba(26,46,37,0.75) 100%)",
         }}
       />
 
-      <div className="relative max-w-[1000px] mx-auto px-6 lg:px-10 text-center">
+      <div className="relative w-full max-w-[1000px] mx-auto px-6 lg:px-10 text-center">
         <Reveal>
           <span className="label-eyebrow text-white/70">Casa Orí</span>
         </Reveal>
 
         <Reveal delay={80}>
-          <h1
-            className="mt-8 font-light text-white"
-            style={{ fontSize: "clamp(2rem, 5vw, 3.6rem)", lineHeight: 1.15 }}
-          >
-            Algo está pesando.
-            <br />
-            E você já não consegue
-            <br />
-            fingir que está tudo bem.
-          </h1>
-        </Reveal>
-
-        <Reveal delay={140}>
-          <div className="mx-auto my-10 h-px w-20 bg-[#C4B58E]" />
-        </Reveal>
-
-        <Reveal delay={180}>
-          <p
-            className="mx-auto text-white/85 font-light max-w-2xl"
-            style={{ fontSize: "clamp(1rem, 1.4vw, 1.15rem)", lineHeight: 1.8 }}
-          >
-            A Casa Orí é um espaço para olhar de perto o que está pedindo
-            atenção — na vida pessoal, nas relações e no trabalho.
-          </p>
-        </Reveal>
-
-        <Reveal delay={240}>
-          <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <CTA href={QUIZ_URL} external variant="areia">
-              Quero entender o que está acontecendo
-            </CTA>
-            <CTA href={WHATSAPP_URL} external variant="outlineWhite">
-              Falar com a Carol
-            </CTA>
+          <div className="mt-10 md:mt-12">
+            <HeroCycle />
           </div>
         </Reveal>
 
-        <Reveal delay={300}>
-          <button
-            type="button"
-            className="mt-10 inline-flex items-center gap-3 text-white/75 hover:text-white text-sm tracking-wide transition-colors"
-            aria-label="Assistir vídeo manifesto"
+        <Reveal delay={160}>
+          <p
+            className="mt-10 md:mt-12 font-light text-white/90"
+            style={{ fontSize: "clamp(1.05rem, 1.6vw, 1.25rem)" }}
           >
-            <span className="w-11 h-11 rounded-full border border-white/60 flex items-center justify-center">
-              <Play size={16} fill="currentColor" />
-            </span>
-            Vídeo manifesto
-          </button>
+            Você tenta resolver só o que consegue ver.
+          </p>
+        </Reveal>
+
+        <Reveal delay={220}>
+          <h1
+            className="mt-3 text-[#C4B58E] font-normal"
+            style={{ fontSize: "clamp(1.6rem, 3.8vw, 2.6rem)", lineHeight: 1.2 }}
+          >
+            Mas e o que ainda está invisível?
+          </h1>
+        </Reveal>
+
+        <Reveal delay={280}>
+          <div className="mx-auto my-8 h-px w-[60px] bg-[#C4B58E]" />
+        </Reveal>
+
+        <Reveal delay={320}>
+          <p
+            className="mx-auto text-white/85 font-light max-w-[560px]"
+            style={{ fontSize: "clamp(0.95rem, 1.15vw, 1rem)", lineHeight: 1.7 }}
+          >
+            A Casa Orí ajuda pessoas e empresas a investigar o que ainda não
+            foi percebido, mas continua influenciando comportamentos, relações
+            e resultados.
+          </p>
+        </Reveal>
+
+        <Reveal delay={380}>
+          <div className="mt-10">
+            <CTA href="#avaliacao" variant="areia">
+              Quero entender o que está acontecendo →
+            </CTA>
+          </div>
         </Reveal>
       </div>
     </section>
