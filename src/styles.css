@@ -169,6 +169,11 @@ html {
   }
 }
 
+@keyframes arrow-pulse {
+  0%, 100% { opacity: 0.55; }
+  50%      { opacity: 1; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-ori__gradient,
   .hero-ori__glow {
