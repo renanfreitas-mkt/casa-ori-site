@@ -39,15 +39,8 @@ function HeroImpl() {
 
       <div className="relative w-full max-w-[1200px] mx-auto px-6 lg:px-10">
         <div className="grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
-          {/* Coluna esquerda: animação do ciclo */}
-          <Reveal delay={100}>
-            <div className="order-1 flex items-center justify-center">
-              <HeroCanvasCycle />
-            </div>
-          </Reveal>
-
-          {/* Coluna direita: texto */}
-          <div className="text-left order-2">
+          {/* Coluna esquerda: texto */}
+          <div className="text-left order-2 md:order-1">
             <Reveal>
               <span className="label-eyebrow text-white/70">Casa Orí</span>
             </Reveal>
