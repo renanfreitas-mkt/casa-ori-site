@@ -2,6 +2,7 @@ import { memo } from "react";
 import { Play } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { CTA } from "./CTA";
+import { HeroShader } from "./HeroShader";
 
 const WHATSAPP_URL = "https://wa.me/55XXXXXXXXXX";
 const QUIZ_URL = "QUIZ_URL";
@@ -12,9 +13,11 @@ function HeroImpl() {
       id="home"
       className="hero-ori relative bg-[#1d4230] text-white min-h-[88svh] flex items-center pt-24 pb-16 md:pt-28 md:pb-24 overflow-hidden"
     >
-      {/* Animated CSS gradient background (no WebGL, no per-frame JS) */}
+      {/* Animated CSS gradient background (fallback for mobile / reduced-motion) */}
       <div aria-hidden="true" className="hero-ori__gradient absolute inset-0 pointer-events-none" />
       <div aria-hidden="true" className="hero-ori__glow absolute pointer-events-none hidden md:block" />
+      {/* WebGL shader — desktop only, respects prefers-reduced-motion */}
+      <HeroShader />
       <div
         aria-hidden="true"
         className="absolute inset-0 pointer-events-none opacity-[0.07] mix-blend-overlay"
