@@ -608,7 +608,7 @@ const CtaFinalImpl = () => (
             href="#avaliacao"
             className="inline-flex items-center justify-center px-7 md:px-9 py-3.5 md:py-4 rounded-full tracking-wide text-[14px] md:text-[15px] transition-colors duration-300 border border-[#C4B58E] text-[#C4B58E] hover:bg-[#C4B58E] hover:text-[#26533C]"
           >
-            Quero começar agora →
+            Quero começar agora{"\u00a0"}
           </a>
         </div>
       </Reveal>
