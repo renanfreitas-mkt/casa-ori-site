@@ -235,7 +235,7 @@ const AvaliacaoV3Impl = () => (
           </p>
           <div className="mt-8">
             <CTA href={QUIZ_CPF_URL} external variant="areia">
-              Começar agora →
+              Começar agora{"\u00a0"}
             </CTA>
           </div>
         </div>
@@ -255,7 +255,7 @@ const AvaliacaoV3Impl = () => (
           </p>
           <div className="mt-8">
             <CTA href={QUIZ_CNPJ_URL} external variant="areia">
-              Começar agora →
+              Começar agora{"\u00a0"}
             </CTA>
           </div>
         </div>
@@ -584,7 +584,7 @@ const CtaFinalImpl = () => (
       <Reveal delay={200}>
         <div className="mt-8">
           <CTA href="#avaliacao" variant="areia">
-            Quero entender o que está acontecendo →
+            Quero entender o que está acontecendo{"\u00a0"}
           </CTA>
         </div>
       </Reveal>
@@ -608,7 +608,7 @@ const CtaFinalImpl = () => (
             href="#avaliacao"
             className="inline-flex items-center justify-center px-7 md:px-9 py-3.5 md:py-4 rounded-full tracking-wide text-[14px] md:text-[15px] transition-colors duration-300 border border-[#C4B58E] text-[#C4B58E] hover:bg-[#C4B58E] hover:text-[#26533C]"
           >
-            Quero começar agora →
+            Quero começar agora{"\u00a0"}
           </a>
         </div>
       </Reveal>
