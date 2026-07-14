@@ -255,7 +255,7 @@ const AvaliacaoV3Impl = () => (
           </p>
           <div className="mt-8">
             <CTA href={QUIZ_CNPJ_URL} external variant="areia">
-              Começar agora →
+              Começar agora{"\u00a0"}
             </CTA>
           </div>
         </div>
