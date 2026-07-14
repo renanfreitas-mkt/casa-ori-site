@@ -584,7 +584,7 @@ const CtaFinalImpl = () => (
       <Reveal delay={200}>
         <div className="mt-8">
           <CTA href="#avaliacao" variant="areia">
-            Quero entender o que está acontecendo →
+            Quero entender o que está acontecendo{"\u00a0"}
           </CTA>
         </div>
       </Reveal>
