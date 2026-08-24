@@ -43,7 +43,7 @@ function Index() {
         <DoresV3 />
         <SistemaOriV3 />
         <AvaliacaoV3 />
-        <ServicosV3 />
+        
         <CarolV3 />
         <ContinueConversa />
         <DepoimentosV3 />
