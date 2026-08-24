@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Nav } from "@/components/site/Nav";
-import { Contato, Footer } from "@/components/site/sections";
+import { Footer } from "@/components/site/sections";
+import { ContatoCaminho, ContatoDireto } from "@/components/site/ContatoPage";
 
 export const Route = createFileRoute("/contato")({
   head: () => ({
@@ -27,7 +28,8 @@ function ContatoPage() {
     <div className="bg-white text-[#1C1C1C] overflow-x-hidden">
       <Nav />
       <main className="pt-20">
-        <Contato />
+        <ContatoCaminho />
+        <ContatoDireto />
       </main>
       <Footer />
     </div>
