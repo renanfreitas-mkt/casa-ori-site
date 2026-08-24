@@ -1,13 +1,22 @@
 import type { ReactNode, CSSProperties } from "react";
 
-type Bg = "verde" | "areia" | "areia-claro" | "branco" | "kraft";
+type Bg =
+  | "verde"
+  | "verde-noite"
+  | "areia"
+  | "areia-claro"
+  | "branco"
+  | "kraft"
+  | "superficie";
 
 const bgClass: Record<Bg, string> = {
   verde: "bg-[#26533C] text-white",
+  "verde-noite": "bg-verde-noite text-white",
   areia: "kraft-areia text-[#26533C]",
   "areia-claro": "kraft text-[#26533C]",
   branco: "bg-white text-[#26533C]",
   kraft: "kraft text-[#26533C]",
+  superficie: "superficie text-verde",
 };
 
 export function Section({
