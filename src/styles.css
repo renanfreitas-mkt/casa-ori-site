@@ -111,6 +111,30 @@ html {
   font-size: 0.75rem;
 }
 
+/* Escala tipográfica única para títulos de seção */
+@utility section-title {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: clamp(1.7rem, 3.2vw, 2.35rem);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+@utility section-title-sm {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  line-height: 1.25;
+}
+
+/* Superfície clara dominante do site */
+@utility superficie {
+  background-color: var(--color-superficie);
+  background-image:
+    radial-gradient(circle at 18% 12%, rgba(196, 181, 142, 0.18) 0, transparent 45%),
+    radial-gradient(circle at 88% 78%, rgba(38, 83, 60, 0.05) 0, transparent 50%);
+}
+
 @utility kraft {
   background-color: var(--color-areia-claro);
   background-image:
