@@ -1,12 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Nav } from "@/components/site/Nav";
+import { Footer } from "@/components/site/sections";
 import {
-  AvaliacaoInicial,
-  ServicosGrid,
-  ServicosCta,
-  AntesResumo,
-  Footer,
-} from "@/components/site/sections";
+  ServicosIntro,
+  ServicosPessoa,
+  ServicosEmpresa,
+  ServicosFinal,
+} from "@/components/site/ServicosPage";
 
 export const Route = createFileRoute("/servicos")({
   head: () => ({
@@ -33,10 +33,10 @@ function ServicosPage() {
     <div className="bg-white text-[#1C1C1C] overflow-x-hidden">
       <Nav />
       <main className="pt-20">
-        <AvaliacaoInicial />
-        <ServicosGrid />
-        <ServicosCta />
-        <AntesResumo />
+        <ServicosIntro />
+        <ServicosPessoa />
+        <ServicosEmpresa />
+        <ServicosFinal />
       </main>
       <Footer />
     </div>

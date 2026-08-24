@@ -1,11 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Nav } from "@/components/site/Nav";
+import { Footer } from "@/components/site/sections";
 import {
-  PorQue,
-  ComoConduzido,
-  Antes,
-  Footer,
-} from "@/components/site/sections";
+  Nome,
+  Pilares,
+  CarolSobre,
+  Premissas,
+  SobreFechamento,
+} from "@/components/site/SobrePage";
 
 export const Route = createFileRoute("/sobre")({
   head: () => ({
@@ -32,9 +34,11 @@ function SobrePage() {
     <div className="bg-white text-[#1C1C1C] overflow-x-hidden">
       <Nav />
       <main className="pt-20">
-        <PorQue />
-        <ComoConduzido />
-        <Antes />
+        <Nome />
+        <Pilares />
+        <CarolSobre />
+        <Premissas />
+        <SobreFechamento />
       </main>
       <Footer />
     </div>

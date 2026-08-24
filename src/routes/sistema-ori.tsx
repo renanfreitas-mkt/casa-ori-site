@@ -1,12 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Nav } from "@/components/site/Nav";
+import { Footer } from "@/components/site/sections";
 import {
-  SistemaOriIntro,
-  SistemaOriDiferencial,
-  SistemaOriAplicacao,
-  SistemaOriEsperar,
-  Footer,
-} from "@/components/site/sections";
+  OriEixos,
+  OriDiferencial,
+  OriAplicacao,
+  OriGanhos,
+  OriFechamento,
+} from "@/components/site/SistemaOriPage";
 
 export const Route = createFileRoute("/sistema-ori")({
   head: () => ({
@@ -33,10 +34,11 @@ function SistemaOriPage() {
     <div className="bg-white text-[#1C1C1C] overflow-x-hidden">
       <Nav />
       <main className="pt-20">
-        <SistemaOriIntro />
-        <SistemaOriDiferencial />
-        <SistemaOriAplicacao />
-        <SistemaOriEsperar />
+        <OriEixos />
+        <OriDiferencial />
+        <OriAplicacao />
+        <OriGanhos />
+        <OriFechamento />
       </main>
       <Footer />
     </div>
