@@ -110,7 +110,7 @@ export function PublicoDuo({
       >
         {p.texto}
       </p>
-      <div className="mt-8 mt-auto pt-8">{p.cta}</div>
+      <div className="mt-auto pt-8">{p.cta}</div>
     </div>
   );
 
