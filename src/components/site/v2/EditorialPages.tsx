@@ -133,7 +133,7 @@ const HomeEdImpl = () => (
           </ul>
 
           <div className="mt-8">
-            <EdCTA href={QUIZ_CNPJ_URL} variant="butter" className="w-full sm:w-auto">
+            <EdCTA href={QUIZ_CNPJ_URL} variant="ink" className="w-full sm:w-auto">
               Quero entender minha empresa
             </EdCTA>
           </div>
