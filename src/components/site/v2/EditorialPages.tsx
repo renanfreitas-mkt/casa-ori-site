@@ -118,21 +118,22 @@ const HomeEdImpl = () => (
             </EdCTA>
           </div>
         </EdCard>
-        <EdCard className="bg-ed-ink border-ed-ink text-ed-cream">
-          <span className="ed-eyebrow text-ed-butter">Para sua empresa</span>
+        <EdCard className="bg-ed-butter/30 border-ed-ink/15 text-ed-ink">
+          <span className="ed-eyebrow text-ed-ink/60">Para sua empresa</span>
           <ul className="mt-6 space-y-4">
             {DORES_CNPJ.map((d) => (
               <li
                 key={d}
-                className="flex gap-3 text-[15px] font-normal leading-relaxed text-ed-cream"
+                className="flex gap-3 text-[15px] font-normal leading-relaxed text-ed-ink"
               >
-                <span className="mt-2 h-1.5 w-1.5 rounded-full bg-ed-butter shrink-0" />
+                <span className="mt-2 h-1.5 w-1.5 rounded-full bg-ed-ink shrink-0" />
                 <span>{d}</span>
               </li>
             ))}
           </ul>
+
           <div className="mt-8">
-            <EdCTA href={QUIZ_CNPJ_URL} variant="butter" className="w-full sm:w-auto">
+            <EdCTA href={QUIZ_CNPJ_URL} variant="ink" className="w-full sm:w-auto">
               Quero entender minha empresa
             </EdCTA>
           </div>
