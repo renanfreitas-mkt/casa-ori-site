@@ -127,6 +127,14 @@ function NavImpl() {
           >
             Falar no WhatsApp
           </a>
+          <Link
+            to="/v2"
+            onClick={() => setOpen(false)}
+            className="text-white/75 text-[13px] tracking-wide underline underline-offset-4"
+          >
+            Ver novo tema
+          </Link>
+
         </div>
       </div>
 
