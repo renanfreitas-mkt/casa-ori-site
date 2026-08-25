@@ -124,7 +124,7 @@ const HomeEdImpl = () => (
             {DORES_CNPJ.map((d) => (
               <li
                 key={d}
-                className="flex gap-3 text-[15px] font-light leading-relaxed text-ed-cream/80"
+                className="flex gap-3 text-[15px] font-normal leading-relaxed text-ed-cream"
               >
                 <span className="mt-2 h-1.5 w-1.5 rounded-full bg-ed-butter shrink-0" />
                 <span>{d}</span>
