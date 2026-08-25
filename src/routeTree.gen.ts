@@ -16,6 +16,7 @@ import { Route as ServicosRouteImport } from './routes/servicos'
 import { Route as ContatoRouteImport } from './routes/contato'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as V2IndexRouteImport } from './routes/v2.index'
+import { Route as V2SobreRouteImport } from './routes/v2.sobre'
 import { Route as V2SistemaOriRouteImport } from './routes/v2.sistema-ori'
 import { Route as V2ServicosRouteImport } from './routes/v2.servicos'
 
@@ -54,6 +55,11 @@ const V2IndexRoute = V2IndexRouteImport.update({
   path: '/',
   getParentRoute: () => V2Route,
 } as any)
+const V2SobreRoute = V2SobreRouteImport.update({
+  id: '/sobre',
+  path: '/sobre',
+  getParentRoute: () => V2Route,
+} as any)
 const V2SistemaOriRoute = V2SistemaOriRouteImport.update({
   id: '/sistema-ori',
   path: '/sistema-ori',
@@ -74,6 +80,7 @@ export interface FileRoutesByFullPath {
   '/v2': typeof V2RouteWithChildren
   '/v2/servicos': typeof V2ServicosRoute
   '/v2/sistema-ori': typeof V2SistemaOriRoute
+  '/v2/sobre': typeof V2SobreRoute
   '/v2/': typeof V2IndexRoute
 }
 export interface FileRoutesByTo {
@@ -84,6 +91,7 @@ export interface FileRoutesByTo {
   '/sobre': typeof SobreRoute
   '/v2/servicos': typeof V2ServicosRoute
   '/v2/sistema-ori': typeof V2SistemaOriRoute
+  '/v2/sobre': typeof V2SobreRoute
   '/v2': typeof V2IndexRoute
 }
 export interface FileRoutesById {
@@ -96,6 +104,7 @@ export interface FileRoutesById {
   '/v2': typeof V2RouteWithChildren
   '/v2/servicos': typeof V2ServicosRoute
   '/v2/sistema-ori': typeof V2SistemaOriRoute
+  '/v2/sobre': typeof V2SobreRoute
   '/v2/': typeof V2IndexRoute
 }
 export interface FileRouteTypes {
@@ -109,6 +118,7 @@ export interface FileRouteTypes {
     | '/v2'
     | '/v2/servicos'
     | '/v2/sistema-ori'
+    | '/v2/sobre'
     | '/v2/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -119,6 +129,7 @@ export interface FileRouteTypes {
     | '/sobre'
     | '/v2/servicos'
     | '/v2/sistema-ori'
+    | '/v2/sobre'
     | '/v2'
   id:
     | '__root__'
@@ -130,6 +141,7 @@ export interface FileRouteTypes {
     | '/v2'
     | '/v2/servicos'
     | '/v2/sistema-ori'
+    | '/v2/sobre'
     | '/v2/'
   fileRoutesById: FileRoutesById
 }
@@ -193,6 +205,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof V2IndexRouteImport
       parentRoute: typeof V2Route
     }
+    '/v2/sobre': {
+      id: '/v2/sobre'
+      path: '/sobre'
+      fullPath: '/v2/sobre'
+      preLoaderRoute: typeof V2SobreRouteImport
+      parentRoute: typeof V2Route
+    }
     '/v2/sistema-ori': {
       id: '/v2/sistema-ori'
       path: '/sistema-ori'
@@ -213,12 +232,14 @@ declare module '@tanstack/react-router' {
 interface V2RouteChildren {
   V2ServicosRoute: typeof V2ServicosRoute
   V2SistemaOriRoute: typeof V2SistemaOriRoute
+  V2SobreRoute: typeof V2SobreRoute
   V2IndexRoute: typeof V2IndexRoute
 }
 
 const V2RouteChildren: V2RouteChildren = {
   V2ServicosRoute: V2ServicosRoute,
   V2SistemaOriRoute: V2SistemaOriRoute,
+  V2SobreRoute: V2SobreRoute,
   V2IndexRoute: V2IndexRoute,
 }
 
