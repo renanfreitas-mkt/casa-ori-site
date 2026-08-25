@@ -73,14 +73,23 @@ function NavImpl() {
             })}
           </nav>
 
-          <a
-            href={WHATSAPP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden lg:inline-flex items-center border border-white text-white text-[13px] px-4 py-2 rounded-full tracking-wide transition-colors duration-300 hover:bg-white hover:text-[#26533C]"
-          >
-            Falar no WhatsApp
-          </a>
+          <div className="hidden lg:flex items-center gap-3">
+            <Link
+              to="/v2"
+              className="text-white/75 text-[12px] tracking-wide underline underline-offset-4 transition-opacity hover:opacity-100 hover:text-white"
+            >
+              Ver novo tema
+            </Link>
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center border border-white text-white text-[13px] px-4 py-2 rounded-full tracking-wide transition-colors duration-300 hover:bg-white hover:text-[#26533C]"
+            >
+              Falar no WhatsApp
+            </a>
+          </div>
+
 
           <button
             type="button"
@@ -118,6 +127,14 @@ function NavImpl() {
           >
             Falar no WhatsApp
           </a>
+          <Link
+            to="/v2"
+            onClick={() => setOpen(false)}
+            className="text-white/75 text-[13px] tracking-wide underline underline-offset-4"
+          >
+            Ver novo tema
+          </Link>
+
         </div>
       </div>
 
