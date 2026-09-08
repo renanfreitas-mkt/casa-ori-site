@@ -277,18 +277,27 @@ export const CAROL = {
 export const DEPOIMENTOS = [
   {
     texto:
-      "Pela primeira vez em anos, me senti realmente ouvida. Saí de cada encontro com algo concreto para fazer no dia seguinte.",
-    autor: "Depoimento a substituir",
+      "À medida que nos ouve, Carol consegue organizar nossos pensamentos de forma tão clara que a raiz do problema rapidamente se torna evidente. Acolhe sem julgamentos, escuta com presença e conduz cada atendimento com paciência e sabedoria. A sensação é de que chegamos de um jeito e saímos completamente diferentes: mais leves e alinhados com nós mesmos.",
+    autor: "Bruna Cruz",
+    inicial: "B",
   },
   {
     texto:
-      "Achei que o problema era a equipe. Era a forma como eu comunicava o que esperava dela.",
-    autor: "Depoimento a substituir",
+      "Carol tem uma sensibilidade única para acolher, perceber e sentir o outro, além de uma habilidade única quando o assunto é comunicação. Conduz conversas difíceis com uma leveza que só ela tem. Através da Constelação Familiar, teve grande responsabilidade na resolução de processos pessoais desafiadores. Sua entrega amorosa é sempre um lugar seguro para se estar.",
+    autor: "Luana F.",
+    inicial: "L",
   },
   {
     texto:
-      "O que se repetia há anos finalmente ganhou nome. E, com nome, deu para mudar.",
-    autor: "Depoimento a substituir",
+      "Eu já havia feito 2 Constelações Familiares com profissionais diferentes. Mas o seu trabalho me impressionou pela profundidade, pela abrangência e, principalmente, pelo resultado. Estou profundamente agradecida por seus esclarecimentos e deixo um pedido: por favor, continue seus estudos pois há muita gente pra você ajudar.",
+    autor: "Marta F.",
+    inicial: "M",
+  },
+  {
+    texto:
+      "Ter um atendimento com Carol é chegar pesando meia tonelada e sair leve igual uma pena. Carol nos mostra o que é preciso ter para levar a vida de forma mais leve. Resumindo, Carol é nosso segundo cérebro junto do seu novo espaço Orí que completa toda a cena.",
+    autor: "Thiago C.",
+    inicial: "T",
   },
 ];
 

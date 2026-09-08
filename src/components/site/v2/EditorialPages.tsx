@@ -140,6 +140,7 @@ const HomeEdImpl = () => (
       image={edQuoteImg}
       quote={DEPOIMENTOS[0].texto}
       autor={DEPOIMENTOS[0].autor}
+      inicial={DEPOIMENTOS[0].inicial}
     />
 
     {/* Sistema ORI resumo */}
@@ -299,7 +300,7 @@ const ServicosEdImpl = () => (
       </div>
     </EdSection>
 
-    <EdQuote image={edTeam} quote={DEPOIMENTOS[1].texto} autor={DEPOIMENTOS[1].autor} />
+    <EdQuote image={edTeam} quote={DEPOIMENTOS[1].texto} autor={DEPOIMENTOS[1].autor} inicial={DEPOIMENTOS[1].inicial} />
 
     <EdSection bg="butter">
       <span className="ed-eyebrow text-ed-ink/50">Para sua empresa</span>
@@ -417,6 +418,8 @@ const OriEdImpl = () => (
       </div>
     </EdSection>
 
+    <EdQuote image={edRoom} quote={DEPOIMENTOS[3].texto} autor={DEPOIMENTOS[3].autor} inicial={DEPOIMENTOS[3].inicial} />
+
     <EdSection bg="ink">
       <EdHead tone="cream" title={V2_COPY.ori.fechamento} />
       <Reveal delay={200}>
@@ -493,7 +496,7 @@ const SobreEdImpl = () => (
       </div>
     </EdSection>
 
-    <EdQuote image={edQuoteImg} quote={DEPOIMENTOS[2].texto} autor={DEPOIMENTOS[2].autor} />
+    <EdQuote image={edQuoteImg} quote={DEPOIMENTOS[2].texto} autor={DEPOIMENTOS[2].autor} inicial={DEPOIMENTOS[2].inicial} />
 
     <EdSection bg="cream">
       <EdHead
