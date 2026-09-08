@@ -108,7 +108,7 @@ export function EdHead({
     >
       {kicker && (
         <Reveal>
-          <span className={`ed-eyebrow ${dark ? "text-ed-ink/55" : "text-ed-butter"}`}>
+          <span className={`ed-eyebrow ${dark ? "text-ed-ink/55" : "text-ed-sand"}`}>
             {kicker}
           </span>
         </Reveal>
@@ -177,7 +177,7 @@ export function EdQuote({
         </Reveal>
         {autor && (
           <Reveal delay={140}>
-            <p className="mt-8 ed-eyebrow text-ed-butter">{autor}</p>
+            <p className="mt-8 ed-eyebrow text-ed-sand">{autor}</p>
           </Reveal>
         )}
       </div>
