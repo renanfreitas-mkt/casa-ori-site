@@ -76,6 +76,13 @@
   letter-spacing: -0.03em;
 }
 
+.theme-editorial h1,
+.theme-editorial h2,
+.theme-editorial h3 {
+  text-transform: uppercase;
+  letter-spacing: 0.005em;
+}
+
 @utility ed-eyebrow {
   font-family: var(--font-sans);
   font-weight: 400;
