@@ -249,34 +249,36 @@ export function EdListaTracos({ itens }: { itens: string[] }) {
 
 export function CicloHero() {
   return (
-    <div className="mx-auto max-w-[300px]">
-      <div className="flex flex-col items-center gap-0">
+    <div className="mx-auto max-w-[320px]">
+      <div className="flex flex-col items-center">
         {CICLO.map((etapa, i) => (
           <div key={etapa} className="w-full flex flex-col items-center">
             <div className="w-full rounded-2xl border border-ed-areia/30 bg-white/8 px-5 py-3 text-center text-[14px] font-light text-ed-white">
               {etapa}
             </div>
-            <span
-              aria-hidden
-              className="text-ed-areia text-[18px] leading-none py-2 motion-safe:animate-[ed-pulse_2s_ease-in-out_infinite]"
-              style={{ animationDelay: `${i * 0.25}s` }}
-            >
-              ↓
-            </span>
+            {i < CICLO.length - 1 && (
+              <ArrowDown
+                aria-hidden
+                size={18}
+                className="my-2 text-ed-areia motion-safe:animate-[ed-pulse_2s_ease-in-out_infinite]"
+                style={{ animationDelay: `${i * 0.25}s` }}
+              />
+            )}
           </div>
         ))}
         <div
           aria-hidden
-          className="w-full flex items-center gap-2 text-ed-areia text-[12px] tracking-wide motion-safe:animate-[ed-pulse_2s_ease-in-out_infinite]"
+          className="mt-5 w-full flex items-center gap-2 text-ed-areia motion-safe:animate-[ed-pulse_2s_ease-in-out_infinite]"
         >
-          <span>↑</span>
+          <RotateCcw size={16} />
           <span className="flex-1 h-px bg-ed-areia/50" />
-          <span className="font-light">e recomeça</span>
+          <span className="text-[12px] font-light tracking-wide">e recomeça</span>
         </div>
       </div>
     </div>
   );
 }
+
 
 /* ---------------- Blocos reutilizáveis ---------------- */
 
