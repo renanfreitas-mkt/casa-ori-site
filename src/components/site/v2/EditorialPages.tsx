@@ -84,7 +84,7 @@ const HomeEdImpl = () => (
     <EdSection bg="butter">
       <div className="max-w-[880px]">
         <Reveal>
-          <h2 className="ed-title text-ed-ink max-w-[16ch]">
+          <h2 className="ed-title text-ed-ink max-w-[22ch]">
             {V2_COPY.home.metodoTitulo}
           </h2>
         </Reveal>
@@ -306,7 +306,7 @@ const ServicosEdImpl = () => (
 
     <EdSection bg="white">
       <span className="ed-eyebrow text-ed-ink/50">Para você</span>
-      <h2 className="mt-4 ed-title text-ed-ink max-w-[520px]">
+      <h2 className="mt-4 ed-title text-ed-ink max-w-[680px]">
         Processos no seu ritmo
       </h2>
       <div className="mt-8">
@@ -395,7 +395,11 @@ const OriEdImpl = () => (
     </EdSection>
 
     <EdSection bg="ink">
-      <EdHead tone="cream" title="O que torna o Sistema ORI diferente" className="mb-12" />
+      <EdHead
+        tone="cream"
+        title="O diferencial do Sistema ORI"
+        className="mb-12"
+      />
       <ul className="grid md:grid-cols-2 gap-5">
         {DIFERENCIAIS.map((d, i) => (
           <Reveal key={d} delay={i * 80} as="li">
@@ -408,7 +412,7 @@ const OriEdImpl = () => (
     </EdSection>
 
     <EdSection bg="butter">
-      <EdHead title="Onde o Sistema ORI costuma ser aplicado" className="mb-12" />
+      <EdHead title="Onde o Sistema ORI se aplica" className="mb-12" />
       <div className="grid md:grid-cols-2 gap-12 md:gap-20">
         <ListaEd titulo="Na vida pessoal" itens={NA_VIDA} />
         <ListaEd titulo="Nas empresas" itens={NAS_EMPRESAS} />
@@ -417,7 +421,7 @@ const OriEdImpl = () => (
 
     <EdSection bg="cream">
       <div className="grid md:grid-cols-[0.9fr_1.1fr] gap-10 md:gap-16 items-start">
-        <EdHead title="O que você ganha ao longo do caminho" />
+        <EdHead title="O que você ganha no caminho" />
         <ol className="space-y-4">
           {GANHOS.map((g, i) => (
             <Reveal key={g} delay={i * 70} as="li">
@@ -438,7 +442,11 @@ const OriEdImpl = () => (
     <EdQuote image={edRoom} quote={DEPOIMENTOS[3].texto} autor={DEPOIMENTOS[3].autor} inicial={DEPOIMENTOS[3].inicial} />
 
     <EdSection bg="ink">
-      <EdHead tone="cream" title={V2_COPY.ori.fechamento} />
+      <EdHead
+        tone="cream"
+        title="A estrutura está aqui"
+        lead="O Sistema ORI organiza o caminho — e quem caminha é você."
+      />
       <Reveal delay={200}>
         <div className="mt-8">
           <EdCTA href={QUIZ_CPF_URL} variant="butter">
@@ -518,7 +526,7 @@ const SobreEdImpl = () => (
     <EdSection bg="cream">
       <EdHead
         kicker="Antes de começar"
-        title="Antes de começar, vale alinhar alguns pontos"
+        title="Antes de começar"
         className="mb-12"
       />
       <div className="grid gap-6 md:grid-cols-2">
@@ -536,7 +544,11 @@ const SobreEdImpl = () => (
     </EdSection>
 
     <EdSection bg="ink">
-      <EdHead tone="cream" title={V2_COPY.sobre.fechamento} />
+      <EdHead
+        tone="cream"
+        title="O desconforto da mudança"
+        lead={V2_COPY.sobre.fechamento}
+      />
       <Reveal delay={200}>
         <div className="mt-8">
           <EdCTA href={QUIZ_CPF_URL} variant="butter">
