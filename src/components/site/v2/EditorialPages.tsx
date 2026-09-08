@@ -48,7 +48,7 @@ const HomeEdImpl = () => (
           <span className="ed-eyebrow text-ed-ink/55">Casa Orí</span>
         </Reveal>
         <Reveal delay={80}>
-          <h1 className="ed-display ed-balanced text-ed-ink mt-6 max-w-[17ch] text-[2.35rem] md:text-[4.15rem] lg:text-[5rem] leading-[1.02]">
+          <h1 className="ed-display ed-balanced text-ed-ink mt-6 whitespace-nowrap text-[1.35rem] sm:text-[1.95rem] md:text-[3.4rem] lg:text-[4.6rem] leading-[1.05]">
             MAS O QUE AINDA ESTÁ{" "}
             <EdAccent circle>invisível?</EdAccent>
           </h1>
