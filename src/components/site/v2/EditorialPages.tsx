@@ -27,6 +27,7 @@ import {
   QUIZ_CPF_URL,
   QUIZ_CNPJ_URL,
   WHATSAPP_URL,
+  V2_COPY,
   type Servico,
 } from "../content";
 
@@ -42,24 +43,22 @@ const HomeEdImpl = () => (
         </Reveal>
         <Reveal delay={80}>
           <h1 className="ed-display text-ed-ink mt-6 text-[clamp(2.4rem,7vw,5.6rem)]">
-            {HERO.titulo}
-            <br />
-            <span className="text-ed-olive italic">{HERO.tituloEm}</span>
+            {V2_COPY.home.titulo}
           </h1>
         </Reveal>
         <div className="mt-10 grid gap-8 md:grid-cols-[1.1fr_1fr] items-end">
           <Reveal delay={160}>
             <p className="max-w-[520px] text-[16px] md:text-[18px] font-light leading-relaxed text-ed-ink/70">
-              {HERO.lead}
+              {V2_COPY.home.subtitulo}
             </p>
           </Reveal>
           <Reveal delay={220}>
             <div className="flex flex-col sm:flex-row gap-3 md:justify-end">
               <EdCTA href={QUIZ_CPF_URL} variant="ink">
-                {HERO.ctaCpf}
+                {V2_COPY.home.ctaCpf}
               </EdCTA>
               <EdCTA href={QUIZ_CNPJ_URL} variant="outlineInk">
-                {HERO.ctaCnpj}
+                {V2_COPY.home.ctaCnpj}
               </EdCTA>
             </div>
           </Reveal>
@@ -79,13 +78,12 @@ const HomeEdImpl = () => (
       <div className="max-w-[880px]">
         <Reveal>
           <p className="ed-title text-ed-ink">
-            {EXPLICACAO.titulo}{" "}
-            <span className="italic text-ed-olive">{EXPLICACAO.tituloEm}</span>
+            {V2_COPY.home.metodoTitulo}
           </p>
         </Reveal>
         <Reveal delay={120}>
           <p className="mt-8 text-[17px] md:text-[19px] font-light leading-relaxed text-ed-ink/75">
-            {EXPLICACAO.meio} {EXPLICACAO.fim}
+            {V2_COPY.home.metodoTexto}
           </p>
         </Reveal>
       </div>
@@ -151,8 +149,8 @@ const HomeEdImpl = () => (
     <EdSection bg="cream">
       <EdHead
         kicker="Sistema ORI"
-        title="Um caminho em três movimentos."
-        lead="A mesma estrutura conduz processos individuais e trabalhos dentro de empresas — o que muda é o contexto, não o método."
+        title={V2_COPY.ori.titulo}
+        lead={V2_COPY.home.subtitulo}
         className="mb-12"
       />
       <div className="grid gap-6 md:grid-cols-3">
@@ -179,8 +177,8 @@ const HomeEdImpl = () => (
         <div>
           <EdHead
             kicker="Serviços"
-            title="Cada situação pede um caminho diferente."
-            lead="Processos individuais conduzidos no seu ritmo, e trabalhos com equipes e lideranças a partir do dia a dia real do time."
+            title={V2_COPY.home.metodoTitulo}
+            lead={V2_COPY.home.metodoTexto}
           />
           <Reveal delay={200}>
             <div className="mt-8 flex flex-wrap gap-3">
@@ -217,7 +215,7 @@ function CtaFinalEd() {
       <EdHead
         tone="cream"
         align="center"
-        title="Por onde você quer começar?"
+        title={V2_COPY.home.metodoTitulo}
         className="mb-12"
       />
       <div className="grid gap-6 md:grid-cols-2">
@@ -282,20 +280,11 @@ function ServicoEd({ s, i }: { s: Servico; i: number }) {
 const ServicosEdImpl = () => (
   <>
     <EdSection bg="cream">
-      <EdHead
-        kicker="Serviços"
-        title={
-          <>
-            Você já sabe que algo precisa mudar. A pergunta agora é:{" "}
-            <span className="italic text-ed-olive">por onde começar?</span>
-          </>
-        }
-        lead="Cada situação pede um caminho diferente. Por isso, o primeiro passo é sempre entender melhor o que está acontecendo, antes de decidir por onde seguir."
-      />
+       <EdHead kicker="Serviços" title={V2_COPY.servicos.introducao} />
       <Reveal delay={240}>
         <div className="mt-9">
           <EdCTA href={QUIZ_CPF_URL} variant="ink">
-            Quero começar por aqui
+             {V2_COPY.servicos.cta}
           </EdCTA>
         </div>
       </Reveal>
@@ -358,7 +347,7 @@ const OriEdImpl = () => (
     <EdSection bg="cream">
       <EdHead
         kicker="Sistema ORI"
-        title="Um caminho em três movimentos."
+        title={V2_COPY.ori.titulo}
         lead="A mesma estrutura conduz processos individuais e trabalhos dentro de empresas — o que muda é o contexto, não o método."
         className="mb-14"
       />
@@ -431,7 +420,16 @@ const OriEdImpl = () => (
       </div>
     </EdSection>
 
-    <CtaFinalEd />
+    <EdSection bg="ink">
+      <EdHead tone="cream" title={V2_COPY.ori.fechamento} />
+      <Reveal delay={200}>
+        <div className="mt-8">
+          <EdCTA href={QUIZ_CPF_URL} variant="butter">
+            {V2_COPY.ori.cta}
+          </EdCTA>
+        </div>
+      </Reveal>
+    </EdSection>
   </>
 );
 export const OriEd = memo(OriEdImpl);

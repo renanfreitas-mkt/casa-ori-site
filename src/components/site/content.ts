@@ -316,3 +316,50 @@ export const CONTATO = {
     "Se você já sabe o que precisa, ou simplesmente prefere conversar antes de responder qualquer coisa, o WhatsApp está aberto. Atendimentos presenciais em Brasília e online para todo o Brasil.",
   diretoCitacao: "Uma conversa já muda o ponto de partida.",
 };
+
+/** Copy aprovada especificamente para o tema editorial (/v2). */
+export const V2_COPY = {
+  home: {
+    titulo: "Mas o que ainda está invisível?",
+    subtitulo:
+      "Enquanto você tenta resolver só essa parte, uma outra continua influenciando a situação. O que muda quando você começa a ver o problema por completo?",
+    metodoTitulo: "O método continua o mesmo.",
+    metodoTexto:
+      "É o formato que muda de acordo com a sua necessidade ou da sua empresa.",
+    ctaCpf: "Quero entender minha situação",
+    ctaCnpj: "Quero entender minha empresa",
+  },
+  servicos: {
+    introducao:
+      "Você já sabe que algo precisa mudar. Cada situação pede um caminho diferente. Por isso, o primeiro passo é sempre entender melhor o que está acontecendo, antes de decidirmos juntos por onde seguir.",
+    cta: "Quero entender meu momento",
+  },
+  ori: {
+    titulo: "Sistema ORI",
+    fechamento:
+      "A estrutura está aqui. O sistema ORI organiza o caminho e quem caminha é você.",
+    cta: "Quero dar o primeiro passo",
+  },
+  sobre: {
+    especialidade:
+      "Especialista em Comunicação, Comportamento e Relações Humanas, criadora do Sistema ORI.",
+    bio: [
+      "Antes de fundar a Casa Orí, atuei por 4 anos com comunicação corporativa, passando por cerca de 20 empresas de diferentes portes e segmentos. Foi nesse caminho que percebi como comportamento, comunicação e história pessoal estão sempre conectados, mesmo dentro de uma empresa.",
+      "Em paralelo, com a formação em Constelação Familiar, a combinação entre a prática em comunicação e o olhar sistêmico me abriu caminhos para começar a atender em 2019 e a abrir a Casa Orí em 2024. De lá pra cá, já foram mais de 900 atendimentos conduzidos. Foi essa prática que deu origem ao método que estrutura esse trabalho hoje — o Sistema ORI.",
+    ],
+    fechamento:
+      "Qual desconforto você escolhe: o que já te acompanha há tanto tempo, ou o que te leva à mudança que você busca?",
+    cta: "Quero essa mudança",
+  },
+  contato: {
+    titulo: "Próximos passos",
+    texto:
+      "O primeiro passo é sempre olhar para o que está pedindo atenção. Sem precisar ter tudo entendido. Sem precisar ter todas as respostas. Só a disponibilidade de investigar. Para entendermos a sua situação e definirmos o melhor caminho, responda algumas perguntas rápidas.",
+    cpfTexto: "Responder algumas perguntas me ajuda a entender o seu momento.",
+    cpfCta: "Quero entender minha situação",
+    cnpjTexto: "Algumas perguntas rápidas, pra gente entender o cenário do seu negócio.",
+    cnpjCta: "Quero entender minha empresa",
+    whatsapp:
+      "Se você já sabe o que precisa e quer agendar direto, é só chamar no WhatsApp. Online ou presencial, conforme sua necessidade.",
+  },
+} as const;
