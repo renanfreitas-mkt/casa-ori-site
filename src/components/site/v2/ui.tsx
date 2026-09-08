@@ -108,7 +108,7 @@ export function EdHead({
     >
       {kicker && (
         <Reveal>
-          <span className={`ed-eyebrow ${dark ? "text-ed-ink/55" : "text-ed-sand"}`}>
+          <span className={`ed-eyebrow ${dark ? "text-ed-ink/55" : "text-ed-forest"}`}>
             {kicker}
           </span>
         </Reveal>
