@@ -46,19 +46,7 @@
   --color-ed-olive: #3E4A32;
   --color-ed-sand: #C9BC9C;
 
-  /* Paleta oficial Casa Orí (tema editorial v2) */
-  --color-ed-dark: #215d1b;
-  --color-ed-green: #26533c;
-  --color-ed-moss: #717d5f;
-  --color-ed-light: #a0b18a;
-  --color-ed-soft: #c3cdb8;
-  --color-ed-areia: #c1b48a;
-  --color-ed-white: #fefefe;
-  --color-ed-text: #1C1C1C;
-
   --animate-arrow-pulse: arrow-pulse 2s ease-in-out infinite;
-  --animate-ed-pulse: ed-pulse 2s ease-in-out infinite;
-
 
   --font-sans: "Roboto", system-ui, -apple-system, sans-serif;
   --font-script: "Cormorant Garamond", "Cormorant", Georgia, serif;
@@ -251,12 +239,6 @@ html {
   0%, 100% { opacity: 0.55; }
   50%      { opacity: 1; }
 }
-
-@keyframes ed-pulse {
-  0%, 100% { opacity: 0.6; }
-  50%      { opacity: 1; }
-}
-
 
 @media (prefers-reduced-motion: reduce) {
   .hero-ori__gradient,

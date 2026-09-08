@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ServicosEd } from "@/components/site/v2/EditorialPages";
 
-const title = 'Serviços — Diferentes formas de aplicar o Sistema ORI | Casa Orí';
+const title = "Serviços — Casa Orí | Tema editorial";
 const description =
-  'Terapia sistêmica, constelação familiar, vivências, workshops, programas de desenvolvimento e palestras.';
+  "Terapia sistêmica, constelação familiar, vivências, palestras e programas de liderança para equipes.";
 
 export const Route = createFileRoute("/v2/servicos")({
   head: () => ({

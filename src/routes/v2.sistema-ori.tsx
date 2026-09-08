@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { OriEd } from "@/components/site/v2/EditorialPages";
 
-const title = 'Sistema ORI — Observa, Reorganiza, Integra | Casa Orí';
+const title = "Sistema ORI — Casa Orí | Tema editorial";
 const description =
-  'Método autoral que investiga o que ainda não está visível, constrói novas possibilidades de ação e sustenta a mudança.';
+  "Observa, Reorganiza, Integra: o método que conduz processos individuais e trabalhos com equipes.";
 
 export const Route = createFileRoute("/v2/sistema-ori")({
   head: () => ({
