@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { HomeEd } from "@/components/site/v2/EditorialPages";
 
-const title = "Casa Orí — Terapia sistêmica e desenvolvimento de equipes | Tema editorial";
+const title = 'Casa Orí — Investigue o que ainda está invisível';
 const description =
-  "Versão editorial do site da Casa Orí: escuta atenta em Brasília para o que pesa na vida pessoal e nas equipes.";
+  'Terapia sistêmica, constelação familiar e desenvolvimento de equipes em Brasília. Comece com uma primeira conversa.';
 
 export const Route = createFileRoute("/v2/")({
   head: () => ({

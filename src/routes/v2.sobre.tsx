@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SobreEd } from "@/components/site/v2/EditorialPages";
 
-const title = "Sobre — Carol Milhomens | Casa Orí (tema editorial)";
+const title = 'Sobre a Casa Orí e Carol Milhomens';
 const description =
-  "Quem conduz a Casa Orí, o significado do nome, os pilares do trabalho e as premissas antes de começar.";
+  'A Casa Orí em Brasília e quem conduz o processo: Carol Milhomens, criadora do Sistema ORI.';
 
 export const Route = createFileRoute("/v2/sobre")({
   head: () => ({
