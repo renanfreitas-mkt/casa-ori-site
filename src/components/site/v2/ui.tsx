@@ -4,6 +4,7 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { Menu, X, Instagram, MessageCircle, ArrowLeft } from "lucide-react";
 import { Reveal } from "../Reveal";
 import { INSTAGRAM_URL, WHATSAPP_URL } from "../content";
+import logoAsset from "@/assets/casa-ori-logo.jpg.asset.json";
 
 export const links = [
   { to: "/v2", label: "Início" },
