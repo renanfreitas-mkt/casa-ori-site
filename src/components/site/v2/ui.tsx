@@ -260,7 +260,7 @@ export function EdQuote({
       <div className="absolute inset-0 bg-ed-ink/75" />
       <div className="relative px-6 py-24 md:py-36 max-w-[860px] mx-auto text-center">
         <Reveal>
-          <p className="ed-display text-ed-cream text-[26px] md:text-[40px] leading-[1.15]">
+          <p className="font-sans font-light text-ed-cream text-[20px] md:text-[24px] leading-relaxed">
             “{quote}”
           </p>
         </Reveal>
@@ -346,7 +346,7 @@ export function EdNav() {
               key={l.to}
               to={l.to}
               onClick={() => setOpen(false)}
-              className="ed-display text-[26px] text-ed-ink"
+              className="font-sans text-[20px] font-normal text-ed-ink"
             >
               {l.label}
             </Link>

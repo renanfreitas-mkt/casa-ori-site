@@ -264,7 +264,7 @@ function ServicoEd({ s, i }: { s: Servico; i: number }) {
           <p className="mt-4 text-[13px] leading-relaxed text-ed-ink/55">{s.formato}</p>
         </div>
         <div>
-          <p className="ed-display text-[22px] md:text-[26px] text-ed-forest italic">
+          <p className="ed-highlight text-[22px] md:text-[26px] text-ed-forest">
             {s.ancora}
           </p>
           {s.paragrafos.map((p) => (
@@ -378,7 +378,7 @@ const OriEdImpl = () => (
                 <p className="mt-5 text-[15px] md:text-[16px] font-light leading-relaxed text-ed-ink/70">
                   {e.texto}
                 </p>
-                <p className="mt-7 border-l-2 border-ed-butter pl-5 ed-display italic text-[20px] md:text-[23px] text-ed-forest">
+                <p className="mt-7 border-l-2 border-ed-butter pl-5 ed-highlight text-[20px] md:text-[23px] text-ed-forest">
                   {e.citacao}
                 </p>
               </div>
@@ -588,7 +588,7 @@ const ContatoEdImpl = () => (
           </Reveal>
         </div>
         <Reveal delay={140}>
-          <p className="ed-display italic text-ed-butter text-[28px] md:text-[38px] leading-tight">
+          <p className="ed-highlight text-ed-butter text-[28px] md:text-[38px] leading-tight">
              Profundidade para compreender. Direção para seguir.
           </p>
         </Reveal>
