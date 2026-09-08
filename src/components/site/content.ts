@@ -57,7 +57,7 @@ export const EIXOS: Eixo[] = [
   {
     letra: "O",
     nome: "Observa",
-    titulo: "Identificar o que ainda não foi percebido.",
+    titulo: "Identificar o que está invisível.",
     tensao: "Enquanto isso continua invisível, o problema só muda de forma.",
     texto:
       "A investigação vai além do que você consegue enxergar sozinho. É o momento em que se passa a entender o que estava ali o tempo todo te atrapalhando, sem que você percebesse — pode ser um padrão que se repete, uma crença antiga ou um medo disfarçado. Nomear isso já muda a forma como você vê a situação inteira.",
@@ -66,7 +66,7 @@ export const EIXOS: Eixo[] = [
   {
     letra: "R",
     nome: "Reorganiza",
-    titulo: "Recolocar cada coisa no seu lugar.",
+    titulo: "Recolocar cada coisa no lugar.",
     tensao: "Com tudo fora de ordem, a mudança não tem como acontecer.",
     texto:
       "A reorganização vai além de só enxergar o invisível. É o momento em que as coisas realmente retomam seu lugar: papéis e responsabilidades se reposicionam, limites ficam mais claros, a forma de se comunicar se ajusta. Colocar cada coisa em seu lugar é o que tira a mudança do campo das ideias.",
@@ -202,7 +202,7 @@ export const PILARES = [
       "Aqui, o que você traz não é avaliado como certo ou errado, bom ou ruim. Sua história é respeitada e recebida como é, sem precisar ser justificada.",
   },
   {
-    titulo: "Profundidade com linguagem acessível",
+    titulo: "Profundidade acessível",
     texto:
       "Ir além do problema aparente não significa complicar. A explicação chega em uma linguagem clara para que você consiga entender e aplicar.",
   },
@@ -212,7 +212,7 @@ export const PILARES = [
       "Falar sobre o que incomoda importa, mas não é onde o processo termina. A escuta aqui sempre aponta pra algo: um próximo passo, uma pergunta de reflexão, uma ação pra experimentar.",
   },
   {
-    titulo: "Direcionamento com autorresponsabilidade",
+    titulo: "Direção e autorresponsabilidade",
     texto: "A direção é dada. Colocá-la em prática é parte que cabe a você.",
   },
 ];

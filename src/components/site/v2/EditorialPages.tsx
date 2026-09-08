@@ -48,8 +48,8 @@ const HomeEdImpl = () => (
           <span className="ed-eyebrow text-ed-ink/55">Casa Orí</span>
         </Reveal>
         <Reveal delay={80}>
-          <h1 className="ed-display ed-balanced text-ed-ink mt-6 max-w-[18ch] text-[2.4rem] md:text-[4.5rem] lg:text-[5.6rem]">
-            Mas o que ainda está<span className="hidden md:inline"><br /></span>{" "}
+          <h1 className="ed-display ed-balanced text-ed-ink mt-6 max-w-[17ch] text-[2.35rem] md:text-[4.15rem] lg:text-[5rem] leading-[1.02]">
+            Mas o que ainda está{" "}
             <EdAccent circle>invisível?</EdAccent>
           </h1>
         </Reveal>
@@ -84,9 +84,9 @@ const HomeEdImpl = () => (
     <EdSection bg="butter">
       <div className="max-w-[880px]">
         <Reveal>
-          <p className="ed-title text-ed-ink">
+          <h2 className="ed-title text-ed-ink max-w-[22ch]">
             {V2_COPY.home.metodoTitulo}
-          </p>
+          </h2>
         </Reveal>
         <Reveal delay={120}>
           <p className="mt-8 text-[17px] md:text-[19px] font-light leading-relaxed text-ed-ink/75">
@@ -169,7 +169,7 @@ const HomeEdImpl = () => (
                 <EdLetterMark>{e.letra}</EdLetterMark>
               </span>
               <span className="ed-eyebrow text-ed-ink/50 mt-2 block">{e.nome}</span>
-              <h3 className="mt-6 ed-display text-[24px] text-ed-ink">{e.titulo}</h3>
+              <h3 className="mt-6 ed-subtitle text-ed-ink">{e.titulo}</h3>
               <p className="mt-4 text-[15px] font-light leading-relaxed text-ed-ink/70">
                 {e.tensao}
               </p>
@@ -224,7 +224,7 @@ function CtaFinalEd() {
       <EdHead
         tone="cream"
         align="center"
-        title={V2_COPY.home.metodoTitulo}
+        title="O próximo passo"
         className="mb-12"
       />
       <div className="grid gap-6 md:grid-cols-2">
@@ -264,7 +264,7 @@ function ServicoEd({ s, i }: { s: Servico; i: number }) {
           <p className="mt-4 text-[13px] leading-relaxed text-ed-ink/55">{s.formato}</p>
         </div>
         <div>
-          <p className="ed-highlight text-[22px] md:text-[26px] text-ed-forest">
+          <p className="font-sans text-[18px] md:text-[20px] font-normal italic leading-relaxed text-ed-forest">
             {s.ancora}
           </p>
           {s.paragrafos.map((p) => (
@@ -289,7 +289,12 @@ function ServicoEd({ s, i }: { s: Servico; i: number }) {
 const ServicosEdImpl = () => (
   <>
     <EdSection bg="cream">
-       <EdHead kicker="Serviços" title={V2_COPY.servicos.introducao} className="max-w-[900px]" />
+       <EdHead
+         kicker="Serviços"
+         title="Cada situação pede um caminho"
+         lead={V2_COPY.servicos.introducao}
+         className="max-w-[900px]"
+       />
       <Reveal delay={240}>
         <div className="mt-9">
           <EdCTA href={QUIZ_CPF_URL} variant="ink">
@@ -301,8 +306,8 @@ const ServicosEdImpl = () => (
 
     <EdSection bg="white">
       <span className="ed-eyebrow text-ed-ink/50">Para você</span>
-      <h2 className="mt-4 ed-title text-ed-ink max-w-[640px]">
-        Processos individuais, conduzidos no seu ritmo.
+      <h2 className="mt-4 ed-title text-ed-ink max-w-[680px]">
+        Processos no seu ritmo
       </h2>
       <div className="mt-8">
         {SERV_CPF.map((s, i) => (
@@ -315,8 +320,8 @@ const ServicosEdImpl = () => (
 
     <EdSection bg="butter">
       <span className="ed-eyebrow text-ed-ink/50">Para sua empresa</span>
-      <h2 className="mt-4 ed-title text-ed-ink max-w-[680px]">
-        Trabalho com equipes e lideranças, a partir do dia a dia real do time.
+      <h2 className="mt-4 ed-title text-ed-ink max-w-[560px]">
+        Equipes e lideranças
       </h2>
       <div className="mt-8">
         {SERV_CNPJ.map((s, i) => (
@@ -335,7 +340,7 @@ export const ServicosEd = memo(ServicosEdImpl);
 function ListaEd({ titulo, itens }: { titulo: string; itens: string[] }) {
   return (
     <div>
-      <h3 className="ed-display text-[26px] text-ed-ink">{titulo}</h3>
+      <h3 className="ed-subtitle text-ed-ink">{titulo}</h3>
       <ul className="mt-6 space-y-3">
         {itens.map((t) => (
           <li
@@ -371,14 +376,14 @@ const OriEdImpl = () => (
                 <span className="ed-eyebrow text-ed-ink/50 block mt-2">{e.nome}</span>
               </div>
               <div>
-                <h3 className="ed-display text-[26px] md:text-[30px] text-ed-ink">
+                <h3 className="ed-subtitle text-ed-ink max-w-[32ch]">
                   {e.titulo}
                 </h3>
                 <p className="mt-4 text-[16px] font-light text-ed-ink/70">{e.tensao}</p>
                 <p className="mt-5 text-[15px] md:text-[16px] font-light leading-relaxed text-ed-ink/70">
                   {e.texto}
                 </p>
-                <p className="mt-7 border-l-2 border-ed-butter pl-5 ed-highlight text-[20px] md:text-[23px] text-ed-forest">
+                <p className="mt-7 border-l-2 border-ed-butter pl-5 font-sans italic font-light text-[17px] md:text-[19px] leading-relaxed text-ed-forest">
                   {e.citacao}
                 </p>
               </div>
@@ -390,7 +395,11 @@ const OriEdImpl = () => (
     </EdSection>
 
     <EdSection bg="ink">
-      <EdHead tone="cream" title="O que torna o Sistema ORI diferente" className="mb-12" />
+      <EdHead
+        tone="cream"
+        title="O diferencial do Sistema ORI"
+        className="mb-12"
+      />
       <ul className="grid md:grid-cols-2 gap-5">
         {DIFERENCIAIS.map((d, i) => (
           <Reveal key={d} delay={i * 80} as="li">
@@ -403,7 +412,7 @@ const OriEdImpl = () => (
     </EdSection>
 
     <EdSection bg="butter">
-      <EdHead title="Onde o Sistema ORI costuma ser aplicado" className="mb-12" />
+      <EdHead title="Onde o Sistema ORI se aplica" className="mb-12" />
       <div className="grid md:grid-cols-2 gap-12 md:gap-20">
         <ListaEd titulo="Na vida pessoal" itens={NA_VIDA} />
         <ListaEd titulo="Nas empresas" itens={NAS_EMPRESAS} />
@@ -412,7 +421,7 @@ const OriEdImpl = () => (
 
     <EdSection bg="cream">
       <div className="grid md:grid-cols-[0.9fr_1.1fr] gap-10 md:gap-16 items-start">
-        <EdHead title="O que você ganha ao longo do caminho" />
+        <EdHead title="O que você ganha no caminho" />
         <ol className="space-y-4">
           {GANHOS.map((g, i) => (
             <Reveal key={g} delay={i * 70} as="li">
@@ -433,7 +442,11 @@ const OriEdImpl = () => (
     <EdQuote image={edRoom} quote={DEPOIMENTOS[3].texto} autor={DEPOIMENTOS[3].autor} inicial={DEPOIMENTOS[3].inicial} />
 
     <EdSection bg="ink">
-      <EdHead tone="cream" title={V2_COPY.ori.fechamento} />
+      <EdHead
+        tone="cream"
+        title="A estrutura está aqui"
+        lead="O Sistema ORI organiza o caminho — e quem caminha é você."
+      />
       <Reveal delay={200}>
         <div className="mt-8">
           <EdCTA href={QUIZ_CPF_URL} variant="butter">
@@ -472,7 +485,7 @@ const SobreEdImpl = () => (
         {PILARES.map((p, i) => (
           <Reveal key={p.titulo} delay={i * 80}>
             <EdCard className="h-full">
-              <h3 className="ed-display text-[24px] text-ed-ink">{p.titulo}</h3>
+              <h3 className="ed-subtitle text-ed-ink">{p.titulo}</h3>
               <p className="mt-4 text-[15px] font-light leading-relaxed text-ed-ink/70">
                 {p.texto}
               </p>
@@ -513,14 +526,14 @@ const SobreEdImpl = () => (
     <EdSection bg="cream">
       <EdHead
         kicker="Antes de começar"
-        title="Antes de começar, vale alinhar alguns pontos"
+        title="Antes de começar"
         className="mb-12"
       />
       <div className="grid gap-6 md:grid-cols-2">
         {PREMISSAS.map((p, i) => (
           <Reveal key={p.titulo} delay={i * 60}>
             <div className="border-t border-ed-ink/12 pt-6 h-full">
-              <h3 className="ed-display text-[22px] text-ed-ink">{p.titulo}</h3>
+              <h3 className="ed-subtitle text-ed-ink">{p.titulo}</h3>
               <p className="mt-3 text-[15px] font-light leading-relaxed text-ed-ink/70">
                 {p.texto}
               </p>
@@ -531,7 +544,11 @@ const SobreEdImpl = () => (
     </EdSection>
 
     <EdSection bg="ink">
-      <EdHead tone="cream" title={V2_COPY.sobre.fechamento} />
+      <EdHead
+        tone="cream"
+        title="O desconforto da mudança"
+        lead={V2_COPY.sobre.fechamento}
+      />
       <Reveal delay={200}>
         <div className="mt-8">
           <EdCTA href={QUIZ_CPF_URL} variant="butter">
@@ -578,7 +595,12 @@ const ContatoEdImpl = () => (
     <EdSection bg="ink">
       <div className="grid gap-10 md:grid-cols-[1fr_1fr] items-center">
         <div>
-           <EdHead tone="cream" title={V2_COPY.contato.whatsapp} className="ed-pretty max-w-[940px]" />
+           <EdHead
+             tone="cream"
+             title="Fale com a Carol"
+             lead={V2_COPY.contato.whatsapp}
+             className="ed-pretty max-w-[720px]"
+           />
           <Reveal delay={200}>
             <div className="mt-8">
               <EdCTA href={WHATSAPP_URL} variant="butter">
@@ -588,7 +610,7 @@ const ContatoEdImpl = () => (
           </Reveal>
         </div>
         <Reveal delay={140}>
-          <p className="ed-highlight text-ed-butter text-[28px] md:text-[38px] leading-tight">
+          <p className="font-sans italic font-light text-ed-butter text-[22px] md:text-[28px] leading-relaxed max-w-[18ch]">
              Profundidade para compreender. Direção para seguir.
           </p>
         </Reveal>
