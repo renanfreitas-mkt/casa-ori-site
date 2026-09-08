@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ContatoEd } from "@/components/site/v2/EditorialPages";
 
-const title = "Contato — Casa Orí | Tema editorial";
+const title = 'Contato — Agende uma conversa inicial | Casa Orí';
 const description =
-  "Fale com a Carol pelo WhatsApp ou entenda sua situação em poucas perguntas. Brasília e online.";
+  'O caminho pode começar por uma conversa. Atendimentos online e presenciais na Asa Sul, Brasília.';
 
 export const Route = createFileRoute("/v2/contato")({
   head: () => ({
