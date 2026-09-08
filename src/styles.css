@@ -252,6 +252,12 @@ html {
   50%      { opacity: 1; }
 }
 
+@keyframes ed-pulse {
+  0%, 100% { opacity: 0.6; }
+  50%      { opacity: 1; }
+}
+
+
 @media (prefers-reduced-motion: reduce) {
   .hero-ori__gradient,
   .hero-ori__glow {
