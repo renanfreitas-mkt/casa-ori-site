@@ -1,6 +1,15 @@
 import { memo } from "react";
 import { Reveal } from "../Reveal";
-import { EdSection, EdHead, EdCard, EdQuote, EdCTA } from "./ui";
+import {
+  EdSection,
+  EdHead,
+  EdCard,
+  EdQuote,
+  EdCTA,
+  EdAccent,
+  EdLetterMark,
+  EdFlowArrow,
+} from "./ui";
 import edHero from "@/assets/ed-hero.jpg";
 import edRoom from "@/assets/ed-room.jpg";
 import edQuoteImg from "@/assets/ed-quote.jpg";
@@ -39,8 +48,9 @@ const HomeEdImpl = () => (
           <span className="ed-eyebrow text-ed-ink/55">Casa Orí</span>
         </Reveal>
         <Reveal delay={80}>
-          <h1 className="ed-display text-ed-ink mt-6 text-[clamp(2.4rem,7vw,5.6rem)]">
-            {V2_COPY.home.titulo}
+          <h1 className="ed-display ed-balanced text-ed-ink mt-6 max-w-[18ch] text-[2.4rem] md:text-[4.5rem] lg:text-[5.6rem]">
+            Mas o que ainda está<span className="hidden md:inline"><br /></span>{" "}
+            <EdAccent circle>invisível?</EdAccent>
           </h1>
         </Reveal>
         <div className="mt-10 grid gap-8 md:grid-cols-[1.1fr_1fr] items-end">
@@ -145,18 +155,18 @@ const HomeEdImpl = () => (
 
     {/* Sistema ORI resumo */}
     <EdSection bg="cream">
-      <EdHead
+        <EdHead
         kicker="Sistema ORI"
-        title={V2_COPY.ori.titulo}
+          title={<>Sistema <EdAccent circle>ORI</EdAccent></>}
         lead={V2_COPY.home.subtitulo}
         className="mb-12"
       />
       <div className="grid gap-6 md:grid-cols-3">
         {EIXOS.map((e, i) => (
-          <Reveal key={e.letra} delay={i * 90}>
+          <Reveal key={e.letra} delay={i * 90} className="relative">
             <EdCard className="h-full">
               <span className="ed-display text-ed-olive text-[64px] block">
-                {e.letra}
+                <EdLetterMark>{e.letra}</EdLetterMark>
               </span>
               <span className="ed-eyebrow text-ed-ink/50 mt-2 block">{e.nome}</span>
               <h3 className="mt-6 ed-display text-[24px] text-ed-ink">{e.titulo}</h3>
@@ -164,6 +174,7 @@ const HomeEdImpl = () => (
                 {e.tensao}
               </p>
             </EdCard>
+            {i < EIXOS.length - 1 && <EdFlowArrow direction="horizontal" />}
           </Reveal>
         ))}
       </div>
@@ -278,7 +289,7 @@ function ServicoEd({ s, i }: { s: Servico; i: number }) {
 const ServicosEdImpl = () => (
   <>
     <EdSection bg="cream">
-       <EdHead kicker="Serviços" title={V2_COPY.servicos.introducao} />
+       <EdHead kicker="Serviços" title={V2_COPY.servicos.introducao} className="max-w-[900px]" />
       <Reveal delay={240}>
         <div className="mt-9">
           <EdCTA href={QUIZ_CPF_URL} variant="ink">
@@ -345,17 +356,17 @@ const OriEdImpl = () => (
     <EdSection bg="cream">
       <EdHead
         kicker="Sistema ORI"
-        title={V2_COPY.ori.titulo}
+        title={<>Sistema <EdAccent circle>ORI</EdAccent></>}
         lead="A mesma estrutura conduz processos individuais e trabalhos dentro de empresas — o que muda é o contexto, não o método."
         className="mb-14"
       />
       <div className="space-y-6">
         {EIXOS.map((e, i) => (
-          <Reveal key={e.letra} delay={i * 90}>
+          <Reveal key={e.letra} delay={i * 90} className="relative">
             <EdCard className="grid md:grid-cols-[minmax(0,220px)_1fr] gap-6 md:gap-12">
               <div>
                 <span className="ed-display text-ed-olive block text-[72px] md:text-[88px]">
-                  {e.letra}
+                  <EdLetterMark>{e.letra}</EdLetterMark>
                 </span>
                 <span className="ed-eyebrow text-ed-ink/50 block mt-2">{e.nome}</span>
               </div>
@@ -372,6 +383,7 @@ const OriEdImpl = () => (
                 </p>
               </div>
             </EdCard>
+            {i < EIXOS.length - 1 && <EdFlowArrow direction="vertical" />}
           </Reveal>
         ))}
       </div>

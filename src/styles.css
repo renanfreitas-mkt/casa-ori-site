@@ -2,6 +2,14 @@
 @source "../src";
 @import "tw-animate-css";
 
+@font-face {
+  font-family: "Casa Ori";
+  src: url("./assets/fonts/CasaOri-Regular.otf") format("opentype");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -52,37 +60,77 @@
 
   --font-sans: "Roboto", system-ui, -apple-system, sans-serif;
   --font-script: "Cormorant Garamond", "Cormorant", Georgia, serif;
-  --font-display: "Instrument Serif", "Cormorant Garamond", Georgia, serif;
+  --font-display: "Casa Ori", "Instrument Serif", "Cormorant Garamond", Georgia, serif;
+  --font-editorial-italic: "Cormorant Garamond", Georgia, serif;
 }
 
 @utility ed-display {
   font-family: var(--font-display);
   font-weight: 400;
   line-height: 0.95;
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
+  text-wrap: balance;
 }
 
 @utility ed-title {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(2rem, 4.4vw, 3.4rem);
+  font-size: 2rem;
   line-height: 1.05;
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
+  text-wrap: balance;
 }
 
 @utility ed-wordmark {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(4rem, 17vw, 15rem);
+  font-size: 4rem;
   line-height: 0.82;
-  letter-spacing: -0.03em;
+  letter-spacing: 0;
+  text-wrap: balance;
+}
+
+@utility ed-accent {
+  color: var(--color-ed-olive);
+  font-family: var(--font-editorial-italic);
+  font-style: italic;
+  font-weight: 500;
+  text-transform: none;
+}
+
+@utility ed-balanced {
+  text-wrap: balance;
+  overflow-wrap: normal;
+}
+
+@media (min-width: 768px) {
+  .ed-title {
+    font-size: 3.4rem;
+  }
+
+  .ed-wordmark {
+    font-size: 9rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .ed-wordmark {
+    font-size: 15rem;
+  }
 }
 
 .theme-editorial h1,
 .theme-editorial h2,
 .theme-editorial h3 {
   text-transform: uppercase;
-  letter-spacing: 0.005em;
+  letter-spacing: 0;
+  text-wrap: balance;
+}
+
+.theme-editorial .ed-hand-path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: ed-hand-draw 1.1s ease-out forwards;
 }
 
 @utility ed-eyebrow {
@@ -249,9 +297,15 @@ html {
   50%      { opacity: 1; }
 }
 
+@keyframes ed-hand-draw {
+  to { stroke-dashoffset: 0; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-ori__gradient,
-  .hero-ori__glow {
+  .hero-ori__glow,
+  .theme-editorial .ed-hand-path {
     animation: none;
+    stroke-dashoffset: 0;
   }
 }

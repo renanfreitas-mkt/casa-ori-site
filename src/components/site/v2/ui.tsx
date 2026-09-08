@@ -104,7 +104,7 @@ export function EdHead({
   const dark = tone === "ink";
   return (
     <div
-      className={`${align === "center" ? "text-center mx-auto max-w-[760px]" : "max-w-[820px]"} ${className}`}
+      className={`${align === "center" ? "text-center mx-auto max-w-[760px]" : "max-w-[820px]"} ed-balanced ${className}`}
     >
       {kicker && (
         <Reveal>
@@ -132,6 +132,93 @@ export function EdHead({
         </Reveal>
       )}
     </div>
+  );
+}
+
+/* ---------------- Organic editorial marks ---------------- */
+
+export function EdAccent({
+  children,
+  circle = false,
+}: {
+  children: ReactNode;
+  circle?: boolean;
+}) {
+  return (
+    <span className="relative inline-block ed-accent px-1">
+      {children}
+      {circle && (
+        <svg
+          aria-hidden="true"
+          className="pointer-events-none absolute -inset-x-2 -inset-y-1 h-[calc(100%+0.5rem)] w-[calc(100%+1rem)] overflow-visible text-ed-butter"
+          viewBox="0 0 200 64"
+          preserveAspectRatio="none"
+          fill="none"
+        >
+          <path
+            className="ed-hand-path"
+            pathLength="1"
+            d="M8 35C7 10 52 3 105 5c55 2 91 13 87 34-4 20-55 25-105 20C37 54 9 48 8 35Z"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+          />
+        </svg>
+      )}
+    </span>
+  );
+}
+
+export function EdLetterMark({ children }: { children: ReactNode }) {
+  return (
+    <span className="relative inline-flex min-h-24 min-w-24 items-center justify-center">
+      <span className="relative z-10">{children}</span>
+      <svg
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 h-full w-full rotate-[-4deg] text-ed-butter"
+        viewBox="0 0 100 100"
+        fill="none"
+      >
+        <path
+          className="ed-hand-path"
+          pathLength="1"
+          d="M11 52C9 25 27 10 52 9c26-1 43 16 40 43-3 25-21 40-46 38C20 88 12 74 11 52Z"
+          stroke="currentColor"
+          strokeWidth="1.8"
+          strokeLinecap="round"
+        />
+      </svg>
+    </span>
+  );
+}
+
+export function EdFlowArrow({ direction }: { direction: "horizontal" | "vertical" }) {
+  const horizontal = direction === "horizontal";
+  return (
+    <svg
+      aria-hidden="true"
+      className={`pointer-events-none absolute z-20 hidden text-ed-olive md:block ${
+        horizontal
+          ? "-right-7 top-20 h-10 w-8"
+          : "-bottom-5 left-12 h-8 w-10"
+      }`}
+      viewBox="0 0 48 48"
+      fill="none"
+    >
+      <path
+        className="ed-hand-path"
+        pathLength="1"
+        d={
+          horizontal
+            ? "M5 25c12-8 22-7 35-1m0 0-8-7m8 7-8 8"
+            : "M22 4c7 11 8 22 2 35m0 0-7-8m7 8 8-8"
+        }
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
   );
 }
 
