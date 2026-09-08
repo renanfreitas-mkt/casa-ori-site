@@ -36,7 +36,7 @@ const HomeEdImpl = () => (
     <section className="bg-ed-cream px-5 sm:px-8 lg:px-12 pt-14 md:pt-20 pb-0">
       <div className="max-w-[1440px] mx-auto">
         <Reveal>
-          <span className="ed-eyebrow text-ed-ink/55">{HERO.kicker}</span>
+          <span className="ed-eyebrow text-ed-ink/55">Casa Orí</span>
         </Reveal>
         <Reveal delay={80}>
           <h1 className="ed-display text-ed-ink mt-6 text-[clamp(2.4rem,7vw,5.6rem)]">
@@ -563,7 +563,7 @@ const ContatoEdImpl = () => (
     <EdSection bg="ink">
       <div className="grid gap-10 md:grid-cols-[1fr_1fr] items-center">
         <div>
-           <EdHead tone="cream" title={V2_COPY.contato.whatsapp} lead="Online ou presencial, conforme sua necessidade." />
+           <EdHead tone="cream" title={V2_COPY.contato.whatsapp} />
           <Reveal delay={200}>
             <div className="mt-8">
               <EdCTA href={WHATSAPP_URL} variant="butter">
