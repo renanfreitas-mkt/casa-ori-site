@@ -219,7 +219,7 @@ function CtaFinalEd() {
         {[CTA_FINAL.cpf, CTA_FINAL.cnpj].map((c, i) => (
           <Reveal key={c.titulo} delay={i * 100}>
             <div className="border border-ed-cream/25 rounded-[28px] p-8 md:p-10 h-full flex flex-col">
-              <span className="ed-eyebrow text-ed-butter">{c.titulo}</span>
+              <span className="ed-eyebrow text-ed-sand">{c.titulo}</span>
               <p className="mt-5 text-[16px] font-light leading-relaxed text-ed-cream/80 flex-1">
                 {c.texto}
               </p>
@@ -252,7 +252,7 @@ function ServicoEd({ s, i }: { s: Servico; i: number }) {
           <p className="mt-4 text-[13px] leading-relaxed text-ed-ink/55">{s.formato}</p>
         </div>
         <div>
-          <p className="ed-display text-[22px] md:text-[26px] text-ed-olive italic">
+          <p className="ed-display text-[22px] md:text-[26px] text-ed-forest italic">
             {s.ancora}
           </p>
           {s.paragrafos.map((p) => (
@@ -366,7 +366,7 @@ const OriEdImpl = () => (
                 <p className="mt-5 text-[15px] md:text-[16px] font-light leading-relaxed text-ed-ink/70">
                   {e.texto}
                 </p>
-                <p className="mt-7 border-l-2 border-ed-butter pl-5 ed-display italic text-[20px] md:text-[23px] text-ed-olive">
+                <p className="mt-7 border-l-2 border-ed-butter pl-5 ed-display italic text-[20px] md:text-[23px] text-ed-forest">
                   {e.citacao}
                 </p>
               </div>
