@@ -1,40 +1,51 @@
-# Alinhar os textos do novo tema (/v2) com a revisão da Carol
+# Atualizar somente os textos do novo tema (/v2)
 
-Comparei página por página o novo tema com o documento de revisão. A estrutura e o visual ficam exatamente como estão — só entram/são corrigidos textos, sempre nos blocos que já existem.
+Substituir a copy atual do novo tema pelos textos fornecidos, sem alterar layout, cores, fontes, imagens, espaçamentos ou estrutura visual. A expressão “Por onde você quer começar?” e variações como “Por onde eu começo?” serão removidas.
 
-## O que já está correto
+## Início
 
-Serviços (todos os 7, com formato, frase-âncora e descrição), Sistema ORI (O/R/I, diferenciais, listas "Na vida pessoal" e "Nas empresas", ganhos), pilares, premissas, significado do nome, dores CPF/CNPJ.
+- Título: “Mas o que ainda está invisível?”
+- Subtítulo: “Enquanto você tenta resolver só essa parte, uma outra continua influenciando a situação. O que muda quando você começa a ver o problema por completo?”
+- Texto intermediário: “O método continua o mesmo. É o formato que muda de acordo com a sua necessidade ou da sua empresa.”
+- CTAs: “Quero entender minha situação” e “Quero entender minha empresa”.
+- Os textos entram nos componentes já existentes, sem criar, remover ou reposicionar blocos.
 
-## O que está faltando ou diferente
+## Serviços
 
-### Home
-- Fechamento CPF/CNPJ com o texto do documento:
-  - Para você: "Ainda tentando resolver só a parte que você consegue ver? Vamos investigar aquilo que ainda não apareceu." → botão "Quero entender minha situação".
-  - Para você líder: "Ainda tentando resolver só o que você consegue ver na sua empresa? Vamos investigar o que ainda está influenciando os resultados." → botão "Quero entender minha empresa".
-- Ponte depois dos dois públicos: "O método continua o mesmo. É o formato que muda de acordo com a sua necessidade ou da sua empresa." + botão "Quero conhecer o método" (aproveita o bloco de Serviços que já existe na home).
-- Bloco de depoimentos com o título "O que muda quando você começa a ver o problema por completo?".
-- Bloco do podcast "Continue essa conversa…" com a descrição: "Conversas sobre novas formas de entender e lidar com o que estamos vivendo no dia a dia." (hoje o tema novo não tem o podcast).
+- Introdução: “Você já sabe que algo precisa mudar. Cada situação pede um caminho diferente. Por isso, o primeiro passo é sempre entender melhor o que está acontecendo, antes de decidirmos juntos por onde seguir.”
+- CTA da introdução: “Quero entender meu momento”.
+- Manter integralmente os textos oficiais dos sete serviços já cadastrados: Terapia Sistêmica, Constelação Familiar, Vivências, Palestras, Encontro de Comunicação, Encontro para Liderança e Liderança em Processo.
+- Todos os CTAs dos serviços permanecem “Quero saber mais”.
 
-### Sistema ORI
-- Frase da terceira citação completa: "…Fazer isso caber na sua rotina. É assim que se resolve o que estava te desgastando tanto."
-- Fechamento da página: "A estrutura está aqui. O Sistema ORI organiza o caminho — e quem caminha é você." + botão "Por onde eu começo?".
+## Sistema ORI
 
-### Sobre
-- Linha de especialidade da Carol: "especialista em Comunicação, Comportamento e Relações Humanas · criadora do Sistema ORI".
-- Primeiro parágrafo da bio, hoje resumido, volta ao texto do documento (4 anos com comunicação corporativa, cerca de 20 empresas de diferentes portes e segmentos).
-- Título das premissas passa a ser "Antes de começar, vale alinhar alguns pontos"; o item "O que você vive hoje não começou agora" recebe a frase completa.
-- Fechamento da aba: "Qual desconforto você escolhe: o que já te acompanha há tanto tempo, ou o que te leva à mudança que você busca?" + botão "Quero essa mudança".
+- Título: “Sistema ORI”.
+- O — Observa: “Identificar o que ainda não foi percebido. Enquanto isso continua invisível, o problema só muda de forma.”
+- R — Reorganiza: “Recolocar cada coisa no seu lugar. Com tudo fora de ordem, a mudança não tem como acontecer.”
+- I — Integra: “Sustentar a mudança na prática. É isso que evita os dois extremos: desistir ou se perder em mil ações.”
+- Fechamento: “A estrutura está aqui. O sistema ORI organiza o caminho e quem caminha é você.”
+- CTA final: “Quero dar o primeiro passo”.
+- Manter os demais textos detalhados do método que já estão de acordo com o documento oficial.
 
-### Contato
-- Título "próximos passos" e abertura em destaque "Nem sempre dá pra saber por onde começar sozinho."
-- As três linhas "Sem precisar ter tudo entendido. / Sem precisar ter todas as respostas. / Só a disponibilidade de olhar para o que está pedindo atenção." e o parágrafo de orientação.
-- Os dois blocos com os textos do documento: "Para você" ("Responder algumas perguntas te ajuda a entender por onde começar.", botão "Quero começar por aqui") e "Para você líder" ("Algumas perguntas rápidas, pra gente entender por onde começar.", botão "Quero entender minha empresa").
-- Linha menor e discreta do WhatsApp, "Online ou presencial, conforme sua necessidade." e a assinatura "Profundidade para compreender. Direção para seguir."
+## Sobre — ordem obrigatória
 
-## Detalhes técnicos
+Reordenar apenas os blocos completos já existentes, sem mudar sua apresentação interna:
 
-- Toda a copy corrigida vai para `src/components/site/content.ts` (novas chaves: ponte do método, título de depoimentos, podcast, fechamento ORI, fechamento Sobre, contato completo, CTA final revisado).
-- `src/components/site/v2/EditorialPages.tsx` passa a consumir essas chaves; os blocos novos (podcast, depoimentos com título, fechamentos) reutilizam `EdSection`, `EdHead`, `EdCard`, `EdCTA` já existentes, mantendo o ritmo de cores atual.
-- Como `content.ts` também alimenta o tema atual em pontos compartilhados, a copy fica sincronizada nas duas versões.
-- Nenhuma mudança de grid, espaçamento, tipografia, imagens ou paleta.
+1. Casa Orí: significado de Casa, Orí e a frase sobre a segurança de uma escuta atenta.
+2. Os quatro pilares, com os textos atuais preservados.
+3. Carol Milhomens: “Especialista em Comunicação, Comportamento e Relações Humanas, criadora do Sistema ORI.” seguida da bio oficial completa, incluindo os 4 anos em comunicação corporativa, cerca de 20 empresas, início dos atendimentos em 2019, abertura da Casa Orí em 2024 e mais de 900 atendimentos.
+4. Alinhamentos: manter todos os tópicos e textos oficiais atuais.
+5. Fechamento: “Qual desconforto você escolhe: o que já te acompanha há tanto tempo, ou o que te leva à mudança que você busca?” + CTA “Quero essa mudança”.
+
+## Contato / Próximos passos
+
+- Texto principal: “O primeiro passo é sempre olhar para o que está pedindo atenção. Sem precisar ter tudo entendido. Sem precisar ter todas as respostas. Só a disponibilidade de investigar. Para entendermos a sua situação e definirmos o melhor caminho, responda algumas perguntas rápidas.”
+- Para você: “Responder algumas perguntas me ajuda a entender o seu momento.” + CTA “Quero entender minha situação”, mantendo o link do quiz CPF.
+- Para você líder: “Algumas perguntas rápidas, pra gente entender o cenário do seu negócio.” + CTA “Quero entender minha empresa”, mantendo o link do quiz CNPJ.
+- WhatsApp: “Se você já sabe o que precisa e quer agendar direto, é só chamar no WhatsApp. Online ou presencial, conforme sua necessidade.”
+
+## Aplicação e validação
+
+- Centralizar a nova copy no arquivo compartilhado de conteúdo e atualizar apenas as referências textuais da versão `/v2`.
+- Preservar os links atuais dos quizzes e do WhatsApp.
+- Conferir todas as cinco páginas do novo tema em desktop e celular, garantindo que nenhum texto antigo proibido permaneça e que a nova copy se encaixe sem alterar o design.
