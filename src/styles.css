@@ -151,6 +151,27 @@
   text-wrap: balance;
 }
 
+/* Leitura confortável: quebras equilibradas e medida de linha controlada */
+.theme-editorial p,
+.theme-editorial li {
+  text-wrap: pretty;
+  overflow-wrap: break-word;
+}
+
+.theme-editorial p {
+  max-width: 68ch;
+}
+
+@media (max-width: 480px) {
+  .theme-editorial .ed-title {
+    font-size: 1.6rem;
+  }
+
+  .theme-editorial .ed-subtitle {
+    font-size: 1.12rem;
+  }
+}
+
 .theme-editorial .ed-hand-path {
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
