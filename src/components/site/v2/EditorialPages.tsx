@@ -6,8 +6,6 @@ import edRoom from "@/assets/ed-room.jpg";
 import edQuoteImg from "@/assets/ed-quote.jpg";
 import edTeam from "@/assets/ed-team.jpg";
 import {
-  HERO,
-  EXPLICACAO,
   DORES_CPF,
   DORES_CNPJ,
   EIXOS,
@@ -23,10 +21,10 @@ import {
   CAROL,
   DEPOIMENTOS,
   CTA_FINAL,
-  CONTATO,
   QUIZ_CPF_URL,
   QUIZ_CNPJ_URL,
   WHATSAPP_URL,
+  V2_COPY,
   type Servico,
 } from "../content";
 
@@ -38,28 +36,26 @@ const HomeEdImpl = () => (
     <section className="bg-ed-cream px-5 sm:px-8 lg:px-12 pt-14 md:pt-20 pb-0">
       <div className="max-w-[1440px] mx-auto">
         <Reveal>
-          <span className="ed-eyebrow text-ed-ink/55">{HERO.kicker}</span>
+          <span className="ed-eyebrow text-ed-ink/55">Casa Orí</span>
         </Reveal>
         <Reveal delay={80}>
           <h1 className="ed-display text-ed-ink mt-6 text-[clamp(2.4rem,7vw,5.6rem)]">
-            {HERO.titulo}
-            <br />
-            <span className="text-ed-olive italic">{HERO.tituloEm}</span>
+            {V2_COPY.home.titulo}
           </h1>
         </Reveal>
         <div className="mt-10 grid gap-8 md:grid-cols-[1.1fr_1fr] items-end">
           <Reveal delay={160}>
             <p className="max-w-[520px] text-[16px] md:text-[18px] font-light leading-relaxed text-ed-ink/70">
-              {HERO.lead}
+              {V2_COPY.home.subtitulo}
             </p>
           </Reveal>
           <Reveal delay={220}>
             <div className="flex flex-col sm:flex-row gap-3 md:justify-end">
               <EdCTA href={QUIZ_CPF_URL} variant="ink">
-                {HERO.ctaCpf}
+                {V2_COPY.home.ctaCpf}
               </EdCTA>
               <EdCTA href={QUIZ_CNPJ_URL} variant="outlineInk">
-                {HERO.ctaCnpj}
+                {V2_COPY.home.ctaCnpj}
               </EdCTA>
             </div>
           </Reveal>
@@ -79,13 +75,12 @@ const HomeEdImpl = () => (
       <div className="max-w-[880px]">
         <Reveal>
           <p className="ed-title text-ed-ink">
-            {EXPLICACAO.titulo}{" "}
-            <span className="italic text-ed-olive">{EXPLICACAO.tituloEm}</span>
+            {V2_COPY.home.metodoTitulo}
           </p>
         </Reveal>
         <Reveal delay={120}>
           <p className="mt-8 text-[17px] md:text-[19px] font-light leading-relaxed text-ed-ink/75">
-            {EXPLICACAO.meio} {EXPLICACAO.fim}
+            {V2_COPY.home.metodoTexto}
           </p>
         </Reveal>
       </div>
@@ -151,8 +146,8 @@ const HomeEdImpl = () => (
     <EdSection bg="cream">
       <EdHead
         kicker="Sistema ORI"
-        title="Um caminho em três movimentos."
-        lead="A mesma estrutura conduz processos individuais e trabalhos dentro de empresas — o que muda é o contexto, não o método."
+        title={V2_COPY.ori.titulo}
+        lead={V2_COPY.home.subtitulo}
         className="mb-12"
       />
       <div className="grid gap-6 md:grid-cols-3">
@@ -179,8 +174,8 @@ const HomeEdImpl = () => (
         <div>
           <EdHead
             kicker="Serviços"
-            title="Cada situação pede um caminho diferente."
-            lead="Processos individuais conduzidos no seu ritmo, e trabalhos com equipes e lideranças a partir do dia a dia real do time."
+            title={V2_COPY.home.metodoTitulo}
+            lead={V2_COPY.home.metodoTexto}
           />
           <Reveal delay={200}>
             <div className="mt-8 flex flex-wrap gap-3">
@@ -217,7 +212,7 @@ function CtaFinalEd() {
       <EdHead
         tone="cream"
         align="center"
-        title="Por onde você quer começar?"
+        title={V2_COPY.home.metodoTitulo}
         className="mb-12"
       />
       <div className="grid gap-6 md:grid-cols-2">
@@ -282,20 +277,11 @@ function ServicoEd({ s, i }: { s: Servico; i: number }) {
 const ServicosEdImpl = () => (
   <>
     <EdSection bg="cream">
-      <EdHead
-        kicker="Serviços"
-        title={
-          <>
-            Você já sabe que algo precisa mudar. A pergunta agora é:{" "}
-            <span className="italic text-ed-olive">por onde começar?</span>
-          </>
-        }
-        lead="Cada situação pede um caminho diferente. Por isso, o primeiro passo é sempre entender melhor o que está acontecendo, antes de decidir por onde seguir."
-      />
+       <EdHead kicker="Serviços" title={V2_COPY.servicos.introducao} />
       <Reveal delay={240}>
         <div className="mt-9">
           <EdCTA href={QUIZ_CPF_URL} variant="ink">
-            Quero começar por aqui
+             {V2_COPY.servicos.cta}
           </EdCTA>
         </div>
       </Reveal>
@@ -358,7 +344,7 @@ const OriEdImpl = () => (
     <EdSection bg="cream">
       <EdHead
         kicker="Sistema ORI"
-        title="Um caminho em três movimentos."
+        title={V2_COPY.ori.titulo}
         lead="A mesma estrutura conduz processos individuais e trabalhos dentro de empresas — o que muda é o contexto, não o método."
         className="mb-14"
       />
@@ -431,7 +417,16 @@ const OriEdImpl = () => (
       </div>
     </EdSection>
 
-    <CtaFinalEd />
+    <EdSection bg="ink">
+      <EdHead tone="cream" title={V2_COPY.ori.fechamento} />
+      <Reveal delay={200}>
+        <div className="mt-8">
+          <EdCTA href={QUIZ_CPF_URL} variant="butter">
+            {V2_COPY.ori.cta}
+          </EdCTA>
+        </div>
+      </Reveal>
+    </EdSection>
   </>
 );
 export const OriEd = memo(OriEdImpl);
@@ -440,34 +435,8 @@ export const OriEd = memo(OriEdImpl);
 
 const SobreEdImpl = () => (
   <>
-    <EdSection bg="cream" wide>
-      <div className="grid gap-10 md:grid-cols-[1fr_1fr] items-center">
-        <div>
-          <EdHead
-            kicker={CAROL.titulo}
-            title={CAROL.nome}
-            lead="Mais de 900 atendimentos conduzidos desde 2019, entre processos individuais e trabalhos com equipes."
-          />
-          {CAROL.paragrafos.map((p, i) => (
-            <Reveal key={p} delay={200 + i * 80}>
-              <p className="mt-6 text-[15px] md:text-[16px] font-light leading-relaxed text-ed-ink/70 max-w-[560px]">
-                {p}
-              </p>
-            </Reveal>
-          ))}
-        </div>
-        <Reveal delay={160}>
-          <img
-            src={edRoom}
-            alt="Ambiente da Casa Orí"
-            className="w-full h-[340px] md:h-[560px] object-cover rounded-[32px]"
-          />
-        </Reveal>
-      </div>
-    </EdSection>
-
     <EdSection bg="butter">
-      <EdHead title="O nome" className="mb-10" />
+      <EdHead title="Casa Orí" className="mb-10" />
       <div className="grid gap-6 md:grid-cols-3">
         {NOME.map((n, i) => (
           <Reveal key={n.palavra} delay={i * 90}>
@@ -498,12 +467,38 @@ const SobreEdImpl = () => (
       </div>
     </EdSection>
 
+    <EdSection bg="cream" wide>
+      <div className="grid gap-10 md:grid-cols-[1fr_1fr] items-center">
+        <div>
+          <EdHead
+            kicker={CAROL.titulo}
+            title={CAROL.nome}
+            lead={V2_COPY.sobre.especialidade}
+          />
+          {V2_COPY.sobre.bio.map((p, i) => (
+            <Reveal key={p} delay={200 + i * 80}>
+              <p className="mt-6 text-[15px] md:text-[16px] font-light leading-relaxed text-ed-ink/70 max-w-[560px]">
+                {p}
+              </p>
+            </Reveal>
+          ))}
+        </div>
+        <Reveal delay={160}>
+          <img
+            src={edRoom}
+            alt="Ambiente da Casa Orí"
+            className="w-full h-[340px] md:h-[560px] object-cover rounded-[32px]"
+          />
+        </Reveal>
+      </div>
+    </EdSection>
+
     <EdQuote image={edQuoteImg} quote={DEPOIMENTOS[2].texto} autor={DEPOIMENTOS[2].autor} />
 
     <EdSection bg="cream">
       <EdHead
         kicker="Antes de começar"
-        title="Algumas premissas deste trabalho"
+        title="Antes de começar, vale alinhar alguns pontos"
         className="mb-12"
       />
       <div className="grid gap-6 md:grid-cols-2">
@@ -520,7 +515,16 @@ const SobreEdImpl = () => (
       </div>
     </EdSection>
 
-    <CtaFinalEd />
+    <EdSection bg="ink">
+      <EdHead tone="cream" title={V2_COPY.sobre.fechamento} />
+      <Reveal delay={200}>
+        <div className="mt-8">
+          <EdCTA href={QUIZ_CPF_URL} variant="butter">
+            {V2_COPY.sobre.cta}
+          </EdCTA>
+        </div>
+      </Reveal>
+    </EdSection>
   </>
 );
 export const SobreEd = memo(SobreEdImpl);
@@ -530,14 +534,27 @@ export const SobreEd = memo(SobreEdImpl);
 const ContatoEdImpl = () => (
   <>
     <EdSection bg="cream">
-      <EdHead kicker={CONTATO.kicker} title={CONTATO.titulo} lead={CONTATO.lead} />
+      <EdHead
+        kicker="Contato"
+        title={V2_COPY.contato.titulo}
+        lead={
+          <>
+            {V2_COPY.contato.texto}
+            <br />
+            <br />
+            <strong>Para você:</strong> {V2_COPY.contato.cpfTexto}
+            <br />
+            <strong>Para você líder:</strong> {V2_COPY.contato.cnpjTexto}
+          </>
+        }
+      />
       <Reveal delay={220}>
         <div className="mt-9 flex flex-col sm:flex-row gap-3">
           <EdCTA href={QUIZ_CPF_URL} variant="ink">
-            Quero entender minha situação
+             {V2_COPY.contato.cpfCta}
           </EdCTA>
           <EdCTA href={QUIZ_CNPJ_URL} variant="outlineInk">
-            Quero entender minha empresa
+             {V2_COPY.contato.cnpjCta}
           </EdCTA>
         </div>
       </Reveal>
@@ -546,7 +563,7 @@ const ContatoEdImpl = () => (
     <EdSection bg="ink">
       <div className="grid gap-10 md:grid-cols-[1fr_1fr] items-center">
         <div>
-          <EdHead tone="cream" title={CONTATO.diretoTitulo} lead={CONTATO.diretoTexto} />
+           <EdHead tone="cream" title={V2_COPY.contato.whatsapp} />
           <Reveal delay={200}>
             <div className="mt-8">
               <EdCTA href={WHATSAPP_URL} variant="butter">
@@ -557,7 +574,7 @@ const ContatoEdImpl = () => (
         </div>
         <Reveal delay={140}>
           <p className="ed-display italic text-ed-butter text-[28px] md:text-[38px] leading-tight">
-            {CONTATO.diretoCitacao}
+             Profundidade para compreender. Direção para seguir.
           </p>
         </Reveal>
       </div>
