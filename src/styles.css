@@ -103,6 +103,10 @@
   overflow-wrap: normal;
 }
 
+@utility ed-pretty {
+  text-wrap: pretty;
+}
+
 @media (min-width: 768px) {
   .ed-title {
     font-size: 3.4rem;

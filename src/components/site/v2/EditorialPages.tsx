@@ -256,9 +256,9 @@ function CtaFinalEd() {
 function ServicoEd({ s, i }: { s: Servico; i: number }) {
   return (
     <Reveal delay={i * 80}>
-      <article className="grid md:grid-cols-[minmax(0,300px)_1fr] gap-6 md:gap-12 py-10 md:py-12 border-t border-ed-ink/12">
+      <article className="grid md:grid-cols-[minmax(0,360px)_1fr] gap-6 md:gap-12 py-10 md:py-12 border-t border-ed-ink/12">
         <div>
-          <h3 className="ed-display text-[26px] md:text-[30px] text-ed-ink">
+          <h3 className="ed-display text-[26px] md:text-[28px] text-ed-ink md:whitespace-nowrap">
             {s.titulo}
           </h3>
           <p className="mt-4 text-[13px] leading-relaxed text-ed-ink/55">{s.formato}</p>
@@ -578,7 +578,7 @@ const ContatoEdImpl = () => (
     <EdSection bg="ink">
       <div className="grid gap-10 md:grid-cols-[1fr_1fr] items-center">
         <div>
-           <EdHead tone="cream" title={V2_COPY.contato.whatsapp} />
+           <EdHead tone="cream" title={V2_COPY.contato.whatsapp} className="ed-pretty max-w-[940px]" />
           <Reveal delay={200}>
             <div className="mt-8">
               <EdCTA href={WHATSAPP_URL} variant="butter">
