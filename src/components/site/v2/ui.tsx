@@ -275,7 +275,13 @@ export function EdFooter() {
       <div className="max-w-[1440px] mx-auto">
         <div className="grid gap-10 md:grid-cols-4 text-[14px] font-light">
           <div className="md:col-span-2">
-            <p className="ed-eyebrow text-ed-butter">Casa Orí</p>
+            <img
+              src={logoAsset.url}
+              alt="Casa Orí"
+              width={120}
+              height={120}
+              className="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover"
+            />
             <p className="mt-4 text-ed-cream/70 max-w-[320px] leading-relaxed">
               Terapia sistêmica, constelação familiar e desenvolvimento de equipes.
               Asa Sul, Brasília — e online para todo o Brasil.
@@ -324,7 +330,13 @@ export function EdFooter() {
           </div>
         </div>
 
-        <p className="ed-wordmark text-ed-butter mt-14 select-none">Casa Orí</p>
+        <img
+          src={logoAsset.url}
+          alt="Casa Orí"
+          width={160}
+          height={160}
+          className="w-24 h-24 md:w-32 md:h-32 mt-14 rounded-full object-cover opacity-90"
+        />
         <p className="mt-6 text-[12px] tracking-wide text-ed-cream/50">
           Casa Orí © 2026 · Carol Milhomens · @suacasa.ori
         </p>
