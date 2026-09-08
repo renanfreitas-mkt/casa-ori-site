@@ -6,8 +6,6 @@ import edRoom from "@/assets/ed-room.jpg";
 import edQuoteImg from "@/assets/ed-quote.jpg";
 import edTeam from "@/assets/ed-team.jpg";
 import {
-  HERO,
-  EXPLICACAO,
   DORES_CPF,
   DORES_CNPJ,
   EIXOS,
@@ -23,7 +21,6 @@ import {
   CAROL,
   DEPOIMENTOS,
   CTA_FINAL,
-  CONTATO,
   QUIZ_CPF_URL,
   QUIZ_CNPJ_URL,
   WHATSAPP_URL,
@@ -438,34 +435,8 @@ export const OriEd = memo(OriEdImpl);
 
 const SobreEdImpl = () => (
   <>
-    <EdSection bg="cream" wide>
-      <div className="grid gap-10 md:grid-cols-[1fr_1fr] items-center">
-        <div>
-          <EdHead
-            kicker={CAROL.titulo}
-            title={CAROL.nome}
-            lead="Mais de 900 atendimentos conduzidos desde 2019, entre processos individuais e trabalhos com equipes."
-          />
-          {CAROL.paragrafos.map((p, i) => (
-            <Reveal key={p} delay={200 + i * 80}>
-              <p className="mt-6 text-[15px] md:text-[16px] font-light leading-relaxed text-ed-ink/70 max-w-[560px]">
-                {p}
-              </p>
-            </Reveal>
-          ))}
-        </div>
-        <Reveal delay={160}>
-          <img
-            src={edRoom}
-            alt="Ambiente da Casa Orí"
-            className="w-full h-[340px] md:h-[560px] object-cover rounded-[32px]"
-          />
-        </Reveal>
-      </div>
-    </EdSection>
-
     <EdSection bg="butter">
-      <EdHead title="O nome" className="mb-10" />
+      <EdHead title="Casa Orí" className="mb-10" />
       <div className="grid gap-6 md:grid-cols-3">
         {NOME.map((n, i) => (
           <Reveal key={n.palavra} delay={i * 90}>
@@ -496,12 +467,38 @@ const SobreEdImpl = () => (
       </div>
     </EdSection>
 
+    <EdSection bg="cream" wide>
+      <div className="grid gap-10 md:grid-cols-[1fr_1fr] items-center">
+        <div>
+          <EdHead
+            kicker={CAROL.titulo}
+            title={CAROL.nome}
+            lead={V2_COPY.sobre.especialidade}
+          />
+          {V2_COPY.sobre.bio.map((p, i) => (
+            <Reveal key={p} delay={200 + i * 80}>
+              <p className="mt-6 text-[15px] md:text-[16px] font-light leading-relaxed text-ed-ink/70 max-w-[560px]">
+                {p}
+              </p>
+            </Reveal>
+          ))}
+        </div>
+        <Reveal delay={160}>
+          <img
+            src={edRoom}
+            alt="Ambiente da Casa Orí"
+            className="w-full h-[340px] md:h-[560px] object-cover rounded-[32px]"
+          />
+        </Reveal>
+      </div>
+    </EdSection>
+
     <EdQuote image={edQuoteImg} quote={DEPOIMENTOS[2].texto} autor={DEPOIMENTOS[2].autor} />
 
     <EdSection bg="cream">
       <EdHead
         kicker="Antes de começar"
-        title="Algumas premissas deste trabalho"
+        title="Antes de começar, vale alinhar alguns pontos"
         className="mb-12"
       />
       <div className="grid gap-6 md:grid-cols-2">
@@ -518,7 +515,16 @@ const SobreEdImpl = () => (
       </div>
     </EdSection>
 
-    <CtaFinalEd />
+    <EdSection bg="ink">
+      <EdHead tone="cream" title={V2_COPY.sobre.fechamento} />
+      <Reveal delay={200}>
+        <div className="mt-8">
+          <EdCTA href={QUIZ_CPF_URL} variant="butter">
+            {V2_COPY.sobre.cta}
+          </EdCTA>
+        </div>
+      </Reveal>
+    </EdSection>
   </>
 );
 export const SobreEd = memo(SobreEdImpl);
@@ -528,14 +534,27 @@ export const SobreEd = memo(SobreEdImpl);
 const ContatoEdImpl = () => (
   <>
     <EdSection bg="cream">
-      <EdHead kicker={CONTATO.kicker} title={CONTATO.titulo} lead={CONTATO.lead} />
+      <EdHead
+        kicker="Contato"
+        title={V2_COPY.contato.titulo}
+        lead={
+          <>
+            {V2_COPY.contato.texto}
+            <br />
+            <br />
+            <strong>Para você:</strong> {V2_COPY.contato.cpfTexto}
+            <br />
+            <strong>Para você líder:</strong> {V2_COPY.contato.cnpjTexto}
+          </>
+        }
+      />
       <Reveal delay={220}>
         <div className="mt-9 flex flex-col sm:flex-row gap-3">
           <EdCTA href={QUIZ_CPF_URL} variant="ink">
-            Quero entender minha situação
+             {V2_COPY.contato.cpfCta}
           </EdCTA>
           <EdCTA href={QUIZ_CNPJ_URL} variant="outlineInk">
-            Quero entender minha empresa
+             {V2_COPY.contato.cnpjCta}
           </EdCTA>
         </div>
       </Reveal>
@@ -544,7 +563,7 @@ const ContatoEdImpl = () => (
     <EdSection bg="ink">
       <div className="grid gap-10 md:grid-cols-[1fr_1fr] items-center">
         <div>
-          <EdHead tone="cream" title={CONTATO.diretoTitulo} lead={CONTATO.diretoTexto} />
+           <EdHead tone="cream" title={V2_COPY.contato.whatsapp} lead="Online ou presencial, conforme sua necessidade." />
           <Reveal delay={200}>
             <div className="mt-8">
               <EdCTA href={WHATSAPP_URL} variant="butter">
@@ -555,7 +574,7 @@ const ContatoEdImpl = () => (
         </div>
         <Reveal delay={140}>
           <p className="ed-display italic text-ed-butter text-[28px] md:text-[38px] leading-tight">
-            {CONTATO.diretoCitacao}
+             Profundidade para compreender. Direção para seguir.
           </p>
         </Reveal>
       </div>
