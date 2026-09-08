@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { useState } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
-import { Menu, X, Instagram, MessageCircle, ArrowLeft } from "lucide-react";
+import { Menu, X, Instagram, MessageCircle, ArrowLeft, ArrowDown, RotateCcw } from "lucide-react";
 import { Reveal } from "../Reveal";
 import {
   INSTAGRAM_URL,
