@@ -155,10 +155,12 @@ export function EdQuote({
   image,
   quote,
   autor,
+  inicial,
 }: {
   image: string;
   quote: string;
   autor?: string;
+  inicial?: string;
 }) {
   return (
     <section className="relative isolate overflow-hidden">
@@ -177,7 +179,17 @@ export function EdQuote({
         </Reveal>
         {autor && (
           <Reveal delay={140}>
-            <p className="mt-8 ed-eyebrow text-ed-sand">{autor}</p>
+            <div className="mt-8 flex items-center justify-center gap-3">
+              {inicial && (
+                <span
+                  aria-hidden="true"
+                  className="w-10 h-10 rounded-full bg-ed-sand/20 border border-ed-sand/40 text-ed-sand ed-display text-[18px] flex items-center justify-center"
+                >
+                  {inicial}
+                </span>
+              )}
+              <p className="ed-eyebrow text-ed-sand">{autor}</p>
+            </div>
           </Reveal>
         )}
       </div>
