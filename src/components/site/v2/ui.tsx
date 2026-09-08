@@ -193,8 +193,14 @@ export function EdNav() {
   return (
     <header className="sticky top-0 z-50 bg-ed-cream/95 backdrop-blur border-b border-ed-ink/10">
       <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 h-16 md:h-20 flex items-center justify-between gap-6">
-        <Link to="/v2" className="ed-display text-ed-ink text-[26px] md:text-[30px]">
-          Casa Orí
+        <Link to="/v2" className="flex items-center" aria-label="Casa Orí">
+          <img
+            src={logoAsset.url}
+            alt="Casa Orí"
+            width={44}
+            height={44}
+            className="w-10 h-10 md:w-11 md:h-11 rounded-full object-cover"
+          />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-8">
