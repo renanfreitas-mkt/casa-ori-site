@@ -49,7 +49,7 @@ const HomeEdImpl = () => (
         </Reveal>
         <Reveal delay={80}>
           <h1 className="ed-display ed-balanced text-ed-ink mt-6 max-w-[17ch] text-[2.35rem] md:text-[4.15rem] lg:text-[5rem] leading-[1.02]">
-            Mas o que ainda está{" "}
+            MAS O QUE AINDA ESTÁ{" "}
             <EdAccent circle>invisível?</EdAccent>
           </h1>
         </Reveal>
