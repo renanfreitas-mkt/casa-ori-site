@@ -418,6 +418,8 @@ const OriEdImpl = () => (
       </div>
     </EdSection>
 
+    <EdQuote image={edRoom} quote={DEPOIMENTOS[3].texto} autor={DEPOIMENTOS[3].autor} inicial={DEPOIMENTOS[3].inicial} />
+
     <EdSection bg="ink">
       <EdHead tone="cream" title={V2_COPY.ori.fechamento} />
       <Reveal delay={200}>
