@@ -199,6 +199,16 @@
   padding-top: 5rem;
 }
 
+.home-method-title {
+  max-width: none;
+  white-space: nowrap;
+}
+
+.home-hero-actions a,
+.home-services-actions a {
+  flex: 0 0 auto;
+}
+
 .home-recognition-field {
   display: none;
 }
@@ -315,9 +325,9 @@
   }
 
   .home-service-row {
-    grid-template-columns: minmax(11rem, 0.65fr) minmax(0, 1.35fr);
+    grid-template-columns: minmax(12.5rem, 0.72fr) minmax(0, 1.28fr);
     gap: 2rem;
-    align-items: baseline;
+    align-items: start;
   }
 }
 
@@ -328,6 +338,10 @@
 
   .home-method-bridge {
     padding-top: 9rem;
+  }
+
+  .home-method-title {
+    font-size: clamp(1.25rem, 6.4vw, 1.6rem);
   }
 
   .home-recognition-grid {
@@ -354,7 +368,7 @@
   .home-services-intro {
     position: relative;
     z-index: 2;
-    padding: 2.5rem 0 1rem;
+    padding: 2rem 0 0.5rem;
   }
 
   .home-services-list {

@@ -84,7 +84,7 @@ const HomeEdImpl = () => (
   <>
     {/* Abertura contínua: a fotografia atravessa a hero e o método */}
     <div className="home-opening bg-ed-cream">
-      <section className="home-flow relative z-10 px-5 sm:px-8 lg:px-12 pt-12 md:pt-16">
+      <section id="inicio" className="home-flow home-anchor relative z-10 px-5 sm:px-8 lg:px-12 pt-12 md:pt-16">
         <div className="home-hero-grid max-w-[1440px] mx-auto">
           <div className="home-hero-copy relative z-20 pb-12 md:pb-28">
             <Reveal>
@@ -101,7 +101,7 @@ const HomeEdImpl = () => (
               </p>
             </Reveal>
             <Reveal delay={220}>
-              <div className="mt-9 flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-3 items-start">
+              <div className="home-hero-actions mt-9 flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-3 items-start">
                 <EdCTA href={QUIZ_CPF_URL} variant="ink">
                   {V2_COPY.home.ctaCpf}
                 </EdCTA>
@@ -130,7 +130,7 @@ const HomeEdImpl = () => (
         <div className="max-w-[1440px] mx-auto grid lg:grid-cols-[0.78fr_1.22fr] gap-10">
           <div className="relative z-20 py-16 md:py-24 lg:py-32">
             <Reveal>
-              <h2 className="ed-title text-ed-cream max-w-[15ch]">
+              <h2 className="home-method-title ed-title text-ed-cream">
                 {V2_COPY.home.metodoTitulo}
               </h2>
             </Reveal>
@@ -146,7 +146,7 @@ const HomeEdImpl = () => (
     </div>
 
     {/* Dores segmentadas em campos conectados */}
-    <section className="home-flow home-recognition relative bg-ed-cream px-5 sm:px-8 lg:px-12 pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden">
+    <section className="home-flow home-recognition relative bg-ed-cream px-5 sm:px-8 lg:px-12 pt-20 pb-14 md:pt-24 md:pb-20 overflow-hidden">
       <div className="home-recognition-field" aria-hidden="true" />
       <div className="relative max-w-[1180px] mx-auto">
         <EdHead
@@ -199,7 +199,7 @@ const HomeEdImpl = () => (
     </section>
 
     {/* Sistema ORI resumo */}
-    <EdSection bg="cream" className="home-flow home-ori-fold">
+    <EdSection id="sistema-ori" bg="cream" className="home-flow home-anchor home-ori-fold">
       <EdHead
         kicker="Sistema ORI"
         title={<>Sistema <EdAccent>ORI</EdAccent></>}
@@ -226,20 +226,20 @@ const HomeEdImpl = () => (
     </EdSection>
 
     {/* Serviços em percurso editorial, sem grade de cartões */}
-    <section className="home-flow home-services-flow relative bg-ed-cream px-5 sm:px-8 lg:px-12 py-16 md:py-28 overflow-hidden">
+    <section id="servicos" className="home-flow home-anchor home-services-flow relative bg-ed-cream px-5 sm:px-8 lg:px-12 py-14 md:py-20 overflow-hidden">
       <div className="home-services-wash" aria-hidden="true" />
       <div className="relative max-w-[1180px] mx-auto">
         <div className="grid gap-12 md:grid-cols-[0.7fr_1.3fr] md:gap-20 items-start">
           <div className="home-services-intro md:sticky md:top-32">
             <EdHead kicker="Serviços" title="Caminhos possíveis" lead={V2_COPY.servicos.introducao} />
             <Reveal delay={200}>
-              <div className="mt-8 flex flex-wrap gap-3">
+              <div className="home-services-actions mt-8 flex flex-col sm:flex-row md:flex-col xl:flex-row items-start gap-3">
                 <EdCTA href="/servicos" variant="ink">Ver todos os serviços</EdCTA>
                 <EdCTA href={WHATSAPP_URL} variant="outlineInk">Falar no WhatsApp</EdCTA>
               </div>
             </Reveal>
           </div>
-          <div className="home-services-list space-y-12 md:pt-20">
+          <div className="home-services-list space-y-10 md:pt-16">
             <div>
               <span className="ed-eyebrow text-ed-ink/50">Para você</span>
               <div className="mt-5 border-t border-ed-ink/20">
@@ -251,7 +251,7 @@ const HomeEdImpl = () => (
                 ))}
               </div>
             </div>
-            <div className="md:ml-16">
+            <div>
               <span className="ed-eyebrow text-ed-forest">Para sua empresa</span>
               <div className="mt-5 border-t border-ed-ink/20">
                 {SERV_CNPJ.map((service) => (
@@ -274,7 +274,7 @@ const HomeEdImpl = () => (
       </div>
     </section>
 
-    <div className="home-flow">
+    <div id="contato" className="home-flow home-anchor">
       <CtaFinalEd />
     </div>
   </>
