@@ -42,7 +42,7 @@ export function EdCTA({
       href={href}
       target={external ? "_blank" : undefined}
       rel={external ? "noopener noreferrer" : undefined}
-      className={`inline-flex items-center justify-center rounded-full px-7 py-3.5 text-[14px] tracking-wide transition-colors duration-300 ${styles[variant]} ${className}`}
+      className={`inline-flex max-w-full items-center justify-center whitespace-nowrap rounded-full px-6 sm:px-7 py-3.5 text-[13px] sm:text-[14px] tracking-wide transition-colors duration-300 ${styles[variant]} ${className}`}
     >
       {children}
     </a>
@@ -292,6 +292,33 @@ export function EdQuote({
 export function EdNav() {
   const [open, setOpen] = useState(false);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const homeAnchors: Partial<Record<(typeof links)[number]["to"], string>> = {
+    "/": "#inicio",
+    "/servicos": "#servicos",
+    "/sistema-ori": "#sistema-ori",
+    "/contato": "#contato",
+  };
+
+  const navItem = (l: (typeof links)[number], mobile = false) => {
+    const anchor = pathname === "/" ? homeAnchors[l.to] : undefined;
+    const className = mobile
+      ? "font-sans text-[20px] font-normal text-ed-ink"
+      : `text-[13px] tracking-wide text-ed-ink transition-opacity ${pathname === l.to ? "opacity-100 underline underline-offset-8" : "opacity-60 hover:opacity-100"}`;
+
+    if (anchor) {
+      return (
+        <a key={l.to} href={anchor} onClick={() => setOpen(false)} className={className}>
+          {l.label}
+        </a>
+      );
+    }
+
+    return (
+      <Link key={l.to} to={l.to} onClick={() => setOpen(false)} className={className}>
+        {l.label}
+      </Link>
+    );
+  };
 
   return (
     <header className="sticky top-0 z-50 bg-ed-cream/95 backdrop-blur border-b border-ed-ink/10">
@@ -307,17 +334,7 @@ export function EdNav() {
         </Link>
 
         <nav className="hidden lg:flex items-center gap-8">
-          {links.map((l) => (
-            <Link
-              key={l.to}
-              to={l.to}
-              className={`text-[13px] tracking-wide text-ed-ink transition-opacity ${
-                pathname === l.to ? "opacity-100 underline underline-offset-8" : "opacity-60 hover:opacity-100"
-              }`}
-            >
-              {l.label}
-            </Link>
-          ))}
+          {links.map((l) => navItem(l))}
         </nav>
 
         <div className="hidden lg:flex items-center gap-3">
@@ -338,16 +355,7 @@ export function EdNav() {
 
       {open && (
         <div className="lg:hidden bg-ed-cream border-t border-ed-ink/10 px-6 py-8 flex flex-col gap-5">
-          {links.map((l) => (
-            <Link
-              key={l.to}
-              to={l.to}
-              onClick={() => setOpen(false)}
-              className="font-sans text-[20px] font-normal text-ed-ink"
-            >
-              {l.label}
-            </Link>
-          ))}
+          {links.map((l) => navItem(l, true))}
           <EdCTA href={WHATSAPP_URL} variant="ink" className="mt-2 self-start">
             Falar no WhatsApp
           </EdCTA>
