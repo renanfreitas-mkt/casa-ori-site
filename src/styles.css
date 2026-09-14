@@ -266,12 +266,19 @@
 
 .home-services-wash {
   position: absolute;
-  top: 14%;
+  top: 13rem;
   left: 0;
   width: 38%;
-  height: 54%;
+  aspect-ratio: 1 / 1;
   border-radius: 0 12rem 12rem 0;
   background: color-mix(in oklab, var(--color-ed-leaf) 22%, transparent);
+}
+
+.home-services-intro {
+  min-height: min(38vw, 34rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .home-service-row {
@@ -359,16 +366,19 @@
   }
 
   .home-services-wash {
-    top: 2.5rem;
-    width: 78%;
-    height: 17rem;
+    top: 3.5rem;
+    width: 100%;
+    height: 29rem;
+    aspect-ratio: auto;
     border-radius: 0 7rem 7rem 0;
   }
 
   .home-services-intro {
     position: relative;
     z-index: 2;
-    padding: 2rem 0 0.5rem;
+    min-height: 29rem;
+    padding: 2rem 0;
+    justify-content: center;
   }
 
   .home-services-list {
