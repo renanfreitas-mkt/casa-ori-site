@@ -266,7 +266,7 @@
 
 .home-services-wash {
   position: absolute;
-  top: 0;
+  top: 13rem;
   left: 0;
   width: 38%;
   aspect-ratio: 1 / 1;
@@ -366,8 +366,8 @@
   }
 
   .home-services-wash {
-    top: 0;
-    width: calc(100% - 2.5rem);
+    top: 3.5rem;
+    width: 100%;
     height: auto;
     aspect-ratio: 1 / 1;
     border-radius: 0 7rem 7rem 0;
@@ -376,7 +376,7 @@
   .home-services-intro {
     position: relative;
     z-index: 2;
-    min-height: calc(100vw - 2.5rem);
+    min-height: 100vw;
     padding: 2rem 0;
     justify-content: center;
   }
