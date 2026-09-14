@@ -1,17 +1,17 @@
 import type { ReactNode } from "react";
 import { useState } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
-import { Menu, X, Instagram, MessageCircle, ArrowLeft } from "lucide-react";
+import { Menu, X, Instagram, MessageCircle } from "lucide-react";
 import { Reveal } from "../Reveal";
 import { INSTAGRAM_URL, WHATSAPP_URL } from "../content";
 import logoAsset from "@/assets/casa-ori-logo.jpg.asset.json";
 
 export const links = [
-  { to: "/v2", label: "Início" },
-  { to: "/v2/servicos", label: "Serviços" },
-  { to: "/v2/sistema-ori", label: "Sistema ORI" },
-  { to: "/v2/sobre", label: "Sobre" },
-  { to: "/v2/contato", label: "Contato" },
+  { to: "/", label: "Início" },
+  { to: "/servicos", label: "Serviços" },
+  { to: "/sistema-ori", label: "Sistema ORI" },
+  { to: "/sobre", label: "Sobre" },
+  { to: "/contato", label: "Contato" },
 ] as const;
 
 /* ---------------- CTA ---------------- */
@@ -293,7 +293,7 @@ export function EdNav() {
   return (
     <header className="sticky top-0 z-50 bg-ed-cream/95 backdrop-blur border-b border-ed-ink/10">
       <div className="max-w-[1440px] mx-auto px-5 sm:px-8 lg:px-12 h-16 md:h-20 flex items-center justify-between gap-6">
-        <Link to="/v2" className="flex items-center" aria-label="Casa Orí">
+        <Link to="/" className="flex items-center" aria-label="Casa Orí">
           <img
             src={logoAsset.url}
             alt="Casa Orí"
@@ -318,12 +318,6 @@ export function EdNav() {
         </nav>
 
         <div className="hidden lg:flex items-center gap-3">
-          <Link
-            to="/"
-            className="inline-flex items-center gap-1.5 text-[12px] tracking-wide text-ed-ink/60 hover:text-ed-ink transition-colors"
-          >
-            <ArrowLeft size={14} /> Tema atual
-          </Link>
           <EdCTA href={WHATSAPP_URL} variant="ink" className="px-5 py-2.5 text-[13px]">
             Falar no WhatsApp
           </EdCTA>
@@ -354,12 +348,6 @@ export function EdNav() {
           <EdCTA href={WHATSAPP_URL} variant="ink" className="mt-2 self-start">
             Falar no WhatsApp
           </EdCTA>
-          <Link
-            to="/"
-            className="inline-flex items-center gap-1.5 text-[13px] text-ed-ink/60"
-          >
-            <ArrowLeft size={14} /> Voltar ao tema atual
-          </Link>
         </div>
       )}
     </header>
@@ -420,12 +408,6 @@ export function EdFooter() {
                 <MessageCircle size={18} />
               </a>
             </div>
-            <Link
-              to="/"
-              className="mt-6 inline-flex items-center gap-1.5 text-[13px] text-ed-cream/60 hover:text-ed-butter"
-            >
-              <ArrowLeft size={14} /> Voltar ao tema atual
-            </Link>
           </div>
         </div>
 

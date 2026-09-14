@@ -1,37 +1,35 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Nav } from "@/components/site/Nav";
-import { Footer } from "@/components/site/sections";
-import { ContatoCaminho, ContatoDireto } from "@/components/site/ContatoPage";
+import { ContatoEd } from "@/components/site/v2/EditorialPages";
+import { EdNav, EdFooter } from "@/components/site/v2/ui";
+
+const title = "Contato — Casa Orí";
+const description =
+  "Fale com a Carol pelo WhatsApp ou responda perguntas rápidas para entendermos sua situação. Brasília e online.";
 
 export const Route = createFileRoute("/contato")({
   head: () => ({
     meta: [
-      { title: "Contato — Casa Orí" },
-      {
-        name: "description",
-        content:
-          "Agende uma conversa inicial com a Carol pelo WhatsApp. Primeiro contato gratuito, sem compromisso de continuidade.",
-      },
-      { property: "og:title", content: "Falar com a Casa Orí" },
-      {
-        property: "og:description",
-        content:
-          "Agende uma conversa inicial. Online ou presencial, conforme sua necessidade.",
-      },
+      { title },
+      { name: "description", content: description },
+      { property: "og:title", content: title },
+      { property: "og:description", content: description },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://casa-ori-site.lovable.app/contato" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: "https://casa-ori-site.lovable.app/contato" }],
   }),
   component: ContatoPage,
 });
 
 function ContatoPage() {
   return (
-    <div className="bg-white text-[#1C1C1C] overflow-x-hidden">
-      <Nav />
-      <main className="pt-20">
-        <ContatoCaminho />
-        <ContatoDireto />
+    <div className="theme-editorial bg-ed-cream min-h-screen overflow-x-hidden">
+      <EdNav />
+      <main>
+        <ContatoEd />
       </main>
-      <Footer />
+      <EdFooter />
     </div>
   );
 }

@@ -191,7 +191,7 @@ const HomeEdImpl = () => (
           />
           <Reveal delay={200}>
             <div className="mt-8 flex flex-wrap gap-3">
-              <EdCTA href="/v2/servicos" variant="ink">
+              <EdCTA href="/servicos" variant="ink">
                 Ver todos os serviços
               </EdCTA>
               <EdCTA href={WHATSAPP_URL} variant="outlineInk">
