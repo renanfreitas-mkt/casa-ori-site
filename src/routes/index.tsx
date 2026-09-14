@@ -1,55 +1,35 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Nav } from "@/components/site/Nav";
-import { Hero } from "@/components/site/Hero";
-import { Footer } from "@/components/site/sections";
-import {
-  Explicacao,
-  DoresV3,
-  SistemaOriV3,
-  AvaliacaoV3,
-  CarolV3,
-  ContinueConversa,
-  DepoimentosV3,
-  CtaFinal,
-} from "@/components/site/HomeV3";
+import { HomeEd } from "@/components/site/v2/EditorialPages";
+import { EdNav, EdFooter } from "@/components/site/v2/ui";
+
+const title = "Casa Orí — Terapia sistêmica e desenvolvimento";
+const description =
+  "Terapia sistêmica, constelação familiar e desenvolvimento de equipes em Brasília, com atendimento presencial e online.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Casa Orí — Terapia sistêmica e desenvolvimento · Carol Milhomens" },
-      {
-        name: "description",
-        content:
-          "A Casa Orí ajuda pessoas e empresas a investigar o que ainda não foi percebido, mas continua influenciando comportamentos, relações e resultados.",
-      },
-      { property: "og:title", content: "Casa Orí — Terapia sistêmica e desenvolvimento" },
-      {
-        property: "og:description",
-        content:
-          "Investigar o que ainda não foi percebido e construir novas possibilidades de ação — para pessoas e para empresas.",
-      },
+      { title },
+      { name: "description", content: description },
+      { property: "og:title", content: title },
+      { property: "og:description", content: description },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://casa-ori-site.lovable.app/" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: "https://casa-ori-site.lovable.app/" }],
   }),
   component: Index,
 });
 
 function Index() {
   return (
-    <div className="bg-white text-[#1C1C1C] overflow-x-hidden">
-      <Nav />
+    <div className="theme-editorial bg-ed-cream min-h-screen overflow-x-hidden">
+      <EdNav />
       <main>
-        <Hero />
-        <Explicacao />
-        <DoresV3 />
-        <SistemaOriV3 />
-        <AvaliacaoV3 />
-        
-        <CarolV3 />
-        <ContinueConversa />
-        <DepoimentosV3 />
-        <CtaFinal />
+        <HomeEd />
       </main>
-      <Footer />
+      <EdFooter />
     </div>
   );
 }

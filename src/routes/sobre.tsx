@@ -1,46 +1,35 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Nav } from "@/components/site/Nav";
-import { Footer } from "@/components/site/sections";
-import {
-  Nome,
-  Pilares,
-  CarolSobre,
-  Premissas,
-  SobreFechamento,
-} from "@/components/site/SobrePage";
+import { SobreEd } from "@/components/site/v2/EditorialPages";
+import { EdNav, EdFooter } from "@/components/site/v2/ui";
+
+const title = "Sobre — Carol Milhomens | Casa Orí";
+const description =
+  "Conheça a Casa Orí, Carol Milhomens, os pilares do trabalho e os alinhamentos antes de começar.";
 
 export const Route = createFileRoute("/sobre")({
   head: () => ({
     meta: [
-      { title: "Sobre — Casa Orí · Carol Milhomens" },
-      {
-        name: "description",
-        content:
-          "Quem conduz a Casa Orí, como o trabalho é feito e o que é importante alinhar antes de começar um processo.",
-      },
-      { property: "og:title", content: "Sobre a Casa Orí" },
-      {
-        property: "og:description",
-        content:
-          "Carol Milhomens, terapeuta sistêmica e criadora do Sistema ORI. Os pilares e as premissas do trabalho.",
-      },
+      { title },
+      { name: "description", content: description },
+      { property: "og:title", content: title },
+      { property: "og:description", content: description },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://casa-ori-site.lovable.app/sobre" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: "https://casa-ori-site.lovable.app/sobre" }],
   }),
   component: SobrePage,
 });
 
 function SobrePage() {
   return (
-    <div className="bg-white text-[#1C1C1C] overflow-x-hidden">
-      <Nav />
-      <main className="pt-20">
-        <Nome />
-        <Pilares />
-        <CarolSobre />
-        <Premissas />
-        <SobreFechamento />
+    <div className="theme-editorial bg-ed-cream min-h-screen overflow-x-hidden">
+      <EdNav />
+      <main>
+        <SobreEd />
       </main>
-      <Footer />
+      <EdFooter />
     </div>
   );
 }

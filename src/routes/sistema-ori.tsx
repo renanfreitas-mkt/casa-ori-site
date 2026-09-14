@@ -1,46 +1,35 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Nav } from "@/components/site/Nav";
-import { Footer } from "@/components/site/sections";
-import {
-  OriEixos,
-  OriDiferencial,
-  OriAplicacao,
-  OriGanhos,
-  OriFechamento,
-} from "@/components/site/SistemaOriPage";
+import { OriEd } from "@/components/site/v2/EditorialPages";
+import { EdNav, EdFooter } from "@/components/site/v2/ui";
+
+const title = "Sistema ORI — Casa Orí";
+const description =
+  "Observa, Reorganiza, Integra: o método que conduz processos individuais e trabalhos com equipes.";
 
 export const Route = createFileRoute("/sistema-ori")({
   head: () => ({
     meta: [
-      { title: "Sistema ORI — Casa Orí" },
-      {
-        name: "description",
-        content:
-          "O Sistema ORI é a metodologia autoral que sustenta o trabalho da Casa Orí — em processos individuais e dentro de empresas: Observa, Reorganiza, Integra.",
-      },
-      { property: "og:title", content: "Sistema ORI — Metodologia autoral" },
-      {
-        property: "og:description",
-        content:
-          "Observa, Reorganiza, Integra. A estrutura por trás de cada processo conduzido na Casa Orí.",
-      },
+      { title },
+      { name: "description", content: description },
+      { property: "og:title", content: title },
+      { property: "og:description", content: description },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://casa-ori-site.lovable.app/sistema-ori" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: "https://casa-ori-site.lovable.app/sistema-ori" }],
   }),
   component: SistemaOriPage,
 });
 
 function SistemaOriPage() {
   return (
-    <div className="bg-white text-[#1C1C1C] overflow-x-hidden">
-      <Nav />
-      <main className="pt-20">
-        <OriEixos />
-        <OriDiferencial />
-        <OriAplicacao />
-        <OriGanhos />
-        <OriFechamento />
+    <div className="theme-editorial bg-ed-cream min-h-screen overflow-x-hidden">
+      <EdNav />
+      <main>
+        <OriEd />
       </main>
-      <Footer />
+      <EdFooter />
     </div>
   );
 }
