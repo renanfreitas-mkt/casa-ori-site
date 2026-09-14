@@ -84,7 +84,7 @@ const HomeEdImpl = () => (
   <>
     {/* Abertura contínua: a fotografia atravessa a hero e o método */}
     <div className="home-opening bg-ed-cream">
-      <section className="relative z-10 px-5 sm:px-8 lg:px-12 pt-12 md:pt-16">
+      <section className="home-flow relative z-10 px-5 sm:px-8 lg:px-12 pt-12 md:pt-16">
         <div className="home-hero-grid max-w-[1440px] mx-auto">
           <div className="home-hero-copy relative z-20 pb-12 md:pb-28">
             <Reveal>
@@ -126,7 +126,7 @@ const HomeEdImpl = () => (
         </div>
       </section>
 
-      <section className="home-method-bridge relative bg-ed-ink text-ed-cream px-5 sm:px-8 lg:px-12">
+      <section className="home-flow home-method-bridge relative bg-ed-ink text-ed-cream px-5 sm:px-8 lg:px-12">
         <div className="max-w-[1440px] mx-auto grid lg:grid-cols-[0.78fr_1.22fr] gap-10">
           <div className="relative z-20 py-16 md:py-24 lg:py-32">
             <Reveal>
@@ -146,7 +146,7 @@ const HomeEdImpl = () => (
     </div>
 
     {/* Dores segmentadas em campos conectados */}
-    <section className="home-recognition relative bg-ed-cream px-5 sm:px-8 lg:px-12 pt-28 pb-20 md:pt-40 md:pb-28 overflow-hidden">
+    <section className="home-flow home-recognition relative bg-ed-cream px-5 sm:px-8 lg:px-12 pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden">
       <div className="home-recognition-field" aria-hidden="true" />
       <div className="relative max-w-[1180px] mx-auto">
         <EdHead
@@ -154,9 +154,9 @@ const HomeEdImpl = () => (
           title="Onde isso costuma aparecer."
           className="mb-14 md:mb-20"
         />
-        <div className="grid gap-16 md:grid-cols-2 md:gap-20 lg:gap-28 items-start">
-          <Reveal delay={160}>
-            <div className="md:pt-4">
+        <div className="home-recognition-grid grid gap-12 md:grid-cols-2 md:gap-16 lg:gap-24 items-stretch">
+          <Reveal>
+            <div className="home-personal-list md:pt-4">
               <span className="ed-eyebrow text-ed-ink/50">Para você</span>
               <ul className="mt-7 space-y-4">
                 {DORES_CPF.map((d) => (
@@ -170,7 +170,7 @@ const HomeEdImpl = () => (
               </div>
             </div>
           </Reveal>
-          <Reveal delay={240}>
+          <Reveal>
             <div className="home-company-list text-ed-cream">
               <span className="ed-eyebrow text-ed-sand">Para sua empresa</span>
               <ul className="mt-7 space-y-4">
@@ -189,7 +189,7 @@ const HomeEdImpl = () => (
       </div>
     </section>
 
-    <section className="relative bg-ed-butter px-5 sm:px-8 lg:px-12 py-16 md:py-20">
+    <section className="home-flow relative bg-ed-butter px-5 sm:px-8 lg:px-12 py-14 md:py-20">
       <div className="max-w-[1180px] mx-auto grid md:grid-cols-[0.72fr_1.28fr] gap-10 items-center">
         <Reveal>
           <img src={edQuoteImg} alt="" loading="lazy" className="home-quote-image" />
@@ -199,7 +199,7 @@ const HomeEdImpl = () => (
     </section>
 
     {/* Sistema ORI resumo */}
-    <EdSection bg="cream" className="home-ori-fold">
+    <EdSection bg="cream" className="home-flow home-ori-fold">
       <EdHead
         kicker="Sistema ORI"
         title={<>Sistema <EdAccent>ORI</EdAccent></>}
@@ -208,7 +208,7 @@ const HomeEdImpl = () => (
       />
       <div className="grid gap-6 md:grid-cols-3">
         {EIXOS.map((e, i) => (
-          <Reveal key={e.letra} delay={i * 90} className="relative">
+          <Reveal key={e.letra} delay={i * 40} className="relative h-full">
             <EdCard className="h-full">
               <span className="ed-display text-ed-olive text-[64px] block">
                 <EdLetterMark>{e.letra}</EdLetterMark>
@@ -226,11 +226,11 @@ const HomeEdImpl = () => (
     </EdSection>
 
     {/* Serviços em percurso editorial, sem grade de cartões */}
-    <section className="home-services-flow relative bg-ed-cream px-5 sm:px-8 lg:px-12 py-20 md:py-32 overflow-hidden">
+    <section className="home-flow home-services-flow relative bg-ed-cream px-5 sm:px-8 lg:px-12 py-16 md:py-28 overflow-hidden">
       <div className="home-services-wash" aria-hidden="true" />
       <div className="relative max-w-[1180px] mx-auto">
         <div className="grid gap-12 md:grid-cols-[0.7fr_1.3fr] md:gap-20 items-start">
-          <div className="md:sticky md:top-32">
+          <div className="home-services-intro md:sticky md:top-32">
             <EdHead kicker="Serviços" title="Caminhos possíveis" lead={V2_COPY.servicos.introducao} />
             <Reveal delay={200}>
               <div className="mt-8 flex flex-wrap gap-3">
@@ -239,7 +239,7 @@ const HomeEdImpl = () => (
               </div>
             </Reveal>
           </div>
-          <div className="space-y-14 md:pt-24">
+          <div className="home-services-list space-y-12 md:pt-20">
             <div>
               <span className="ed-eyebrow text-ed-ink/50">Para você</span>
               <div className="mt-5 border-t border-ed-ink/20">
@@ -265,7 +265,7 @@ const HomeEdImpl = () => (
           </div>
         </div>
 
-        <div className="mt-20 md:mt-28 grid md:grid-cols-[1.1fr_0.9fr] gap-8 items-end">
+        <div className="home-services-proof mt-14 md:mt-20 grid md:grid-cols-[1.1fr_0.9fr] gap-8 items-end">
           <HomeTestimonial {...DEPOIMENTOS[1]} tone="dark" />
           <Reveal delay={120}>
             <img src={edRoom} alt="Sala de atendimento da Casa Orí" loading="lazy" className="home-services-image" />

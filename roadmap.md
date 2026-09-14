@@ -9,3 +9,4 @@
 - [x] Remover a navegação e os arquivos exclusivos do tema antigo.
 - [x] Preservar redirecionamentos dos antigos endereços `/v2`.
 - [x] Redesenhar a home como narrativa assimétrica contínua, preservando cores, textos e a dobra do Sistema ORI.
+- [x] Revisar quebras de texto, alinhamentos e vazios excessivos da home em desktop e celular.

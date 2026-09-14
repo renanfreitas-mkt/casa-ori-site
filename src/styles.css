@@ -200,18 +200,15 @@
 }
 
 .home-recognition-field {
-  position: absolute;
-  top: 18rem;
-  right: 0;
-  bottom: 0;
-  width: 50%;
-  background: var(--color-ed-ink);
-  border-radius: 10rem 0 0 0;
+  display: none;
 }
 
 .home-company-list {
   position: relative;
-  padding: 3.5rem 2rem 2rem;
+  height: 100%;
+  padding: 3.5rem 2.5rem 3rem;
+  background: var(--color-ed-ink);
+  border-radius: 7rem 0 0 0;
 }
 
 .home-line-item {
@@ -248,12 +245,17 @@
   border-radius: 0 3rem 0 3rem;
 }
 
+/* O conteúdo continua legível mesmo antes da animação de entrada terminar. */
+.home-flow .opacity-0 {
+  opacity: 0.92;
+}
+
 .home-services-wash {
   position: absolute;
   top: 14%;
   left: 0;
   width: 38%;
-  height: 62%;
+  height: 54%;
   border-radius: 0 12rem 12rem 0;
   background: color-mix(in oklab, var(--color-ed-leaf) 22%, transparent);
 }
@@ -263,6 +265,11 @@
   gap: 0.8rem;
   padding: 1.6rem 0;
   border-bottom: 1px solid color-mix(in oklab, var(--color-ed-ink) 20%, transparent);
+}
+
+.home-service-row h3,
+.home-service-row p {
+  max-width: none;
 }
 
 .home-services-image {
@@ -296,7 +303,7 @@
   }
 
   .home-company-list {
-    padding: 3.5rem 2.5rem 3rem;
+    min-height: 100%;
   }
 
   .home-testimonial {
@@ -319,16 +326,14 @@
     padding-top: 9rem;
   }
 
-  .home-recognition-field {
-    top: auto;
-    bottom: 0;
-    width: 100%;
-    height: 50%;
-    border-radius: 5rem 0 0 0;
+  .home-recognition-grid {
+    gap: 3rem;
   }
 
   .home-company-list {
-    margin-inline: -0.25rem;
+    margin-inline: -1.25rem;
+    padding: 4rem 2.5rem 3.5rem;
+    border-radius: 5rem 0 0 0;
   }
 
   .home-quote-image {
@@ -336,10 +341,29 @@
   }
 
   .home-services-wash {
-    top: 4rem;
+    top: 2.5rem;
     width: 78%;
-    height: 20rem;
+    height: 17rem;
     border-radius: 0 7rem 7rem 0;
+  }
+
+  .home-services-intro {
+    position: relative;
+    z-index: 2;
+    padding: 2.5rem 0 1rem;
+  }
+
+  .home-services-list {
+    position: relative;
+    z-index: 2;
+  }
+
+  .home-service-row {
+    padding-block: 1.35rem;
+  }
+
+  .home-services-proof {
+    margin-top: 3rem;
   }
 }
 
