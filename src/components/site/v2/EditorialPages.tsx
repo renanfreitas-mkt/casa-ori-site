@@ -274,7 +274,9 @@ const HomeEdImpl = () => (
       </div>
     </section>
 
-    <CtaFinalEd />
+    <div className="home-flow">
+      <CtaFinalEd />
+    </div>
   </>
 );
 export const HomeEd = memo(HomeEdImpl);
