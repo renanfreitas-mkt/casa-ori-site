@@ -247,7 +247,11 @@
 
 /* O conteúdo continua legível mesmo antes da animação de entrada terminar. */
 .home-flow .opacity-0 {
-  opacity: 0.92;
+  opacity: 1;
+}
+
+.home-flow .translate-y-3 {
+  transform: translateY(0);
 }
 
 .home-services-wash {
