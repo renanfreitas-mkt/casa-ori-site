@@ -194,7 +194,7 @@ const HomeEdImpl = () => (
         <Reveal>
           <img src={edQuoteImg} alt="" loading="lazy" className="home-quote-image" />
         </Reveal>
-        <HomeTestimonial {...DEPOIMENTOS[0]} />
+        <HomeTestimonial {...DEPOIMENTOS[0]} autor="Bruna C." />
       </div>
     </section>
 
