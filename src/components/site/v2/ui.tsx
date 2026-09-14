@@ -92,6 +92,7 @@ export function EdHead({
   lead,
   tone = "ink",
   align = "left",
+  as = "h2",
   className = "",
 }: {
   kicker?: string;
@@ -99,9 +100,11 @@ export function EdHead({
   lead?: ReactNode;
   tone?: "ink" | "cream";
   align?: "left" | "center";
+  as?: "h1" | "h2";
   className?: string;
 }) {
   const dark = tone === "ink";
+  const Heading = as;
   return (
     <div
       className={`${align === "center" ? "text-center mx-auto max-w-[760px]" : "max-w-[820px]"} ed-balanced ${className}`}
@@ -114,11 +117,11 @@ export function EdHead({
         </Reveal>
       )}
       <Reveal delay={80}>
-        <h2
+        <Heading
           className={`ed-title ${kicker ? "mt-5" : ""} ${dark ? "text-ed-ink" : "text-ed-cream"}`}
         >
           {title}
-        </h2>
+        </Heading>
       </Reveal>
       {lead && (
         <Reveal delay={160}>

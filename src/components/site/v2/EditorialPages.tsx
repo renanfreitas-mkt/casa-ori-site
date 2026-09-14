@@ -290,6 +290,7 @@ const ServicosEdImpl = () => (
   <>
     <EdSection bg="cream">
        <EdHead
+         as="h1"
          kicker="Serviços"
          title="Cada situação pede um caminho"
          lead={V2_COPY.servicos.introducao}
@@ -360,6 +361,7 @@ const OriEdImpl = () => (
   <>
     <EdSection bg="cream">
       <EdHead
+        as="h1"
         kicker="Sistema ORI"
         title={<>Sistema <EdAccent circle>ORI</EdAccent></>}
         lead="A mesma estrutura conduz processos individuais e trabalhos dentro de empresas — o que muda é o contexto, não o método."
@@ -464,7 +466,7 @@ export const OriEd = memo(OriEdImpl);
 const SobreEdImpl = () => (
   <>
     <EdSection bg="butter">
-      <EdHead title="Casa Orí" className="mb-10" />
+      <EdHead as="h1" title="Casa Orí" className="mb-10" />
       <div className="grid gap-6 md:grid-cols-3">
         {NOME.map((n, i) => (
           <Reveal key={n.palavra} delay={i * 90}>
@@ -567,6 +569,7 @@ const ContatoEdImpl = () => (
   <>
     <EdSection bg="cream">
       <EdHead
+        as="h1"
         kicker="Contato"
         title={V2_COPY.contato.titulo}
         lead={
