@@ -164,6 +164,185 @@
   animation: ed-hand-draw 1.1s ease-out forwards;
 }
 
+/* Home: narrativa assimétrica e contínua */
+.home-hero-grid {
+  display: grid;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.home-hero-photo-wrap {
+  position: relative;
+  z-index: 20;
+  overflow: hidden;
+  min-height: 31rem;
+  border-radius: 12rem 12rem 2.25rem 2.25rem;
+}
+
+.home-hero-photo {
+  width: 100%;
+  height: 100%;
+  min-height: 31rem;
+  object-fit: cover;
+  object-position: center;
+}
+
+.home-photo-caption {
+  position: absolute;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  writing-mode: vertical-rl;
+}
+
+.home-method-bridge {
+  margin-top: -5rem;
+  padding-top: 5rem;
+}
+
+.home-recognition-field {
+  position: absolute;
+  top: 18rem;
+  right: 0;
+  bottom: 0;
+  width: 50%;
+  background: var(--color-ed-ink);
+  border-radius: 10rem 0 0 0;
+}
+
+.home-company-list {
+  position: relative;
+  padding: 3.5rem 2rem 2rem;
+}
+
+.home-line-item {
+  position: relative;
+  padding-left: 1.4rem;
+}
+
+.home-line-item::before {
+  content: "";
+  position: absolute;
+  top: 0.72rem;
+  left: 0;
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 999px;
+  background: var(--color-ed-butter);
+}
+
+.home-line-item-light::before {
+  background: var(--color-ed-sand);
+}
+
+.home-quote-image {
+  width: min(100%, 25rem);
+  height: 22rem;
+  object-fit: cover;
+  border-radius: 10rem 10rem 1.5rem 1.5rem;
+}
+
+.home-testimonial {
+  position: relative;
+  z-index: 10;
+  padding: 2rem;
+  border-radius: 0 3rem 0 3rem;
+}
+
+.home-services-wash {
+  position: absolute;
+  top: 14%;
+  left: 0;
+  width: 38%;
+  height: 62%;
+  border-radius: 0 12rem 12rem 0;
+  background: color-mix(in oklab, var(--color-ed-leaf) 22%, transparent);
+}
+
+.home-service-row {
+  display: grid;
+  gap: 0.8rem;
+  padding: 1.6rem 0;
+  border-bottom: 1px solid color-mix(in oklab, var(--color-ed-ink) 20%, transparent);
+}
+
+.home-services-image {
+  width: 100%;
+  height: 22rem;
+  object-fit: cover;
+  border-radius: 1.5rem 8rem 1.5rem 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .home-hero-grid {
+    grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
+    gap: 4rem;
+    min-height: 48rem;
+  }
+
+  .home-hero-media {
+    align-self: stretch;
+    margin-bottom: -18rem;
+  }
+
+  .home-hero-photo-wrap,
+  .home-hero-photo {
+    height: 62rem;
+  }
+
+  .home-method-bridge {
+    min-height: 27rem;
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  .home-company-list {
+    padding: 3.5rem 2.5rem 3rem;
+  }
+
+  .home-testimonial {
+    padding: 3rem;
+  }
+
+  .home-service-row {
+    grid-template-columns: minmax(11rem, 0.65fr) minmax(0, 1.35fr);
+    gap: 2rem;
+    align-items: baseline;
+  }
+}
+
+@media (max-width: 767px) {
+  .home-hero-media {
+    margin-bottom: -8rem;
+  }
+
+  .home-method-bridge {
+    padding-top: 9rem;
+  }
+
+  .home-recognition-field {
+    top: auto;
+    bottom: 0;
+    width: 100%;
+    height: 50%;
+    border-radius: 5rem 0 0 0;
+  }
+
+  .home-company-list {
+    margin-inline: -0.25rem;
+  }
+
+  .home-quote-image {
+    margin-inline: auto;
+  }
+
+  .home-services-wash {
+    top: 4rem;
+    width: 78%;
+    height: 20rem;
+    border-radius: 0 7rem 7rem 0;
+  }
+}
+
 @utility ed-eyebrow {
   font-family: var(--font-sans);
   font-weight: 400;

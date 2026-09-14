@@ -39,125 +39,170 @@ import {
 
 /* ============================= HOME ============================= */
 
+function HomeTestimonial({
+  texto,
+  autor,
+  inicial,
+  tone = "light",
+}: {
+  texto: string;
+  autor: string;
+  inicial: string;
+  tone?: "light" | "dark";
+}) {
+  const dark = tone === "dark";
+  return (
+    <Reveal>
+      <aside
+        className={`home-testimonial ${dark ? "bg-ed-ink text-ed-cream" : "bg-ed-cream text-ed-ink"}`}
+      >
+        <span className={`ed-display text-[56px] leading-none ${dark ? "text-ed-butter" : "text-ed-olive"}`} aria-hidden="true">
+          “
+        </span>
+        <p className={`mt-2 text-[16px] md:text-[18px] font-light leading-relaxed ${dark ? "text-ed-cream/85" : "text-ed-ink/75"}`}>
+          {texto}
+        </p>
+        <div className="mt-7 flex items-center gap-3">
+          <span
+            aria-hidden="true"
+            className={`flex h-10 w-10 items-center justify-center rounded-full border ed-display text-[18px] ${
+              dark
+                ? "border-ed-butter/50 bg-ed-butter/15 text-ed-butter"
+                : "border-ed-olive/35 bg-ed-leaf/20 text-ed-forest"
+            }`}
+          >
+            {inicial}
+          </span>
+          <span className={`ed-eyebrow ${dark ? "text-ed-sand" : "text-ed-ink/55"}`}>{autor}</span>
+        </div>
+      </aside>
+    </Reveal>
+  );
+}
+
 const HomeEdImpl = () => (
   <>
-    {/* Hero editorial */}
-    <section className="bg-ed-cream px-5 sm:px-8 lg:px-12 pt-14 md:pt-20 pb-0">
-      <div className="max-w-[1440px] mx-auto">
-        <Reveal>
-          <span className="ed-eyebrow text-ed-ink/55">Casa Orí</span>
-        </Reveal>
-        <Reveal delay={80}>
-          <h1 className="ed-display ed-balanced text-ed-ink mt-6 whitespace-nowrap text-[clamp(1rem,5.2vw,4.6rem)] leading-[1.05]">
-            MAS O QUE AINDA ESTÁ{" "}
-            <EdAccent circle>invisível?</EdAccent>
-          </h1>
-        </Reveal>
-        <div className="mt-10 grid gap-8 md:grid-cols-[1.1fr_1fr] items-end">
-          <Reveal delay={160}>
-            <p className="max-w-[520px] text-[16px] md:text-[18px] font-light leading-relaxed text-ed-ink/70">
-              {V2_COPY.home.subtitulo}
-            </p>
-          </Reveal>
-          <Reveal delay={220}>
-            <div className="flex flex-col sm:flex-row gap-3 md:justify-end">
-              <EdCTA href={QUIZ_CPF_URL} variant="ink">
-                {V2_COPY.home.ctaCpf}
-              </EdCTA>
-              <EdCTA href={QUIZ_CNPJ_URL} variant="outlineInk">
-                {V2_COPY.home.ctaCnpj}
-              </EdCTA>
+    {/* Abertura contínua: a fotografia atravessa a hero e o método */}
+    <div className="home-opening bg-ed-cream">
+      <section className="relative z-10 px-5 sm:px-8 lg:px-12 pt-12 md:pt-16">
+        <div className="home-hero-grid max-w-[1440px] mx-auto">
+          <div className="home-hero-copy relative z-20 pb-12 md:pb-28">
+            <Reveal>
+              <span className="ed-eyebrow text-ed-ink/55">Casa Orí</span>
+            </Reveal>
+            <Reveal delay={80}>
+              <h1 className="ed-display ed-balanced text-ed-ink mt-7 text-[clamp(2.3rem,5.2vw,4.7rem)] leading-[1.02]">
+                MAS O QUE AINDA ESTÁ <EdAccent>invisível?</EdAccent>
+              </h1>
+            </Reveal>
+            <Reveal delay={160}>
+              <p className="mt-10 max-w-[490px] text-[16px] md:text-[18px] font-light leading-relaxed text-ed-ink/70">
+                {V2_COPY.home.subtitulo}
+              </p>
+            </Reveal>
+            <Reveal delay={220}>
+              <div className="mt-9 flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-3 items-start">
+                <EdCTA href={QUIZ_CPF_URL} variant="ink">
+                  {V2_COPY.home.ctaCpf}
+                </EdCTA>
+                <EdCTA href={QUIZ_CNPJ_URL} variant="outlineInk">
+                  {V2_COPY.home.ctaCnpj}
+                </EdCTA>
+              </div>
+            </Reveal>
+          </div>
+          <Reveal delay={180} className="home-hero-media">
+            <div className="home-hero-photo-wrap">
+              <img
+                src={edHero}
+                alt="Espaço de atendimento da Casa Orí em Brasília"
+                className="home-hero-photo"
+              />
+              <span className="home-photo-caption ed-eyebrow text-ed-cream/80">
+                Escuta · direção · movimento
+              </span>
             </div>
           </Reveal>
         </div>
-        <Reveal delay={280}>
-          <img
-            src={edHero}
-            alt="Espaço de atendimento da Casa Orí em Brasília"
-            className="mt-14 w-full h-[46vh] md:h-[68vh] object-cover rounded-t-[36px]"
-          />
-        </Reveal>
+      </section>
+
+      <section className="home-method-bridge relative bg-ed-ink text-ed-cream px-5 sm:px-8 lg:px-12">
+        <div className="max-w-[1440px] mx-auto grid lg:grid-cols-[0.78fr_1.22fr] gap-10">
+          <div className="relative z-20 py-16 md:py-24 lg:py-32">
+            <Reveal>
+              <h2 className="ed-title text-ed-cream max-w-[15ch]">
+                {V2_COPY.home.metodoTitulo}
+              </h2>
+            </Reveal>
+            <Reveal delay={120}>
+              <p className="mt-7 max-w-[430px] text-[17px] md:text-[19px] font-light leading-relaxed text-ed-cream/80">
+                {V2_COPY.home.metodoTexto}
+              </p>
+            </Reveal>
+          </div>
+          <div aria-hidden="true" />
+        </div>
+      </section>
+    </div>
+
+    {/* Dores segmentadas em campos conectados */}
+    <section className="home-recognition relative bg-ed-cream px-5 sm:px-8 lg:px-12 pt-28 pb-20 md:pt-40 md:pb-28 overflow-hidden">
+      <div className="home-recognition-field" aria-hidden="true" />
+      <div className="relative max-w-[1180px] mx-auto">
+        <EdHead
+          kicker="Talvez você reconheça"
+          title="Onde isso costuma aparecer."
+          className="mb-14 md:mb-20"
+        />
+        <div className="grid gap-16 md:grid-cols-2 md:gap-20 lg:gap-28 items-start">
+          <Reveal delay={160}>
+            <div className="md:pt-4">
+              <span className="ed-eyebrow text-ed-ink/50">Para você</span>
+              <ul className="mt-7 space-y-4">
+                {DORES_CPF.map((d) => (
+                  <li key={d} className="home-line-item text-[15px] font-light leading-relaxed text-ed-ink/75">
+                    {d}
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-9">
+                <EdCTA href={QUIZ_CPF_URL} variant="ink">Quero entender minha situação</EdCTA>
+              </div>
+            </div>
+          </Reveal>
+          <Reveal delay={240}>
+            <div className="home-company-list text-ed-cream">
+              <span className="ed-eyebrow text-ed-sand">Para sua empresa</span>
+              <ul className="mt-7 space-y-4">
+                {DORES_CNPJ.map((d) => (
+                  <li key={d} className="home-line-item home-line-item-light text-[15px] font-light leading-relaxed text-ed-cream/85">
+                    {d}
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-9">
+                <EdCTA href={QUIZ_CNPJ_URL} variant="butter">Quero entender minha empresa</EdCTA>
+              </div>
+            </div>
+          </Reveal>
+        </div>
       </div>
     </section>
 
-    {/* Explicação */}
-    <EdSection bg="butter">
-      <div className="max-w-[880px]">
+    <section className="relative bg-ed-butter px-5 sm:px-8 lg:px-12 py-16 md:py-20">
+      <div className="max-w-[1180px] mx-auto grid md:grid-cols-[0.72fr_1.28fr] gap-10 items-center">
         <Reveal>
-          <h2 className="ed-title text-ed-ink max-w-[22ch]">
-            {V2_COPY.home.metodoTitulo}
-          </h2>
+          <img src={edQuoteImg} alt="" loading="lazy" className="home-quote-image" />
         </Reveal>
-        <Reveal delay={120}>
-          <p className="mt-8 text-[17px] md:text-[19px] font-light leading-relaxed text-ed-ink/75">
-            {V2_COPY.home.metodoTexto}
-          </p>
-        </Reveal>
+        <HomeTestimonial {...DEPOIMENTOS[0]} autor="Bruna C." />
       </div>
-    </EdSection>
-
-    {/* Dores segmentadas */}
-    <EdSection bg="cream">
-      <EdHead
-        kicker="Talvez você reconheça"
-        title="Onde isso costuma aparecer."
-        className="mb-12"
-      />
-      <div className="grid gap-6 md:grid-cols-2">
-        <EdCard>
-          <span className="ed-eyebrow text-ed-ink/50">Para você</span>
-          <ul className="mt-6 space-y-4">
-            {DORES_CPF.map((d) => (
-              <li
-                key={d}
-                className="flex gap-3 text-[15px] font-light leading-relaxed text-ed-ink/75"
-              >
-                <span className="mt-2 h-1.5 w-1.5 rounded-full bg-ed-butter shrink-0" />
-                <span>{d}</span>
-              </li>
-            ))}
-          </ul>
-          <div className="mt-8">
-            <EdCTA href={QUIZ_CPF_URL} variant="ink" className="w-full sm:w-auto">
-              Quero entender minha situação
-            </EdCTA>
-          </div>
-        </EdCard>
-        <EdCard className="bg-ed-butter/30 border-ed-ink/15 text-ed-ink">
-          <span className="ed-eyebrow text-ed-ink/60">Para sua empresa</span>
-          <ul className="mt-6 space-y-4">
-            {DORES_CNPJ.map((d) => (
-              <li
-                key={d}
-                className="flex gap-3 text-[15px] font-normal leading-relaxed text-ed-ink"
-              >
-                <span className="mt-2 h-1.5 w-1.5 rounded-full bg-ed-ink shrink-0" />
-                <span>{d}</span>
-              </li>
-            ))}
-          </ul>
-
-          <div className="mt-8">
-            <EdCTA href={QUIZ_CNPJ_URL} variant="ink" className="w-full sm:w-auto">
-              Quero entender minha empresa
-            </EdCTA>
-          </div>
-        </EdCard>
-      </div>
-    </EdSection>
-
-    <EdQuote
-      image={edQuoteImg}
-      quote={DEPOIMENTOS[0].texto}
-      autor={DEPOIMENTOS[0].autor}
-      inicial={DEPOIMENTOS[0].inicial}
-    />
+    </section>
 
     {/* Sistema ORI resumo */}
-    <EdSection bg="cream">
-        <EdHead
+    <EdSection bg="cream" className="home-ori-fold">
+      <EdHead
         kicker="Sistema ORI"
-          title={<>Sistema <EdAccent circle>ORI</EdAccent></>}
+        title={<>Sistema <EdAccent>ORI</EdAccent></>}
         lead={V2_COPY.home.subtitulo}
         className="mb-12"
       />
@@ -180,36 +225,54 @@ const HomeEdImpl = () => (
       </div>
     </EdSection>
 
-    {/* Serviços resumo */}
-    <EdSection bg="butter">
-      <div className="grid gap-10 md:grid-cols-[1fr_1fr] items-center">
-        <div>
-          <EdHead
-            kicker="Serviços"
-            title={V2_COPY.home.metodoTitulo}
-            lead={V2_COPY.home.metodoTexto}
-          />
-          <Reveal delay={200}>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <EdCTA href="/servicos" variant="ink">
-                Ver todos os serviços
-              </EdCTA>
-              <EdCTA href={WHATSAPP_URL} variant="outlineInk">
-                Falar no WhatsApp
-              </EdCTA>
+    {/* Serviços em percurso editorial, sem grade de cartões */}
+    <section className="home-services-flow relative bg-ed-cream px-5 sm:px-8 lg:px-12 py-20 md:py-32 overflow-hidden">
+      <div className="home-services-wash" aria-hidden="true" />
+      <div className="relative max-w-[1180px] mx-auto">
+        <div className="grid gap-12 md:grid-cols-[0.7fr_1.3fr] md:gap-20 items-start">
+          <div className="md:sticky md:top-32">
+            <EdHead kicker="Serviços" title="Caminhos possíveis" lead={V2_COPY.servicos.introducao} />
+            <Reveal delay={200}>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <EdCTA href="/servicos" variant="ink">Ver todos os serviços</EdCTA>
+                <EdCTA href={WHATSAPP_URL} variant="outlineInk">Falar no WhatsApp</EdCTA>
+              </div>
+            </Reveal>
+          </div>
+          <div className="space-y-14 md:pt-24">
+            <div>
+              <span className="ed-eyebrow text-ed-ink/50">Para você</span>
+              <div className="mt-5 border-t border-ed-ink/20">
+                {SERV_CPF.map((service) => (
+                  <article key={service.titulo} className="home-service-row">
+                    <h3 className="ed-subtitle text-ed-ink">{service.titulo}</h3>
+                    <p className="text-[14px] md:text-[15px] font-light leading-relaxed text-ed-ink/65">{service.ancora}</p>
+                  </article>
+                ))}
+              </div>
             </div>
+            <div className="md:ml-16">
+              <span className="ed-eyebrow text-ed-forest">Para sua empresa</span>
+              <div className="mt-5 border-t border-ed-ink/20">
+                {SERV_CNPJ.map((service) => (
+                  <article key={service.titulo} className="home-service-row">
+                    <h3 className="ed-subtitle text-ed-ink">{service.titulo}</h3>
+                    <p className="text-[14px] md:text-[15px] font-light leading-relaxed text-ed-ink/65">{service.ancora}</p>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-20 md:mt-28 grid md:grid-cols-[1.1fr_0.9fr] gap-8 items-end">
+          <HomeTestimonial {...DEPOIMENTOS[1]} tone="dark" />
+          <Reveal delay={120}>
+            <img src={edRoom} alt="Sala de atendimento da Casa Orí" loading="lazy" className="home-services-image" />
           </Reveal>
         </div>
-        <Reveal delay={140}>
-          <img
-            src={edRoom}
-            alt="Sala de atendimento minimalista"
-            loading="lazy"
-            className="w-full h-[300px] md:h-[440px] object-cover rounded-[32px]"
-          />
-        </Reveal>
       </div>
-    </EdSection>
+    </section>
 
     <CtaFinalEd />
   </>

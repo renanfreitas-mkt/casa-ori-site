@@ -8,3 +8,4 @@
 - [x] Tornar o tema editorial a única versão nos endereços principais.
 - [x] Remover a navegação e os arquivos exclusivos do tema antigo.
 - [x] Preservar redirecionamentos dos antigos endereços `/v2`.
+- [x] Redesenhar a home como narrativa assimétrica contínua, preservando cores, textos e a dobra do Sistema ORI.
