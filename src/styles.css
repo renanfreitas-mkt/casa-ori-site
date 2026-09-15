@@ -449,6 +449,91 @@
   }
 }
 
+/* ===== Páginas internas: mesmo ritmo orgânico da home ===== */
+.page-flow .opacity-0 {
+  opacity: 1;
+}
+
+.page-flow .translate-y-3 {
+  transform: translateY(0);
+}
+
+.page-section {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-ed-cream);
+  padding: 4rem 1.25rem;
+}
+
+.page-section-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1180px;
+  margin-inline: auto;
+}
+
+.page-wash {
+  position: absolute;
+  z-index: 0;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.page-wash-leaf {
+  left: -9rem;
+  top: 3rem;
+  width: clamp(16rem, 34%, 30rem);
+  background: color-mix(in oklab, var(--color-ed-leaf) 20%, transparent);
+}
+
+.page-wash-sand {
+  right: -9rem;
+  top: 5rem;
+  width: clamp(15rem, 32%, 28rem);
+  background: color-mix(in oklab, var(--color-ed-sand) 28%, transparent);
+}
+
+.page-panel {
+  position: relative;
+  z-index: 2;
+  padding: 2.5rem 1.75rem;
+  background: color-mix(in oklab, var(--color-ed-leaf) 22%, transparent);
+  border-radius: 0 6rem 6rem 0;
+}
+
+.page-panel-ink {
+  background: var(--color-ed-ink);
+  border-radius: 6rem 0 6rem 0;
+}
+
+.page-photo {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 10rem 10rem 1.5rem 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .page-section {
+    padding: 6rem 3rem;
+  }
+
+  .page-panel {
+    padding: 3.5rem 3rem;
+    border-radius: 0 9rem 9rem 0;
+  }
+
+  .page-panel-ink {
+    border-radius: 9rem 0 9rem 0;
+  }
+
+  .page-photo {
+    border-radius: 13rem 13rem 2rem 2rem;
+  }
+}
+
 @utility ed-eyebrow {
   font-family: var(--font-sans);
   font-weight: 400;

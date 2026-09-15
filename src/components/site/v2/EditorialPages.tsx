@@ -4,7 +4,6 @@ import {
   EdSection,
   EdHead,
   EdCard,
-  EdQuote,
   EdCTA,
   EdAccent,
   EdLetterMark,
@@ -401,50 +400,73 @@ function ServicoEd({ s, i }: { s: Servico; i: number }) {
 
 const ServicosEdImpl = () => (
   <>
-    <EdSection bg="cream">
-       <EdHead
-         as="h1"
-         kicker="Serviços"
-         title="Cada situação pede um caminho"
-         lead={V2_COPY.servicos.introducao}
-         className="max-w-[900px]"
-       />
-      <Reveal delay={240}>
-        <div className="mt-9">
-          <EdCTA href={QUIZ_CPF_URL} variant="ink">
-             {V2_COPY.servicos.cta}
-          </EdCTA>
+    <section className="page-flow page-section pt-12 md:pt-16">
+      <div className="page-wash page-wash-sand" aria-hidden="true" />
+      <div className="page-section-inner grid gap-10 md:grid-cols-[1.15fr_0.85fr] md:gap-16 items-center">
+        <div>
+          <EdHead
+            as="h1"
+            kicker="Serviços"
+            title="Cada situação pede um caminho"
+            lead={V2_COPY.servicos.introducao}
+            className="max-w-[900px]"
+          />
+          <Reveal delay={240}>
+            <div className="mt-9">
+              <EdCTA href={QUIZ_CPF_URL} variant="ink">
+                {V2_COPY.servicos.cta}
+              </EdCTA>
+            </div>
+          </Reveal>
         </div>
-      </Reveal>
-    </EdSection>
-
-    <EdSection bg="white">
-      <span className="ed-eyebrow text-ed-ink/50">Para você</span>
-      <h2 className="mt-4 ed-title text-ed-ink max-w-[680px]">
-        Processos no seu ritmo
-      </h2>
-      <div className="mt-8">
-        {SERV_CPF.map((s, i) => (
-          <ServicoEd key={s.titulo} s={s} i={i} />
-        ))}
+        <Reveal delay={160}>
+          <img src={edRoom} alt="Sala de atendimento da Casa Orí" className="page-photo" />
+        </Reveal>
       </div>
-    </EdSection>
+    </section>
 
-    <EdQuote image={edTeam} quote={DEPOIMENTOS[1].texto} autor={DEPOIMENTOS[1].autor} inicial={DEPOIMENTOS[1].inicial} />
-
-    <EdSection bg="butter">
-      <span className="ed-eyebrow text-ed-ink/50">Para sua empresa</span>
-      <h2 className="mt-4 ed-title text-ed-ink max-w-[560px]">
-        Equipes e lideranças
-      </h2>
-      <div className="mt-8">
-        {SERV_CNPJ.map((s, i) => (
-          <ServicoEd key={s.titulo} s={s} i={i} />
-        ))}
+    <section className="page-flow page-section">
+      <div className="page-wash page-wash-leaf" aria-hidden="true" />
+      <div className="page-section-inner">
+        <span className="ed-eyebrow text-ed-ink/50">Para você</span>
+        <h2 className="mt-4 ed-title text-ed-ink max-w-[680px]">
+          Processos no seu ritmo
+        </h2>
+        <div className="mt-8">
+          {SERV_CPF.map((s, i) => (
+            <ServicoEd key={s.titulo} s={s} i={i} />
+          ))}
+        </div>
       </div>
-    </EdSection>
+    </section>
 
-    <CtaFinalEd />
+    <section className="page-flow page-section py-10 md:py-14">
+      <div className="page-section-inner grid gap-8 md:grid-cols-[1.1fr_0.9fr] items-center">
+        <HomeTestimonial {...DEPOIMENTOS[1]} tone="dark" />
+        <Reveal delay={120}>
+          <img src={edTeam} alt="Encontro de equipe conduzido pela Casa Orí" loading="lazy" className="home-services-image" />
+        </Reveal>
+      </div>
+    </section>
+
+    <section className="page-flow page-section">
+      <div className="page-wash page-wash-sand" aria-hidden="true" />
+      <div className="page-section-inner">
+        <span className="ed-eyebrow text-ed-forest">Para sua empresa</span>
+        <h2 className="mt-4 ed-title text-ed-ink max-w-[560px]">
+          Equipes e lideranças
+        </h2>
+        <div className="mt-8">
+          {SERV_CNPJ.map((s, i) => (
+            <ServicoEd key={s.titulo} s={s} i={i} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <div className="page-flow">
+      <CtaFinalEd />
+    </div>
   </>
 );
 export const ServicosEd = memo(ServicosEdImpl);
@@ -472,70 +494,81 @@ function ListaEd({ titulo, itens }: { titulo: string; itens: string[] }) {
 
 const OriEdImpl = () => (
   <>
-    <EdSection bg="cream">
-      <EdHead
-        as="h1"
-        kicker="Sistema ORI"
-        title={<>Sistema <EdAccent circle>ORI</EdAccent></>}
-        lead="A mesma estrutura conduz processos individuais e trabalhos dentro de empresas — o que muda é o contexto, não o método."
-        className="mb-14"
-      />
-      <div className="space-y-6">
-        {EIXOS.map((e, i) => (
-          <Reveal key={e.letra} delay={i * 90} className="relative">
-            <EdCard className="grid md:grid-cols-[minmax(0,220px)_1fr] gap-6 md:gap-12">
-              <div>
-                <span className="ed-display text-ed-olive block text-[72px] md:text-[88px]">
-                  <EdLetterMark>{e.letra}</EdLetterMark>
-                </span>
-                <span className="ed-eyebrow text-ed-ink/50 block mt-2">{e.nome}</span>
-              </div>
-              <div>
-                <h3 className="ed-subtitle text-ed-ink max-w-[32ch]">
-                  {e.titulo}
-                </h3>
-                <p className="mt-4 text-[16px] font-light text-ed-ink/70">{e.tensao}</p>
-                <p className="mt-5 text-[15px] md:text-[16px] font-light leading-relaxed text-ed-ink/70">
-                  {e.texto}
-                </p>
-                <p className="mt-7 border-l-2 border-ed-butter pl-5 font-sans italic font-light text-[17px] md:text-[19px] leading-relaxed text-ed-forest">
-                  {e.citacao}
-                </p>
-              </div>
-            </EdCard>
-            {i < EIXOS.length - 1 && <EdFlowArrow direction="vertical" />}
-          </Reveal>
-        ))}
+    <section className="page-flow page-section pt-12 md:pt-16">
+      <div className="page-wash page-wash-sand" aria-hidden="true" />
+      <div className="page-section-inner">
+        <EdHead
+          as="h1"
+          kicker="Sistema ORI"
+          title={<>Sistema <EdAccent circle>ORI</EdAccent></>}
+          lead="A mesma estrutura conduz processos individuais e trabalhos dentro de empresas — o que muda é o contexto, não o método."
+          className="mb-14"
+        />
+        <div className="space-y-6">
+          {EIXOS.map((e, i) => (
+            <Reveal key={e.letra} delay={i * 90} className="relative">
+              <EdCard className="grid md:grid-cols-[minmax(0,220px)_1fr] gap-6 md:gap-12">
+                <div>
+                  <span className="ed-display text-ed-olive block text-[72px] md:text-[88px]">
+                    <EdLetterMark>{e.letra}</EdLetterMark>
+                  </span>
+                  <span className="ed-eyebrow text-ed-ink/50 block mt-2">{e.nome}</span>
+                </div>
+                <div>
+                  <h3 className="ed-subtitle text-ed-ink max-w-[32ch]">
+                    {e.titulo}
+                  </h3>
+                  <p className="mt-4 text-[16px] font-light text-ed-ink/70">{e.tensao}</p>
+                  <p className="mt-5 text-[15px] md:text-[16px] font-light leading-relaxed text-ed-ink/70">
+                    {e.texto}
+                  </p>
+                  <p className="mt-7 border-l-2 border-ed-butter pl-5 font-sans italic font-light text-[17px] md:text-[19px] leading-relaxed text-ed-forest">
+                    {e.citacao}
+                  </p>
+                </div>
+              </EdCard>
+              {i < EIXOS.length - 1 && <EdFlowArrow direction="vertical" />}
+            </Reveal>
+          ))}
+        </div>
       </div>
-    </EdSection>
+    </section>
 
-    <EdSection bg="ink">
-      <EdHead
-        tone="cream"
-        title="O diferencial do Sistema ORI"
-        className="mb-12"
-      />
-      <ul className="grid md:grid-cols-2 gap-5">
-        {DIFERENCIAIS.map((d, i) => (
-          <Reveal key={d} delay={i * 80} as="li">
-            <div className="border border-ed-cream/25 rounded-2xl px-7 py-6 text-ed-cream/85 font-light leading-relaxed text-[16px] h-full">
-              {d}
-            </div>
-          </Reveal>
-        ))}
-      </ul>
-    </EdSection>
-
-    <EdSection bg="butter">
-      <EdHead title="Onde o Sistema ORI se aplica" className="mb-12" />
-      <div className="grid md:grid-cols-2 gap-12 md:gap-20">
-        <ListaEd titulo="Na vida pessoal" itens={NA_VIDA} />
-        <ListaEd titulo="Nas empresas" itens={NAS_EMPRESAS} />
+    <section className="page-flow page-section py-10 md:py-14">
+      <div className="page-section-inner">
+        <div className="page-panel page-panel-ink">
+          <EdHead
+            tone="cream"
+            title="O diferencial do Sistema ORI"
+            className="mb-12"
+          />
+          <ul className="grid md:grid-cols-2 gap-5">
+            {DIFERENCIAIS.map((d, i) => (
+              <Reveal key={d} delay={i * 80} as="li">
+                <div className="border border-ed-cream/25 rounded-2xl px-7 py-6 text-ed-cream/85 font-light leading-relaxed text-[16px] h-full">
+                  {d}
+                </div>
+              </Reveal>
+            ))}
+          </ul>
+        </div>
       </div>
-    </EdSection>
+    </section>
 
-    <EdSection bg="cream">
-      <div className="grid md:grid-cols-[0.9fr_1.1fr] gap-10 md:gap-16 items-start">
+    <section className="page-flow page-section">
+      <div className="page-wash page-wash-leaf" aria-hidden="true" />
+      <div className="page-section-inner">
+        <EdHead title="Onde o Sistema ORI se aplica" className="mb-12" />
+        <div className="grid md:grid-cols-2 gap-12 md:gap-20">
+          <ListaEd titulo="Na vida pessoal" itens={NA_VIDA} />
+          <ListaEd titulo="Nas empresas" itens={NAS_EMPRESAS} />
+        </div>
+      </div>
+    </section>
+
+    <section className="page-flow page-section">
+      <div className="page-wash page-wash-sand" aria-hidden="true" />
+      <div className="page-section-inner grid md:grid-cols-[0.9fr_1.1fr] gap-10 md:gap-16 items-start">
         <EdHead title="O que você ganha no caminho" />
         <ol className="space-y-4">
           {GANHOS.map((g, i) => (
@@ -552,24 +585,35 @@ const OriEdImpl = () => (
           ))}
         </ol>
       </div>
-    </EdSection>
+    </section>
 
-    <EdQuote image={edRoom} quote={DEPOIMENTOS[3].texto} autor={DEPOIMENTOS[3].autor} inicial={DEPOIMENTOS[3].inicial} />
+    <section className="page-flow page-section py-10 md:py-14">
+      <div className="page-section-inner grid gap-8 md:grid-cols-[1.1fr_0.9fr] items-center">
+        <HomeTestimonial {...DEPOIMENTOS[3]} />
+        <Reveal delay={120}>
+          <img src={edRoom} alt="Ambiente da Casa Orí" loading="lazy" className="home-services-image" />
+        </Reveal>
+      </div>
+    </section>
 
-    <EdSection bg="ink">
-      <EdHead
-        tone="cream"
-        title="A estrutura está aqui"
-        lead="O Sistema ORI organiza o caminho — e quem caminha é você."
-      />
-      <Reveal delay={200}>
-        <div className="mt-8">
-          <EdCTA href={QUIZ_CPF_URL} variant="butter">
-            {V2_COPY.ori.cta}
-          </EdCTA>
+    <section className="page-flow page-section pb-16 md:pb-24">
+      <div className="page-section-inner">
+        <div className="page-panel page-panel-ink">
+          <EdHead
+            tone="cream"
+            title="A estrutura está aqui"
+            lead="O Sistema ORI organiza o caminho — e quem caminha é você."
+          />
+          <Reveal delay={200}>
+            <div className="mt-8">
+              <EdCTA href={QUIZ_CPF_URL} variant="butter">
+                {V2_COPY.ori.cta}
+              </EdCTA>
+            </div>
+          </Reveal>
         </div>
-      </Reveal>
-    </EdSection>
+      </div>
+    </section>
   </>
 );
 export const OriEd = memo(OriEdImpl);
@@ -578,40 +622,47 @@ export const OriEd = memo(OriEdImpl);
 
 const SobreEdImpl = () => (
   <>
-    <EdSection bg="butter">
-      <EdHead as="h1" title="Casa Orí" className="mb-10" />
-      <div className="grid gap-6 md:grid-cols-3">
-        {NOME.map((n, i) => (
-          <Reveal key={n.palavra} delay={i * 90}>
-            <EdCard className="h-full bg-ed-cream border-ed-ink/10">
-              <span className="ed-display text-[44px] text-ed-olive">{n.palavra}</span>
-              <p className="mt-4 text-[15px] font-light leading-relaxed text-ed-ink/70">
-                {n.texto}
-              </p>
-            </EdCard>
-          </Reveal>
-        ))}
+    <section className="page-flow page-section pt-12 md:pt-16">
+      <div className="page-wash page-wash-sand" aria-hidden="true" />
+      <div className="page-section-inner">
+        <EdHead as="h1" title="Casa Orí" className="mb-10" />
+        <div className="grid gap-6 md:grid-cols-3">
+          {NOME.map((n, i) => (
+            <Reveal key={n.palavra} delay={i * 90}>
+              <EdCard className="h-full bg-ed-cream border-ed-ink/10">
+                <span className="ed-display text-[44px] text-ed-olive">{n.palavra}</span>
+                <p className="mt-4 text-[15px] font-light leading-relaxed text-ed-ink/70">
+                  {n.texto}
+                </p>
+              </EdCard>
+            </Reveal>
+          ))}
+        </div>
       </div>
-    </EdSection>
+    </section>
 
-    <EdSection bg="white">
-      <EdHead kicker="Como conduzo" title="Quatro pilares" className="mb-12" />
-      <div className="grid gap-6 md:grid-cols-2">
-        {PILARES.map((p, i) => (
-          <Reveal key={p.titulo} delay={i * 80}>
-            <EdCard className="h-full">
-              <h3 className="ed-subtitle text-ed-ink">{p.titulo}</h3>
-              <p className="mt-4 text-[15px] font-light leading-relaxed text-ed-ink/70">
-                {p.texto}
-              </p>
-            </EdCard>
-          </Reveal>
-        ))}
+    <section className="page-flow page-section">
+      <div className="page-wash page-wash-leaf" aria-hidden="true" />
+      <div className="page-section-inner">
+        <EdHead kicker="Como conduzo" title="Quatro pilares" className="mb-12" />
+        <div className="grid gap-6 md:grid-cols-2">
+          {PILARES.map((p, i) => (
+            <Reveal key={p.titulo} delay={i * 80}>
+              <EdCard className="h-full">
+                <h3 className="ed-subtitle text-ed-ink">{p.titulo}</h3>
+                <p className="mt-4 text-[15px] font-light leading-relaxed text-ed-ink/70">
+                  {p.texto}
+                </p>
+              </EdCard>
+            </Reveal>
+          ))}
+        </div>
       </div>
-    </EdSection>
+    </section>
 
-    <EdSection bg="cream" wide>
-      <div className="grid gap-10 md:grid-cols-[1fr_1fr] items-center">
+    <section className="page-flow page-section">
+      <div className="page-wash page-wash-sand" aria-hidden="true" />
+      <div className="page-section-inner grid gap-10 md:grid-cols-[1.05fr_0.95fr] md:gap-16 items-center">
         <div>
           <EdHead
             kicker={CAROL.titulo}
@@ -628,50 +679,64 @@ const SobreEdImpl = () => (
         </div>
         <Reveal delay={160}>
           <img
-            src={edRoom}
-            alt="Ambiente da Casa Orí"
-            className="w-full h-[340px] md:h-[560px] object-cover rounded-[32px]"
+            src={carolConduzindo.url}
+            alt="Carol Milhomens conduzindo um encontro"
+            className="page-photo"
           />
         </Reveal>
       </div>
-    </EdSection>
+    </section>
 
-    <EdQuote image={edQuoteImg} quote={DEPOIMENTOS[2].texto} autor={DEPOIMENTOS[2].autor} inicial={DEPOIMENTOS[2].inicial} />
+    <section className="page-flow page-section py-10 md:py-14">
+      <div className="page-section-inner grid gap-8 md:grid-cols-[1.1fr_0.9fr] items-center">
+        <HomeTestimonial {...DEPOIMENTOS[2]} tone="dark" />
+        <Reveal delay={120}>
+          <img src={edQuoteImg} alt="Detalhe do espaço da Casa Orí" loading="lazy" className="home-services-image" />
+        </Reveal>
+      </div>
+    </section>
 
-    <EdSection bg="cream">
-      <EdHead
-        kicker="Antes de começar"
-        title="Antes de começar"
-        className="mb-12"
-      />
-      <div className="grid gap-6 md:grid-cols-2">
-        {PREMISSAS.map((p, i) => (
-          <Reveal key={p.titulo} delay={i * 60}>
-            <div className="border-t border-ed-ink/12 pt-6 h-full">
-              <h3 className="ed-subtitle text-ed-ink">{p.titulo}</h3>
-              <p className="mt-3 text-[15px] font-light leading-relaxed text-ed-ink/70">
-                {p.texto}
-              </p>
+    <section className="page-flow page-section">
+      <div className="page-wash page-wash-leaf" aria-hidden="true" />
+      <div className="page-section-inner">
+        <EdHead
+          kicker="Antes de começar"
+          title="Antes de começar"
+          className="mb-12"
+        />
+        <div className="grid gap-6 md:grid-cols-2">
+          {PREMISSAS.map((p, i) => (
+            <Reveal key={p.titulo} delay={i * 60}>
+              <div className="border-t border-ed-ink/12 pt-6 h-full">
+                <h3 className="ed-subtitle text-ed-ink">{p.titulo}</h3>
+                <p className="mt-3 text-[15px] font-light leading-relaxed text-ed-ink/70">
+                  {p.texto}
+                </p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section className="page-flow page-section pb-16 md:pb-24">
+      <div className="page-section-inner">
+        <div className="page-panel page-panel-ink">
+          <EdHead
+            tone="cream"
+            title="O desconforto da mudança"
+            lead={V2_COPY.sobre.fechamento}
+          />
+          <Reveal delay={200}>
+            <div className="mt-8">
+              <EdCTA href={QUIZ_CPF_URL} variant="butter">
+                {V2_COPY.sobre.cta}
+              </EdCTA>
             </div>
           </Reveal>
-        ))}
-      </div>
-    </EdSection>
-
-    <EdSection bg="ink">
-      <EdHead
-        tone="cream"
-        title="O desconforto da mudança"
-        lead={V2_COPY.sobre.fechamento}
-      />
-      <Reveal delay={200}>
-        <div className="mt-8">
-          <EdCTA href={QUIZ_CPF_URL} variant="butter">
-            {V2_COPY.sobre.cta}
-          </EdCTA>
         </div>
-      </Reveal>
-    </EdSection>
+      </div>
+    </section>
   </>
 );
 export const SobreEd = memo(SobreEdImpl);
@@ -680,58 +745,64 @@ export const SobreEd = memo(SobreEdImpl);
 
 const ContatoEdImpl = () => (
   <>
-    <EdSection bg="cream">
-      <EdHead
-        as="h1"
-        kicker="Contato"
-        title={V2_COPY.contato.titulo}
-        lead={
-          <>
-            {V2_COPY.contato.texto}
-            <br />
-            <br />
-            <strong>Para você:</strong> {V2_COPY.contato.cpfTexto}
-            <br />
-            <strong>Para você líder:</strong> {V2_COPY.contato.cnpjTexto}
-          </>
-        }
-      />
-      <Reveal delay={220}>
-        <div className="mt-9 flex flex-col sm:flex-row gap-3">
-          <EdCTA href={QUIZ_CPF_URL} variant="ink">
-             {V2_COPY.contato.cpfCta}
-          </EdCTA>
-          <EdCTA href={QUIZ_CNPJ_URL} variant="outlineInk">
-             {V2_COPY.contato.cnpjCta}
-          </EdCTA>
-        </div>
-      </Reveal>
-    </EdSection>
-
-    <EdSection bg="ink">
-      <div className="grid gap-10 md:grid-cols-[1fr_1fr] items-center">
-        <div>
-           <EdHead
-             tone="cream"
-             title="Fale com a Carol"
-             lead={V2_COPY.contato.whatsapp}
-             className="ed-pretty max-w-[720px]"
-           />
-          <Reveal delay={200}>
-            <div className="mt-8">
-              <EdCTA href={WHATSAPP_URL} variant="butter">
-                Falar no WhatsApp
-              </EdCTA>
-            </div>
-          </Reveal>
-        </div>
-        <Reveal delay={140}>
-          <p className="font-sans italic font-light text-ed-butter text-[22px] md:text-[28px] leading-relaxed max-w-[18ch]">
-             Profundidade para compreender. Direção para seguir.
-          </p>
+    <section className="page-flow page-section pt-12 md:pt-16">
+      <div className="page-wash page-wash-sand" aria-hidden="true" />
+      <div className="page-section-inner">
+        <EdHead
+          as="h1"
+          kicker="Contato"
+          title={V2_COPY.contato.titulo}
+          lead={
+            <>
+              {V2_COPY.contato.texto}
+              <br />
+              <br />
+              <strong>Para você:</strong> {V2_COPY.contato.cpfTexto}
+              <br />
+              <strong>Para você líder:</strong> {V2_COPY.contato.cnpjTexto}
+            </>
+          }
+        />
+        <Reveal delay={220}>
+          <div className="mt-9 flex flex-col sm:flex-row gap-3 home-hero-actions">
+            <EdCTA href={QUIZ_CPF_URL} variant="ink">
+              {V2_COPY.contato.cpfCta}
+            </EdCTA>
+            <EdCTA href={QUIZ_CNPJ_URL} variant="outlineInk">
+              {V2_COPY.contato.cnpjCta}
+            </EdCTA>
+          </div>
         </Reveal>
       </div>
-    </EdSection>
+    </section>
+
+    <section className="page-flow page-section pb-16 md:pb-24">
+      <div className="page-wash page-wash-leaf" aria-hidden="true" />
+      <div className="page-section-inner">
+        <div className="page-panel page-panel-ink grid gap-10 md:grid-cols-[1fr_1fr] items-center">
+          <div>
+            <EdHead
+              tone="cream"
+              title="Fale com a Carol"
+              lead={V2_COPY.contato.whatsapp}
+              className="ed-pretty max-w-[720px]"
+            />
+            <Reveal delay={200}>
+              <div className="mt-8">
+                <EdCTA href={WHATSAPP_URL} variant="butter">
+                  Falar no WhatsApp
+                </EdCTA>
+              </div>
+            </Reveal>
+          </div>
+          <Reveal delay={140}>
+            <p className="font-sans italic font-light text-ed-butter text-[22px] md:text-[28px] leading-relaxed max-w-[18ch]">
+              Profundidade para compreender. Direção para seguir.
+            </p>
+          </Reveal>
+        </div>
+      </div>
+    </section>
   </>
 );
 export const ContatoEd = memo(ContatoEdImpl);
