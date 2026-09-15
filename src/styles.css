@@ -266,16 +266,16 @@
 
 .home-services-wash {
   position: absolute;
-  top: 13rem;
+  top: 5rem;
   left: 0;
-  width: 38%;
+  width: 48%;
   aspect-ratio: 1 / 1;
   border-radius: 0 12rem 12rem 0;
   background: color-mix(in oklab, var(--color-ed-leaf) 22%, transparent);
 }
 
 .home-services-intro {
-  min-height: min(38vw, 34rem);
+  min-height: min(48vw, 42rem);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -368,15 +368,15 @@
   .home-services-wash {
     top: 3.5rem;
     width: 100%;
-    height: 29rem;
-    aspect-ratio: auto;
+    height: auto;
+    aspect-ratio: 1 / 1.12;
     border-radius: 0 7rem 7rem 0;
   }
 
   .home-services-intro {
     position: relative;
     z-index: 2;
-    min-height: 29rem;
+    min-height: calc(100vw * 1.12);
     padding: 2rem 0;
     justify-content: center;
   }
