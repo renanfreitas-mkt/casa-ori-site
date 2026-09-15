@@ -416,10 +416,30 @@
     margin-inline: auto;
   }
 
+  .home-carol-wash {
+    right: -8rem;
+    top: 2rem;
+    width: 18rem;
+  }
+
+  .home-carol-photo {
+    max-width: none;
+    border-radius: 10rem 10rem 1.5rem 1.5rem;
+  }
+
+  .home-carol-photo-alt {
+    width: 42%;
+    border-radius: 4rem 1rem 4rem 1rem;
+    border-width: 4px;
+  }
+
   .home-services-wash {
     top: 3.5rem;
     width: 100%;
+    max-width: none;
     height: auto;
+    min-height: 26rem;
+    max-height: none;
     aspect-ratio: 1 / 1.12;
     border-radius: 0 7rem 7rem 0;
   }
@@ -427,8 +447,10 @@
   .home-services-intro {
     position: relative;
     z-index: 2;
-    min-height: calc(100vw * 1.12);
+    min-height: max(26rem, calc(100vw * 1.12));
+    max-width: none;
     padding: 2rem 0;
+    padding-right: 0;
     justify-content: center;
   }
 
