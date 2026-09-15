@@ -308,7 +308,6 @@
 
 .home-carol-photo-wrap {
   position: relative;
-  padding-bottom: 4.5rem;
 }
 
 .home-carol-photo {
@@ -318,18 +317,6 @@
   aspect-ratio: 4 / 5;
   object-fit: cover;
   border-radius: 14rem 14rem 2rem 2rem;
-}
-
-.home-carol-photo-alt {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  width: 46%;
-  max-width: 14rem;
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
-  border-radius: 6rem 1.5rem 6rem 1.5rem;
-  border: 6px solid var(--color-ed-cream);
 }
 
 .home-service-row {
@@ -425,12 +412,6 @@
   .home-carol-photo {
     max-width: none;
     border-radius: 10rem 10rem 1.5rem 1.5rem;
-  }
-
-  .home-carol-photo-alt {
-    width: 42%;
-    border-radius: 4rem 1rem 4rem 1rem;
-    border-width: 4px;
   }
 
   .home-services-wash {

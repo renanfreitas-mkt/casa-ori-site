@@ -10,11 +10,12 @@ import {
   EdLetterMark,
   EdFlowArrow,
 } from "./ui";
-import edHero from "@/assets/ed-hero.jpg";
 import edRoom from "@/assets/ed-room.jpg";
 import edQuoteImg from "@/assets/ed-quote.jpg";
 import edTeam from "@/assets/ed-team.jpg";
-import carolRetrato from "@/assets/carol-retrato.jpg.asset.json";
+// Carol_Home.jpeg — a foto da hero ("carol hero")
+import carolHero from "@/assets/carol-hero.jpg.asset.json";
+// quem_e_a_carol.jpeg — a foto da dobra "Quem conduz"
 import carolConduzindo from "@/assets/carol-conduzindo.jpg.asset.json";
 import {
   DORES_CPF,
@@ -116,8 +117,8 @@ const HomeEdImpl = () => (
           <Reveal delay={180} className="home-hero-media">
             <div className="home-hero-photo-wrap">
               <img
-                src={edHero}
-                alt="Espaço de atendimento da Casa Orí em Brasília"
+                src={carolHero.url}
+                alt="Carol Milhomens, terapeuta sistêmica e fundadora da Casa Orí"
                 className="home-hero-photo"
               />
               <span className="home-photo-caption ed-eyebrow text-ed-cream/80">
@@ -233,12 +234,10 @@ const HomeEdImpl = () => (
       <div className="relative max-w-[1180px] mx-auto grid gap-12 md:grid-cols-[0.95fr_1.05fr] md:gap-16 items-center">
         <Reveal className="home-carol-media">
           <div className="home-carol-photo-wrap">
-            <img src={carolRetrato.url} alt="Carol Milhomens, terapeuta sistêmica da Casa Orí" className="home-carol-photo" />
             <img
               src={carolConduzindo.url}
               alt="Carol Milhomens conduzindo um encontro com um grupo"
-              loading="lazy"
-              className="home-carol-photo-alt"
+              className="home-carol-photo"
             />
           </div>
         </Reveal>
