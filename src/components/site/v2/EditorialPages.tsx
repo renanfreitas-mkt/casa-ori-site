@@ -195,7 +195,7 @@ const HomeEdImpl = () => (
     <section className="home-flow relative bg-ed-butter px-5 sm:px-8 lg:px-12 py-14 md:py-20">
       <div className="max-w-[1180px] mx-auto grid md:grid-cols-[0.72fr_1.28fr] gap-10 items-center">
         <Reveal>
-          <img src={edQuoteImg} alt="" loading="lazy" className="home-quote-image" />
+          <img src={carolPalestra.url} alt="Carol Milhomens palestrando para um grupo" loading="lazy" className="home-quote-image" />
         </Reveal>
         <HomeTestimonial {...DEPOIMENTOS[0]} autor="Bruna C." />
       </div>
