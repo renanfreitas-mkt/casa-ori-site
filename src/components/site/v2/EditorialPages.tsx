@@ -260,7 +260,7 @@ const HomeEdImpl = () => (
           ))}
           <Reveal delay={280}>
             <p className="mt-8 text-[15px] font-light text-ed-ink/60">
-              Uma escuta com <EdAccent>direção</EdAccent>.
+              Uma escuta com <EdAccent>direção</EdAccent>
             </p>
           </Reveal>
           <Reveal delay={320}>
