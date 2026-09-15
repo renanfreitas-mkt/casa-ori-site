@@ -495,70 +495,81 @@ function ListaEd({ titulo, itens }: { titulo: string; itens: string[] }) {
 
 const OriEdImpl = () => (
   <>
-    <EdSection bg="cream">
-      <EdHead
-        as="h1"
-        kicker="Sistema ORI"
-        title={<>Sistema <EdAccent circle>ORI</EdAccent></>}
-        lead="A mesma estrutura conduz processos individuais e trabalhos dentro de empresas — o que muda é o contexto, não o método."
-        className="mb-14"
-      />
-      <div className="space-y-6">
-        {EIXOS.map((e, i) => (
-          <Reveal key={e.letra} delay={i * 90} className="relative">
-            <EdCard className="grid md:grid-cols-[minmax(0,220px)_1fr] gap-6 md:gap-12">
-              <div>
-                <span className="ed-display text-ed-olive block text-[72px] md:text-[88px]">
-                  <EdLetterMark>{e.letra}</EdLetterMark>
-                </span>
-                <span className="ed-eyebrow text-ed-ink/50 block mt-2">{e.nome}</span>
-              </div>
-              <div>
-                <h3 className="ed-subtitle text-ed-ink max-w-[32ch]">
-                  {e.titulo}
-                </h3>
-                <p className="mt-4 text-[16px] font-light text-ed-ink/70">{e.tensao}</p>
-                <p className="mt-5 text-[15px] md:text-[16px] font-light leading-relaxed text-ed-ink/70">
-                  {e.texto}
-                </p>
-                <p className="mt-7 border-l-2 border-ed-butter pl-5 font-sans italic font-light text-[17px] md:text-[19px] leading-relaxed text-ed-forest">
-                  {e.citacao}
-                </p>
-              </div>
-            </EdCard>
-            {i < EIXOS.length - 1 && <EdFlowArrow direction="vertical" />}
-          </Reveal>
-        ))}
+    <section className="page-flow page-section pt-12 md:pt-16">
+      <div className="page-wash page-wash-sand" aria-hidden="true" />
+      <div className="page-section-inner">
+        <EdHead
+          as="h1"
+          kicker="Sistema ORI"
+          title={<>Sistema <EdAccent circle>ORI</EdAccent></>}
+          lead="A mesma estrutura conduz processos individuais e trabalhos dentro de empresas — o que muda é o contexto, não o método."
+          className="mb-14"
+        />
+        <div className="space-y-6">
+          {EIXOS.map((e, i) => (
+            <Reveal key={e.letra} delay={i * 90} className="relative">
+              <EdCard className="grid md:grid-cols-[minmax(0,220px)_1fr] gap-6 md:gap-12">
+                <div>
+                  <span className="ed-display text-ed-olive block text-[72px] md:text-[88px]">
+                    <EdLetterMark>{e.letra}</EdLetterMark>
+                  </span>
+                  <span className="ed-eyebrow text-ed-ink/50 block mt-2">{e.nome}</span>
+                </div>
+                <div>
+                  <h3 className="ed-subtitle text-ed-ink max-w-[32ch]">
+                    {e.titulo}
+                  </h3>
+                  <p className="mt-4 text-[16px] font-light text-ed-ink/70">{e.tensao}</p>
+                  <p className="mt-5 text-[15px] md:text-[16px] font-light leading-relaxed text-ed-ink/70">
+                    {e.texto}
+                  </p>
+                  <p className="mt-7 border-l-2 border-ed-butter pl-5 font-sans italic font-light text-[17px] md:text-[19px] leading-relaxed text-ed-forest">
+                    {e.citacao}
+                  </p>
+                </div>
+              </EdCard>
+              {i < EIXOS.length - 1 && <EdFlowArrow direction="vertical" />}
+            </Reveal>
+          ))}
+        </div>
       </div>
-    </EdSection>
+    </section>
 
-    <EdSection bg="ink">
-      <EdHead
-        tone="cream"
-        title="O diferencial do Sistema ORI"
-        className="mb-12"
-      />
-      <ul className="grid md:grid-cols-2 gap-5">
-        {DIFERENCIAIS.map((d, i) => (
-          <Reveal key={d} delay={i * 80} as="li">
-            <div className="border border-ed-cream/25 rounded-2xl px-7 py-6 text-ed-cream/85 font-light leading-relaxed text-[16px] h-full">
-              {d}
-            </div>
-          </Reveal>
-        ))}
-      </ul>
-    </EdSection>
-
-    <EdSection bg="butter">
-      <EdHead title="Onde o Sistema ORI se aplica" className="mb-12" />
-      <div className="grid md:grid-cols-2 gap-12 md:gap-20">
-        <ListaEd titulo="Na vida pessoal" itens={NA_VIDA} />
-        <ListaEd titulo="Nas empresas" itens={NAS_EMPRESAS} />
+    <section className="page-flow page-section py-10 md:py-14">
+      <div className="page-section-inner">
+        <div className="page-panel page-panel-ink">
+          <EdHead
+            tone="cream"
+            title="O diferencial do Sistema ORI"
+            className="mb-12"
+          />
+          <ul className="grid md:grid-cols-2 gap-5">
+            {DIFERENCIAIS.map((d, i) => (
+              <Reveal key={d} delay={i * 80} as="li">
+                <div className="border border-ed-cream/25 rounded-2xl px-7 py-6 text-ed-cream/85 font-light leading-relaxed text-[16px] h-full">
+                  {d}
+                </div>
+              </Reveal>
+            ))}
+          </ul>
+        </div>
       </div>
-    </EdSection>
+    </section>
 
-    <EdSection bg="cream">
-      <div className="grid md:grid-cols-[0.9fr_1.1fr] gap-10 md:gap-16 items-start">
+    <section className="page-flow page-section">
+      <div className="page-wash page-wash-leaf" aria-hidden="true" />
+      <div className="page-section-inner">
+        <EdHead title="Onde o Sistema ORI se aplica" className="mb-12" />
+        <div className="grid md:grid-cols-2 gap-12 md:gap-20">
+          <ListaEd titulo="Na vida pessoal" itens={NA_VIDA} />
+          <ListaEd titulo="Nas empresas" itens={NAS_EMPRESAS} />
+        </div>
+      </div>
+    </section>
+
+    <section className="page-flow page-section">
+      <div className="page-wash page-wash-sand" aria-hidden="true" />
+      <div className="page-section-inner grid md:grid-cols-[0.9fr_1.1fr] gap-10 md:gap-16 items-start">
         <EdHead title="O que você ganha no caminho" />
         <ol className="space-y-4">
           {GANHOS.map((g, i) => (
@@ -575,24 +586,35 @@ const OriEdImpl = () => (
           ))}
         </ol>
       </div>
-    </EdSection>
+    </section>
 
-    <EdQuote image={edRoom} quote={DEPOIMENTOS[3].texto} autor={DEPOIMENTOS[3].autor} inicial={DEPOIMENTOS[3].inicial} />
+    <section className="page-flow page-section py-10 md:py-14">
+      <div className="page-section-inner grid gap-8 md:grid-cols-[1.1fr_0.9fr] items-center">
+        <HomeTestimonial {...DEPOIMENTOS[3]} />
+        <Reveal delay={120}>
+          <img src={edRoom} alt="Ambiente da Casa Orí" loading="lazy" className="home-services-image" />
+        </Reveal>
+      </div>
+    </section>
 
-    <EdSection bg="ink">
-      <EdHead
-        tone="cream"
-        title="A estrutura está aqui"
-        lead="O Sistema ORI organiza o caminho — e quem caminha é você."
-      />
-      <Reveal delay={200}>
-        <div className="mt-8">
-          <EdCTA href={QUIZ_CPF_URL} variant="butter">
-            {V2_COPY.ori.cta}
-          </EdCTA>
+    <section className="page-flow page-section pb-16 md:pb-24">
+      <div className="page-section-inner">
+        <div className="page-panel page-panel-ink">
+          <EdHead
+            tone="cream"
+            title="A estrutura está aqui"
+            lead="O Sistema ORI organiza o caminho — e quem caminha é você."
+          />
+          <Reveal delay={200}>
+            <div className="mt-8">
+              <EdCTA href={QUIZ_CPF_URL} variant="butter">
+                {V2_COPY.ori.cta}
+              </EdCTA>
+            </div>
+          </Reveal>
         </div>
-      </Reveal>
-    </EdSection>
+      </div>
+    </section>
   </>
 );
 export const OriEd = memo(OriEdImpl);
