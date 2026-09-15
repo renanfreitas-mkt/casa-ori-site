@@ -746,58 +746,64 @@ export const SobreEd = memo(SobreEdImpl);
 
 const ContatoEdImpl = () => (
   <>
-    <EdSection bg="cream">
-      <EdHead
-        as="h1"
-        kicker="Contato"
-        title={V2_COPY.contato.titulo}
-        lead={
-          <>
-            {V2_COPY.contato.texto}
-            <br />
-            <br />
-            <strong>Para você:</strong> {V2_COPY.contato.cpfTexto}
-            <br />
-            <strong>Para você líder:</strong> {V2_COPY.contato.cnpjTexto}
-          </>
-        }
-      />
-      <Reveal delay={220}>
-        <div className="mt-9 flex flex-col sm:flex-row gap-3">
-          <EdCTA href={QUIZ_CPF_URL} variant="ink">
-             {V2_COPY.contato.cpfCta}
-          </EdCTA>
-          <EdCTA href={QUIZ_CNPJ_URL} variant="outlineInk">
-             {V2_COPY.contato.cnpjCta}
-          </EdCTA>
-        </div>
-      </Reveal>
-    </EdSection>
-
-    <EdSection bg="ink">
-      <div className="grid gap-10 md:grid-cols-[1fr_1fr] items-center">
-        <div>
-           <EdHead
-             tone="cream"
-             title="Fale com a Carol"
-             lead={V2_COPY.contato.whatsapp}
-             className="ed-pretty max-w-[720px]"
-           />
-          <Reveal delay={200}>
-            <div className="mt-8">
-              <EdCTA href={WHATSAPP_URL} variant="butter">
-                Falar no WhatsApp
-              </EdCTA>
-            </div>
-          </Reveal>
-        </div>
-        <Reveal delay={140}>
-          <p className="font-sans italic font-light text-ed-butter text-[22px] md:text-[28px] leading-relaxed max-w-[18ch]">
-             Profundidade para compreender. Direção para seguir.
-          </p>
+    <section className="page-flow page-section pt-12 md:pt-16">
+      <div className="page-wash page-wash-sand" aria-hidden="true" />
+      <div className="page-section-inner">
+        <EdHead
+          as="h1"
+          kicker="Contato"
+          title={V2_COPY.contato.titulo}
+          lead={
+            <>
+              {V2_COPY.contato.texto}
+              <br />
+              <br />
+              <strong>Para você:</strong> {V2_COPY.contato.cpfTexto}
+              <br />
+              <strong>Para você líder:</strong> {V2_COPY.contato.cnpjTexto}
+            </>
+          }
+        />
+        <Reveal delay={220}>
+          <div className="mt-9 flex flex-col sm:flex-row gap-3 home-hero-actions">
+            <EdCTA href={QUIZ_CPF_URL} variant="ink">
+              {V2_COPY.contato.cpfCta}
+            </EdCTA>
+            <EdCTA href={QUIZ_CNPJ_URL} variant="outlineInk">
+              {V2_COPY.contato.cnpjCta}
+            </EdCTA>
+          </div>
         </Reveal>
       </div>
-    </EdSection>
+    </section>
+
+    <section className="page-flow page-section pb-16 md:pb-24">
+      <div className="page-wash page-wash-leaf" aria-hidden="true" />
+      <div className="page-section-inner">
+        <div className="page-panel page-panel-ink grid gap-10 md:grid-cols-[1fr_1fr] items-center">
+          <div>
+            <EdHead
+              tone="cream"
+              title="Fale com a Carol"
+              lead={V2_COPY.contato.whatsapp}
+              className="ed-pretty max-w-[720px]"
+            />
+            <Reveal delay={200}>
+              <div className="mt-8">
+                <EdCTA href={WHATSAPP_URL} variant="butter">
+                  Falar no WhatsApp
+                </EdCTA>
+              </div>
+            </Reveal>
+          </div>
+          <Reveal delay={140}>
+            <p className="font-sans italic font-light text-ed-butter text-[22px] md:text-[28px] leading-relaxed max-w-[18ch]">
+              Profundidade para compreender. Direção para seguir.
+            </p>
+          </Reveal>
+        </div>
+      </div>
+    </section>
   </>
 );
 export const ContatoEd = memo(ContatoEdImpl);
