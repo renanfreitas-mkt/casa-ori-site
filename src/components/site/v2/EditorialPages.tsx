@@ -14,6 +14,8 @@ import edHero from "@/assets/ed-hero.jpg";
 import edRoom from "@/assets/ed-room.jpg";
 import edQuoteImg from "@/assets/ed-quote.jpg";
 import edTeam from "@/assets/ed-team.jpg";
+import carolRetrato from "@/assets/carol-retrato.jpg.asset.json";
+import carolConduzindo from "@/assets/carol-conduzindo.jpg.asset.json";
 import {
   DORES_CPF,
   DORES_CNPJ,
@@ -224,6 +226,51 @@ const HomeEdImpl = () => (
         ))}
       </div>
     </EdSection>
+
+    {/* Quem conduz: dobra orgânica com fotos da Carol */}
+    <section id="carol" className="home-flow home-carol relative overflow-hidden bg-ed-cream px-5 sm:px-8 lg:px-12 py-16 md:py-24">
+      <div className="home-carol-wash" aria-hidden="true" />
+      <div className="relative max-w-[1180px] mx-auto grid gap-12 md:grid-cols-[0.95fr_1.05fr] md:gap-16 items-center">
+        <Reveal className="home-carol-media">
+          <div className="home-carol-photo-wrap">
+            <img src={carolRetrato.url} alt="Carol Milhomens, terapeuta sistêmica da Casa Orí" className="home-carol-photo" />
+            <img
+              src={carolConduzindo.url}
+              alt="Carol Milhomens conduzindo um encontro com um grupo"
+              loading="lazy"
+              className="home-carol-photo-alt"
+            />
+          </div>
+        </Reveal>
+        <div className="home-carol-copy">
+          <Reveal>
+            <span className="ed-eyebrow text-ed-ink/55">{CAROL.titulo}</span>
+          </Reveal>
+          <Reveal delay={80}>
+            <h2 className="ed-display text-ed-ink mt-6 text-[clamp(1.9rem,3.6vw,3.1rem)] leading-[1.06]">
+              {CAROL.nome}
+            </h2>
+          </Reveal>
+          {CAROL.paragrafos.map((p, i) => (
+            <Reveal key={i} delay={140 + i * 60}>
+              <p className="mt-6 max-w-[520px] text-[15px] md:text-[17px] font-light leading-relaxed text-ed-ink/70">
+                {p}
+              </p>
+            </Reveal>
+          ))}
+          <Reveal delay={280}>
+            <p className="mt-8 text-[15px] font-light text-ed-ink/60">
+              Uma escuta com <EdAccent>direção</EdAccent>
+            </p>
+          </Reveal>
+          <Reveal delay={320}>
+            <div className="mt-8">
+              <EdCTA href="/sobre" variant="outlineInk">Conhecer a Casa Orí</EdCTA>
+            </div>
+          </Reveal>
+        </div>
+      </div>
+    </section>
 
     {/* Serviços em percurso editorial, sem grade de cartões */}
     <section id="servicos" className="home-flow home-anchor home-services-flow relative bg-ed-cream px-5 sm:px-8 lg:px-12 py-14 md:py-20 overflow-hidden">
