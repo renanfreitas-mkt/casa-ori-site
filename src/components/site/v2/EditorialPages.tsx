@@ -228,7 +228,7 @@ const HomeEdImpl = () => (
     {/* Serviços em percurso editorial, sem grade de cartões */}
     <section id="servicos" className="home-flow home-anchor home-services-flow relative bg-ed-cream px-5 sm:px-8 lg:px-12 py-14 md:py-20 overflow-hidden">
       <div className="home-services-wash" aria-hidden="true" />
-      <div className="relative max-w-[1180px] mx-auto">
+      <div className="home-services-shell relative max-w-[1180px] mx-auto">
         <div className="grid gap-12 md:grid-cols-[0.7fr_1.3fr] md:gap-20 items-start">
           <div className="home-services-intro md:sticky md:top-32">
             <EdHead kicker="Serviços" title="Caminhos possíveis" lead={V2_COPY.servicos.introducao} />
