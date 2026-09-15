@@ -292,26 +292,10 @@ export function EdQuote({
 export function EdNav() {
   const [open, setOpen] = useState(false);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
-  const homeAnchors: Partial<Record<(typeof links)[number]["to"], string>> = {
-    "/": "#inicio",
-    "/servicos": "#servicos",
-    "/sistema-ori": "#sistema-ori",
-    "/contato": "#contato",
-  };
-
   const navItem = (l: (typeof links)[number], mobile = false) => {
-    const anchor = pathname === "/" ? homeAnchors[l.to] : undefined;
     const className = mobile
       ? "font-sans text-[20px] font-normal text-ed-ink"
       : `text-[13px] tracking-wide text-ed-ink transition-opacity ${pathname === l.to ? "opacity-100 underline underline-offset-8" : "opacity-60 hover:opacity-100"}`;
-
-    if (anchor) {
-      return (
-        <a key={l.to} href={anchor} onClick={() => setOpen(false)} className={className}>
-          {l.label}
-        </a>
-      );
-    }
 
     return (
       <Link key={l.to} to={l.to} onClick={() => setOpen(false)} className={className}>
