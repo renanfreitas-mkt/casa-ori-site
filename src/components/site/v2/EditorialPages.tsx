@@ -401,50 +401,73 @@ function ServicoEd({ s, i }: { s: Servico; i: number }) {
 
 const ServicosEdImpl = () => (
   <>
-    <EdSection bg="cream">
-       <EdHead
-         as="h1"
-         kicker="Serviços"
-         title="Cada situação pede um caminho"
-         lead={V2_COPY.servicos.introducao}
-         className="max-w-[900px]"
-       />
-      <Reveal delay={240}>
-        <div className="mt-9">
-          <EdCTA href={QUIZ_CPF_URL} variant="ink">
-             {V2_COPY.servicos.cta}
-          </EdCTA>
+    <section className="page-flow page-section pt-12 md:pt-16">
+      <div className="page-wash page-wash-sand" aria-hidden="true" />
+      <div className="page-section-inner grid gap-10 md:grid-cols-[1.15fr_0.85fr] md:gap-16 items-center">
+        <div>
+          <EdHead
+            as="h1"
+            kicker="Serviços"
+            title="Cada situação pede um caminho"
+            lead={V2_COPY.servicos.introducao}
+            className="max-w-[900px]"
+          />
+          <Reveal delay={240}>
+            <div className="mt-9">
+              <EdCTA href={QUIZ_CPF_URL} variant="ink">
+                {V2_COPY.servicos.cta}
+              </EdCTA>
+            </div>
+          </Reveal>
         </div>
-      </Reveal>
-    </EdSection>
-
-    <EdSection bg="white">
-      <span className="ed-eyebrow text-ed-ink/50">Para você</span>
-      <h2 className="mt-4 ed-title text-ed-ink max-w-[680px]">
-        Processos no seu ritmo
-      </h2>
-      <div className="mt-8">
-        {SERV_CPF.map((s, i) => (
-          <ServicoEd key={s.titulo} s={s} i={i} />
-        ))}
+        <Reveal delay={160}>
+          <img src={edRoom} alt="Sala de atendimento da Casa Orí" className="page-photo" />
+        </Reveal>
       </div>
-    </EdSection>
+    </section>
 
-    <EdQuote image={edTeam} quote={DEPOIMENTOS[1].texto} autor={DEPOIMENTOS[1].autor} inicial={DEPOIMENTOS[1].inicial} />
-
-    <EdSection bg="butter">
-      <span className="ed-eyebrow text-ed-ink/50">Para sua empresa</span>
-      <h2 className="mt-4 ed-title text-ed-ink max-w-[560px]">
-        Equipes e lideranças
-      </h2>
-      <div className="mt-8">
-        {SERV_CNPJ.map((s, i) => (
-          <ServicoEd key={s.titulo} s={s} i={i} />
-        ))}
+    <section className="page-flow page-section">
+      <div className="page-wash page-wash-leaf" aria-hidden="true" />
+      <div className="page-section-inner">
+        <span className="ed-eyebrow text-ed-ink/50">Para você</span>
+        <h2 className="mt-4 ed-title text-ed-ink max-w-[680px]">
+          Processos no seu ritmo
+        </h2>
+        <div className="mt-8">
+          {SERV_CPF.map((s, i) => (
+            <ServicoEd key={s.titulo} s={s} i={i} />
+          ))}
+        </div>
       </div>
-    </EdSection>
+    </section>
 
-    <CtaFinalEd />
+    <section className="page-flow page-section py-10 md:py-14">
+      <div className="page-section-inner grid gap-8 md:grid-cols-[1.1fr_0.9fr] items-center">
+        <HomeTestimonial {...DEPOIMENTOS[1]} tone="dark" />
+        <Reveal delay={120}>
+          <img src={edTeam} alt="Encontro de equipe conduzido pela Casa Orí" loading="lazy" className="home-services-image" />
+        </Reveal>
+      </div>
+    </section>
+
+    <section className="page-flow page-section">
+      <div className="page-wash page-wash-sand" aria-hidden="true" />
+      <div className="page-section-inner">
+        <span className="ed-eyebrow text-ed-forest">Para sua empresa</span>
+        <h2 className="mt-4 ed-title text-ed-ink max-w-[560px]">
+          Equipes e lideranças
+        </h2>
+        <div className="mt-8">
+          {SERV_CNPJ.map((s, i) => (
+            <ServicoEd key={s.titulo} s={s} i={i} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <div className="page-flow">
+      <CtaFinalEd />
+    </div>
   </>
 );
 export const ServicosEd = memo(ServicosEdImpl);
