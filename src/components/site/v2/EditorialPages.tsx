@@ -17,6 +17,8 @@ import edTeam from "@/assets/ed-team.jpg";
 import carolHero from "@/assets/carol-hero.jpg.asset.json";
 // quem_e_a_carol.jpeg — a foto da dobra "Quem conduz"
 import carolConduzindo from "@/assets/carol-conduzindo.jpg.asset.json";
+// foto da palestra usada ao lado do depoimento
+import carolPalestra from "@/assets/carol-palestra.jpg.asset.json";
 import {
   DORES_CPF,
   DORES_CNPJ,
