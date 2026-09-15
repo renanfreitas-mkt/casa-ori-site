@@ -266,7 +266,7 @@
 
 .home-services-wash {
   position: absolute;
-  top: 12rem;
+  top: 11rem;
   left: 0;
   width: 48%;
   aspect-ratio: 1 / 1;
@@ -279,6 +279,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  max-width: 26rem;
 }
 
 .home-service-row {
