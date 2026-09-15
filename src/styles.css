@@ -268,18 +268,68 @@
   position: absolute;
   top: 11rem;
   left: 0;
-  width: 48%;
+  width: clamp(24rem, 48%, 42rem);
   aspect-ratio: 1 / 1;
+  min-height: 28rem;
+  max-height: 42rem;
   border-radius: 0 12rem 12rem 0;
   background: color-mix(in oklab, var(--color-ed-leaf) 22%, transparent);
 }
 
 .home-services-intro {
-  min-height: min(48vw, 42rem);
+  min-height: clamp(28rem, 48vw, 42rem);
   display: flex;
   flex-direction: column;
   justify-content: center;
   max-width: 26rem;
+  padding-right: 1.5rem;
+}
+
+.home-services-intro :is(h1, h2, h3) {
+  font-size: clamp(1.7rem, 2.7vw, 2.5rem);
+  line-height: 1.1;
+}
+
+.home-services-intro p {
+  font-size: clamp(0.95rem, 1.1vw, 1.0625rem);
+  line-height: 1.7;
+}
+
+/* ===== Dobra da Carol ===== */
+.home-carol-wash {
+  position: absolute;
+  right: -6rem;
+  top: 4rem;
+  width: clamp(20rem, 38%, 34rem);
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background: color-mix(in oklab, var(--color-ed-sand) 30%, transparent);
+}
+
+.home-carol-photo-wrap {
+  position: relative;
+  padding-bottom: 4.5rem;
+}
+
+.home-carol-photo {
+  display: block;
+  width: 100%;
+  max-width: 30rem;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 14rem 14rem 2rem 2rem;
+}
+
+.home-carol-photo-alt {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 46%;
+  max-width: 14rem;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 6rem 1.5rem 6rem 1.5rem;
+  border: 6px solid var(--color-ed-cream);
 }
 
 .home-service-row {
