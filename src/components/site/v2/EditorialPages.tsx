@@ -17,6 +17,8 @@ import edTeam from "@/assets/ed-team.jpg";
 import carolHero from "@/assets/carol-hero.jpg.asset.json";
 // quem_e_a_carol.jpeg — a foto da dobra "Quem conduz"
 import carolConduzindo from "@/assets/carol-conduzindo.jpg.asset.json";
+// foto da palestra usada ao lado do depoimento
+import carolPalestra from "@/assets/carol-palestra.jpg.asset.json";
 import {
   DORES_CPF,
   DORES_CNPJ,
@@ -195,7 +197,7 @@ const HomeEdImpl = () => (
     <section className="home-flow relative bg-ed-butter px-5 sm:px-8 lg:px-12 py-14 md:py-20">
       <div className="max-w-[1180px] mx-auto grid md:grid-cols-[0.72fr_1.28fr] gap-10 items-center">
         <Reveal>
-          <img src={edQuoteImg} alt="" loading="lazy" className="home-quote-image" />
+          <img src={carolPalestra.url} alt="Carol Milhomens palestrando para um grupo" loading="lazy" className="home-quote-image" />
         </Reveal>
         <HomeTestimonial {...DEPOIMENTOS[0]} autor="Bruna C." />
       </div>
