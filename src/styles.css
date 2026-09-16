@@ -131,7 +131,12 @@
 
 .theme-editorial h1,
 .theme-editorial h2,
-.theme-editorial h3 {
+.theme-editorial h3,
+.theme-editorial h4,
+.theme-editorial h5,
+.theme-editorial h6 {
+  font-family: var(--font-display);
+  font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0;
   text-wrap: balance;
