@@ -429,10 +429,20 @@ const ServicosEdImpl = () => (
         <h2 className="mt-4 ed-title text-ed-ink max-w-[680px]">
           Processos no seu ritmo
         </h2>
-        <div className="mt-8">
-          {SERV_CPF.map((s, i) => (
-            <ServicoEd key={s.titulo} s={s} i={i} />
-          ))}
+        <div className="mt-8 grid gap-10 md:grid-cols-[1.15fr_0.85fr] md:gap-14 items-center">
+          <div>
+            {SERV_CPF.map((s, i) => (
+              <ServicoEd key={s.titulo} s={s} i={i} />
+            ))}
+          </div>
+          <Reveal delay={160}>
+            <img
+              src={cartasConstelacao.url}
+              alt="Cartas de constelação familiar espalhadas sobre a mesa durante um atendimento"
+              loading="lazy"
+              className="page-photo"
+            />
+          </Reveal>
         </div>
       </div>
     </section>
