@@ -13,6 +13,8 @@ import { Route as V2RouteImport } from './routes/v2'
 import { Route as SobreRouteImport } from './routes/sobre'
 import { Route as SistemaOriRouteImport } from './routes/sistema-ori'
 import { Route as ServicosRouteImport } from './routes/servicos'
+import { Route as ParaVoceRouteImport } from './routes/para-voce'
+import { Route as ParaEmpresasRouteImport } from './routes/para-empresas'
 import { Route as ContatoRouteImport } from './routes/contato'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as V2IndexRouteImport } from './routes/v2.index'
@@ -39,6 +41,16 @@ const SistemaOriRoute = SistemaOriRouteImport.update({
 const ServicosRoute = ServicosRouteImport.update({
   id: '/servicos',
   path: '/servicos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ParaVoceRoute = ParaVoceRouteImport.update({
+  id: '/para-voce',
+  path: '/para-voce',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ParaEmpresasRoute = ParaEmpresasRouteImport.update({
+  id: '/para-empresas',
+  path: '/para-empresas',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContatoRoute = ContatoRouteImport.update({
@@ -80,6 +92,8 @@ const V2ContatoRoute = V2ContatoRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/contato': typeof ContatoRoute
+  '/para-empresas': typeof ParaEmpresasRoute
+  '/para-voce': typeof ParaVoceRoute
   '/servicos': typeof ServicosRoute
   '/sistema-ori': typeof SistemaOriRoute
   '/sobre': typeof SobreRoute
@@ -93,6 +107,8 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contato': typeof ContatoRoute
+  '/para-empresas': typeof ParaEmpresasRoute
+  '/para-voce': typeof ParaVoceRoute
   '/servicos': typeof ServicosRoute
   '/sistema-ori': typeof SistemaOriRoute
   '/sobre': typeof SobreRoute
@@ -106,6 +122,8 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/contato': typeof ContatoRoute
+  '/para-empresas': typeof ParaEmpresasRoute
+  '/para-voce': typeof ParaVoceRoute
   '/servicos': typeof ServicosRoute
   '/sistema-ori': typeof SistemaOriRoute
   '/sobre': typeof SobreRoute
@@ -121,6 +139,8 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/contato'
+    | '/para-empresas'
+    | '/para-voce'
     | '/servicos'
     | '/sistema-ori'
     | '/sobre'
@@ -134,6 +154,8 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/contato'
+    | '/para-empresas'
+    | '/para-voce'
     | '/servicos'
     | '/sistema-ori'
     | '/sobre'
@@ -146,6 +168,8 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/contato'
+    | '/para-empresas'
+    | '/para-voce'
     | '/servicos'
     | '/sistema-ori'
     | '/sobre'
@@ -160,6 +184,8 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ContatoRoute: typeof ContatoRoute
+  ParaEmpresasRoute: typeof ParaEmpresasRoute
+  ParaVoceRoute: typeof ParaVoceRoute
   ServicosRoute: typeof ServicosRoute
   SistemaOriRoute: typeof SistemaOriRoute
   SobreRoute: typeof SobreRoute
@@ -194,6 +220,20 @@ declare module '@tanstack/react-router' {
       path: '/servicos'
       fullPath: '/servicos'
       preLoaderRoute: typeof ServicosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/para-voce': {
+      id: '/para-voce'
+      path: '/para-voce'
+      fullPath: '/para-voce'
+      preLoaderRoute: typeof ParaVoceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/para-empresas': {
+      id: '/para-empresas'
+      path: '/para-empresas'
+      fullPath: '/para-empresas'
+      preLoaderRoute: typeof ParaEmpresasRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contato': {
@@ -269,6 +309,8 @@ const V2RouteWithChildren = V2Route._addFileChildren(V2RouteChildren)
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ContatoRoute: ContatoRoute,
+  ParaEmpresasRoute: ParaEmpresasRoute,
+  ParaVoceRoute: ParaVoceRoute,
   ServicosRoute: ServicosRoute,
   SistemaOriRoute: SistemaOriRoute,
   SobreRoute: SobreRoute,

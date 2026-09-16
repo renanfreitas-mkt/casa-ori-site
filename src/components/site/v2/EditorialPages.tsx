@@ -397,7 +397,7 @@ function ServicoEd({ s, i }: { s: Servico; i: number }) {
   );
 }
 
-const ServicosEdImpl = () => (
+const ServicosPessoasEdImpl = () => (
   <>
     <section className="page-flow page-section pt-12 md:pt-16">
       <div className="page-wash page-wash-sand" aria-hidden="true" />
@@ -405,7 +405,7 @@ const ServicosEdImpl = () => (
         <div>
           <EdHead
             as="h1"
-            kicker="Serviços"
+            kicker="Para você"
             title="Cada situação pede um caminho"
             lead={V2_COPY.servicos.introducao}
             className="max-w-[900px]"
@@ -448,12 +448,40 @@ const ServicosEdImpl = () => (
       </div>
     </section>
 
-    <section className="page-flow page-section">
+    <div className="page-flow">
+      <CtaFinalEd />
+    </div>
+  </>
+);
+export const ServicosPessoasEd = memo(ServicosPessoasEdImpl);
+
+const ServicosEmpresasEdImpl = () => (
+  <>
+    <section className="page-flow page-section pt-12 md:pt-16">
       <div className="page-wash page-wash-sand" aria-hidden="true" />
+      <div className="page-section-inner max-w-[900px]">
+        <EdHead
+          as="h1"
+          kicker="Para empresas"
+          title="Equipes e lideranças"
+          lead="O mesmo método que conduz processos individuais, aplicado ao contexto da sua empresa: comunicação, liderança e relações que sustentam resultados."
+        />
+        <Reveal delay={240}>
+          <div className="mt-9">
+            <EdCTA href={QUIZ_CNPJ_URL} variant="ink">
+              {V2_COPY.contato.cnpjCta}
+            </EdCTA>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+
+    <section className="page-flow page-section">
+      <div className="page-wash page-wash-leaf" aria-hidden="true" />
       <div className="page-section-inner">
         <span className="ed-eyebrow text-ed-forest">Para sua empresa</span>
         <h2 className="mt-4 ed-title text-ed-ink max-w-[560px]">
-          Equipes e lideranças
+          Formatos de trabalho
         </h2>
         <div className="mt-8">
           {SERV_CNPJ.map((s, i) => (
@@ -468,7 +496,7 @@ const ServicosEdImpl = () => (
     </div>
   </>
 );
-export const ServicosEd = memo(ServicosEdImpl);
+export const ServicosEmpresasEd = memo(ServicosEmpresasEdImpl);
 
 /* ============================= SISTEMA ORI ============================= */
 
