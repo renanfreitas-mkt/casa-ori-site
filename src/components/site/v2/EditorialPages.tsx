@@ -9,9 +9,9 @@ import {
   EdLetterMark,
   EdFlowArrow,
 } from "./ui";
-import edRoom from "@/assets/ed-room.jpg";
-import edQuoteImg from "@/assets/ed-quote.jpg";
 import edTeam from "@/assets/ed-team.jpg";
+import casaOriEspaco from "@/assets/casa-ori-espaco.jpeg.asset.json";
+import carolPoltrona from "@/assets/carol-poltrona.jpeg.asset.json";
 // Carol_Home.jpeg — a foto da hero ("carol hero")
 import carolHero from "@/assets/carol-hero.jpg.asset.json";
 // quem_e_a_carol.jpeg — a foto da dobra "Quem conduz"
@@ -314,7 +314,7 @@ const HomeEdImpl = () => (
         <div className="home-services-proof mt-14 md:mt-20 grid md:grid-cols-[1.1fr_0.9fr] gap-8 items-end">
           <HomeTestimonial {...DEPOIMENTOS[1]} tone="dark" />
           <Reveal delay={120}>
-            <img src={edRoom} alt="Sala de atendimento da Casa Orí" loading="lazy" className="home-services-image" />
+            <img src={casaOriEspaco.url} alt="Sala de atendimento da Casa Orí" loading="lazy" className="home-services-image" />
           </Reveal>
         </div>
       </div>
@@ -597,7 +597,7 @@ const OriEdImpl = () => (
       <div className="page-section-inner grid gap-8 md:grid-cols-[1.1fr_0.9fr] items-center">
         <HomeTestimonial {...DEPOIMENTOS[3]} />
         <Reveal delay={120}>
-          <img src={edRoom} alt="Ambiente da Casa Orí" loading="lazy" className="home-services-image" />
+          <img src={casaOriEspaco.url} alt="Ambiente da Casa Orí" loading="lazy" className="home-services-image" />
         </Reveal>
       </div>
     </section>
@@ -697,7 +697,7 @@ const SobreEdImpl = () => (
       <div className="page-section-inner grid gap-8 md:grid-cols-[1.1fr_0.9fr] items-center">
         <HomeTestimonial {...DEPOIMENTOS[2]} tone="dark" />
         <Reveal delay={120}>
-          <img src={edQuoteImg} alt="Detalhe do espaço da Casa Orí" loading="lazy" className="home-services-image" />
+          <img src={carolPoltrona.url} alt="Carol Milhomens sentada em uma poltrona na Casa Orí" loading="lazy" className="home-services-image" />
         </Reveal>
       </div>
     </section>
