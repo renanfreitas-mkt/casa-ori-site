@@ -9,7 +9,7 @@ import {
   EdLetterMark,
   EdFlowArrow,
 } from "./ui";
-import edTeam from "@/assets/ed-team.jpg";
+import carolLaptop from "@/assets/carol-laptop.jpeg.asset.json";
 import casaOriEspaco from "@/assets/casa-ori-espaco.jpeg.asset.json";
 import carolPoltrona from "@/assets/carol-poltrona.jpeg.asset.json";
 // Carol_Home.jpeg — a foto da hero ("carol hero")
@@ -443,7 +443,7 @@ const ServicosEdImpl = () => (
       <div className="page-section-inner grid gap-8 md:grid-cols-[1.1fr_0.9fr] items-center">
         <HomeTestimonial {...DEPOIMENTOS[1]} tone="dark" />
         <Reveal delay={120}>
-          <img src={edTeam} alt="Encontro de equipe conduzido pela Casa Orí" loading="lazy" className="home-services-image" />
+          <img src={carolLaptop.url} alt="Carol Milhomens trabalhando no sofá da Casa Orí" loading="lazy" className="home-services-image" />
         </Reveal>
       </div>
     </section>
