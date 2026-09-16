@@ -417,7 +417,7 @@ const ServicosEdImpl = () => (
           </Reveal>
         </div>
         <Reveal delay={160}>
-          <img src={edRoom} alt="Sala de atendimento da Casa Orí" className="page-photo" />
+          <img src={cartasConstelacao.url} alt="Cartas de constelação familiar sobre a mesa durante um atendimento da Casa Orí" className="page-photo" />
         </Reveal>
       </div>
     </section>
