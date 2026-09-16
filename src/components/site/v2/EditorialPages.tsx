@@ -18,6 +18,8 @@ import carolHero from "@/assets/carol-hero.jpg.asset.json";
 import carolConduzindo from "@/assets/carol-conduzindo.jpg.asset.json";
 // foto da palestra usada ao lado do depoimento
 import carolPalestra from "@/assets/carol-palestra.jpg.asset.json";
+// cartas de constelação na mesa (página de serviços)
+import cartasConstelacao from "@/assets/cartas-constelacao.jpg.asset.json";
 import {
   DORES_CPF,
   DORES_CNPJ,
