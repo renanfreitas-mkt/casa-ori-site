@@ -85,6 +85,37 @@ export const EIXOS: Eixo[] = [
   },
 ];
 
+/** Eixos O / R / I na versão da dobra da home. */
+export const EIXOS_HOME: Eixo[] = [
+  {
+    letra: "O",
+    nome: "Observa",
+    titulo: "O que ainda não está visível?",
+    tensao:
+      "Investigamos aquilo que ainda não foi percebido e continua influenciando a situação que trouxe você até aqui.",
+    texto: "",
+    citacao: "",
+  },
+  {
+    letra: "R",
+    nome: "Reorganiza",
+    titulo: "O que muda quando essa outra parte se torna visível?",
+    tensao:
+      "Ajudamos você a reorganizar a forma como compreende essa situação e a construir novas possibilidades de ação.",
+    texto: "",
+    citacao: "",
+  },
+  {
+    letra: "I",
+    nome: "Integra",
+    titulo: "E o que fazer a partir daqui?",
+    tensao:
+      "Acompanhamos e ajustamos essas mudanças à sua realidade para que elas aconteçam de forma consistente.",
+    texto: "",
+    citacao: "",
+  },
+];
+
 export const DIFERENCIAIS = [
   "Não para na percepção, vai até a mudança acontecer na prática",
   "Acompanha sem criar dependência",
@@ -269,8 +300,10 @@ export const CAROL = {
   titulo: "Quem conduz",
   nome: "Carol Milhomens",
   paragrafos: [
-    "Antes de atender, passei anos trabalhando com comunicação dentro de empresas, observando de perto como os ruídos entre pessoas travam resultados, relações e decisões.",
-    "Em paralelo, com a formação em Constelação Familiar, a combinação entre a prática em comunicação e o olhar sistêmico me abriu caminhos para começar a atender em 2019 e a abrir a Casa Orí em 2024. De lá pra cá, já foram mais de 900 atendimentos conduzidos. Foi essa prática que deu origem ao método que estrutura esse trabalho hoje — o Sistema ORI.",
+    "Antes de fazer parte do meu trabalho, esse processo fez parte da minha vida.",
+    "Durante muito tempo, eu também tentei resolver apenas a parte que conseguia enxergar. Foi vivendo esse processo que comecei a perceber que aquilo que aparecia não contava a história inteira.",
+    "Essa busca acabou se transformando na minha forma de trabalhar e deu origem ao Sistema ORI, reunindo a minha vivência, os estudos e a prática profissional.",
+    "Desde 2019, conduzo pessoas e empresas nesse mesmo processo: compreender o que realmente está acontecendo, investigar aquilo que ainda não está visível e construir novas possibilidades de ação.",
   ],
 };
 
@@ -309,7 +342,7 @@ export const CTA_FINAL = {
     cta: "Quero entender minha situação",
   },
   cnpj: {
-    titulo: "Para você, líder",
+    titulo: "Para você líder",
     texto:
       "A equipe não engrena, os conflitos se repetem e a comunicação trava os resultados.",
     cta: "Quero entender minha empresa",
@@ -337,6 +370,15 @@ export const V2_COPY = {
       "É o formato que muda de acordo com a sua necessidade ou da sua empresa.",
     ctaCpf: "Quero entender minha situação",
     ctaCnpj: "Quero entender minha empresa",
+    heroDestaque:
+      "Surge um problema. Você tenta resolver. Gasta tempo e energia e o problema continua.",
+    heroLinhas: [
+      "Você tenta resolver só o que consegue ver.",
+      "Mas e o que ainda está invisível?",
+      "A Casa Orí ajuda pessoas e empresas a investigar o que ainda não foi percebido, mas continua influenciando comportamentos, relações e resultados.",
+    ],
+    ctaUnica: "Quero entender o que está acontecendo",
+    doresTitulo: "Como isso costuma acontecer na prática?",
   },
   servicos: {
     introducao:
