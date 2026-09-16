@@ -95,22 +95,27 @@ const HomeEdImpl = () => (
               <span className="ed-eyebrow text-ed-ink/55">Casa Orí</span>
             </Reveal>
             <Reveal delay={80}>
-              <h1 className="ed-display ed-balanced text-ed-ink mt-7 text-[clamp(2.3rem,5.2vw,4.7rem)] leading-[1.02]">
-                MAS O QUE AINDA ESTÁ <EdAccent>invisível?</EdAccent>
+              <h1 className="ed-balanced text-ed-ink mt-7 text-[clamp(1.8rem,3.8vw,3.2rem)] leading-[1.12]">
+                {V2_COPY.home.heroDestaque}
               </h1>
             </Reveal>
             <Reveal delay={160}>
-              <p className="mt-10 max-w-[490px] text-[16px] md:text-[18px] font-light leading-relaxed text-ed-ink/70">
-                {V2_COPY.home.subtitulo}
-              </p>
+              <div className="mt-10 max-w-[490px]">
+                <p className="text-[17px] md:text-[19px] font-normal leading-relaxed text-ed-ink">
+                  {V2_COPY.home.heroLinhas[0]}
+                </p>
+                <p className="mt-2 text-[17px] md:text-[19px] font-normal leading-relaxed text-ed-ink">
+                  {V2_COPY.home.heroLinhas[1]}
+                </p>
+                <p className="mt-5 text-[16px] md:text-[18px] font-light leading-relaxed text-ed-ink/70">
+                  {V2_COPY.home.heroLinhas[2]}
+                </p>
+              </div>
             </Reveal>
             <Reveal delay={220}>
-              <div className="home-hero-actions mt-9 flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-3 items-start">
+              <div className="home-hero-actions mt-9 flex items-start">
                 <EdCTA href={QUIZ_CPF_URL} variant="ink">
-                  {V2_COPY.home.ctaCpf}
-                </EdCTA>
-                <EdCTA href={QUIZ_CNPJ_URL} variant="outlineInk">
-                  {V2_COPY.home.ctaCnpj}
+                  {V2_COPY.home.ctaUnica}
                 </EdCTA>
               </div>
             </Reveal>
@@ -155,7 +160,7 @@ const HomeEdImpl = () => (
       <div className="relative max-w-[1180px] mx-auto">
         <EdHead
           kicker="Talvez você reconheça"
-          title="Onde isso costuma aparecer."
+          title={V2_COPY.home.doresTitulo}
           className="mb-14 md:mb-20"
         />
         <div className="home-recognition-grid grid gap-12 md:grid-cols-2 md:gap-16 lg:gap-24 items-stretch">
@@ -169,9 +174,6 @@ const HomeEdImpl = () => (
                   </li>
                 ))}
               </ul>
-              <div className="mt-9">
-                <EdCTA href={QUIZ_CPF_URL} variant="ink">Quero entender minha situação</EdCTA>
-              </div>
             </div>
           </Reveal>
           <Reveal>
@@ -184,9 +186,6 @@ const HomeEdImpl = () => (
                   </li>
                 ))}
               </ul>
-              <div className="mt-9">
-                <EdCTA href={QUIZ_CNPJ_URL} variant="butter">Quero entender minha empresa</EdCTA>
-              </div>
             </div>
           </Reveal>
         </div>
