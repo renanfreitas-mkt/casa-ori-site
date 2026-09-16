@@ -20,6 +20,8 @@ import carolConduzindo from "@/assets/carol-conduzindo.jpg.asset.json";
 import carolPalestra from "@/assets/carol-palestra.jpg.asset.json";
 // cartas de constelação na mesa (página de serviços)
 import cartasConstelacao from "@/assets/cartas-constelacao.jpg.asset.json";
+// Carol anotando em prancheta (topo da página Sistema ORI, atrás do primeiro cartão)
+import carolAnotacoes from "@/assets/carol-anotacoes.jpg.asset.json";
 import {
   DORES_CPF,
   DORES_CNPJ,
