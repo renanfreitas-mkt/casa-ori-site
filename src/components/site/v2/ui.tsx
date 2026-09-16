@@ -8,7 +8,8 @@ import logoAsset from "@/assets/casa-ori-logo.jpg.asset.json";
 
 export const links = [
   { to: "/", label: "Início" },
-  { to: "/servicos", label: "Serviços" },
+  { to: "/para-voce", label: "Para você" },
+  { to: "/para-empresas", label: "Para empresas" },
   { to: "/sistema-ori", label: "Sistema ORI" },
   { to: "/sobre", label: "Sobre" },
   { to: "/contato", label: "Contato" },
