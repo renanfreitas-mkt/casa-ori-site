@@ -494,7 +494,12 @@ function ListaEd({ titulo, itens }: { titulo: string; itens: string[] }) {
 const OriEdImpl = () => (
   <>
     <section className="page-flow page-section pt-12 md:pt-16">
-      <div className="page-wash page-wash-sand" aria-hidden="true" />
+      <img
+        src={carolAnotacoes.url}
+        alt="Carol Milhomens anotando em uma prancheta durante uma sessão"
+        loading="lazy"
+        className="ori-notes-photo"
+      />
       <div className="page-section-inner">
         <EdHead
           as="h1"
