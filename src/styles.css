@@ -524,13 +524,14 @@
 .ori-notes-photo {
   position: absolute;
   z-index: 0;
-  top: -2.75rem;
-  right: -1rem;
-  width: clamp(9rem, 44vw, 10.5rem);
+  top: -4.5rem;
+  right: -1.25rem;
+  width: clamp(10.5rem, 52vw, 12.5rem);
   aspect-ratio: 4 / 5;
   object-fit: cover;
-  object-position: center 30%;
+  object-position: 62% 38%;
   border-radius: 10rem 10rem 1.5rem 1.5rem;
+  box-shadow: 0 1.5rem 3rem -1.25rem rgba(38, 83, 60, 0.35);
   pointer-events: none;
 }
 
@@ -540,9 +541,9 @@
   }
 
   .ori-notes-photo {
-    top: -5rem;
-    right: -2rem;
-    width: clamp(14rem, 22vw, 19rem);
+    top: -9rem;
+    right: -3rem;
+    width: clamp(17rem, 26vw, 23rem);
     border-radius: 13rem 13rem 2rem 2rem;
   }
 
