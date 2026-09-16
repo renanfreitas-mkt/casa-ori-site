@@ -22,6 +22,7 @@ import {
   DORES_CPF,
   DORES_CNPJ,
   EIXOS,
+  EIXOS_HOME,
   DIFERENCIAIS,
   NA_VIDA,
   NAS_EMPRESAS,
@@ -210,7 +211,7 @@ const HomeEdImpl = () => (
         className="mb-12"
       />
       <div className="grid gap-6 md:grid-cols-3">
-        {EIXOS.map((e, i) => (
+        {EIXOS_HOME.map((e, i) => (
           <Reveal key={e.letra} delay={i * 40} className="relative h-full">
             <EdCard className="h-full">
               <span className="ed-display text-ed-olive text-[64px] block">
@@ -222,7 +223,7 @@ const HomeEdImpl = () => (
                 {e.tensao}
               </p>
             </EdCard>
-            {i < EIXOS.length - 1 && <EdFlowArrow direction="horizontal" />}
+            {i < EIXOS_HOME.length - 1 && <EdFlowArrow direction="horizontal" />}
           </Reveal>
         ))}
       </div>
@@ -258,11 +259,6 @@ const HomeEdImpl = () => (
             </Reveal>
           ))}
           <Reveal delay={280}>
-            <p className="mt-8 text-[15px] font-light text-ed-ink/60">
-              Uma escuta com <EdAccent>direção</EdAccent>
-            </p>
-          </Reveal>
-          <Reveal delay={320}>
             <div className="mt-8">
               <EdCTA href="/sobre" variant="outlineInk">Conhecer a Casa Orí</EdCTA>
             </div>
