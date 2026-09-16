@@ -18,6 +18,8 @@ import carolHero from "@/assets/carol-hero.jpg.asset.json";
 import carolConduzindo from "@/assets/carol-conduzindo.jpg.asset.json";
 // foto da palestra usada ao lado do depoimento
 import carolPalestra from "@/assets/carol-palestra.jpg.asset.json";
+// cartas de constelação na mesa (página de serviços)
+import cartasConstelacao from "@/assets/cartas-constelacao.jpg.asset.json";
 import {
   DORES_CPF,
   DORES_CNPJ,
@@ -427,10 +429,20 @@ const ServicosEdImpl = () => (
         <h2 className="mt-4 ed-title text-ed-ink max-w-[680px]">
           Processos no seu ritmo
         </h2>
-        <div className="mt-8">
-          {SERV_CPF.map((s, i) => (
-            <ServicoEd key={s.titulo} s={s} i={i} />
-          ))}
+        <div className="mt-8 grid gap-10 md:grid-cols-[1.15fr_0.85fr] md:gap-14 items-center">
+          <div>
+            {SERV_CPF.map((s, i) => (
+              <ServicoEd key={s.titulo} s={s} i={i} />
+            ))}
+          </div>
+          <Reveal delay={160}>
+            <img
+              src={cartasConstelacao.url}
+              alt="Cartas de constelação familiar espalhadas sobre a mesa durante um atendimento"
+              loading="lazy"
+              className="page-photo"
+            />
+          </Reveal>
         </div>
       </div>
     </section>
