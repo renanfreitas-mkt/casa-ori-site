@@ -9,7 +9,7 @@ import {
   EdLetterMark,
   EdFlowArrow,
 } from "./ui";
-import edTeam from "@/assets/ed-team.jpg";
+import carolLaptop from "@/assets/carol-laptop.jpeg.asset.json";
 import casaOriEspaco from "@/assets/casa-ori-espaco.jpeg.asset.json";
 import carolPoltrona from "@/assets/carol-poltrona.jpeg.asset.json";
 // Carol_Home.jpeg — a foto da hero ("carol hero")
