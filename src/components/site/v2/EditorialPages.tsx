@@ -22,6 +22,7 @@ import cartasConstelacao from "@/assets/cartas-constelacao.jpg.asset.json";
 // Carol anotando em prancheta
 import carolAnotacoes from "@/assets/carol-anotacoes.jpg.asset.json";
 import logoAsset from "@/assets/casa-ori-logo.jpg.asset.json";
+import instagramHandleImg from "@/assets/instagram-handle.png.asset.json";
 import {
   DORES_CPF,
   DORES_CNPJ,
@@ -303,9 +304,11 @@ function PodcastInstagramEd() {
           </Reveal>
           <Reveal delay={200}>
             <div className="mt-7 rounded-[24px] border border-ed-ink/12 bg-white px-7 py-8">
-              <p className="ed-display text-[28px] md:text-[34px] text-ed-forest">
-                {INSTAGRAM_HANDLE}
-              </p>
+              <img
+                src={instagramHandleImg.url}
+                alt={INSTAGRAM_HANDLE}
+                className="w-full max-w-[300px]"
+              />
               <div className="mt-6">
                 <EdCTA href={INSTAGRAM_URL} variant="ink">
                   {V2_COPY.instagram.cta}
