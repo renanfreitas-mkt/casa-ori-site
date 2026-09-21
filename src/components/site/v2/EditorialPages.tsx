@@ -195,10 +195,10 @@ function AberturaEd({
   alt?: string;
 }) {
   return (
-    <section className="page-flow page-section pt-12 md:pt-16">
+    <section className="page-flow page-section pt-20 md:pt-28 lg:pt-36">
       <div className="page-wash page-wash-sand" aria-hidden="true" />
       <div
-        className={`page-section-inner grid gap-10 items-center ${image ? "md:grid-cols-[1.1fr_0.9fr] md:gap-16" : ""}`}
+        className={`page-section-inner grid gap-10 items-center ${image ? "md:grid-cols-[1.15fr_0.85fr] md:gap-16" : ""}`}
       >
         <div>
           <Reveal>
@@ -206,13 +206,13 @@ function AberturaEd({
           </Reveal>
           <Reveal delay={60}>
             <div className="mt-6">
-              <SequenciaProblema />
+              <SequenciaProblema staircase />
             </div>
           </Reveal>
           <Reveal delay={120}>
-            <h1 className="ed-balanced text-ed-ink mt-8 text-[clamp(1.7rem,3.4vw,2.9rem)] leading-[1.12] max-w-[18ch]">
+            <h2 className="ed-balanced text-ed-ink mt-8 text-[clamp(1.5rem,2.8vw,2.3rem)] leading-[1.12] max-w-[20ch]">
               {destaque}
-            </h1>
+            </h2>
           </Reveal>
           <Reveal delay={180}>
             <p className="mt-7 max-w-[540px] text-[16px] md:text-[18px] font-light leading-relaxed text-ed-ink/70">
@@ -229,7 +229,7 @@ function AberturaEd({
         </div>
         {image && (
           <Reveal delay={160}>
-            <img src={image} alt={alt ?? ""} className="page-photo" />
+            <img src={image} alt={alt ?? ""} className="page-photo page-photo-hero" />
           </Reveal>
         )}
       </div>
