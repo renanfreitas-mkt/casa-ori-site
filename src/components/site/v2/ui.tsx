@@ -196,7 +196,30 @@ export function EdLetterMark({ children }: { children: ReactNode }) {
   );
 }
 
+/** Seta estática, usada para indicar sequência (hero da home). */
+export function EdStepArrow({ className = "" }: { className?: string }) {
+  return (
+    <svg
+      aria-hidden="true"
+      className={`h-7 w-5 text-ed-olive ${className}`}
+      viewBox="0 0 48 48"
+      fill="none"
+    >
+      <path
+        className="ed-hand-path"
+        pathLength="1"
+        d="M22 4c7 11 8 22 2 35m0 0-7-8m7 8 8-8"
+        stroke="currentColor"
+        strokeWidth="2.4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 export function EdFlowArrow({ direction }: { direction: "horizontal" | "vertical" }) {
+
   const horizontal = direction === "horizontal";
   return (
     <svg
