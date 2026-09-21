@@ -875,21 +875,41 @@ export const OriEd = memo(OriEdImpl);
 
 const SobreEdImpl = () => (
   <>
-    <section className="page-flow page-section pt-12 md:pt-16">
+    <section className="page-flow page-section nome-section pt-12 md:pt-16">
       <div className="page-wash page-wash-sand" aria-hidden="true" />
+      <img src={logoAsset.url} alt="" aria-hidden="true" className="nome-symbol" />
       <div className="page-section-inner">
         <EdHead as="h1" title="Casa Orí" className="mb-10" />
-        <div className="grid gap-6 md:grid-cols-3">
-          {NOME.map((n, i) => (
-            <Reveal key={n.palavra} delay={i * 90}>
-              <EdCard className="h-full bg-ed-cream border-ed-ink/10">
-                <span className="ed-display text-[44px] text-ed-olive">{n.palavra}</span>
-                <p className="mt-4 text-[15px] font-light leading-relaxed text-ed-ink/70">
-                  {n.texto}
-                </p>
-              </EdCard>
-            </Reveal>
-          ))}
+        <div className="nome-equation">
+          <Reveal>
+            <div className="nome-card">
+              <span className="ed-display text-[40px] md:text-[52px] text-ed-forest">
+                {NOME[0].palavra}
+              </span>
+              <p className="mt-4 text-[15px] font-light leading-relaxed text-ed-ink/70">
+                {NOME[0].texto}
+              </p>
+            </div>
+          </Reveal>
+          <span aria-hidden="true" className="nome-operator">+</span>
+          <Reveal delay={90}>
+            <div className="nome-card">
+              <span className="ed-display text-[40px] md:text-[52px] text-ed-forest">
+                {NOME[1].palavra}
+              </span>
+              <p className="mt-4 text-[15px] font-light leading-relaxed text-ed-ink/70">
+                {NOME[1].texto}
+              </p>
+            </div>
+          </Reveal>
+          <span aria-hidden="true" className="nome-operator">=</span>
+          <Reveal delay={180}>
+            <div className="nome-card nome-card-result">
+              <p className="text-[16px] md:text-[18px] font-light leading-relaxed text-ed-cream/90">
+                {NOME[2].texto}
+              </p>
+            </div>
+          </Reveal>
         </div>
       </div>
     </section>
@@ -897,7 +917,7 @@ const SobreEdImpl = () => (
     <section className="page-flow page-section">
       <div className="page-wash page-wash-leaf" aria-hidden="true" />
       <div className="page-section-inner">
-        <EdHead kicker="Como conduzo" title="Quatro pilares" className="mb-12" />
+        <EdHead kicker="Como é o método" title="Quatro pilares" className="mb-12" />
         <div className="grid gap-6 md:grid-cols-2">
           {PILARES.map((p, i) => (
             <Reveal key={p.titulo} delay={i * 80}>
@@ -932,8 +952,8 @@ const SobreEdImpl = () => (
         </div>
         <Reveal delay={160}>
           <img
-            src={carolConduzindo.url}
-            alt="Carol Milhomens conduzindo um encontro"
+            src={carolLaptop.url}
+            alt="Carol Milhomens trabalhando na Casa Orí"
             className="page-photo"
           />
         </Reveal>
@@ -941,11 +961,8 @@ const SobreEdImpl = () => (
     </section>
 
     <section className="page-flow page-section py-10 md:py-14">
-      <div className="page-section-inner grid gap-8 md:grid-cols-[1.1fr_0.9fr] items-center">
-        <HomeTestimonial {...DEPOIMENTOS[2]} tone="dark" />
-        <Reveal delay={120}>
-          <img src={carolPoltrona.url} alt="Carol Milhomens sentada em uma poltrona na Casa Orí" loading="lazy" className="home-services-image" />
-        </Reveal>
+      <div className="page-section-inner">
+        <TestimonialEd depoimento={DEPOIMENTOS[2]} tone="dark" />
       </div>
     </section>
 
@@ -972,17 +989,22 @@ const SobreEdImpl = () => (
       </div>
     </section>
 
+    <PodcastInstagramEd />
+
     <section className="page-flow page-section pb-16 md:pb-24">
       <div className="page-section-inner">
-        <div className="page-panel page-panel-ink">
-          <EdHead
-            tone="cream"
-            title="O desconforto da mudança"
-            lead={V2_COPY.sobre.fechamento}
-          />
+        <div className="page-panel page-panel-ink text-center">
+          <Reveal>
+            <span className="ed-eyebrow text-ed-sand">O desconforto da mudança</span>
+          </Reveal>
+          <Reveal delay={120}>
+            <p className="mx-auto mt-6 max-w-[22ch] ed-display uppercase text-ed-butter text-[clamp(1.8rem,4.2vw,3.2rem)] leading-[1.1]">
+              {V2_COPY.sobre.fechamento}
+            </p>
+          </Reveal>
           <Reveal delay={200}>
-            <div className="mt-8">
-              <EdCTA href={QUIZ_CPF_URL} variant="butter">
+            <div className="mt-10 flex justify-center">
+              <EdCTA href={WHATSAPP_URL} variant="butter">
                 {V2_COPY.sobre.cta}
               </EdCTA>
             </div>
@@ -990,6 +1012,7 @@ const SobreEdImpl = () => (
         </div>
       </div>
     </section>
+
   </>
 );
 export const SobreEd = memo(SobreEdImpl);
