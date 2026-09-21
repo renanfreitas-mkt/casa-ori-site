@@ -6,12 +6,10 @@ import {
   EdHead,
   EdCard,
   EdCTA,
-  EdAccent,
   EdLetterMark,
   EdStepArrow,
 } from "./ui";
 import carolLaptop from "@/assets/carol-laptop.jpeg.asset.json";
-import casaOriEspaco from "@/assets/casa-ori-espaco.jpeg.asset.json";
 import carolPoltrona from "@/assets/carol-poltrona.jpeg.asset.json";
 // Carol_Home.jpeg — a foto da hero ("carol hero")
 import carolHero from "@/assets/carol-hero.jpg.asset.json";
@@ -179,7 +177,6 @@ function SequenciaProblema({ tone = "ink", staircase = false }: { tone?: "ink" |
 /** Abertura padrão das abas: sequência, destaque e fala de contexto. */
 function AberturaEd({
   kicker,
-  destaque,
   lead,
   cta,
   ctaHref,
@@ -187,13 +184,13 @@ function AberturaEd({
   alt,
 }: {
   kicker: string;
-  destaque: string;
   lead: string;
   cta: string;
   ctaHref: string;
   image?: string;
   alt?: string;
 }) {
+
   return (
     <section className="page-flow page-section pt-20 md:pt-28 lg:pt-36">
       <div className="page-wash page-wash-sand" aria-hidden="true" />
@@ -209,12 +206,8 @@ function AberturaEd({
               <SequenciaProblema staircase />
             </div>
           </Reveal>
-          <Reveal delay={120}>
-            <h2 className="ed-balanced text-ed-ink mt-8 text-[clamp(1.5rem,2.8vw,2.3rem)] leading-[1.12] max-w-[20ch]">
-              {destaque}
-            </h2>
-          </Reveal>
           <Reveal delay={180}>
+
             <p className="mt-7 max-w-[540px] text-[16px] md:text-[18px] font-light leading-relaxed text-ed-ink/70">
               {lead}
             </p>
@@ -401,8 +394,8 @@ const HomeEdImpl = () => (
 
       {/* Reconhecimento em composição aberta, conectado à fotografia da hero */}
       <section className="home-flow home-method-bridge relative bg-ed-cream px-5 sm:px-8 lg:px-12 pb-16 md:pb-24">
-        <div className="max-w-[1440px] mx-auto grid lg:grid-cols-[0.78fr_1.22fr] gap-10">
-          <div className="relative z-20 py-16 md:py-24 lg:py-28">
+        <div className="max-w-[1180px] mx-auto">
+          <div className="relative z-20 pt-16 md:pt-24 pb-6 md:pb-10">
             <Reveal>
               <span className="ed-eyebrow text-ed-ink/55">Talvez você reconheça</span>
             </Reveal>
@@ -412,8 +405,8 @@ const HomeEdImpl = () => (
               </h2>
             </Reveal>
           </div>
-          <div aria-hidden="true" />
         </div>
+
         <div className="home-recognition-grid relative z-20 max-w-[1180px] mx-auto grid md:grid-cols-[0.9fr_1.1fr] items-stretch">
           <Reveal className="h-full">
             <div className="home-person-list pt-8 pb-8 md:pt-14 md:pb-12 md:pr-14">
@@ -459,7 +452,7 @@ const HomeEdImpl = () => (
     <EdSection id="sistema-ori" bg="cream" className="home-flow home-anchor home-ori-fold">
       <EdHead
         kicker="Sistema ORI"
-        title={<>Sistema <EdAccent>ORI</EdAccent></>}
+        title="Sistema ORI"
         lead={V2_COPY.home.subtitulo}
         className="mb-12"
       />
@@ -657,8 +650,8 @@ const ServicosPessoasEdImpl = () => (
   <>
     <AberturaEd
       kicker="Para você"
-      destaque={V2_COPY.paraVoce.destaque}
       lead={V2_COPY.paraVoce.lead}
+
       cta={V2_COPY.contato.cpfCta}
       ctaHref={QUIZ_CPF_URL}
       image={cartasConstelacao.url}
@@ -688,12 +681,8 @@ const ServicosPessoasEdImpl = () => (
 
     <section className="page-flow page-section py-10 md:py-14">
       <div className="page-section-inner space-y-8">
-        <TestimonialEd
-          depoimento={DEPOIMENTOS[1]}
-          tone="dark"
-          image={casaOriEspaco.url}
-          alt="Sala de atendimento da Casa Orí"
-        />
+        <TestimonialEd depoimento={DEPOIMENTOS[1]} tone="dark" />
+
         <TestimonialEd depoimento={DEPOIMENTOS[2]} />
       </div>
     </section>
@@ -709,8 +698,8 @@ const ServicosEmpresasEdImpl = () => (
   <>
     <AberturaEd
       kicker="Para empresas"
-      destaque={V2_COPY.paraEmpresas.destaque}
       lead={V2_COPY.paraEmpresas.lead}
+
       cta={V2_COPY.contato.cnpjCta}
       ctaHref={QUIZ_CNPJ_URL}
       image={carolConduzindo.url}
@@ -774,7 +763,7 @@ const OriEdImpl = () => (
         <EdHead
           as="h1"
           kicker="Sistema ORI"
-          title={<>Sistema <EdAccent circle>ORI</EdAccent></>}
+          title="Sistema ORI"
           lead="A mesma estrutura conduz processos individuais e trabalhos dentro de empresas — o que muda é o contexto, não o método."
           className="mb-14"
         />
@@ -899,10 +888,8 @@ const SobreEdImpl = () => (
       <div className="page-wash page-wash-sand" aria-hidden="true" />
       <img src={logoAsset.url} alt="" aria-hidden="true" className="nome-symbol" />
       <div className="page-section-inner">
-        <EdHead as="h1" title="Casa Orí" className="mb-6" />
-        <Reveal>
-          <div role="img" aria-label="Casa Orí" className="nome-assinatura mb-10" />
-        </Reveal>
+        <EdHead as="h1" title="Casa Orí" className="mb-10" />
+
         <div className="nome-equation">
           <Reveal>
             <div className="nome-card">
@@ -1021,10 +1008,19 @@ const SobreEdImpl = () => (
             <span className="ed-eyebrow text-ed-sand">O desconforto da mudança</span>
           </Reveal>
           <Reveal delay={120}>
-            <p className="mx-auto mt-6 max-w-[22ch] ed-display uppercase text-ed-butter text-[clamp(1.8rem,4.2vw,3.2rem)] leading-[1.1]">
-              {V2_COPY.sobre.fechamento}
+            <p className="mx-auto mt-6 max-w-[18ch] ed-display uppercase text-ed-butter text-[clamp(1.7rem,3.6vw,2.8rem)] leading-[1.1]">
+              Qual desconforto você escolhe?
             </p>
           </Reveal>
+          <Reveal delay={170}>
+            <p className="mx-auto mt-6 max-w-[42ch] text-[16px] md:text-[18px] font-light leading-relaxed text-ed-sand/75">
+              O que já te acompanha há tanto tempo,{" "}
+              <span className="text-ed-butter font-normal">
+                ou o que te leva à mudança que você busca?
+              </span>
+            </p>
+          </Reveal>
+
           <Reveal delay={200}>
             <div className="mt-10 flex justify-center">
               <EdCTA href={WHATSAPP_URL} variant="butter">
@@ -1088,13 +1084,13 @@ const ContatoEdImpl = () => (
     <section className="page-flow page-section pb-16 md:pb-24">
       <div className="page-wash page-wash-leaf" aria-hidden="true" />
       <div className="page-section-inner">
-        <div className="page-panel page-panel-ink grid gap-10 md:grid-cols-[0.85fr_1.15fr] items-center">
+        <div className="page-panel page-panel-ink grid gap-10 md:gap-14 md:grid-cols-[1fr_1fr] items-center">
           <div>
             <EdHead
               tone="cream"
               title="Fale com a Carol"
               lead={V2_COPY.contato.whatsapp}
-              className="ed-pretty max-w-[520px]"
+              className="ed-pretty max-w-[460px]"
             />
             <Reveal delay={200}>
               <div className="mt-8">
@@ -1105,10 +1101,11 @@ const ContatoEdImpl = () => (
             </Reveal>
           </div>
           <Reveal delay={140}>
-            <p className="ed-display text-ed-butter text-[clamp(1.9rem,4.4vw,3.4rem)] leading-[1.08] uppercase">
+            <p className="ed-display text-ed-butter text-[clamp(1.5rem,2.8vw,2.3rem)] leading-[1.15] uppercase max-w-[16ch]">
               Profundidade para compreender. Direção para seguir.
             </p>
           </Reveal>
+
         </div>
       </div>
     </section>
