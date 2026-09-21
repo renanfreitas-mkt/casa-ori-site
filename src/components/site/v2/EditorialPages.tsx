@@ -454,7 +454,7 @@ const HomeEdImpl = () => (
     <EdSection id="sistema-ori" bg="cream" className="home-flow home-anchor home-ori-fold">
       <EdHead
         kicker="Sistema ORI"
-        title={<>Sistema <EdAccent>ORI</EdAccent></>}
+        title="Sistema ORI"
         lead={V2_COPY.home.subtitulo}
         className="mb-12"
       />
@@ -769,7 +769,7 @@ const OriEdImpl = () => (
         <EdHead
           as="h1"
           kicker="Sistema ORI"
-          title={<>Sistema <EdAccent circle>ORI</EdAccent></>}
+          title="Sistema ORI"
           lead="A mesma estrutura conduz processos individuais e trabalhos dentro de empresas — o que muda é o contexto, não o método."
           className="mb-14"
         />
