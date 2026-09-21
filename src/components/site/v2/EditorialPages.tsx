@@ -842,24 +842,22 @@ const OriEdImpl = () => (
     </section>
 
     <section className="page-flow page-section py-10 md:py-14">
-      <div className="page-section-inner grid gap-8 md:grid-cols-[1.1fr_0.9fr] items-center">
-        <HomeTestimonial {...DEPOIMENTOS[3]} />
-        <Reveal delay={120}>
-          <img src={casaOriEspaco.url} alt="Ambiente da Casa Orí" loading="lazy" className="home-services-image" />
-        </Reveal>
+      <div className="page-section-inner">
+        <TestimonialEd depoimento={DEPOIMENTOS[3]} />
       </div>
     </section>
 
     <section className="page-flow page-section pb-16 md:pb-24">
       <div className="page-section-inner">
-        <div className="page-panel page-panel-ink">
+        <div className="page-panel page-panel-ink text-center">
           <EdHead
             tone="cream"
+            align="center"
             title="A estrutura está aqui"
             lead="O Sistema ORI organiza o caminho — e quem caminha é você."
           />
           <Reveal delay={200}>
-            <div className="mt-8">
+            <div className="mt-8 flex justify-center">
               <EdCTA href={QUIZ_CPF_URL} variant="butter">
                 {V2_COPY.ori.cta}
               </EdCTA>
@@ -868,6 +866,7 @@ const OriEdImpl = () => (
         </div>
       </div>
     </section>
+
   </>
 );
 export const OriEd = memo(OriEdImpl);
