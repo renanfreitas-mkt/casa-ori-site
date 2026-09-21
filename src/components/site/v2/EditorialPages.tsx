@@ -1006,29 +1006,39 @@ const ContatoEdImpl = () => (
           as="h1"
           kicker="Contato"
           title={V2_COPY.contato.titulo}
-          lead={
-            <>
-              {V2_COPY.contato.texto}
-              <br />
-              <br />
-              <strong>Para você:</strong> {V2_COPY.contato.cpfTexto}
-              <br />
-              <strong>Para você líder:</strong> {V2_COPY.contato.cnpjTexto}
-            </>
-          }
+          lead={V2_COPY.contato.texto}
         />
-        <Reveal delay={220}>
-          <div className="mt-9 flex flex-col sm:flex-row gap-3 home-hero-actions">
-            <EdCTA href={QUIZ_CPF_URL} variant="ink">
-              {V2_COPY.contato.cpfCta}
-            </EdCTA>
-            <EdCTA href={QUIZ_CNPJ_URL} variant="outlineInk">
-              {V2_COPY.contato.cnpjCta}
-            </EdCTA>
-          </div>
-        </Reveal>
+        <div className="mt-10 grid gap-6 md:grid-cols-2 items-stretch">
+          <Reveal delay={160}>
+            <div className="h-full flex flex-col rounded-[28px] border border-ed-ink/12 bg-white p-8">
+              <span className="ed-eyebrow text-ed-ink/55">Para você</span>
+              <p className="mt-5 flex-1 text-[16px] font-light leading-relaxed text-ed-ink/70">
+                {V2_COPY.contato.cpfTexto}
+              </p>
+              <div className="mt-8">
+                <EdCTA href={QUIZ_CPF_URL} variant="ink">
+                  {V2_COPY.contato.cpfCta}
+                </EdCTA>
+              </div>
+            </div>
+          </Reveal>
+          <Reveal delay={240}>
+            <div className="h-full flex flex-col rounded-[28px] border border-ed-ink/12 bg-white p-8">
+              <span className="ed-eyebrow text-ed-forest">Para sua empresa</span>
+              <p className="mt-5 flex-1 text-[16px] font-light leading-relaxed text-ed-ink/70">
+                {V2_COPY.contato.cnpjTexto}
+              </p>
+              <div className="mt-8">
+                <EdCTA href={QUIZ_CNPJ_URL} variant="ink">
+                  {V2_COPY.contato.cnpjCta}
+                </EdCTA>
+              </div>
+            </div>
+          </Reveal>
+        </div>
       </div>
     </section>
+
 
     <section className="page-flow page-section pb-16 md:pb-24">
       <div className="page-wash page-wash-leaf" aria-hidden="true" />
