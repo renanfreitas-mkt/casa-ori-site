@@ -748,7 +748,7 @@
 
 
   .problem-sequence-staircase {
-    max-width: 36rem;
+    max-width: none;
   }
 
   .testimonial-row-compact {
@@ -767,13 +767,12 @@
 }
 
 @media (max-width: 480px) {
-  .problem-sequence-staircase {
-    gap: 0.7rem;
-  }
+  .problem-sequence-staircase > *:nth-child(3),
+  .problem-sequence-staircase > *:nth-child(4) { --stair-offset: 0.7rem; }
+  .problem-sequence-staircase > *:nth-child(5),
+  .problem-sequence-staircase > *:nth-child(6) { --stair-offset: 1.4rem; }
+  .problem-sequence-staircase > *:nth-child(7) { --stair-offset: 2.1rem; }
 
-  .problem-sequence-staircase > span:nth-child(2) { --stair-offset: 0.75rem; }
-  .problem-sequence-staircase > span:nth-child(3) { --stair-offset: 1.5rem; }
-  .problem-sequence-staircase > span:nth-child(4) { --stair-offset: 2.25rem; }
 
   .home-hero-actions {
     width: 100%;
