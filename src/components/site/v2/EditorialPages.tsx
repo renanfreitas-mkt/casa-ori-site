@@ -307,7 +307,7 @@ function PodcastInstagramEd() {
               <img
                 src={instagramHandleImg.url}
                 alt={INSTAGRAM_HANDLE}
-                className="w-full max-w-[320px] mix-blend-multiply"
+                className="w-full max-w-[300px]"
               />
               <div className="mt-6">
                 <EdCTA href={INSTAGRAM_URL} variant="ink">
