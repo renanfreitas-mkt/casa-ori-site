@@ -1008,10 +1008,19 @@ const SobreEdImpl = () => (
             <span className="ed-eyebrow text-ed-sand">O desconforto da mudança</span>
           </Reveal>
           <Reveal delay={120}>
-            <p className="mx-auto mt-6 max-w-[22ch] ed-display uppercase text-ed-butter text-[clamp(1.8rem,4.2vw,3.2rem)] leading-[1.1]">
-              {V2_COPY.sobre.fechamento}
+            <p className="mx-auto mt-6 max-w-[18ch] ed-display uppercase text-ed-butter text-[clamp(1.7rem,3.6vw,2.8rem)] leading-[1.1]">
+              Qual desconforto você escolhe?
             </p>
           </Reveal>
+          <Reveal delay={170}>
+            <p className="mx-auto mt-6 max-w-[42ch] text-[16px] md:text-[18px] font-light leading-relaxed text-ed-sand/75">
+              O que já te acompanha há tanto tempo,{" "}
+              <span className="text-ed-butter font-normal">
+                ou o que te leva à mudança que você busca?
+              </span>
+            </p>
+          </Reveal>
+
           <Reveal delay={200}>
             <div className="mt-10 flex justify-center">
               <EdCTA href={WHATSAPP_URL} variant="butter">
