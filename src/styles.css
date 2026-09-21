@@ -189,14 +189,14 @@
   position: relative;
   z-index: 20;
   overflow: hidden;
-  min-height: 31rem;
+  min-height: 25rem;
   border-radius: 12rem 12rem 2.25rem 2.25rem;
 }
 
 .home-hero-photo {
   width: 100%;
   height: 100%;
-  min-height: 31rem;
+  min-height: 25rem;
   object-fit: cover;
   object-position: center;
 }
@@ -354,19 +354,19 @@
 
 @media (min-width: 768px) {
   .home-hero-grid {
-    grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
+    grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr);
     gap: 4rem;
-    min-height: 48rem;
+    min-height: 42rem;
   }
 
   .home-hero-media {
     align-self: stretch;
-    margin-bottom: -18rem;
+    margin-bottom: -14rem;
   }
 
   .home-hero-photo-wrap,
   .home-hero-photo {
-    height: 62rem;
+    height: 50rem;
   }
 
   .home-method-bridge {
@@ -529,6 +529,28 @@
   border-radius: 10rem 10rem 1.5rem 1.5rem;
 }
 
+.page-photo-hero {
+  width: min(100%, 22rem);
+  margin-inline: auto;
+  aspect-ratio: 4 / 4.6;
+}
+
+.nome-assinatura {
+  display: block;
+  width: min(100%, 20rem);
+  aspect-ratio: 589 / 143;
+  height: auto;
+  background-color: var(--color-ed-forest, #26533c);
+  -webkit-mask-image: url("/__l5e/assets-v1/28ac7be3-624b-4ece-8fe2-a801adb45fa6/casa-ori-assinatura.png");
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: left center;
+  -webkit-mask-size: contain;
+  mask-image: url("/__l5e/assets-v1/28ac7be3-624b-4ece-8fe2-a801adb45fa6/casa-ori-assinatura.png");
+  mask-repeat: no-repeat;
+  mask-position: left center;
+  mask-size: contain;
+}
+
 /* Foto da Carol emergindo de trás do primeiro cartão (Sistema ORI) */
 .ori-notes-photo {
   position: absolute;
@@ -608,9 +630,21 @@
   padding-block: 0.15rem;
 }
 
-.problem-sequence-staircase .stair-arrow svg {
-  height: 1.5rem;
-  width: 1rem;
+.problem-sequence-staircase > .stair-arrow-drawn {
+  width: 3.2rem;
+  height: 2.6rem;
+  background-color: currentColor;
+  -webkit-mask-image: url("/__l5e/assets-v1/0a3ed356-646e-44f0-a03f-b58a07389aeb/seta-desenhada.png");
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+  mask-image: url("/__l5e/assets-v1/0a3ed356-646e-44f0-a03f-b58a07389aeb/seta-desenhada.png");
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  transform: rotate(52deg);
+  transform-origin: center;
+  opacity: 0.9;
 }
 
 .problem-sequence-staircase > *:nth-child(1) { --stair-offset: 0rem; }

@@ -149,12 +149,10 @@ function SequenciaProblema({ tone = "ink", staircase = false }: { tone?: "ink" |
               {linha}
             </span>
             {i < linhas.length - 1 && (
-              <span className={`stair-arrow ${dark ? "text-ed-olive" : "text-ed-sand"}`} aria-hidden="true">
-                <svg viewBox="0 0 12 22" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M6 1 V19" />
-                  <path d="M1.5 14.5 L6 19.5 L10.5 14.5" />
-                </svg>
-              </span>
+              <span
+                className={`stair-arrow stair-arrow-drawn ${dark ? "text-ed-olive" : "text-ed-sand"}`}
+                aria-hidden="true"
+              />
             )}
           </Fragment>
         ))}
@@ -197,10 +195,10 @@ function AberturaEd({
   alt?: string;
 }) {
   return (
-    <section className="page-flow page-section pt-12 md:pt-16">
+    <section className="page-flow page-section pt-20 md:pt-28 lg:pt-36">
       <div className="page-wash page-wash-sand" aria-hidden="true" />
       <div
-        className={`page-section-inner grid gap-10 items-center ${image ? "md:grid-cols-[1.1fr_0.9fr] md:gap-16" : ""}`}
+        className={`page-section-inner grid gap-10 items-center ${image ? "md:grid-cols-[1.15fr_0.85fr] md:gap-16" : ""}`}
       >
         <div>
           <Reveal>
@@ -208,13 +206,13 @@ function AberturaEd({
           </Reveal>
           <Reveal delay={60}>
             <div className="mt-6">
-              <SequenciaProblema />
+              <SequenciaProblema staircase />
             </div>
           </Reveal>
           <Reveal delay={120}>
-            <h1 className="ed-balanced text-ed-ink mt-8 text-[clamp(1.7rem,3.4vw,2.9rem)] leading-[1.12] max-w-[18ch]">
+            <h2 className="ed-balanced text-ed-ink mt-8 text-[clamp(1.5rem,2.8vw,2.3rem)] leading-[1.12] max-w-[20ch]">
               {destaque}
-            </h1>
+            </h2>
           </Reveal>
           <Reveal delay={180}>
             <p className="mt-7 max-w-[540px] text-[16px] md:text-[18px] font-light leading-relaxed text-ed-ink/70">
@@ -231,7 +229,7 @@ function AberturaEd({
         </div>
         {image && (
           <Reveal delay={160}>
-            <img src={image} alt={alt ?? ""} className="page-photo" />
+            <img src={image} alt={alt ?? ""} className="page-photo page-photo-hero" />
           </Reveal>
         )}
       </div>
@@ -359,7 +357,7 @@ const HomeEdImpl = () => (
   <>
     {/* Abertura contínua: a fotografia atravessa a hero e as dores */}
     <div className="home-opening bg-ed-cream">
-      <section id="inicio" className="home-flow home-anchor relative z-10 px-5 sm:px-8 lg:px-12 pt-12 md:pt-16">
+      <section id="inicio" className="home-flow home-anchor relative z-10 px-5 sm:px-8 lg:px-12 pt-20 md:pt-28 lg:pt-36">
         <div className="home-hero-grid max-w-[1440px] mx-auto">
           <div className="home-hero-copy relative z-20 pb-12 md:pb-28">
             <Reveal>
@@ -897,15 +895,18 @@ export const OriEd = memo(OriEdImpl);
 
 const SobreEdImpl = () => (
   <>
-    <section className="page-flow page-section nome-section pt-12 md:pt-16">
+    <section className="page-flow page-section nome-section pt-20 md:pt-28">
       <div className="page-wash page-wash-sand" aria-hidden="true" />
       <img src={logoAsset.url} alt="" aria-hidden="true" className="nome-symbol" />
       <div className="page-section-inner">
-        <EdHead as="h1" title="Casa Orí" className="mb-10" />
+        <EdHead as="h1" title="Casa Orí" className="mb-6" />
+        <Reveal>
+          <div role="img" aria-label="Casa Orí" className="nome-assinatura mb-10" />
+        </Reveal>
         <div className="nome-equation">
           <Reveal>
             <div className="nome-card">
-              <span className="ed-display text-[40px] md:text-[52px] text-ed-forest">
+              <span className="ed-display uppercase text-[40px] md:text-[52px] text-ed-forest">
                 {NOME[0].palavra}
               </span>
               <p className="mt-4 text-[15px] font-light leading-relaxed text-ed-ink/70">
@@ -916,7 +917,7 @@ const SobreEdImpl = () => (
           <span aria-hidden="true" className="nome-operator">+</span>
           <Reveal delay={90}>
             <div className="nome-card">
-              <span className="ed-display text-[40px] md:text-[52px] text-ed-forest">
+              <span className="ed-display uppercase text-[40px] md:text-[52px] text-ed-forest">
                 {NOME[1].palavra}
               </span>
               <p className="mt-4 text-[15px] font-light leading-relaxed text-ed-ink/70">
