@@ -902,11 +902,7 @@ const SobreEdImpl = () => (
       <div className="page-section-inner">
         <EdHead as="h1" title="Casa Orí" className="mb-6" />
         <Reveal>
-          <img
-            src={assinaturaAsset.url}
-            alt="Casa Orí"
-            className="nome-assinatura mb-10"
-          />
+          <div role="img" aria-label="Casa Orí" className="nome-assinatura mb-10" />
         </Reveal>
         <div className="nome-equation">
           <Reveal>
