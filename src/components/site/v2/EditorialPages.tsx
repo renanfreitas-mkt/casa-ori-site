@@ -761,17 +761,9 @@ const OriEdImpl = () => (
         <div className="space-y-6">
           {EIXOS.map((e, i) => (
             <Reveal key={e.letra} delay={i * 90} className="relative">
-              {i === 0 && (
-                <img
-                  src={carolAnotacoes.url}
-                  alt="Carol Milhomens anotando em uma prancheta durante uma sessão"
-                  loading="lazy"
-                  className="ori-notes-photo"
-                />
-              )}
-              <EdCard className={`grid md:grid-cols-[minmax(0,220px)_1fr] gap-6 md:gap-12 ${i === 0 ? "relative z-10" : ""}`}>
+              <EdCard className="grid md:grid-cols-[minmax(0,220px)_1fr] gap-6 md:gap-12">
                 <div>
-                  <span className="ed-display text-ed-olive block text-[72px] md:text-[88px]">
+                  <span className="ed-display text-ed-olive block text-[48px] md:text-[58px]">
                     <EdLetterMark>{e.letra}</EdLetterMark>
                   </span>
                   <span className="ed-eyebrow text-ed-ink/50 block mt-2">{e.nome}</span>
@@ -789,10 +781,10 @@ const OriEdImpl = () => (
                   </p>
                 </div>
               </EdCard>
-              {i < EIXOS.length - 1 && <EdFlowArrow direction="vertical" />}
             </Reveal>
           ))}
         </div>
+
       </div>
     </section>
 
