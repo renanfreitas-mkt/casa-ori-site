@@ -635,33 +635,24 @@ function ServicoEd({ s, i }: { s: Servico; i: number }) {
 
 const ServicosPessoasEdImpl = () => (
   <>
-    <section className="page-flow page-section pt-12 md:pt-16">
-      <div className="page-wash page-wash-sand" aria-hidden="true" />
-      <div className="page-section-inner grid gap-10 md:grid-cols-[1.15fr_0.85fr] md:gap-16 items-center">
-        <div>
-          <EdHead
-            as="h1"
-            kicker="Para você"
-            title="Cada situação pede um caminho"
-            lead={V2_COPY.servicos.introducao}
-            className="max-w-[900px]"
-          />
-          <Reveal delay={240}>
-            <div className="mt-9">
-              <EdCTA href={QUIZ_CPF_URL} variant="ink">
-                {V2_COPY.servicos.cta}
-              </EdCTA>
-            </div>
-          </Reveal>
-        </div>
-        <Reveal delay={160}>
-          <img src={cartasConstelacao.url} alt="Cartas de constelação familiar sobre a mesa durante um atendimento da Casa Orí" className="page-photo" />
-        </Reveal>
-      </div>
-    </section>
+    <AberturaEd
+      kicker="Para você"
+      destaque={V2_COPY.paraVoce.destaque}
+      lead={V2_COPY.paraVoce.lead}
+      cta={V2_COPY.contato.cpfCta}
+      ctaHref={QUIZ_CPF_URL}
+      image={cartasConstelacao.url}
+      alt="Cartas de constelação familiar sobre a mesa durante um atendimento da Casa Orí"
+    />
+
+    <DoresEd
+      kicker="Talvez você reconheça"
+      titulo={V2_COPY.paraVoce.doresTitulo}
+      itens={DORES_CPF}
+    />
 
     <section className="page-flow page-section">
-      <div className="page-wash page-wash-leaf" aria-hidden="true" />
+      <div className="page-wash page-wash-sand" aria-hidden="true" />
       <div className="page-section-inner">
         <span className="ed-eyebrow text-ed-ink/50">Para você</span>
         <h2 className="mt-4 ed-title text-ed-ink max-w-[680px]">
@@ -676,16 +667,19 @@ const ServicosPessoasEdImpl = () => (
     </section>
 
     <section className="page-flow page-section py-10 md:py-14">
-      <div className="page-section-inner grid gap-8 md:grid-cols-[1.1fr_0.9fr] items-center">
-        <HomeTestimonial {...DEPOIMENTOS[1]} tone="dark" />
-        <Reveal delay={120}>
-          <img src={carolLaptop.url} alt="Carol Milhomens trabalhando no sofá da Casa Orí" loading="lazy" className="home-services-image" />
-        </Reveal>
+      <div className="page-section-inner space-y-8">
+        <TestimonialEd
+          depoimento={DEPOIMENTOS[1]}
+          tone="dark"
+          image={casaOriEspaco.url}
+          alt="Sala de atendimento da Casa Orí"
+        />
+        <TestimonialEd depoimento={DEPOIMENTOS[2]} />
       </div>
     </section>
 
     <div className="page-flow">
-      <CtaFinalEd />
+      <CtaFinalEd only="cpf" />
     </div>
   </>
 );
@@ -693,24 +687,21 @@ export const ServicosPessoasEd = memo(ServicosPessoasEdImpl);
 
 const ServicosEmpresasEdImpl = () => (
   <>
-    <section className="page-flow page-section pt-12 md:pt-16">
-      <div className="page-wash page-wash-sand" aria-hidden="true" />
-      <div className="page-section-inner max-w-[900px]">
-        <EdHead
-          as="h1"
-          kicker="Para empresas"
-          title="Equipes e lideranças"
-          lead="O mesmo método que conduz processos individuais, aplicado ao contexto da sua empresa: comunicação, liderança e relações que sustentam resultados."
-        />
-        <Reveal delay={240}>
-          <div className="mt-9">
-            <EdCTA href={QUIZ_CNPJ_URL} variant="ink">
-              {V2_COPY.contato.cnpjCta}
-            </EdCTA>
-          </div>
-        </Reveal>
-      </div>
-    </section>
+    <AberturaEd
+      kicker="Para empresas"
+      destaque={V2_COPY.paraEmpresas.destaque}
+      lead={V2_COPY.paraEmpresas.lead}
+      cta={V2_COPY.contato.cnpjCta}
+      ctaHref={QUIZ_CNPJ_URL}
+      image={carolConduzindo.url}
+      alt="Carol Milhomens conduzindo um encontro com uma equipe"
+    />
+
+    <DoresEd
+      kicker="Talvez a sua empresa reconheça"
+      titulo={V2_COPY.paraEmpresas.doresTitulo}
+      itens={DORES_CNPJ}
+    />
 
     <section className="page-flow page-section">
       <div className="page-wash page-wash-leaf" aria-hidden="true" />
@@ -728,11 +719,12 @@ const ServicosEmpresasEdImpl = () => (
     </section>
 
     <div className="page-flow">
-      <CtaFinalEd />
+      <CtaFinalEd only="cnpj" />
     </div>
   </>
 );
 export const ServicosEmpresasEd = memo(ServicosEmpresasEdImpl);
+
 
 /* ============================= SISTEMA ORI ============================= */
 
