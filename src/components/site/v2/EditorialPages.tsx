@@ -142,7 +142,7 @@ function SequenciaProblema({ tone = "ink", staircase = false }: { tone?: "ink" |
         {linhas.map((linha, i) => (
           <Fragment key={linha}>
             <span
-              className={`stair-step ed-display text-[clamp(1.05rem,2.7vw,2.4rem)] leading-none ${
+              className={`stair-step ed-display text-[clamp(1.15rem,3.4vw,3rem)] leading-none ${
                 dark ? "text-ed-ink" : "text-ed-cream"
               }`}
             >
