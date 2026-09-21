@@ -3,6 +3,15 @@
 @import "tw-animate-css";
 
 @font-face {
+  font-family: "Casa Ori V5";
+  src: url("./assets/fonts/CasaOriV5-Regular.ttf") format("truetype");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+  unicode-range: U+C0-C5, U+C7-CF, U+D1-D6, U+D9-DD, U+E0-E5, U+E7-EF, U+F1-F6, U+F9-FD;
+}
+
+@font-face {
   font-family: "Casa Ori";
   src: url("./assets/fonts/CasaOriV4-Regular.otf") format("opentype");
   font-display: swap;
@@ -46,7 +55,7 @@
   --color-ed-forest: #215D1B;
 
   --font-sans: "Roboto", system-ui, -apple-system, sans-serif;
-  --font-display: "Casa Ori", "Instrument Serif", "Cormorant Garamond", Georgia, serif;
+  --font-display: "Casa Ori V5", "Casa Ori", "Instrument Serif", "Cormorant Garamond", Georgia, serif;
   --font-editorial-italic: "Cormorant Garamond", Georgia, serif;
 }
 
@@ -578,21 +587,39 @@
 }
 
 .problem-sequence-staircase {
-  gap: 0.55rem;
-  max-width: 34rem;
+  gap: 0;
+  max-width: none;
+  overflow: visible;
 }
 
-.problem-sequence-staircase > span {
+.problem-sequence-staircase > .stair-step {
   display: block;
   width: max-content;
-  max-width: calc(100% - var(--stair-offset, 0rem));
+  max-width: none;
+  white-space: nowrap;
   margin-left: var(--stair-offset, 0rem);
 }
 
-.problem-sequence-staircase > span:nth-child(1) { --stair-offset: 0rem; }
-.problem-sequence-staircase > span:nth-child(2) { --stair-offset: 2.25rem; }
-.problem-sequence-staircase > span:nth-child(3) { --stair-offset: 4.5rem; }
-.problem-sequence-staircase > span:nth-child(4) { --stair-offset: 6.75rem; }
+.problem-sequence-staircase > .stair-arrow {
+  display: block;
+  width: max-content;
+  margin-left: calc(var(--stair-offset, 0rem) + 0.6rem);
+  line-height: 1;
+  padding-block: 0.15rem;
+}
+
+.problem-sequence-staircase .stair-arrow svg {
+  height: 1.5rem;
+  width: 1rem;
+}
+
+.problem-sequence-staircase > *:nth-child(1) { --stair-offset: 0rem; }
+.problem-sequence-staircase > *:nth-child(2) { --stair-offset: 0rem; }
+.problem-sequence-staircase > *:nth-child(3) { --stair-offset: 2.1rem; }
+.problem-sequence-staircase > *:nth-child(4) { --stair-offset: 2.1rem; }
+.problem-sequence-staircase > *:nth-child(5) { --stair-offset: 4.2rem; }
+.problem-sequence-staircase > *:nth-child(6) { --stair-offset: 4.2rem; }
+.problem-sequence-staircase > *:nth-child(7) { --stair-offset: 6.3rem; }
 
 .problem-sequence-arrow {
   margin-left: 0.35rem;
@@ -722,7 +749,7 @@
 
 
   .problem-sequence-staircase {
-    max-width: 36rem;
+    max-width: none;
   }
 
   .testimonial-row-compact {
@@ -741,13 +768,12 @@
 }
 
 @media (max-width: 480px) {
-  .problem-sequence-staircase {
-    gap: 0.7rem;
-  }
+  .problem-sequence-staircase > *:nth-child(3),
+  .problem-sequence-staircase > *:nth-child(4) { --stair-offset: 0.7rem; }
+  .problem-sequence-staircase > *:nth-child(5),
+  .problem-sequence-staircase > *:nth-child(6) { --stair-offset: 1.4rem; }
+  .problem-sequence-staircase > *:nth-child(7) { --stair-offset: 2.1rem; }
 
-  .problem-sequence-staircase > span:nth-child(2) { --stair-offset: 0.75rem; }
-  .problem-sequence-staircase > span:nth-child(3) { --stair-offset: 1.5rem; }
-  .problem-sequence-staircase > span:nth-child(4) { --stair-offset: 2.25rem; }
 
   .home-hero-actions {
     width: 100%;
