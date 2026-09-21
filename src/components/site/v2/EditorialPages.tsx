@@ -149,12 +149,10 @@ function SequenciaProblema({ tone = "ink", staircase = false }: { tone?: "ink" |
               {linha}
             </span>
             {i < linhas.length - 1 && (
-              <span className={`stair-arrow ${dark ? "text-ed-olive" : "text-ed-sand"}`} aria-hidden="true">
-                <svg viewBox="0 0 12 22" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M6 1 V19" />
-                  <path d="M1.5 14.5 L6 19.5 L10.5 14.5" />
-                </svg>
-              </span>
+              <span
+                className={`stair-arrow stair-arrow-drawn ${dark ? "text-ed-olive" : "text-ed-sand"}`}
+                aria-hidden="true"
+              />
             )}
           </Fragment>
         ))}
