@@ -394,8 +394,8 @@ const HomeEdImpl = () => (
 
       {/* Reconhecimento em composição aberta, conectado à fotografia da hero */}
       <section className="home-flow home-method-bridge relative bg-ed-cream px-5 sm:px-8 lg:px-12 pb-16 md:pb-24">
-        <div className="max-w-[1440px] mx-auto grid lg:grid-cols-[0.78fr_1.22fr] gap-10">
-          <div className="relative z-20 py-16 md:py-24 lg:py-28">
+        <div className="max-w-[1180px] mx-auto">
+          <div className="relative z-20 pt-16 md:pt-24 pb-6 md:pb-10">
             <Reveal>
               <span className="ed-eyebrow text-ed-ink/55">Talvez você reconheça</span>
             </Reveal>
@@ -405,8 +405,8 @@ const HomeEdImpl = () => (
               </h2>
             </Reveal>
           </div>
-          <div aria-hidden="true" />
         </div>
+
         <div className="home-recognition-grid relative z-20 max-w-[1180px] mx-auto grid md:grid-cols-[0.9fr_1.1fr] items-stretch">
           <Reveal className="h-full">
             <div className="home-person-list pt-8 pb-8 md:pt-14 md:pb-12 md:pr-14">
