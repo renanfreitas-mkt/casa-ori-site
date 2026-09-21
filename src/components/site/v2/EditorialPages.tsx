@@ -136,16 +136,32 @@ function TestimonialEd({
 function SequenciaProblema({ tone = "ink", staircase = false }: { tone?: "ink" | "cream"; staircase?: boolean }) {
   const dark = tone === "ink";
   if (staircase) {
+    const linhas = V2_COPY.home.heroSequencia;
     return (
-      <h1 className="problem-sequence problem-sequence-staircase">
-        {V2_COPY.home.heroSequencia.map((linha) => (
-          <span key={linha} className={`ed-display text-[clamp(1.3rem,3.2vw,2.8rem)] leading-none ${dark ? "text-ed-ink" : "text-ed-cream"}`}>
-            {linha}
-          </span>
+      <h1 className="problem-sequence problem-sequence-staircase relative z-30">
+        {linhas.map((linha, i) => (
+          <Fragment key={linha}>
+            <span
+              className={`stair-step ed-display text-[clamp(1.05rem,2.7vw,2.4rem)] leading-none ${
+                dark ? "text-ed-ink" : "text-ed-cream"
+              }`}
+            >
+              {linha}
+            </span>
+            {i < linhas.length - 1 && (
+              <span className={`stair-arrow ${dark ? "text-ed-olive" : "text-ed-sand"}`} aria-hidden="true">
+                <svg viewBox="0 0 12 22" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M6 1 V19" />
+                  <path d="M1.5 14.5 L6 19.5 L10.5 14.5" />
+                </svg>
+              </span>
+            )}
+          </Fragment>
         ))}
       </h1>
     );
   }
+
   return (
     <ol className="problem-sequence">
       {V2_COPY.home.heroSequencia.map((linha, i) => (
