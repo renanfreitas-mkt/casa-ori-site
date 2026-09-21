@@ -416,7 +416,7 @@ const HomeEdImpl = () => (
         </div>
         <div className="home-recognition-grid relative z-20 max-w-[1180px] mx-auto grid md:grid-cols-[0.9fr_1.1fr] items-stretch">
           <Reveal className="h-full">
-            <div className="home-person-list py-8 md:py-12 md:pr-14">
+            <div className="home-person-list pt-8 pb-8 md:pt-14 md:pb-12 md:pr-14">
               <span className="ed-eyebrow text-ed-forest">Para você</span>
               <ul className="mt-6 space-y-4">
                 {DORES_CPF.map((d) => (
