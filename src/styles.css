@@ -820,23 +820,23 @@
 
 @media (max-width: 480px) {
   .problem-sequence-staircase {
-    padding-left: 2.2rem;
+    padding-left: 1.8rem;
   }
 
   .problem-sequence-staircase > .stair-arrow-drawn {
     width: 2rem;
     height: 1.6rem;
-    margin-left: calc(var(--stair-offset, 0rem) - 2.1rem);
+    margin-left: calc(var(--stair-offset, 0rem) - 1.7rem);
     margin-top: -0.5rem;
     margin-bottom: -0.5rem;
   }
 
   .problem-sequence-staircase > *:nth-child(2),
-  .problem-sequence-staircase > *:nth-child(3) { --stair-offset: 0.9rem; }
+  .problem-sequence-staircase > *:nth-child(3) { --stair-offset: 0.7rem; }
   .problem-sequence-staircase > *:nth-child(4),
-  .problem-sequence-staircase > *:nth-child(5) { --stair-offset: 1.8rem; }
+  .problem-sequence-staircase > *:nth-child(5) { --stair-offset: 1.4rem; }
   .problem-sequence-staircase > *:nth-child(6),
-  .problem-sequence-staircase > *:nth-child(7) { --stair-offset: 2.7rem; }
+  .problem-sequence-staircase > *:nth-child(7) { --stair-offset: 2.1rem; }
 
 
 
@@ -935,5 +935,11 @@ html {
   .theme-editorial .ed-hand-path {
     animation: none;
     stroke-dashoffset: 0;
+  }
+}
+
+@media (max-width: 380px) {
+  .problem-sequence-staircase > .stair-step {
+    font-size: 1.3rem;
   }
 }
