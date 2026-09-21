@@ -608,9 +608,17 @@
   padding-block: 0.15rem;
 }
 
-.problem-sequence-staircase .stair-arrow svg {
-  height: 1.5rem;
-  width: 1rem;
+.stair-arrow-drawn {
+  width: 2.4rem;
+  height: 2.1rem;
+  background-color: currentColor;
+  mask-image: url("/__l5e/assets-v1/0a3ed356-646e-44f0-a03f-b58a07389aeb/seta-desenhada.png");
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  transform: rotate(52deg);
+  transform-origin: center;
+  opacity: 0.85;
 }
 
 .problem-sequence-staircase > *:nth-child(1) { --stair-offset: 0rem; }
