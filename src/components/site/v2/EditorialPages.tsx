@@ -135,18 +135,25 @@ function TestimonialEd({
 /** Sequência "surge um problema…" com setas indicando o ciclo. */
 function SequenciaProblema({ tone = "ink", staircase = false }: { tone?: "ink" | "cream"; staircase?: boolean }) {
   const dark = tone === "ink";
-  return (
-    <ol className={`problem-sequence ${staircase ? "problem-sequence-staircase" : ""}`}>
-      {V2_COPY.home.heroSequencia.map((linha, i) => (
-        <li key={linha}>
-          <span
-            className={staircase
-              ? `ed-display text-[clamp(1.65rem,3.2vw,2.8rem)] leading-none ${dark ? "text-ed-ink" : "text-ed-cream"}`
-              : `text-[15px] md:text-[16px] font-light leading-snug ${dark ? "text-ed-ink/75" : "text-ed-cream/80"}`}
-          >
+  if (staircase) {
+    return (
+      <h1 className="problem-sequence problem-sequence-staircase">
+        {V2_COPY.home.heroSequencia.map((linha) => (
+          <span key={linha} className={`ed-display text-[clamp(1.65rem,3.2vw,2.8rem)] leading-none ${dark ? "text-ed-ink" : "text-ed-cream"}`}>
             {linha}
           </span>
-          {!staircase && i < V2_COPY.home.heroSequencia.length - 1 && (
+        ))}
+      </h1>
+    );
+  }
+  return (
+    <ol className="problem-sequence">
+      {V2_COPY.home.heroSequencia.map((linha, i) => (
+        <li key={linha}>
+          <span className={`text-[15px] md:text-[16px] font-light leading-snug ${dark ? "text-ed-ink/75" : "text-ed-cream/80"}`}>
+            {linha}
+          </span>
+          {i < V2_COPY.home.heroSequencia.length - 1 && (
             <EdStepArrow className="problem-sequence-arrow" />
           )}
         </li>
