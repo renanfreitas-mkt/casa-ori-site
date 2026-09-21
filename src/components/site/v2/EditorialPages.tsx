@@ -139,7 +139,7 @@ function SequenciaProblema({ tone = "ink", staircase = false }: { tone?: "ink" |
     return (
       <h1 className="problem-sequence problem-sequence-staircase">
         {V2_COPY.home.heroSequencia.map((linha) => (
-          <span key={linha} className={`ed-display text-[clamp(1.65rem,3.2vw,2.8rem)] leading-none ${dark ? "text-ed-ink" : "text-ed-cream"}`}>
+          <span key={linha} className={`ed-display text-[clamp(1.3rem,3.2vw,2.8rem)] leading-none ${dark ? "text-ed-ink" : "text-ed-cream"}`}>
             {linha}
           </span>
         ))}
