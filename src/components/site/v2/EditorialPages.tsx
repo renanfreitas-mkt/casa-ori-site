@@ -1065,13 +1065,6 @@ const ContatoEdImpl = () => (
             </p>
           </Reveal>
         </div>
-
-          <Reveal delay={140}>
-            <p className="font-sans italic font-light text-ed-butter text-[22px] md:text-[28px] leading-relaxed max-w-[18ch]">
-              Profundidade para compreender. Direção para seguir.
-            </p>
-          </Reveal>
-        </div>
       </div>
     </section>
   </>
