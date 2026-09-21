@@ -5,7 +5,7 @@
 
 export const QUIZ_CPF_URL = "https://casa-ori-spark.lovable.app";
 export const QUIZ_CNPJ_URL = "https://casa-ori-spark.lovable.app";
-export const WHATSAPP_URL = "https://wa.me/55XXXXXXXXXX";
+export const WHATSAPP_URL = "https://wa.me/556181149765";
 export const INSTAGRAM_URL = "https://instagram.com/suacasa.ori";
 export const INSTAGRAM_HANDLE = "@suacasa.ori";
 export const PODCAST_URL =

@@ -209,9 +209,10 @@
 }
 
 .home-method-bridge {
-  margin-top: -5rem;
-  padding-top: 5rem;
+  margin-top: 0;
+  padding-top: 11rem;
 }
+
 
 .home-method-title {
   max-width: none;
@@ -365,19 +366,20 @@
 
   .home-hero-media {
     align-self: stretch;
-    margin-bottom: -14rem;
+    margin-bottom: -6rem;
   }
 
   .home-hero-photo-wrap,
   .home-hero-photo {
-    height: 50rem;
+    height: 46rem;
   }
 
   .home-method-bridge {
     min-height: 27rem;
     margin-top: 0;
-    padding-top: 0;
+    padding-top: 10rem;
   }
+
 
   .home-company-list {
     min-height: 100%;
