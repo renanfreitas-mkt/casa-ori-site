@@ -1043,13 +1043,13 @@ const ContatoEdImpl = () => (
     <section className="page-flow page-section pb-16 md:pb-24">
       <div className="page-wash page-wash-leaf" aria-hidden="true" />
       <div className="page-section-inner">
-        <div className="page-panel page-panel-ink grid gap-10 md:grid-cols-[1fr_1fr] items-center">
+        <div className="page-panel page-panel-ink grid gap-10 md:grid-cols-[0.85fr_1.15fr] items-center">
           <div>
             <EdHead
               tone="cream"
               title="Fale com a Carol"
               lead={V2_COPY.contato.whatsapp}
-              className="ed-pretty max-w-[720px]"
+              className="ed-pretty max-w-[520px]"
             />
             <Reveal delay={200}>
               <div className="mt-8">
@@ -1059,6 +1059,13 @@ const ContatoEdImpl = () => (
               </div>
             </Reveal>
           </div>
+          <Reveal delay={140}>
+            <p className="ed-display text-ed-butter text-[clamp(1.9rem,4.4vw,3.4rem)] leading-[1.08] uppercase">
+              Profundidade para compreender. Direção para seguir.
+            </p>
+          </Reveal>
+        </div>
+
           <Reveal delay={140}>
             <p className="font-sans italic font-light text-ed-butter text-[22px] md:text-[28px] leading-relaxed max-w-[18ch]">
               Profundidade para compreender. Direção para seguir.
