@@ -729,7 +729,16 @@
     grid-template-columns: 13rem minmax(0, 1fr);
     gap: 1.5rem;
   }
+
   .nome-equation {
+    grid-template-columns: 1fr auto 1fr auto 1.2fr;
+    gap: 1.25rem;
+  }
+
+  .nome-operator {
+    font-size: 3.4rem;
+  }
+}
 
 @media (max-width: 480px) {
   .problem-sequence-staircase {
@@ -764,14 +773,6 @@
 
   .testimonial-row-compact .home-testimonial > div > span:first-child {
     display: none;
-  }
-}
-    grid-template-columns: 1fr auto 1fr auto 1.2fr;
-    gap: 1.25rem;
-  }
-
-  .nome-operator {
-    font-size: 3.4rem;
   }
 }
 
