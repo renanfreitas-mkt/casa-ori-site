@@ -209,12 +209,8 @@ function AberturaEd({
               <SequenciaProblema staircase />
             </div>
           </Reveal>
-          <Reveal delay={120}>
-            <h2 className="ed-balanced text-ed-ink mt-8 text-[clamp(1.5rem,2.8vw,2.3rem)] leading-[1.12] max-w-[20ch]">
-              {destaque}
-            </h2>
-          </Reveal>
           <Reveal delay={180}>
+
             <p className="mt-7 max-w-[540px] text-[16px] md:text-[18px] font-light leading-relaxed text-ed-ink/70">
               {lead}
             </p>
