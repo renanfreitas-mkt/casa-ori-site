@@ -6,12 +6,10 @@ import {
   EdHead,
   EdCard,
   EdCTA,
-  EdAccent,
   EdLetterMark,
   EdStepArrow,
 } from "./ui";
 import carolLaptop from "@/assets/carol-laptop.jpeg.asset.json";
-import casaOriEspaco from "@/assets/casa-ori-espaco.jpeg.asset.json";
 import carolPoltrona from "@/assets/carol-poltrona.jpeg.asset.json";
 // Carol_Home.jpeg — a foto da hero ("carol hero")
 import carolHero from "@/assets/carol-hero.jpg.asset.json";
