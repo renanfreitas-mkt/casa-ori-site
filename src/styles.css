@@ -8,6 +8,7 @@
   font-display: swap;
   font-style: normal;
   font-weight: 400;
+  unicode-range: U+C0-C5, U+C7-CF, U+D1-D6, U+D9-DD, U+E0-E5, U+E7-EF, U+F1-F6, U+F9-FD;
 }
 
 @font-face {
