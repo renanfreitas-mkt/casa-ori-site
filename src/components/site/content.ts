@@ -7,6 +7,12 @@ export const QUIZ_CPF_URL = "https://casa-ori-spark.lovable.app";
 export const QUIZ_CNPJ_URL = "https://casa-ori-spark.lovable.app";
 export const WHATSAPP_URL = "https://wa.me/55XXXXXXXXXX";
 export const INSTAGRAM_URL = "https://instagram.com/suacasa.ori";
+export const INSTAGRAM_HANDLE = "@suacasa.ori";
+export const PODCAST_URL =
+  "https://open.spotify.com/show/68NOAxNfohZSbC4edNFQzS";
+export const PODCAST_EMBED_URL =
+  "https://open.spotify.com/embed/show/68NOAxNfohZSbC4edNFQzS?utm_source=generator";
+
 
 export const HERO = {
   kicker: "Terapia sistêmica · Constelação familiar · Empresas",
