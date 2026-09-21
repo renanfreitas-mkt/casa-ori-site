@@ -281,16 +281,18 @@
 
 .home-services-wash {
   position: absolute;
-  top: 7rem;
+  top: 13rem;
+
   left: 0;
-  width: clamp(16rem, 30%, 26rem);
-  max-width: calc(40% - 2rem);
-  aspect-ratio: 1 / 1;
-  min-height: 22rem;
-  max-height: 30rem;
-  border-radius: 0 12rem 12rem 0;
+  width: clamp(11rem, 19%, 16rem);
+  max-width: calc(34% - 2rem);
+  aspect-ratio: 1 / 2;
+  max-height: 32rem;
+  border-radius: 0 999px 999px 0;
   background: color-mix(in oklab, var(--color-ed-leaf) 22%, transparent);
 }
+
+
 
 
 
@@ -436,14 +438,15 @@
 
   .home-services-wash {
     top: 3.5rem;
-    width: 100%;
+    transform: none;
+    width: 62%;
     max-width: none;
     height: auto;
-    min-height: 26rem;
-    max-height: none;
-    aspect-ratio: 1 / 1.12;
-    border-radius: 0 7rem 7rem 0;
+    aspect-ratio: 1 / 2;
+    max-height: 30rem;
+    border-radius: 0 999px 999px 0;
   }
+
 
   .home-services-intro {
     position: relative;
