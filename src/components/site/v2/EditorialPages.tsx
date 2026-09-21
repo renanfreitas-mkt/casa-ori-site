@@ -683,12 +683,8 @@ const ServicosPessoasEdImpl = () => (
 
     <section className="page-flow page-section py-10 md:py-14">
       <div className="page-section-inner space-y-8">
-        <TestimonialEd
-          depoimento={DEPOIMENTOS[1]}
-          tone="dark"
-          image={casaOriEspaco.url}
-          alt="Sala de atendimento da Casa Orí"
-        />
+        <TestimonialEd depoimento={DEPOIMENTOS[1]} tone="dark" />
+
         <TestimonialEd depoimento={DEPOIMENTOS[2]} />
       </div>
     </section>
@@ -894,10 +890,8 @@ const SobreEdImpl = () => (
       <div className="page-wash page-wash-sand" aria-hidden="true" />
       <img src={logoAsset.url} alt="" aria-hidden="true" className="nome-symbol" />
       <div className="page-section-inner">
-        <EdHead as="h1" title="Casa Orí" className="mb-6" />
-        <Reveal>
-          <div role="img" aria-label="Casa Orí" className="nome-assinatura mb-10" />
-        </Reveal>
+        <EdHead as="h1" title="Casa Orí" className="mb-10" />
+
         <div className="nome-equation">
           <Reveal>
             <div className="nome-card">
