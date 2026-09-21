@@ -209,9 +209,10 @@
 }
 
 .home-method-bridge {
-  margin-top: -5rem;
+  margin-top: 0;
   padding-top: 5rem;
 }
+
 
 .home-method-title {
   max-width: none;

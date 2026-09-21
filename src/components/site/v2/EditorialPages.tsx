@@ -352,7 +352,7 @@ const HomeEdImpl = () => (
     <div className="home-opening bg-ed-cream">
       <section id="inicio" className="home-flow home-anchor relative z-10 px-5 sm:px-8 lg:px-12 pt-20 md:pt-28 lg:pt-36">
         <div className="home-hero-grid max-w-[1440px] mx-auto">
-          <div className="home-hero-copy relative z-20 pb-12 md:pb-28">
+          <div className="home-hero-copy relative z-20 py-6 md:py-10">
             <Reveal>
               <span className="ed-eyebrow text-ed-ink/55">Casa Orí</span>
             </Reveal>
