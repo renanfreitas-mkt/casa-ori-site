@@ -179,7 +179,6 @@ function SequenciaProblema({ tone = "ink", staircase = false }: { tone?: "ink" |
 /** Abertura padrão das abas: sequência, destaque e fala de contexto. */
 function AberturaEd({
   kicker,
-  destaque,
   lead,
   cta,
   ctaHref,
@@ -187,13 +186,13 @@ function AberturaEd({
   alt,
 }: {
   kicker: string;
-  destaque: string;
   lead: string;
   cta: string;
   ctaHref: string;
   image?: string;
   alt?: string;
 }) {
+
   return (
     <section className="page-flow page-section pt-20 md:pt-28 lg:pt-36">
       <div className="page-wash page-wash-sand" aria-hidden="true" />
