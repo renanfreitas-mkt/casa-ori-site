@@ -407,6 +407,18 @@ export function EdFooter() {
           </div>
           <div>
             <p className="ed-eyebrow text-ed-cream/50">Contato</p>
+            <a
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 block"
+            >
+              <img
+                src={instagramHandleImg.url}
+                alt="@suacasa.ori"
+                className="w-full max-w-[190px] opacity-90 invert"
+              />
+            </a>
             <div className="mt-4 flex items-center gap-4">
               <a
                 href={INSTAGRAM_URL}
