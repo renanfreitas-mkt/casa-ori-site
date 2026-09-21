@@ -280,16 +280,17 @@
 
 .home-services-wash {
   position: absolute;
-  top: 11rem;
+  top: 7rem;
   left: 0;
-  width: clamp(17rem, 34%, 30rem);
-  max-width: calc(50% - 3rem);
+  width: clamp(16rem, 30%, 26rem);
+  max-width: calc(40% - 2rem);
   aspect-ratio: 1 / 1;
-  min-height: 24rem;
-  max-height: 36rem;
+  min-height: 22rem;
+  max-height: 30rem;
   border-radius: 0 12rem 12rem 0;
   background: color-mix(in oklab, var(--color-ed-leaf) 22%, transparent);
 }
+
 
 
 .home-services-intro {
@@ -615,7 +616,7 @@
   gap: 0;
   max-width: none;
   overflow: visible;
-  padding-left: 3.4rem;
+  padding-left: 4.8rem;
 }
 
 .problem-sequence-staircase > .stair-step {
@@ -629,7 +630,7 @@
 .problem-sequence-staircase > .stair-arrow {
   display: block;
   width: max-content;
-  margin-left: calc(var(--stair-offset, 0rem) - 3.2rem);
+  margin-left: calc(var(--stair-offset, 0rem) - 4.6rem);
   line-height: 1;
 }
 
