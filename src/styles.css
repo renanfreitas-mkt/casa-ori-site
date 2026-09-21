@@ -281,16 +281,16 @@
 
 .home-services-wash {
   position: absolute;
-  top: 50%;
+  top: 4rem;
   left: 0;
-  transform: translateY(-50%);
-  width: clamp(11rem, 19%, 17rem);
+  width: clamp(11rem, 19%, 16rem);
   max-width: calc(34% - 2rem);
   aspect-ratio: 1 / 2;
-  max-height: 34rem;
+  max-height: 32rem;
   border-radius: 0 999px 999px 0;
   background: color-mix(in oklab, var(--color-ed-leaf) 22%, transparent);
 }
+
 
 
 
