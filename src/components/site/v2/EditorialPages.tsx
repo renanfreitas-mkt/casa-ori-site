@@ -895,15 +895,22 @@ export const OriEd = memo(OriEdImpl);
 
 const SobreEdImpl = () => (
   <>
-    <section className="page-flow page-section nome-section pt-12 md:pt-16">
+    <section className="page-flow page-section nome-section pt-20 md:pt-28">
       <div className="page-wash page-wash-sand" aria-hidden="true" />
       <img src={logoAsset.url} alt="" aria-hidden="true" className="nome-symbol" />
       <div className="page-section-inner">
-        <EdHead as="h1" title="Casa Orí" className="mb-10" />
+        <EdHead as="h1" title="Casa Orí" className="mb-6" />
+        <Reveal>
+          <img
+            src={assinaturaAsset.url}
+            alt="Casa Orí"
+            className="nome-assinatura mb-10"
+          />
+        </Reveal>
         <div className="nome-equation">
           <Reveal>
             <div className="nome-card">
-              <span className="ed-display text-[40px] md:text-[52px] text-ed-forest">
+              <span className="ed-display uppercase text-[40px] md:text-[52px] text-ed-forest">
                 {NOME[0].palavra}
               </span>
               <p className="mt-4 text-[15px] font-light leading-relaxed text-ed-ink/70">
@@ -914,7 +921,7 @@ const SobreEdImpl = () => (
           <span aria-hidden="true" className="nome-operator">+</span>
           <Reveal delay={90}>
             <div className="nome-card">
-              <span className="ed-display text-[40px] md:text-[52px] text-ed-forest">
+              <span className="ed-display uppercase text-[40px] md:text-[52px] text-ed-forest">
                 {NOME[1].palavra}
               </span>
               <p className="mt-4 text-[15px] font-light leading-relaxed text-ed-ink/70">
