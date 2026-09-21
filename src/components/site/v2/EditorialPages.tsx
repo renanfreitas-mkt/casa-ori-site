@@ -1,4 +1,6 @@
 import { memo } from "react";
+import type { ReactNode } from "react";
+import { Link } from "@tanstack/react-router";
 import { Reveal } from "../Reveal";
 import {
   EdSection,
@@ -7,7 +9,7 @@ import {
   EdCTA,
   EdAccent,
   EdLetterMark,
-  EdFlowArrow,
+  EdStepArrow,
 } from "./ui";
 import carolLaptop from "@/assets/carol-laptop.jpeg.asset.json";
 import casaOriEspaco from "@/assets/casa-ori-espaco.jpeg.asset.json";
@@ -20,8 +22,9 @@ import carolConduzindo from "@/assets/carol-conduzindo.jpg.asset.json";
 import carolPalestra from "@/assets/carol-palestra.jpg.asset.json";
 // cartas de constelação na mesa (página de serviços)
 import cartasConstelacao from "@/assets/cartas-constelacao.jpg.asset.json";
-// Carol anotando em prancheta (topo da página Sistema ORI, atrás do primeiro cartão)
+// Carol anotando em prancheta
 import carolAnotacoes from "@/assets/carol-anotacoes.jpg.asset.json";
+import logoAsset from "@/assets/casa-ori-logo.jpg.asset.json";
 import {
   DORES_CPF,
   DORES_CNPJ,
@@ -42,11 +45,15 @@ import {
   QUIZ_CPF_URL,
   QUIZ_CNPJ_URL,
   WHATSAPP_URL,
+  INSTAGRAM_URL,
+  INSTAGRAM_HANDLE,
+  PODCAST_URL,
+  PODCAST_EMBED_URL,
   V2_COPY,
   type Servico,
 } from "../content";
 
-/* ============================= HOME ============================= */
+/* ====================== BLOCOS COMPARTILHADOS ====================== */
 
 function HomeTestimonial({
   texto,
@@ -61,7 +68,7 @@ function HomeTestimonial({
 }) {
   const dark = tone === "dark";
   return (
-    <Reveal>
+    <Reveal className="h-full">
       <aside
         className={`home-testimonial ${dark ? "bg-ed-ink text-ed-cream" : "bg-ed-cream text-ed-ink"}`}
       >
@@ -89,9 +96,242 @@ function HomeTestimonial({
   );
 }
 
+/** Depoimento com foto na mesma altura da caixa de texto (ou sem foto). */
+function TestimonialEd({
+  depoimento,
+  autor,
+  tone = "light",
+  image,
+  alt,
+}: {
+  depoimento: { texto: string; autor: string; inicial: string };
+  autor?: string;
+  tone?: "light" | "dark";
+  image?: string;
+  alt?: string;
+}) {
+  const card = (
+    <HomeTestimonial
+      texto={depoimento.texto}
+      autor={autor ?? depoimento.autor}
+      inicial={depoimento.inicial}
+      tone={tone}
+    />
+  );
+  if (!image) {
+    return <div className="testimonial-solo">{card}</div>;
+  }
+  return (
+    <div className="testimonial-row">
+      <Reveal delay={120} className="h-full">
+        <img src={image} alt={alt ?? ""} loading="lazy" className="testimonial-photo" />
+      </Reveal>
+      {card}
+    </div>
+  );
+}
+
+/** Sequência "surge um problema…" com setas indicando o ciclo. */
+function SequenciaProblema({ tone = "ink" }: { tone?: "ink" | "cream" }) {
+  const dark = tone === "ink";
+  return (
+    <ol className="problem-sequence">
+      {V2_COPY.home.heroSequencia.map((linha, i) => (
+        <li key={linha}>
+          <span
+            className={`text-[15px] md:text-[16px] font-light leading-snug ${dark ? "text-ed-ink/75" : "text-ed-cream/80"}`}
+          >
+            {linha}
+          </span>
+          {i < V2_COPY.home.heroSequencia.length - 1 && (
+            <EdStepArrow className="problem-sequence-arrow" />
+          )}
+        </li>
+      ))}
+    </ol>
+  );
+}
+
+/** Abertura padrão das abas: sequência, destaque e fala de contexto. */
+function AberturaEd({
+  kicker,
+  destaque,
+  lead,
+  cta,
+  ctaHref,
+  image,
+  alt,
+}: {
+  kicker: string;
+  destaque: string;
+  lead: string;
+  cta: string;
+  ctaHref: string;
+  image?: string;
+  alt?: string;
+}) {
+  return (
+    <section className="page-flow page-section pt-12 md:pt-16">
+      <div className="page-wash page-wash-sand" aria-hidden="true" />
+      <div
+        className={`page-section-inner grid gap-10 items-center ${image ? "md:grid-cols-[1.1fr_0.9fr] md:gap-16" : ""}`}
+      >
+        <div>
+          <Reveal>
+            <span className="ed-eyebrow text-ed-ink/55">{kicker}</span>
+          </Reveal>
+          <Reveal delay={60}>
+            <div className="mt-6">
+              <SequenciaProblema />
+            </div>
+          </Reveal>
+          <Reveal delay={120}>
+            <h1 className="ed-balanced text-ed-ink mt-8 text-[clamp(1.7rem,3.4vw,2.9rem)] leading-[1.12] max-w-[18ch]">
+              {destaque}
+            </h1>
+          </Reveal>
+          <Reveal delay={180}>
+            <p className="mt-7 max-w-[540px] text-[16px] md:text-[18px] font-light leading-relaxed text-ed-ink/70">
+              {lead}
+            </p>
+          </Reveal>
+          <Reveal delay={240}>
+            <div className="mt-9">
+              <EdCTA href={ctaHref} variant="ink">
+                {cta}
+              </EdCTA>
+            </div>
+          </Reveal>
+        </div>
+        {image && (
+          <Reveal delay={160}>
+            <img src={image} alt={alt ?? ""} className="page-photo" />
+          </Reveal>
+        )}
+      </div>
+    </section>
+  );
+}
+
+function DoresEd({ titulo, itens, kicker }: { titulo: string; itens: readonly string[]; kicker: string }) {
+  return (
+    <section className="page-flow page-section">
+      <div className="page-wash page-wash-leaf" aria-hidden="true" />
+      <div className="page-section-inner">
+        <EdHead kicker={kicker} title={titulo} className="mb-10" />
+        <ul className="grid gap-4 md:grid-cols-2">
+          {itens.map((d, i) => (
+            <Reveal key={d} delay={i * 50} as="li">
+              <div className="h-full rounded-[22px] border border-ed-ink/12 bg-white px-6 py-5 text-[15px] font-light leading-relaxed text-ed-ink/75">
+                {d}
+              </div>
+            </Reveal>
+          ))}
+        </ul>
+      </div>
+    </section>
+  );
+}
+
+/** Podcast e Instagram — presentes na home e na página Sobre. */
+function PodcastInstagramEd() {
+  return (
+    <section className="page-flow page-section">
+      <div className="page-wash page-wash-sand" aria-hidden="true" />
+      <div className="page-section-inner grid gap-10 md:grid-cols-2 md:gap-14 items-start">
+        <div>
+          <Reveal>
+            <span className="ed-eyebrow text-ed-ink/55">{V2_COPY.podcast.kicker}</span>
+          </Reveal>
+          <Reveal delay={80}>
+            <h2 className="ed-title text-ed-ink mt-4">{V2_COPY.podcast.titulo}</h2>
+          </Reveal>
+          <Reveal delay={140}>
+            <p className="mt-5 text-[15px] md:text-[16px] font-light leading-relaxed text-ed-ink/70">
+              {V2_COPY.podcast.texto}
+            </p>
+          </Reveal>
+          <Reveal delay={200}>
+            <div className="mt-7 overflow-hidden rounded-[18px]">
+              <iframe
+                title="Podcast da Casa Orí no Spotify"
+                src={PODCAST_EMBED_URL}
+                width="100%"
+                height="232"
+                loading="lazy"
+                style={{ border: 0 }}
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              />
+            </div>
+          </Reveal>
+          <Reveal delay={240}>
+            <div className="mt-6">
+              <EdCTA href={PODCAST_URL} variant="outlineInk">
+                {V2_COPY.podcast.cta}
+              </EdCTA>
+            </div>
+          </Reveal>
+        </div>
+        <div>
+          <Reveal>
+            <span className="ed-eyebrow text-ed-ink/55">{V2_COPY.instagram.kicker}</span>
+          </Reveal>
+          <Reveal delay={80}>
+            <h2 className="ed-title text-ed-ink mt-4">{V2_COPY.instagram.titulo}</h2>
+          </Reveal>
+          <Reveal delay={140}>
+            <p className="mt-5 text-[15px] md:text-[16px] font-light leading-relaxed text-ed-ink/70">
+              {V2_COPY.instagram.texto}
+            </p>
+          </Reveal>
+          <Reveal delay={200}>
+            <div className="mt-7 rounded-[24px] border border-ed-ink/12 bg-white px-7 py-8">
+              <p className="ed-display text-[28px] md:text-[34px] text-ed-forest">
+                {INSTAGRAM_HANDLE}
+              </p>
+              <div className="mt-6">
+                <EdCTA href={INSTAGRAM_URL} variant="ink">
+                  {V2_COPY.instagram.cta}
+                </EdCTA>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ============================= HOME ============================= */
+
+function resumo(texto: string, limite = 96) {
+  if (texto.length <= limite) return texto;
+  const corte = texto.slice(0, limite);
+  return `${corte.slice(0, corte.lastIndexOf(" "))}…`;
+}
+
+function ServicoResumo({ s, href }: { s: Servico; href: string }) {
+  return (
+    <article className="home-service-row">
+      <h3 className="ed-subtitle text-ed-ink">{s.titulo}</h3>
+      <div>
+        <p className="text-[14px] md:text-[15px] font-light leading-relaxed text-ed-ink/65">
+          {resumo(s.ancora)}
+        </p>
+        <Link
+          to={href}
+          className="mt-2 inline-block ed-eyebrow text-ed-forest underline underline-offset-4"
+        >
+          Explica mais
+        </Link>
+      </div>
+    </article>
+  );
+}
+
 const HomeEdImpl = () => (
   <>
-    {/* Abertura contínua: a fotografia atravessa a hero e o método */}
+    {/* Abertura contínua: a fotografia atravessa a hero e as dores */}
     <div className="home-opening bg-ed-cream">
       <section id="inicio" className="home-flow home-anchor relative z-10 px-5 sm:px-8 lg:px-12 pt-12 md:pt-16">
         <div className="home-hero-grid max-w-[1440px] mx-auto">
@@ -99,28 +339,28 @@ const HomeEdImpl = () => (
             <Reveal>
               <span className="ed-eyebrow text-ed-ink/55">Casa Orí</span>
             </Reveal>
-            <Reveal delay={80}>
-              <h1 className="ed-balanced text-ed-ink mt-7 text-[clamp(1.8rem,3.8vw,3.2rem)] leading-[1.12]">
+            <Reveal delay={60}>
+              <div className="mt-6">
+                <SequenciaProblema />
+              </div>
+            </Reveal>
+            <Reveal delay={120}>
+              <h1 className="ed-balanced text-ed-ink mt-8 text-[clamp(1.75rem,3.5vw,3rem)] leading-[1.12] max-w-[18ch]">
                 {V2_COPY.home.heroDestaque}
               </h1>
             </Reveal>
-            <Reveal delay={160}>
-              <div className="mt-10 max-w-[490px]">
-                <p className="text-[17px] md:text-[19px] font-normal leading-relaxed text-ed-ink">
-                  {V2_COPY.home.heroLinhas[0]}
-                </p>
-                <p className="mt-2 text-[17px] md:text-[19px] font-normal leading-relaxed text-ed-ink">
-                  {V2_COPY.home.heroLinhas[1]}
-                </p>
-                <p className="mt-5 text-[16px] md:text-[18px] font-light leading-relaxed text-ed-ink/70">
-                  {V2_COPY.home.heroLinhas[2]}
-                </p>
-              </div>
+            <Reveal delay={180}>
+              <p className="mt-7 max-w-[490px] text-[16px] md:text-[18px] font-light leading-relaxed text-ed-ink/70">
+                {V2_COPY.home.heroLinhas[0]}
+              </p>
             </Reveal>
             <Reveal delay={220}>
-              <div className="home-hero-actions mt-9 flex items-start">
+              <div className="home-hero-actions mt-9 flex flex-col sm:flex-row flex-wrap items-start gap-3">
                 <EdCTA href={QUIZ_CPF_URL} variant="ink">
-                  {V2_COPY.home.ctaUnica}
+                  {V2_COPY.home.ctaCpf}
+                </EdCTA>
+                <EdCTA href={QUIZ_CNPJ_URL} variant="outlineInk">
+                  {V2_COPY.home.ctaCnpj}
                 </EdCTA>
               </div>
             </Reveal>
@@ -140,51 +380,38 @@ const HomeEdImpl = () => (
         </div>
       </section>
 
-      <section className="home-flow home-method-bridge relative bg-ed-ink text-ed-cream px-5 sm:px-8 lg:px-12">
+      {/* Faixa verde escura: as dores, para os dois contextos */}
+      <section className="home-flow home-method-bridge relative bg-ed-ink text-ed-cream px-5 sm:px-8 lg:px-12 pb-16 md:pb-24">
         <div className="max-w-[1440px] mx-auto grid lg:grid-cols-[0.78fr_1.22fr] gap-10">
-          <div className="relative z-20 py-16 md:py-24 lg:py-32">
+          <div className="relative z-20 py-16 md:py-24 lg:py-28">
             <Reveal>
-              <h2 className="home-method-title ed-title text-ed-cream">
-                {V2_COPY.home.metodoTitulo}
-              </h2>
+              <span className="ed-eyebrow text-ed-sand">Talvez você reconheça</span>
             </Reveal>
-            <Reveal delay={120}>
-              <p className="mt-7 max-w-[430px] text-[17px] md:text-[19px] font-light leading-relaxed text-ed-cream/80">
-                {V2_COPY.home.metodoTexto}
-              </p>
+            <Reveal delay={80}>
+              <h2 className="home-method-title ed-title text-ed-cream mt-5">
+                {V2_COPY.home.doresTitulo}
+              </h2>
             </Reveal>
           </div>
           <div aria-hidden="true" />
         </div>
-      </section>
-    </div>
-
-    {/* Dores segmentadas em campos conectados */}
-    <section className="home-flow home-recognition relative bg-ed-cream px-5 sm:px-8 lg:px-12 pt-20 pb-14 md:pt-24 md:pb-20 overflow-hidden">
-      <div className="home-recognition-field" aria-hidden="true" />
-      <div className="relative max-w-[1180px] mx-auto">
-        <EdHead
-          kicker="Talvez você reconheça"
-          title={V2_COPY.home.doresTitulo}
-          className="mb-14 md:mb-20"
-        />
-        <div className="home-recognition-grid grid gap-12 md:grid-cols-2 md:gap-16 lg:gap-24 items-stretch">
-          <Reveal>
-            <div className="home-personal-list md:pt-4">
-              <span className="ed-eyebrow text-ed-ink/50">Para você</span>
-              <ul className="mt-7 space-y-4">
+        <div className="home-dores-grid relative z-20 max-w-[1180px] mx-auto grid gap-6 md:grid-cols-2 items-stretch">
+          <Reveal className="h-full">
+            <div className="home-dores-card">
+              <span className="ed-eyebrow text-ed-sand">Para você</span>
+              <ul className="mt-6 space-y-4">
                 {DORES_CPF.map((d) => (
-                  <li key={d} className="home-line-item text-[15px] font-light leading-relaxed text-ed-ink/75">
+                  <li key={d} className="home-line-item home-line-item-light text-[15px] font-light leading-relaxed text-ed-cream/85">
                     {d}
                   </li>
                 ))}
               </ul>
             </div>
           </Reveal>
-          <Reveal>
-            <div className="home-company-list text-ed-cream">
+          <Reveal delay={100} className="h-full">
+            <div className="home-dores-card">
               <span className="ed-eyebrow text-ed-sand">Para sua empresa</span>
-              <ul className="mt-7 space-y-4">
+              <ul className="mt-6 space-y-4">
                 {DORES_CNPJ.map((d) => (
                   <li key={d} className="home-line-item home-line-item-light text-[15px] font-light leading-relaxed text-ed-cream/85">
                     {d}
@@ -194,19 +421,21 @@ const HomeEdImpl = () => (
             </div>
           </Reveal>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
 
     <section className="home-flow relative bg-ed-butter px-5 sm:px-8 lg:px-12 py-14 md:py-20">
-      <div className="max-w-[1180px] mx-auto grid md:grid-cols-[0.72fr_1.28fr] gap-10 items-center">
-        <Reveal>
-          <img src={carolPalestra.url} alt="Carol Milhomens palestrando para um grupo" loading="lazy" className="home-quote-image" />
-        </Reveal>
-        <HomeTestimonial {...DEPOIMENTOS[0]} autor="Bruna C." />
+      <div className="max-w-[1180px] mx-auto">
+        <TestimonialEd
+          depoimento={DEPOIMENTOS[0]}
+          autor="Bruna C."
+          image={carolAnotacoes.url}
+          alt="Carol Milhomens anotando em uma prancheta durante uma sessão"
+        />
       </div>
     </section>
 
-    {/* Sistema ORI resumo */}
+    {/* Sistema ORI resumo — bloco clicável */}
     <EdSection id="sistema-ori" bg="cream" className="home-flow home-anchor home-ori-fold">
       <EdHead
         kicker="Sistema ORI"
@@ -217,20 +446,26 @@ const HomeEdImpl = () => (
       <div className="grid gap-6 md:grid-cols-3">
         {EIXOS_HOME.map((e, i) => (
           <Reveal key={e.letra} delay={i * 40} className="relative h-full">
-            <EdCard className="h-full">
-              <span className="ed-display text-ed-olive text-[64px] block">
-                <EdLetterMark>{e.letra}</EdLetterMark>
-              </span>
-              <span className="ed-eyebrow text-ed-ink/50 mt-2 block">{e.nome}</span>
-              <h3 className="mt-6 ed-subtitle text-ed-ink">{e.titulo}</h3>
-              <p className="mt-4 text-[15px] font-light leading-relaxed text-ed-ink/70">
-                {e.tensao}
-              </p>
-            </EdCard>
-            {i < EIXOS_HOME.length - 1 && <EdFlowArrow direction="horizontal" />}
+            <Link to="/sistema-ori" className="block h-full group">
+              <EdCard className="h-full transition-colors duration-300 group-hover:border-ed-olive/50">
+                <span className="ed-display text-ed-olive text-[44px] block">
+                  <EdLetterMark>{e.letra}</EdLetterMark>
+                </span>
+                <span className="ed-eyebrow text-ed-ink/50 mt-2 block">{e.nome}</span>
+                <h3 className="mt-6 ed-subtitle text-ed-ink">{e.titulo}</h3>
+                <p className="mt-4 text-[15px] font-light leading-relaxed text-ed-ink/70">
+                  {e.tensao}
+                </p>
+              </EdCard>
+            </Link>
           </Reveal>
         ))}
       </div>
+      <Reveal delay={180}>
+        <div className="mt-10">
+          <EdCTA href="/sistema-ori" variant="ink">Conhecer o Sistema ORI</EdCTA>
+        </div>
+      </Reveal>
     </EdSection>
 
     {/* Quem conduz: dobra orgânica com fotos da Carol */}
@@ -240,8 +475,8 @@ const HomeEdImpl = () => (
         <Reveal className="home-carol-media">
           <div className="home-carol-photo-wrap">
             <img
-              src={carolConduzindo.url}
-              alt="Carol Milhomens conduzindo um encontro com um grupo"
+              src={carolPoltrona.url}
+              alt="Carol Milhomens sentada em uma poltrona na Casa Orí"
               className="home-carol-photo"
             />
           </div>
@@ -262,11 +497,6 @@ const HomeEdImpl = () => (
               </p>
             </Reveal>
           ))}
-          <Reveal delay={280}>
-            <div className="mt-8">
-              <EdCTA href="/sobre" variant="outlineInk">Conhecer a Casa Orí</EdCTA>
-            </div>
-          </Reveal>
         </div>
       </div>
     </section>
@@ -280,8 +510,8 @@ const HomeEdImpl = () => (
             <EdHead kicker="Serviços" title="Caminhos possíveis" lead={V2_COPY.servicos.introducao} />
             <Reveal delay={200}>
               <div className="home-services-actions mt-8 flex flex-col sm:flex-row md:flex-col xl:flex-row items-start gap-3">
-                <EdCTA href="/servicos" variant="ink">Ver todos os serviços</EdCTA>
-                <EdCTA href={WHATSAPP_URL} variant="outlineInk">Falar no WhatsApp</EdCTA>
+                <EdCTA href="/para-voce" variant="ink">Para você</EdCTA>
+                <EdCTA href="/para-empresas" variant="outlineInk">Para empresas</EdCTA>
               </div>
             </Reveal>
           </div>
@@ -290,10 +520,7 @@ const HomeEdImpl = () => (
               <span className="ed-eyebrow text-ed-ink/50">Para você</span>
               <div className="mt-5 border-t border-ed-ink/20">
                 {SERV_CPF.map((service) => (
-                  <article key={service.titulo} className="home-service-row">
-                    <h3 className="ed-subtitle text-ed-ink">{service.titulo}</h3>
-                    <p className="text-[14px] md:text-[15px] font-light leading-relaxed text-ed-ink/65">{service.ancora}</p>
-                  </article>
+                  <ServicoResumo key={service.titulo} s={service} href="/para-voce" />
                 ))}
               </div>
             </div>
@@ -301,24 +528,25 @@ const HomeEdImpl = () => (
               <span className="ed-eyebrow text-ed-forest">Para sua empresa</span>
               <div className="mt-5 border-t border-ed-ink/20">
                 {SERV_CNPJ.map((service) => (
-                  <article key={service.titulo} className="home-service-row">
-                    <h3 className="ed-subtitle text-ed-ink">{service.titulo}</h3>
-                    <p className="text-[14px] md:text-[15px] font-light leading-relaxed text-ed-ink/65">{service.ancora}</p>
-                  </article>
+                  <ServicoResumo key={service.titulo} s={service} href="/para-empresas" />
                 ))}
               </div>
             </div>
           </div>
         </div>
 
-        <div className="home-services-proof mt-14 md:mt-20 grid md:grid-cols-[1.1fr_0.9fr] gap-8 items-end">
-          <HomeTestimonial {...DEPOIMENTOS[1]} tone="dark" />
-          <Reveal delay={120}>
-            <img src={casaOriEspaco.url} alt="Sala de atendimento da Casa Orí" loading="lazy" className="home-services-image" />
-          </Reveal>
+        <div className="home-services-proof mt-14 md:mt-20">
+          <TestimonialEd
+            depoimento={DEPOIMENTOS[1]}
+            tone="dark"
+            image={carolPalestra.url}
+            alt="Carol Milhomens palestrando para um grupo"
+          />
         </div>
       </div>
     </section>
+
+    <PodcastInstagramEd />
 
     <div id="contato" className="home-flow home-anchor">
       <CtaFinalEd />
@@ -326,6 +554,7 @@ const HomeEdImpl = () => (
   </>
 );
 export const HomeEd = memo(HomeEdImpl);
+
 
 /* ============================= CTA FINAL ============================= */
 
