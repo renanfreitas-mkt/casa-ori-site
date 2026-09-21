@@ -206,14 +206,6 @@ export const SERV_CNPJ: Servico[] = [
     ],
   },
   {
-    titulo: "Encontro de Comunicação",
-    formato: "Presencial ou online · 4 horas · 5 a 20 pessoas",
-    ancora: "Quando a comunicação falha, tudo falha junto.",
-    paragrafos: [
-      "O encontro parte do ciclo real da comunicação — quem fala, quem escuta e onde a maior parte dos ruídos nasce. Cada pessoa parte de um ponto de vista diferente, e é aí que a maioria dos mal-entendidos começa, dentro ou fora do trabalho. A equipe sai entendendo melhor esse ciclo, com exemplos do próprio dia a dia do time.",
-    ],
-  },
-  {
     titulo: "Encontro para Liderança",
     formato: "Presencial ou online · 4 horas · Para líderes e gestores",
     ancora: "Você é a sua empresa, ou você tem uma empresa?",
@@ -230,6 +222,15 @@ export const SERV_CNPJ: Servico[] = [
       "O programa combina conteúdo — tipos e estilos de liderança, comunicação assertiva, escuta, feedback, inteligência emocional, dentre outros — com acompanhamento da aplicação prática ao longo de alguns meses. Não é um treinamento pontual: é um acompanhamento para que as mudanças se sustentem dentro da empresa.",
     ],
   },
+  {
+    titulo: "Encontro de Comunicação",
+    formato: "Presencial ou online · 4 horas · 5 a 20 pessoas",
+    ancora: "Quando a comunicação falha, tudo falha junto.",
+    paragrafos: [
+      "O encontro parte do ciclo real da comunicação — quem fala, quem escuta e onde a maior parte dos ruídos nasce. Cada pessoa parte de um ponto de vista diferente, e é aí que a maioria dos mal-entendidos começa, dentro ou fora do trabalho. A equipe sai entendendo melhor esse ciclo, com exemplos do próprio dia a dia do time.",
+    ],
+  },
+
 ];
 
 export const PILARES = [
