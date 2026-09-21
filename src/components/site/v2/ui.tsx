@@ -5,6 +5,7 @@ import { Menu, X, Instagram, MessageCircle } from "lucide-react";
 import { Reveal } from "../Reveal";
 import { INSTAGRAM_URL, WHATSAPP_URL } from "../content";
 import logoAsset from "@/assets/casa-ori-logo.jpg.asset.json";
+import instagramHandleImg from "@/assets/instagram-handle.png.asset.json";
 
 export const links = [
   { to: "/", label: "Início" },
