@@ -374,23 +374,55 @@ export const V2_COPY = {
     metodoTitulo: "O método continua o mesmo.",
     metodoTexto:
       "É o formato que muda de acordo com a sua necessidade ou da sua empresa.",
-    ctaCpf: "Quero entender minha situação",
-    ctaCnpj: "Quero entender minha empresa",
+    ctaCpf: "Quero entender o que está acontecendo comigo",
+    ctaCnpj: "Quero entender o que está acontecendo com a minha empresa",
+    heroSequencia: [
+      "Surge um problema",
+      "Você tenta resolver",
+      "Gasta tempo e energia",
+      "O problema continua",
+    ],
     heroDestaque:
-      "Surge um problema. Você tenta resolver. Gasta tempo e energia e o problema continua.",
+      "Você tenta resolver só o que consegue ver. Mas o que ainda está invisível?",
     heroLinhas: [
-      "Você tenta resolver só o que consegue ver.",
-      "Mas e o que ainda está invisível?",
       "A Casa Orí ajuda pessoas e empresas a investigar o que ainda não foi percebido, mas continua influenciando comportamentos, relações e resultados.",
     ],
     ctaUnica: "Quero entender o que está acontecendo",
     doresTitulo: "Como isso costuma acontecer na prática?",
+  },
+  /** Abertura das abas, para quem chega direto nelas. */
+  paraVoce: {
+    destaque:
+      "Você tenta resolver só o que consegue ver. Mas o que ainda está invisível?",
+    lead: "A Casa Orí te ajuda a investigar o que ainda não foi percebido, mas continua influenciando a sua vida, as suas relações e as suas decisões.",
+    doresTitulo: "Como isso costuma acontecer na prática?",
+  },
+  paraEmpresas: {
+    destaque:
+      "A empresa tenta resolver só o que consegue ver. Mas o que ainda está invisível?",
+    lead: "A Casa Orí ajuda lideranças e equipes a investigar o que ainda não foi percebido, mas continua influenciando comportamentos, relações e resultados.",
+    doresTitulo: "Como isso costuma acontecer na prática?",
+  },
+  podcast: {
+    kicker: "Podcast",
+    titulo: "Conversas da Casa Orí",
+    texto:
+      "Episódios sobre comportamento, comunicação e relações — para continuar a conversa fora das sessões.",
+    cta: "Ouvir no Spotify",
+  },
+  instagram: {
+    kicker: "Instagram",
+    titulo: "Acompanhe o dia a dia",
+    texto:
+      "Reflexões curtas, bastidores dos atendimentos e avisos de encontros e vivências.",
+    cta: "Seguir no Instagram",
   },
   servicos: {
     introducao:
       "Você já sabe que algo precisa mudar. Cada situação pede um caminho diferente. Por isso, o primeiro passo é sempre entender melhor o que está acontecendo, antes de decidirmos juntos por onde seguir.",
     cta: "Quero entender meu momento",
   },
+
   ori: {
     titulo: "Sistema ORI",
     fechamento:
