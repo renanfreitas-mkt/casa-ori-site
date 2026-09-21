@@ -558,7 +558,16 @@ export const HomeEd = memo(HomeEdImpl);
 
 /* ============================= CTA FINAL ============================= */
 
-function CtaFinalEd() {
+function CtaFinalEd({ only }: { only?: "cpf" | "cnpj" }) {
+  const blocos =
+    only === "cpf"
+      ? [{ ...CTA_FINAL.cpf, href: QUIZ_CPF_URL }]
+      : only === "cnpj"
+        ? [{ ...CTA_FINAL.cnpj, href: QUIZ_CNPJ_URL }]
+        : [
+            { ...CTA_FINAL.cpf, href: QUIZ_CPF_URL },
+            { ...CTA_FINAL.cnpj, href: QUIZ_CNPJ_URL },
+          ];
   return (
     <EdSection bg="ink">
       <EdHead
@@ -567,8 +576,8 @@ function CtaFinalEd() {
         title="O próximo passo"
         className="mb-12"
       />
-      <div className="grid gap-6 md:grid-cols-2">
-        {[CTA_FINAL.cpf, CTA_FINAL.cnpj].map((c, i) => (
+      <div className={`grid gap-6 ${blocos.length > 1 ? "md:grid-cols-2" : "max-w-[620px] mx-auto"}`}>
+        {blocos.map((c, i) => (
           <Reveal key={c.titulo} delay={i * 100}>
             <div className="border border-ed-cream/25 rounded-[28px] p-8 md:p-10 h-full flex flex-col">
               <span className="ed-eyebrow text-ed-sand">{c.titulo}</span>
@@ -576,10 +585,7 @@ function CtaFinalEd() {
                 {c.texto}
               </p>
               <div className="mt-8">
-                <EdCTA
-                  href={i === 0 ? QUIZ_CPF_URL : QUIZ_CNPJ_URL}
-                  variant={i === 0 ? "butter" : "outlineCream"}
-                >
+                <EdCTA href={c.href} variant="butter">
                   {c.cta}
                 </EdCTA>
               </div>
@@ -590,6 +596,7 @@ function CtaFinalEd() {
     </EdSection>
   );
 }
+
 
 /* ============================= SERVIÇOS ============================= */
 
