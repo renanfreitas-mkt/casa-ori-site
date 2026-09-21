@@ -538,7 +538,17 @@
 .nome-assinatura {
   display: block;
   width: min(100%, 20rem);
+  aspect-ratio: 589 / 143;
   height: auto;
+  background-color: var(--color-ed-forest, #26533c);
+  -webkit-mask-image: url("/__l5e/assets-v1/28ac7be3-624b-4ece-8fe2-a801adb45fa6/casa-ori-assinatura.png");
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: left center;
+  -webkit-mask-size: contain;
+  mask-image: url("/__l5e/assets-v1/28ac7be3-624b-4ece-8fe2-a801adb45fa6/casa-ori-assinatura.png");
+  mask-repeat: no-repeat;
+  mask-position: left center;
+  mask-size: contain;
 }
 
 /* Foto da Carol emergindo de trás do primeiro cartão (Sistema ORI) */
