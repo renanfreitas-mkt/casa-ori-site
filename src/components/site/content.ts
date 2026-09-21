@@ -3,9 +3,10 @@
  * Usado pelo tema editorial (/v2). Ao ajustar a copy, ajuste aqui.
  */
 
-export const QUIZ_CPF_URL = "https://casa-ori-spark.lovable.app";
-export const QUIZ_CNPJ_URL = "https://casa-ori-spark.lovable.app";
 export const WHATSAPP_URL = "https://wa.me/556181149765";
+// Por enquanto, todos os CTAs levam direto ao WhatsApp.
+export const QUIZ_CPF_URL = WHATSAPP_URL;
+export const QUIZ_CNPJ_URL = WHATSAPP_URL;
 export const INSTAGRAM_URL = "https://instagram.com/suacasa.ori";
 export const INSTAGRAM_HANDLE = "@suacasa.ori";
 export const PODCAST_URL =
@@ -323,9 +324,9 @@ export const DEPOIMENTOS = [
   },
   {
     texto:
-      "Carol tem uma sensibilidade única para acolher, perceber e sentir o outro, além de uma habilidade única quando o assunto é comunicação. Conduz conversas difíceis com uma leveza que só ela tem. Através da Constelação Familiar, teve grande responsabilidade na resolução de processos pessoais desafiadores. Sua entrega amorosa é sempre um lugar seguro para se estar.",
-    autor: "Luana F.",
-    inicial: "L",
+      "Através do trabalho terapêutico da Carol, especialmente pelo meio da Constelação Familiar, pude vivenciar e compreender algo que jamais imaginaria. Descobri que eventos passados envolvendo mulheres da minha família afetaram profundamente minha vida, mesmo que eu não tivesse consciência disso. Com o auxílio da Carol, tive a oportunidade de olhar para essa situação, buscando aprender com ela e dar um novo significado. Hoje, consigo enxergar a importância da ordem e do equilíbrio familiar, reconhecendo como esses aspectos impactam todas as áreas da minha vida de forma significativa. Sou grata pela jornada transformadora que estamos trilhando juntas.",
+    autor: "Juliana C.",
+    inicial: "J",
   },
   {
     texto:

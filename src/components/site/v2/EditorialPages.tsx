@@ -303,9 +303,11 @@ function PodcastInstagramEd() {
           </Reveal>
           <Reveal delay={200}>
             <div className="mt-7 rounded-[24px] border border-ed-ink/12 bg-white px-7 py-8">
-              <p className="ed-display text-[28px] md:text-[34px] text-ed-forest">
-                {INSTAGRAM_HANDLE}
-              </p>
+              <img
+                src={instagramHandleImg.url}
+                alt={INSTAGRAM_HANDLE}
+                className="w-full max-w-[320px] mix-blend-multiply"
+              />
               <div className="mt-6">
                 <EdCTA href={INSTAGRAM_URL} variant="ink">
                   {V2_COPY.instagram.cta}
