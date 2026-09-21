@@ -22,6 +22,7 @@ import cartasConstelacao from "@/assets/cartas-constelacao.jpg.asset.json";
 // Carol anotando em prancheta
 import carolAnotacoes from "@/assets/carol-anotacoes.jpg.asset.json";
 import logoAsset from "@/assets/casa-ori-logo.jpg.asset.json";
+import instagramHandleImg from "@/assets/instagram-handle.png.asset.json";
 import {
   DORES_CPF,
   DORES_CNPJ,
