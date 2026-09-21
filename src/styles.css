@@ -563,7 +563,126 @@
   }
 }
 
+/* ===== Sequência do problema (hero e aberturas) ===== */
+.problem-sequence {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  max-width: 22rem;
+}
+
+.problem-sequence li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.problem-sequence-arrow {
+  margin-left: 0.35rem;
+  height: 1.35rem;
+  width: 1rem;
+}
+
+/* ===== Depoimentos: foto e texto na mesma altura ===== */
+.testimonial-row {
+  display: grid;
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+.testimonial-solo {
+  max-width: 46rem;
+  margin-inline: auto;
+}
+
+.testimonial-photo {
+  width: 100%;
+  height: 100%;
+  min-height: 20rem;
+  object-fit: cover;
+  border-radius: 1.5rem 8rem 1.5rem 1.5rem;
+}
+
+.home-testimonial {
+  height: 100%;
+}
+
+/* ===== Dores na faixa verde escura ===== */
+.home-dores-card {
+  height: 100%;
+  padding: 2rem 1.75rem;
+  border: 1px solid color-mix(in oklab, var(--color-ed-cream) 25%, transparent);
+  border-radius: 28px;
+}
+
+/* ===== Equação do nome (página Sobre) ===== */
+.nome-section {
+  isolation: isolate;
+}
+
+.nome-symbol {
+  position: absolute;
+  z-index: 0;
+  right: -4rem;
+  bottom: -4rem;
+  width: clamp(16rem, 38vw, 30rem);
+  opacity: 0.08;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.nome-equation {
+  display: grid;
+  gap: 1rem;
+  align-items: center;
+  justify-items: stretch;
+}
+
+.nome-card {
+  height: 100%;
+  padding: 2rem 1.75rem;
+  background: #fff;
+  border: 1px solid color-mix(in oklab, var(--color-ed-ink) 10%, transparent);
+  border-radius: 28px;
+}
+
+.nome-card-result {
+  background: var(--color-ed-ink);
+  border-color: transparent;
+  display: flex;
+  align-items: center;
+}
+
+.nome-operator {
+  font-family: var(--font-display);
+  font-size: 2.6rem;
+  line-height: 1;
+  color: var(--color-ed-olive);
+  justify-self: center;
+}
+
+@media (min-width: 768px) {
+  .testimonial-row {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 2rem;
+  }
+
+  .problem-sequence {
+    max-width: 26rem;
+  }
+
+  .nome-equation {
+    grid-template-columns: 1fr auto 1fr auto 1.2fr;
+    gap: 1.25rem;
+  }
+
+  .nome-operator {
+    font-size: 3.4rem;
+  }
+}
+
 @utility ed-eyebrow {
+
   font-family: var(--font-sans);
   font-weight: 400;
   text-transform: uppercase;
