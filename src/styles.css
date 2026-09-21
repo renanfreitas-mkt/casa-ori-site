@@ -3,6 +3,14 @@
 @import "tw-animate-css";
 
 @font-face {
+  font-family: "Casa Ori V5";
+  src: url("./assets/fonts/CasaOriV5-Regular.ttf") format("truetype");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
   font-family: "Casa Ori";
   src: url("./assets/fonts/CasaOriV4-Regular.otf") format("opentype");
   font-display: swap;
