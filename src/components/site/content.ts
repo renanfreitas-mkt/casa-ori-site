@@ -383,8 +383,6 @@ export const V2_COPY = {
       "Gasta tempo e energia",
       "O problema continua",
     ],
-    heroDestaque:
-      "Você tenta resolver só o que consegue ver. Mas o que ainda está invisível?",
     heroLinhas: [
       "A Casa Orí ajuda pessoas e empresas a investigar o que ainda não foi percebido, mas continua influenciando comportamentos, relações e resultados.",
     ],

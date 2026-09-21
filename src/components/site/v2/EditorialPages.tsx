@@ -102,12 +102,14 @@ function TestimonialEd({
   tone = "light",
   image,
   alt,
+  compact = false,
 }: {
   depoimento: { texto: string; autor: string; inicial: string };
   autor?: string;
   tone?: "light" | "dark";
   image?: string;
   alt?: string;
+  compact?: boolean;
 }) {
   const card = (
     <HomeTestimonial
@@ -121,7 +123,7 @@ function TestimonialEd({
     return <div className="testimonial-solo">{card}</div>;
   }
   return (
-    <div className="testimonial-row">
+    <div className={`testimonial-row ${compact ? "testimonial-row-compact" : ""}`}>
       <Reveal delay={120} className="h-full">
         <img src={image} alt={alt ?? ""} loading="lazy" className="testimonial-photo" />
       </Reveal>
@@ -131,18 +133,20 @@ function TestimonialEd({
 }
 
 /** Sequência "surge um problema…" com setas indicando o ciclo. */
-function SequenciaProblema({ tone = "ink" }: { tone?: "ink" | "cream" }) {
+function SequenciaProblema({ tone = "ink", staircase = false }: { tone?: "ink" | "cream"; staircase?: boolean }) {
   const dark = tone === "ink";
   return (
-    <ol className="problem-sequence">
+    <ol className={`problem-sequence ${staircase ? "problem-sequence-staircase" : ""}`}>
       {V2_COPY.home.heroSequencia.map((linha, i) => (
         <li key={linha}>
           <span
-            className={`text-[15px] md:text-[16px] font-light leading-snug ${dark ? "text-ed-ink/75" : "text-ed-cream/80"}`}
+            className={staircase
+              ? `ed-display text-[clamp(1.65rem,3.2vw,2.8rem)] leading-none ${dark ? "text-ed-ink" : "text-ed-cream"}`
+              : `text-[15px] md:text-[16px] font-light leading-snug ${dark ? "text-ed-ink/75" : "text-ed-cream/80"}`}
           >
             {linha}
           </span>
-          {i < V2_COPY.home.heroSequencia.length - 1 && (
+          {!staircase && i < V2_COPY.home.heroSequencia.length - 1 && (
             <EdStepArrow className="problem-sequence-arrow" />
           )}
         </li>
@@ -340,16 +344,11 @@ const HomeEdImpl = () => (
             </Reveal>
             <Reveal delay={60}>
               <div className="mt-6">
-                <SequenciaProblema />
+                <SequenciaProblema staircase />
               </div>
             </Reveal>
-            <Reveal delay={120}>
-              <h1 className="ed-balanced text-ed-ink mt-8 text-[clamp(1.75rem,3.5vw,3rem)] leading-[1.12] max-w-[18ch]">
-                {V2_COPY.home.heroDestaque}
-              </h1>
-            </Reveal>
             <Reveal delay={180}>
-              <p className="mt-7 max-w-[490px] text-[16px] md:text-[18px] font-light leading-relaxed text-ed-ink/70">
+              <p className="mt-9 max-w-[490px] text-[16px] md:text-[18px] font-light leading-relaxed text-ed-ink/70">
                 {V2_COPY.home.heroLinhas[0]}
               </p>
             </Reveal>
@@ -379,28 +378,28 @@ const HomeEdImpl = () => (
         </div>
       </section>
 
-      {/* Faixa verde escura: as dores, para os dois contextos */}
-      <section className="home-flow home-method-bridge relative bg-ed-ink text-ed-cream px-5 sm:px-8 lg:px-12 pb-16 md:pb-24">
+      {/* Reconhecimento em composição aberta, conectado à fotografia da hero */}
+      <section className="home-flow home-method-bridge relative bg-ed-cream px-5 sm:px-8 lg:px-12 pb-16 md:pb-24">
         <div className="max-w-[1440px] mx-auto grid lg:grid-cols-[0.78fr_1.22fr] gap-10">
           <div className="relative z-20 py-16 md:py-24 lg:py-28">
             <Reveal>
-              <span className="ed-eyebrow text-ed-sand">Talvez você reconheça</span>
+              <span className="ed-eyebrow text-ed-ink/55">Talvez você reconheça</span>
             </Reveal>
             <Reveal delay={80}>
-              <h2 className="home-method-title ed-title text-ed-cream mt-5">
+              <h2 className="home-method-title ed-title text-ed-ink mt-5">
                 {V2_COPY.home.doresTitulo}
               </h2>
             </Reveal>
           </div>
           <div aria-hidden="true" />
         </div>
-        <div className="home-dores-grid relative z-20 max-w-[1180px] mx-auto grid gap-6 md:grid-cols-2 items-stretch">
+        <div className="home-recognition-grid relative z-20 max-w-[1180px] mx-auto grid md:grid-cols-[0.9fr_1.1fr] items-stretch">
           <Reveal className="h-full">
-            <div className="home-dores-card">
-              <span className="ed-eyebrow text-ed-sand">Para você</span>
+            <div className="home-person-list py-8 md:py-12 md:pr-14">
+              <span className="ed-eyebrow text-ed-forest">Para você</span>
               <ul className="mt-6 space-y-4">
                 {DORES_CPF.map((d) => (
-                  <li key={d} className="home-line-item home-line-item-light text-[15px] font-light leading-relaxed text-ed-cream/85">
+                  <li key={d} className="home-line-item text-[15px] font-light leading-relaxed text-ed-ink/75">
                     {d}
                   </li>
                 ))}
@@ -408,7 +407,7 @@ const HomeEdImpl = () => (
             </div>
           </Reveal>
           <Reveal delay={100} className="h-full">
-            <div className="home-dores-card">
+            <div className="home-company-list text-ed-cream">
               <span className="ed-eyebrow text-ed-sand">Para sua empresa</span>
               <ul className="mt-6 space-y-4">
                 {DORES_CNPJ.map((d) => (
@@ -423,13 +422,14 @@ const HomeEdImpl = () => (
       </section>
     </div>
 
-    <section className="home-flow relative bg-ed-butter px-5 sm:px-8 lg:px-12 py-14 md:py-20">
-      <div className="max-w-[1180px] mx-auto">
+    <section className="home-flow home-compact-proof relative bg-ed-butter px-5 sm:px-8 lg:px-12 py-8 md:py-10">
+      <div className="max-w-[900px] mx-auto">
         <TestimonialEd
           depoimento={DEPOIMENTOS[0]}
           autor="Bruna C."
           image={carolAnotacoes.url}
           alt="Carol Milhomens anotando em uma prancheta durante uma sessão"
+          compact
         />
       </div>
     </section>
