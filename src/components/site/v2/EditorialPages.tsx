@@ -652,7 +652,7 @@ const ServicosPessoasEdImpl = () => (
   <>
     <AberturaEd
       kicker="Para você"
-      destaque={V2_COPY.paraVoce.destaque}
+      lead={V2_COPY.paraVoce.lead}
       lead={V2_COPY.paraVoce.lead}
       cta={V2_COPY.contato.cpfCta}
       ctaHref={QUIZ_CPF_URL}
@@ -704,7 +704,7 @@ const ServicosEmpresasEdImpl = () => (
   <>
     <AberturaEd
       kicker="Para empresas"
-      destaque={V2_COPY.paraEmpresas.destaque}
+      lead={V2_COPY.paraEmpresas.lead}
       lead={V2_COPY.paraEmpresas.lead}
       cta={V2_COPY.contato.cnpjCta}
       ctaHref={QUIZ_CNPJ_URL}
