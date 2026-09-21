@@ -680,10 +680,8 @@ const ServicosPessoasEdImpl = () => (
     </section>
 
     <section className="page-flow page-section py-10 md:py-14">
-      <div className="page-section-inner space-y-8">
+      <div className="page-section-inner">
         <TestimonialEd depoimento={DEPOIMENTOS[1]} tone="dark" />
-
-        <TestimonialEd depoimento={DEPOIMENTOS[2]} />
       </div>
     </section>
 
