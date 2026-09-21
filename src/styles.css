@@ -281,7 +281,8 @@
 
 .home-services-wash {
   position: absolute;
-  top: 4rem;
+  top: 13rem;
+
   left: 0;
   width: clamp(11rem, 19%, 16rem);
   max-width: calc(34% - 2rem);
