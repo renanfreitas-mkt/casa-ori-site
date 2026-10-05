@@ -23,11 +23,13 @@ type EdVariant = "ink" | "butter" | "outlineInk" | "outlineCream";
 export function EdCTA({
   children,
   href,
+  onClick,
   variant = "ink",
   className = "",
 }: {
   children: ReactNode;
-  href: string;
+  href?: string;
+  onClick?: () => void;
   variant?: EdVariant;
   className?: string;
 }) {
@@ -38,13 +40,21 @@ export function EdCTA({
     outlineCream:
       "border border-ed-cream/50 text-ed-cream hover:bg-ed-cream hover:text-ed-ink",
   };
+  const cls = `inline-flex max-w-full items-center justify-center whitespace-nowrap rounded-full px-6 sm:px-7 py-3.5 text-[13px] sm:text-[14px] tracking-wide transition-colors duration-300 ${styles[variant]} ${className}`;
+  if (!href) {
+    return (
+      <button type="button" onClick={onClick} className={cls}>
+        {children}
+      </button>
+    );
+  }
   const external = href.startsWith("http");
   return (
     <a
       href={href}
       target={external ? "_blank" : undefined}
       rel={external ? "noopener noreferrer" : undefined}
-      className={`inline-flex max-w-full items-center justify-center whitespace-nowrap rounded-full px-6 sm:px-7 py-3.5 text-[13px] sm:text-[14px] tracking-wide transition-colors duration-300 ${styles[variant]} ${className}`}
+      className={cls}
     >
       {children}
     </a>
