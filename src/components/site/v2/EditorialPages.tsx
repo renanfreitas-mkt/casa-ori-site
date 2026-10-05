@@ -181,13 +181,15 @@ function AberturaEd({
   lead,
   cta,
   ctaHref,
+  onCta,
   image,
   alt,
 }: {
   kicker: string;
   lead: string;
   cta: string;
-  ctaHref: string;
+  ctaHref?: string;
+  onCta?: () => void;
   image?: string;
   alt?: string;
 }) {
@@ -215,7 +217,7 @@ function AberturaEd({
           </Reveal>
           <Reveal delay={240}>
             <div className="mt-9">
-              <EdCTA href={ctaHref} variant="ink">
+              <EdCTA href={onCta ? undefined : ctaHref} onClick={onCta} variant="ink">
                 {cta}
               </EdCTA>
             </div>
