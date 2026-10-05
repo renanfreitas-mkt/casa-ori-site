@@ -9,54 +9,24 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as V2RouteImport } from './routes/v2'
-import { Route as SobreRouteImport } from './routes/sobre'
-import { Route as SistemaOriRouteImport } from './routes/sistema-ori'
-import { Route as ServicosRouteImport } from './routes/servicos'
-import { Route as QuizRouteImport } from './routes/quiz'
-import { Route as ParaVoceRouteImport } from './routes/para-voce'
-import { Route as ParaEmpresasRouteImport } from './routes/para-empresas'
-import { Route as ContatoRouteImport } from './routes/contato'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ContatoRouteImport } from './routes/contato'
+import { Route as ParaEmpresasRouteImport } from './routes/para-empresas'
+import { Route as ParaVoceRouteImport } from './routes/para-voce'
+import { Route as QuizRouteImport } from './routes/quiz'
+import { Route as ServicosRouteImport } from './routes/servicos'
+import { Route as SistemaOriRouteImport } from './routes/sistema-ori'
+import { Route as SobreRouteImport } from './routes/sobre'
+import { Route as V2RouteImport } from './routes/v2'
 import { Route as V2IndexRouteImport } from './routes/v2.index'
-import { Route as V2SobreRouteImport } from './routes/v2.sobre'
-import { Route as V2SistemaOriRouteImport } from './routes/v2.sistema-ori'
-import { Route as V2ServicosRouteImport } from './routes/v2.servicos'
 import { Route as V2ContatoRouteImport } from './routes/v2.contato'
+import { Route as V2ServicosRouteImport } from './routes/v2.servicos'
+import { Route as V2SistemaOriRouteImport } from './routes/v2.sistema-ori'
+import { Route as V2SobreRouteImport } from './routes/v2.sobre'
 
-const V2Route = V2RouteImport.update({
-  id: '/v2',
-  path: '/v2',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SobreRoute = SobreRouteImport.update({
-  id: '/sobre',
-  path: '/sobre',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SistemaOriRoute = SistemaOriRouteImport.update({
-  id: '/sistema-ori',
-  path: '/sistema-ori',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ServicosRoute = ServicosRouteImport.update({
-  id: '/servicos',
-  path: '/servicos',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const QuizRoute = QuizRouteImport.update({
-  id: '/quiz',
-  path: '/quiz',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ParaVoceRoute = ParaVoceRouteImport.update({
-  id: '/para-voce',
-  path: '/para-voce',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ParaEmpresasRoute = ParaEmpresasRouteImport.update({
-  id: '/para-empresas',
-  path: '/para-empresas',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContatoRoute = ContatoRouteImport.update({
@@ -64,9 +34,39 @@ const ContatoRoute = ContatoRouteImport.update({
   path: '/contato',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const ParaEmpresasRoute = ParaEmpresasRouteImport.update({
+  id: '/para-empresas',
+  path: '/para-empresas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ParaVoceRoute = ParaVoceRouteImport.update({
+  id: '/para-voce',
+  path: '/para-voce',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const QuizRoute = QuizRouteImport.update({
+  id: '/quiz',
+  path: '/quiz',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicosRoute = ServicosRouteImport.update({
+  id: '/servicos',
+  path: '/servicos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SistemaOriRoute = SistemaOriRouteImport.update({
+  id: '/sistema-ori',
+  path: '/sistema-ori',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SobreRoute = SobreRouteImport.update({
+  id: '/sobre',
+  path: '/sobre',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const V2Route = V2RouteImport.update({
+  id: '/v2',
+  path: '/v2',
   getParentRoute: () => rootRouteImport,
 } as any)
 const V2IndexRoute = V2IndexRouteImport.update({
@@ -74,14 +74,9 @@ const V2IndexRoute = V2IndexRouteImport.update({
   path: '/',
   getParentRoute: () => V2Route,
 } as any)
-const V2SobreRoute = V2SobreRouteImport.update({
-  id: '/sobre',
-  path: '/sobre',
-  getParentRoute: () => V2Route,
-} as any)
-const V2SistemaOriRoute = V2SistemaOriRouteImport.update({
-  id: '/sistema-ori',
-  path: '/sistema-ori',
+const V2ContatoRoute = V2ContatoRouteImport.update({
+  id: '/contato',
+  path: '/contato',
   getParentRoute: () => V2Route,
 } as any)
 const V2ServicosRoute = V2ServicosRouteImport.update({
@@ -89,9 +84,14 @@ const V2ServicosRoute = V2ServicosRouteImport.update({
   path: '/servicos',
   getParentRoute: () => V2Route,
 } as any)
-const V2ContatoRoute = V2ContatoRouteImport.update({
-  id: '/contato',
-  path: '/contato',
+const V2SistemaOriRoute = V2SistemaOriRouteImport.update({
+  id: '/sistema-ori',
+  path: '/sistema-ori',
+  getParentRoute: () => V2Route,
+} as any)
+const V2SobreRoute = V2SobreRouteImport.update({
+  id: '/sobre',
+  path: '/sobre',
   getParentRoute: () => V2Route,
 } as any)
 
@@ -207,53 +207,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/v2': {
-      id: '/v2'
-      path: '/v2'
-      fullPath: '/v2'
-      preLoaderRoute: typeof V2RouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/sobre': {
-      id: '/sobre'
-      path: '/sobre'
-      fullPath: '/sobre'
-      preLoaderRoute: typeof SobreRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/sistema-ori': {
-      id: '/sistema-ori'
-      path: '/sistema-ori'
-      fullPath: '/sistema-ori'
-      preLoaderRoute: typeof SistemaOriRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/servicos': {
-      id: '/servicos'
-      path: '/servicos'
-      fullPath: '/servicos'
-      preLoaderRoute: typeof ServicosRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/quiz': {
-      id: '/quiz'
-      path: '/quiz'
-      fullPath: '/quiz'
-      preLoaderRoute: typeof QuizRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/para-voce': {
-      id: '/para-voce'
-      path: '/para-voce'
-      fullPath: '/para-voce'
-      preLoaderRoute: typeof ParaVoceRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/para-empresas': {
-      id: '/para-empresas'
-      path: '/para-empresas'
-      fullPath: '/para-empresas'
-      preLoaderRoute: typeof ParaEmpresasRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contato': {
@@ -263,11 +221,53 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContatoRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/para-empresas': {
+      id: '/para-empresas'
+      path: '/para-empresas'
+      fullPath: '/para-empresas'
+      preLoaderRoute: typeof ParaEmpresasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/para-voce': {
+      id: '/para-voce'
+      path: '/para-voce'
+      fullPath: '/para-voce'
+      preLoaderRoute: typeof ParaVoceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/quiz': {
+      id: '/quiz'
+      path: '/quiz'
+      fullPath: '/quiz'
+      preLoaderRoute: typeof QuizRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/servicos': {
+      id: '/servicos'
+      path: '/servicos'
+      fullPath: '/servicos'
+      preLoaderRoute: typeof ServicosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sistema-ori': {
+      id: '/sistema-ori'
+      path: '/sistema-ori'
+      fullPath: '/sistema-ori'
+      preLoaderRoute: typeof SistemaOriRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sobre': {
+      id: '/sobre'
+      path: '/sobre'
+      fullPath: '/sobre'
+      preLoaderRoute: typeof SobreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/v2': {
+      id: '/v2'
+      path: '/v2'
+      fullPath: '/v2'
+      preLoaderRoute: typeof V2RouteImport
       parentRoute: typeof rootRouteImport
     }
     '/v2/': {
@@ -277,18 +277,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof V2IndexRouteImport
       parentRoute: typeof V2Route
     }
-    '/v2/sobre': {
-      id: '/v2/sobre'
-      path: '/sobre'
-      fullPath: '/v2/sobre'
-      preLoaderRoute: typeof V2SobreRouteImport
-      parentRoute: typeof V2Route
-    }
-    '/v2/sistema-ori': {
-      id: '/v2/sistema-ori'
-      path: '/sistema-ori'
-      fullPath: '/v2/sistema-ori'
-      preLoaderRoute: typeof V2SistemaOriRouteImport
+    '/v2/contato': {
+      id: '/v2/contato'
+      path: '/contato'
+      fullPath: '/v2/contato'
+      preLoaderRoute: typeof V2ContatoRouteImport
       parentRoute: typeof V2Route
     }
     '/v2/servicos': {
@@ -298,11 +291,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof V2ServicosRouteImport
       parentRoute: typeof V2Route
     }
-    '/v2/contato': {
-      id: '/v2/contato'
-      path: '/contato'
-      fullPath: '/v2/contato'
-      preLoaderRoute: typeof V2ContatoRouteImport
+    '/v2/sistema-ori': {
+      id: '/v2/sistema-ori'
+      path: '/sistema-ori'
+      fullPath: '/v2/sistema-ori'
+      preLoaderRoute: typeof V2SistemaOriRouteImport
+      parentRoute: typeof V2Route
+    }
+    '/v2/sobre': {
+      id: '/v2/sobre'
+      path: '/sobre'
+      fullPath: '/v2/sobre'
+      preLoaderRoute: typeof V2SobreRouteImport
       parentRoute: typeof V2Route
     }
   }
