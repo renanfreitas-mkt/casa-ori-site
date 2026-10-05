@@ -696,8 +696,11 @@ const ServicosPessoasEdImpl = () => {
     <div className="page-flow">
       <CtaFinalEd only="cpf" />
     </div>
+
+    <QuizModal open={quizAberto} onClose={() => setQuizAberto(false)} />
   </>
-);
+  );
+};
 export const ServicosPessoasEd = memo(ServicosPessoasEdImpl);
 
 const ServicosEmpresasEdImpl = () => (
