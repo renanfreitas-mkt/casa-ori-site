@@ -13,6 +13,7 @@ import { Route as V2RouteImport } from './routes/v2'
 import { Route as SobreRouteImport } from './routes/sobre'
 import { Route as SistemaOriRouteImport } from './routes/sistema-ori'
 import { Route as ServicosRouteImport } from './routes/servicos'
+import { Route as QuizRouteImport } from './routes/quiz'
 import { Route as ParaVoceRouteImport } from './routes/para-voce'
 import { Route as ParaEmpresasRouteImport } from './routes/para-empresas'
 import { Route as ContatoRouteImport } from './routes/contato'
@@ -41,6 +42,11 @@ const SistemaOriRoute = SistemaOriRouteImport.update({
 const ServicosRoute = ServicosRouteImport.update({
   id: '/servicos',
   path: '/servicos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const QuizRoute = QuizRouteImport.update({
+  id: '/quiz',
+  path: '/quiz',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ParaVoceRoute = ParaVoceRouteImport.update({
@@ -94,6 +100,7 @@ export interface FileRoutesByFullPath {
   '/contato': typeof ContatoRoute
   '/para-empresas': typeof ParaEmpresasRoute
   '/para-voce': typeof ParaVoceRoute
+  '/quiz': typeof QuizRoute
   '/servicos': typeof ServicosRoute
   '/sistema-ori': typeof SistemaOriRoute
   '/sobre': typeof SobreRoute
@@ -109,6 +116,7 @@ export interface FileRoutesByTo {
   '/contato': typeof ContatoRoute
   '/para-empresas': typeof ParaEmpresasRoute
   '/para-voce': typeof ParaVoceRoute
+  '/quiz': typeof QuizRoute
   '/servicos': typeof ServicosRoute
   '/sistema-ori': typeof SistemaOriRoute
   '/sobre': typeof SobreRoute
@@ -124,6 +132,7 @@ export interface FileRoutesById {
   '/contato': typeof ContatoRoute
   '/para-empresas': typeof ParaEmpresasRoute
   '/para-voce': typeof ParaVoceRoute
+  '/quiz': typeof QuizRoute
   '/servicos': typeof ServicosRoute
   '/sistema-ori': typeof SistemaOriRoute
   '/sobre': typeof SobreRoute
@@ -141,6 +150,7 @@ export interface FileRouteTypes {
     | '/contato'
     | '/para-empresas'
     | '/para-voce'
+    | '/quiz'
     | '/servicos'
     | '/sistema-ori'
     | '/sobre'
@@ -156,6 +166,7 @@ export interface FileRouteTypes {
     | '/contato'
     | '/para-empresas'
     | '/para-voce'
+    | '/quiz'
     | '/servicos'
     | '/sistema-ori'
     | '/sobre'
@@ -170,6 +181,7 @@ export interface FileRouteTypes {
     | '/contato'
     | '/para-empresas'
     | '/para-voce'
+    | '/quiz'
     | '/servicos'
     | '/sistema-ori'
     | '/sobre'
@@ -186,6 +198,7 @@ export interface RootRouteChildren {
   ContatoRoute: typeof ContatoRoute
   ParaEmpresasRoute: typeof ParaEmpresasRoute
   ParaVoceRoute: typeof ParaVoceRoute
+  QuizRoute: typeof QuizRoute
   ServicosRoute: typeof ServicosRoute
   SistemaOriRoute: typeof SistemaOriRoute
   SobreRoute: typeof SobreRoute
@@ -220,6 +233,13 @@ declare module '@tanstack/react-router' {
       path: '/servicos'
       fullPath: '/servicos'
       preLoaderRoute: typeof ServicosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/quiz': {
+      id: '/quiz'
+      path: '/quiz'
+      fullPath: '/quiz'
+      preLoaderRoute: typeof QuizRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/para-voce': {
@@ -311,6 +331,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContatoRoute: ContatoRoute,
   ParaEmpresasRoute: ParaEmpresasRoute,
   ParaVoceRoute: ParaVoceRoute,
+  QuizRoute: QuizRoute,
   ServicosRoute: ServicosRoute,
   SistemaOriRoute: SistemaOriRoute,
   SobreRoute: SobreRoute,
