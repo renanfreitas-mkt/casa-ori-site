@@ -10,4 +10,6 @@
 - [x] Preservar redirecionamentos dos antigos endereços `/v2`.
 - [x] Redesenhar a home como narrativa assimétrica contínua, preservando cores, textos e a dobra do Sistema ORI.
 - [x] Revisar quebras de texto, alinhamentos e vazios excessivos da home em desktop e celular.
-- [x] Refinar o ritmo vertical, os botões, o alinhamento dos serviços e as âncoras da navegação.
+- [x] Refinar o ritmo vertical, os botões, o alinhamento dos serviços e as âncoras da navegação.- [x] Logo da Casa Orí como ícone nas abas do navegador.
+- [x] Quiz de Autoconhecimento Guiado (CPF) em /quiz, ligado aos botões "Para você".
+- [ ] Salvar os dados do quiz (nome, ano, e-mail) — aguardando definição (banco ou e-mail).

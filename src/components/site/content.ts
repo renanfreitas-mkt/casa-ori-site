@@ -5,7 +5,7 @@
 
 export const WHATSAPP_URL = "https://wa.me/556181149765";
 // Por enquanto, todos os CTAs levam direto ao WhatsApp.
-export const QUIZ_CPF_URL = WHATSAPP_URL;
+export const QUIZ_CPF_URL = "/quiz";
 export const QUIZ_CNPJ_URL = WHATSAPP_URL;
 export const INSTAGRAM_URL = "https://instagram.com/suacasa.ori";
 export const INSTAGRAM_HANDLE = "@suacasa.ori";
