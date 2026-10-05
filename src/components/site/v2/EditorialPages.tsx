@@ -1,4 +1,5 @@
-import { memo, Fragment } from "react";
+import { memo, Fragment, useState } from "react";
+import { QuizModal } from "../quiz/QuizFlow";
 import { Link } from "@tanstack/react-router";
 import { Reveal } from "../Reveal";
 import {
@@ -651,14 +652,16 @@ function ServicoEd({ s, i }: { s: Servico; i: number }) {
   );
 }
 
-const ServicosPessoasEdImpl = () => (
+const ServicosPessoasEdImpl = () => {
+  const [quizAberto, setQuizAberto] = useState(false);
+  return (
   <>
     <AberturaEd
       kicker="Para você"
       lead={V2_COPY.paraVoce.lead}
 
       cta={V2_COPY.contato.cpfCta}
-      ctaHref={QUIZ_CPF_URL}
+      onCta={() => setQuizAberto(true)}
       image={cartasConstelacao.url}
       alt="Cartas de constelação familiar sobre a mesa durante um atendimento da Casa Orí"
     />
