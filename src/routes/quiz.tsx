@@ -3,6 +3,7 @@ import { useMemo, useState } from "react";
 import { Check, Link2, MessageCircle } from "lucide-react";
 import { AFIRMACOES, RESULTADOS, calcularResultado } from "@/components/site/quiz/quizData";
 import { WHATSAPP_URL } from "@/components/site/content";
+import { EdNav, EdFooter } from "@/components/site/v2/ui";
 
 const title = "Quiz de Autoconhecimento Guiado — Casa Orí";
 const description =
@@ -84,8 +85,10 @@ function QuizPage() {
   const progresso = etapa === 0 ? 0 : etapa * 25;
 
   return (
+    <>
+    <EdNav />
     <div className={`quiz min-h-screen ${FUNDOS[etapa]}`}>
-      <div className="fixed inset-x-0 top-0 z-20 h-1 bg-transparent">
+      <div className="sticky top-0 z-20 h-1 bg-transparent">
         <div
           className="h-full bg-[var(--q-verde-claro)] transition-[width] duration-500 ease-out"
           style={{ width: `${progresso}%` }}
@@ -354,5 +357,7 @@ function QuizPage() {
         </div>
       </div>
     </div>
+    <EdFooter />
+    </>
   );
 }
