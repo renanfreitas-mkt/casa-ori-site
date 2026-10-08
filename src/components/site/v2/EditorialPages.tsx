@@ -176,6 +176,31 @@ function SequenciaProblema({ tone = "ink", staircase = false }: { tone?: "ink" |
   );
 }
 
+/** As 4 frases como um ciclo fechado: a última volta para a primeira. */
+function CicloProblema() {
+  const [a, b, c, d] = V2_COPY.home.heroSequencia;
+  const item = "text-[15px] sm:text-[17px] font-light leading-snug text-ed-ink";
+  return (
+    <div className="ciclo-problema mt-9 max-w-[460px]" aria-label="Um ciclo que se repete">
+      <span className={item}>{a}</span>
+      <span className="ciclo-seta" aria-hidden="true">→</span>
+      <span className={`${item} text-right`}>{b}</span>
+      <span className="ciclo-seta" aria-hidden="true">↑</span>
+      <span className="ciclo-centro" aria-hidden="true">
+        <svg viewBox="0 0 48 48" className="h-11 w-11">
+          <path d="M38 17a15 15 0 1 0 2 12" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+          <path d="M39 9v9h-9" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </span>
+      <span className="ciclo-seta" aria-hidden="true">↓</span>
+      <span className={item}>{d}</span>
+      <span className="ciclo-seta" aria-hidden="true">←</span>
+      <span className={`${item} text-right`}>{c}</span>
+      <p className="ciclo-legenda text-[13px] italic font-light text-ed-olive">…e tudo começa de novo.</p>
+    </div>
+  );
+}
+
 /** Abertura padrão das abas: sequência, destaque e fala de contexto. */
 function AberturaEd({
   kicker,
@@ -363,9 +388,13 @@ const HomeEdImpl = () => (
               <span className="ed-eyebrow text-ed-ink/55">Casa Orí</span>
             </Reveal>
             <Reveal delay={60}>
-              <div className="mt-6">
-                <SequenciaProblema staircase />
-              </div>
+              <h1 className="mt-6 max-w-[560px] ed-display text-ed-ink text-[clamp(1.6rem,2.4vw+0.8rem,2.9rem)] leading-[1.08]">
+                {V2_COPY.home.heroPergunta[0]}
+                <span className="block mt-3 text-ed-olive">{V2_COPY.home.heroPergunta[1]}</span>
+              </h1>
+            </Reveal>
+            <Reveal delay={120}>
+              <CicloProblema />
             </Reveal>
             <Reveal delay={180}>
               <p className="mt-9 max-w-[490px] text-[16px] md:text-[18px] font-light leading-relaxed text-ed-ink/70">
@@ -552,15 +581,6 @@ const HomeEdImpl = () => (
               </div>
             </div>
           </div>
-        </div>
-
-        <div className="home-services-proof mt-14 md:mt-20">
-          <TestimonialEd
-            depoimento={DEPOIMENTOS[1]}
-            tone="dark"
-            image={carolPalestra.url}
-            alt="Carol Milhomens palestrando para um grupo"
-          />
         </div>
       </div>
     </section>

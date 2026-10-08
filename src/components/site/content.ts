@@ -6,7 +6,7 @@
 export const WHATSAPP_URL = "https://wa.me/556181149765";
 // Por enquanto, todos os CTAs levam direto ao WhatsApp.
 export const QUIZ_CPF_URL = "/quiz";
-export const QUIZ_CNPJ_URL = WHATSAPP_URL;
+export const QUIZ_CNPJ_URL = "#quiz-empresa";
 export const INSTAGRAM_URL = "https://instagram.com/suacasa.ori";
 export const INSTAGRAM_HANDLE = "@suacasa.ori";
 export const PODCAST_URL =
@@ -378,6 +378,10 @@ export const V2_COPY = {
       "É o formato que muda de acordo com a sua necessidade ou da sua empresa.",
     ctaCpf: "Quero entender o que está acontecendo comigo",
     ctaCnpj: "Quero entender o que está acontecendo com a minha empresa",
+    heroPergunta: [
+      "Você tenta resolver só o que consegue ver.",
+      "Mas o que ainda está invisível?",
+    ],
     heroSequencia: [
       "Surge um problema",
       "Você tenta resolver",
