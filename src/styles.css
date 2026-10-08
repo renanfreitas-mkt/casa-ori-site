@@ -2,18 +2,10 @@
 @source "../src";
 @import "tw-animate-css";
 
-@font-face {
-  font-family: "Casa Ori V5";
-  src: url("./assets/fonts/CasaOriV5-Regular.ttf") format("truetype");
-  font-display: swap;
-  font-style: normal;
-  font-weight: 400;
-  unicode-range: U+C0-C5, U+C7-CF, U+D1-D6, U+D9-DD, U+E0-E5, U+E7-EF, U+F1-F6, U+F9-FD;
-}
-
+/* Fonte única da marca: letras e acentos no mesmo traço e com o mesmo espaçamento. */
 @font-face {
   font-family: "Casa Ori";
-  src: url("./assets/fonts/CasaOriV4-Regular.otf") format("opentype");
+  src: url("./assets/fonts/CasaOriMerged-Regular.ttf") format("truetype");
   font-display: swap;
   font-style: normal;
   font-weight: 400;
