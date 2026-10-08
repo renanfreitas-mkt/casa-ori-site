@@ -553,15 +553,6 @@ const HomeEdImpl = () => (
             </div>
           </div>
         </div>
-
-        <div className="home-services-proof mt-14 md:mt-20">
-          <TestimonialEd
-            depoimento={DEPOIMENTOS[1]}
-            tone="dark"
-            image={carolPalestra.url}
-            alt="Carol Milhomens palestrando para um grupo"
-          />
-        </div>
       </div>
     </section>
 
