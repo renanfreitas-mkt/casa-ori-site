@@ -388,13 +388,9 @@ const HomeEdImpl = () => (
               <span className="ed-eyebrow text-ed-ink/55">Casa Orí</span>
             </Reveal>
             <Reveal delay={60}>
-              <h1 className="mt-6 max-w-[560px] ed-display text-ed-ink text-[clamp(1.6rem,2.4vw+0.8rem,2.9rem)] leading-[1.08]">
-                {V2_COPY.home.heroPergunta[0]}
-                <span className="block mt-3 text-ed-olive">{V2_COPY.home.heroPergunta[1]}</span>
-              </h1>
-            </Reveal>
-            <Reveal delay={120}>
-              <CicloProblema />
+              <div className="mt-6">
+                <SequenciaProblema staircase />
+              </div>
             </Reveal>
             <Reveal delay={180}>
               <p className="mt-9 max-w-[490px] text-[16px] md:text-[18px] font-light leading-relaxed text-ed-ink/70">
