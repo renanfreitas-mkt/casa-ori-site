@@ -975,3 +975,28 @@ html {
 }
 .quiz-btn:hover { opacity: 0.9; }
 @media (min-width: 640px) { .quiz-btn { width: auto; min-width: 280px; } }
+
+/* Ciclo das 4 frases da abertura (grade 3x3: frase · seta · frase) */
+.ciclo-problema {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  grid-template-areas:
+    "a s1 b"
+    "s4 c s2"
+    "d s3 e"
+    "l l l";
+  align-items: center;
+  gap: 0.6rem 0.9rem;
+}
+.ciclo-problema > :nth-child(1) { grid-area: a; }
+.ciclo-problema > :nth-child(2) { grid-area: s1; }
+.ciclo-problema > :nth-child(3) { grid-area: b; }
+.ciclo-problema > :nth-child(4) { grid-area: s4; justify-self: start; padding-left: 2rem; }
+.ciclo-problema > :nth-child(5) { grid-area: c; }
+.ciclo-problema > :nth-child(6) { grid-area: s2; justify-self: end; padding-right: 2rem; }
+.ciclo-problema > :nth-child(7) { grid-area: d; }
+.ciclo-problema > :nth-child(8) { grid-area: s3; }
+.ciclo-problema > :nth-child(9) { grid-area: e; }
+.ciclo-problema > :nth-child(10) { grid-area: l; text-align: center; }
+.ciclo-seta { color: var(--color-ed-olive); font-size: 1.25rem; line-height: 1; }
+.ciclo-centro { color: var(--color-ed-olive); display: flex; justify-content: center; }

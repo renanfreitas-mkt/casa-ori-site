@@ -378,6 +378,10 @@ export const V2_COPY = {
       "É o formato que muda de acordo com a sua necessidade ou da sua empresa.",
     ctaCpf: "Quero entender o que está acontecendo comigo",
     ctaCnpj: "Quero entender o que está acontecendo com a minha empresa",
+    heroPergunta: [
+      "Você tenta resolver só o que consegue ver.",
+      "Mas o que ainda está invisível?",
+    ],
     heroSequencia: [
       "Surge um problema",
       "Você tenta resolver",
