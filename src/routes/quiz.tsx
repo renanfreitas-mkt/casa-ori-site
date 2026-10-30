@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { QuizFlow } from "@/components/site/quiz/QuizFlow";
-import { EdNav, EdFooter } from "@/components/site/v2/ui";
 
 const title = "Quiz de Autoconhecimento Guiado — Casa Orí";
 const description =
@@ -22,10 +21,8 @@ export const Route = createFileRoute("/quiz")({
 
 function QuizPage() {
   return (
-    <>
-      <EdNav />
-      <QuizFlow />
-      <EdFooter />
-    </>
+    <main className="min-h-screen">
+      <QuizFlow destino={{ href: "/para-voce", label: "Conhecer o trabalho para você" }} />
+    </main>
   );
 }
