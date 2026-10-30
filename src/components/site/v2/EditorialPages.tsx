@@ -22,6 +22,8 @@ import carolPalestra from "@/assets/carol-palestra.jpg.asset.json";
 import cartasConstelacao from "@/assets/cartas-constelacao.jpg.asset.json";
 // Carol anotando em prancheta
 import carolAnotacoes from "@/assets/carol-anotacoes.jpg.asset.json";
+import fotoEmpresa1 from "@/assets/empresa-DSC00558.jpg.asset.json";
+import fotoEmpresa2 from "@/assets/empresa-DSC00574.jpg.asset.json";
 import logoAsset from "@/assets/casa-ori-logo.jpg.asset.json";
 import instagramHandleImg from "@/assets/instagram-handle.png.asset.json";
 import {
@@ -836,6 +838,17 @@ const ServicosEmpresasEdImpl = () => (
       itens={DORES_CNPJ}
     />
 
+    <section className="page-flow page-section py-10 md:py-14">
+      <div className="page-section-inner">
+        <div className="testimonial-row">
+          <Reveal delay={120} className="h-full">
+            <img src={fotoEmpresa1.url} alt="Carol Milhomens em palestra sobre o ciclo da comunicação" loading="lazy" className="testimonial-photo" />
+          </Reveal>
+          <VualaCard depoimento={DEPOIMENTOS_VUALA[1]} />
+        </div>
+      </div>
+    </section>
+
     <section className="page-flow page-section">
       <div className="page-wash page-wash-leaf" aria-hidden="true" />
       <div className="page-section-inner">
@@ -851,22 +864,25 @@ const ServicosEmpresasEdImpl = () => (
       </div>
     </section>
 
-    <section className="page-flow page-section">
-      <div className="page-wash page-wash-sand" aria-hidden="true" />
+    <section className="page-flow page-section py-10 md:py-14">
       <div className="page-section-inner">
-        <EdHead
-          kicker={V2_COPY.paraEmpresas.depoimentosKicker}
-          title={V2_COPY.paraEmpresas.depoimentosTitulo}
-          lead={V2_COPY.paraEmpresas.depoimentosTexto}
-          className="mb-12"
-        />
-        <div className="vuala-grid">
-          {DEPOIMENTOS_VUALA.map((d, i) => (
-            <VualaCard key={d.autor} depoimento={d} delay={i * 70} />
-          ))}
+        <div className="testimonial-row">
+          <VualaCard depoimento={DEPOIMENTOS_VUALA[0]} />
+          <Reveal delay={120} className="h-full">
+            <img src={fotoEmpresa2.url} alt="Carol Milhomens falando ao microfone durante um encontro" loading="lazy" className="testimonial-photo" />
+          </Reveal>
         </div>
       </div>
     </section>
+
+    <section className="page-flow page-section py-10 md:py-14">
+      <div className="page-section-inner">
+        <div className="testimonial-solo">
+          <VualaCard depoimento={DEPOIMENTOS_VUALA[2]} />
+        </div>
+      </div>
+    </section>
+
 
     <div className="page-flow">
       <CtaFinalEd only="cnpj" />
