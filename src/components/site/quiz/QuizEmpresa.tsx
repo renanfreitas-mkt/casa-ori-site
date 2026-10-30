@@ -14,7 +14,9 @@ const FUNDOS: Record<Etapa, string> = {
   4: "bg-[var(--q-areia-claro)] text-[var(--q-verde)]",
 };
 
-function QuizEmpresaFlow({ onClose }: { onClose: () => void }) {
+export type QuizDestino = { href: string; label: string };
+
+export function QuizEmpresaFlow({ onClose, destino }: { onClose?: () => void; destino?: QuizDestino }) {
   const [etapa, setEtapa] = useState<Etapa>(0);
   const [exaustao, setExaustao] = useState(0);
   const [marcadas, setMarcadas] = useState<number[]>([]);
@@ -46,26 +48,30 @@ function QuizEmpresaFlow({ onClose }: { onClose: () => void }) {
       <div className="sticky top-0 z-20 h-1">
         <div className="h-full bg-[var(--q-verde-claro)] transition-[width] duration-500" style={{ width: `${etapa * 25}%` }} />
       </div>
-      <button
-        type="button"
-        onClick={onClose}
-        aria-label="Fechar o quiz"
-        className={`fixed right-4 top-4 z-30 flex h-11 w-11 items-center justify-center rounded-full border md:right-10 md:top-10 ${
-          escuro ? "border-[var(--q-branco)]/40 text-[var(--q-branco)]" : "border-[var(--q-verde)]/40 text-[var(--q-verde)]"
-        }`}
-      >
-        <X className="h-5 w-5" />
-      </button>
+      {onClose && (
+        <button
+          type="button"
+          onClick={onClose}
+          aria-label="Fechar o quiz"
+          className={`fixed right-4 top-4 z-30 flex h-11 w-11 items-center justify-center rounded-full border md:right-10 md:top-10 ${
+            escuro ? "border-[var(--q-branco)]/40 text-[var(--q-branco)]" : "border-[var(--q-verde)]/40 text-[var(--q-verde)]"
+          }`}
+        >
+          <X className="h-5 w-5" />
+        </button>
+      )}
 
       <div className="mx-auto w-full max-w-[680px] px-5 pb-24 pt-10 md:pt-16">
-        <div className="mb-10 text-[13px]">
-          <button
-            type="button"
-            onClick={() => (etapa > 0 ? ir((etapa - 1) as Etapa) : onClose())}
-            className={escuro ? "text-[var(--q-branco)]/70" : "text-[var(--q-texto-suave)]"}
-          >
-            {etapa > 0 ? "← Voltar" : "← Fechar"}
-          </button>
+        <div className="mb-10 min-h-[20px] text-[13px]">
+          {(etapa > 0 || onClose) && (
+            <button
+              type="button"
+              onClick={() => (etapa > 0 ? ir((etapa - 1) as Etapa) : onClose?.())}
+              className={escuro ? "text-[var(--q-branco)]/70" : "text-[var(--q-texto-suave)]"}
+            >
+              {etapa > 0 ? "← Voltar" : "← Fechar"}
+            </button>
+          )}
         </div>
 
         <div key={etapa} className="quiz-step">
@@ -229,8 +235,18 @@ function QuizEmpresaFlow({ onClose }: { onClose: () => void }) {
                   <p key={t}>{t}</p>
                 ))}
               </div>
-              <div className="mt-10 text-center">
-                <a href={whatsHref} target="_blank" rel="noopener noreferrer" className="quiz-btn bg-[var(--q-verde)] text-[var(--q-branco)]">
+              <div className="mt-10 flex flex-col items-center gap-4 text-center">
+                {destino && (
+                  <a href={destino.href} className="quiz-btn bg-[var(--q-verde)] text-[var(--q-branco)]">
+                    {destino.label}
+                  </a>
+                )}
+                <a
+                  href={whatsHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={destino ? "quiz-btn border border-[var(--q-verde)] text-[var(--q-verde)]" : "quiz-btn bg-[var(--q-verde)] text-[var(--q-branco)]"}
+                >
                   {r.cta}
                 </a>
               </div>

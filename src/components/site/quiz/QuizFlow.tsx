@@ -13,7 +13,7 @@ const FUNDOS: Record<Etapa, string> = {
   4: "bg-[var(--q-areia-claro)] text-[var(--q-verde)]",
 };
 
-export function QuizFlow({ onClose }: { onClose?: () => void }) {
+export function QuizFlow({ onClose, destino }: { onClose?: () => void; destino?: { href: string; label: string } }) {
   const [etapa, setEtapa] = useState<Etapa>(0);
   const [cansaco, setCansaco] = useState(0);
   const [marcadas, setMarcadas] = useState<number[]>([]);
@@ -323,14 +323,21 @@ export function QuizFlow({ onClose }: { onClose?: () => void }) {
                 <p className="quiz-script text-[30px]">O próximo passo</p>
                 <div className="my-4 h-px w-16 bg-[var(--q-branco)]/40" />
                 <p className="text-[16px] font-light leading-relaxed">“{r.proximo}”</p>
-                <a
-                  href={whatsHref}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="quiz-btn mt-7 bg-[var(--q-areia)] text-[var(--q-verde)]"
-                >
-                  Falar com a Carol
-                </a>
+                <div className="mt-7 flex flex-wrap gap-3">
+                  {destino && (
+                    <a href={destino.href} className="quiz-btn bg-[var(--q-areia)] text-[var(--q-verde)]">
+                      {destino.label}
+                    </a>
+                  )}
+                  <a
+                    href={whatsHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={destino ? "quiz-btn border border-[var(--q-branco)]/60 text-[var(--q-branco)]" : "quiz-btn bg-[var(--q-areia)] text-[var(--q-verde)]"}
+                  >
+                    Falar com a Carol
+                  </a>
+                </div>
               </div>
               <div className="mt-6 flex items-center justify-center gap-4 text-[13px] text-[var(--q-texto-suave)]">
                 <span>Ou compartilhe seu resultado</span>
