@@ -263,7 +263,7 @@ function AberturaEd({
           </Reveal>
           <Reveal delay={60}>
             <div className="mt-6">
-              <SequenciaProblema staircase />
+              <FrasesRotativas frases={frases} />
             </div>
           </Reveal>
           <Reveal delay={180}>
