@@ -476,11 +476,8 @@ const HomeEdImpl = () => (
               <h1 className="mt-6 ed-display text-ed-ink max-w-[680px] text-[clamp(1.7rem,3vw+0.6rem,3.1rem)] leading-[1.02]">
                 <span className="block">Entre o que você quis dizer</span>
                 <span className="block">e o que o outro entendeu</span>
-                <span
-                  className="block normal-case italic text-ed-forest text-[1.55em] leading-[1] mt-1"
-                  style={{ fontFamily: "var(--font-editorial-italic)", fontWeight: 600 }}
-                >
-                  existe um abismo.
+                <span className="block">
+                  existe um <span className="text-ed-leaf">abismo.</span>
                 </span>
               </h1>
             </Reveal>
