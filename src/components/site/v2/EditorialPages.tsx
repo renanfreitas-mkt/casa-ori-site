@@ -1,4 +1,4 @@
-import { memo, Fragment, useState } from "react";
+import { memo, Fragment, useEffect, useState } from "react";
 import { QuizModal } from "../quiz/QuizFlow";
 import { Link } from "@tanstack/react-router";
 import { Reveal } from "../Reveal";
@@ -201,9 +201,39 @@ function CicloProblema() {
   );
 }
 
-/** Abertura padrão das abas: sequência, destaque e fala de contexto. */
+/** Frases que se alternam sozinhas, com transição suave. */
+function FrasesRotativas({ frases }: { frases: readonly string[] }) {
+  const [i, setI] = useState(0);
+  const [visivel, setVisivel] = useState(true);
+  useEffect(() => {
+    let t: ReturnType<typeof setTimeout>;
+    const id = setInterval(() => {
+      setVisivel(false);
+      t = setTimeout(() => {
+        setI((n) => (n + 1) % frases.length);
+        setVisivel(true);
+      }, 500);
+    }, 3800);
+    return () => {
+      clearInterval(id);
+      clearTimeout(t);
+    };
+  }, [frases.length]);
+  return (
+    <h1
+      aria-live="polite"
+      className="ed-display text-ed-ink max-w-[620px] min-h-[2.3em] text-[clamp(1.8rem,3.2vw+0.6rem,3.2rem)] leading-[1.1] transition-all duration-500 ease-out"
+      style={{ opacity: visivel ? 1 : 0, transform: visivel ? "none" : "translateY(8px)" }}
+    >
+      {frases[i]}
+    </h1>
+  );
+}
+
+/** Abertura padrão das abas: frases rotativas e fala de contexto. */
 function AberturaEd({
   kicker,
+  frases,
   lead,
   cta,
   ctaHref,
@@ -212,6 +242,7 @@ function AberturaEd({
   alt,
 }: {
   kicker: string;
+  frases: readonly string[];
   lead: string;
   cta: string;
   ctaHref?: string;
@@ -388,14 +419,21 @@ const HomeEdImpl = () => (
               <span className="ed-eyebrow text-ed-ink/55">Casa Orí</span>
             </Reveal>
             <Reveal delay={60}>
-              <div className="mt-6">
-                <SequenciaProblema staircase />
-              </div>
+              <h1 className="mt-6 ed-display text-ed-ink max-w-[640px] text-[clamp(1.9rem,3.4vw+0.6rem,3.4rem)] leading-[1.08]">
+                {V2_COPY.home.headline}
+              </h1>
+            </Reveal>
+            <Reveal delay={140}>
+              <p className="mt-7 font-sans text-[20px] md:text-[24px] italic text-ed-forest">
+                {V2_COPY.home.headlineApoio}
+              </p>
             </Reveal>
             <Reveal delay={180}>
-              <p className="mt-9 max-w-[490px] text-[16px] md:text-[18px] font-light leading-relaxed text-ed-ink/70">
-                {V2_COPY.home.heroLinhas[0]}
-              </p>
+              <div className="mt-5 max-w-[490px] space-y-1 text-[16px] md:text-[18px] font-light leading-relaxed text-ed-ink/70">
+                {V2_COPY.home.headlineServicos.map((l) => (
+                  <p key={l}>{l}</p>
+                ))}
+              </div>
             </Reveal>
             <Reveal delay={220}>
               <div className="home-hero-actions mt-9 flex flex-col sm:flex-row flex-wrap items-start gap-3">
@@ -674,6 +712,7 @@ const ServicosPessoasEdImpl = () => {
   <>
     <AberturaEd
       kicker="Para você"
+      frases={V2_COPY.paraVoce.frases}
       lead={V2_COPY.paraVoce.lead}
 
       cta={V2_COPY.contato.cpfCta}
@@ -723,6 +762,7 @@ const ServicosEmpresasEdImpl = () => (
   <>
     <AberturaEd
       kicker="Para empresas"
+      frases={V2_COPY.paraEmpresas.frases}
       lead={V2_COPY.paraEmpresas.lead}
 
       cta={V2_COPY.contato.cnpjCta}
