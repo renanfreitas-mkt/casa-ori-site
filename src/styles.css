@@ -1000,3 +1000,28 @@ html {
 .ciclo-problema > :nth-child(10) { grid-area: l; text-align: center; }
 .ciclo-seta { color: var(--color-ed-olive); font-size: 1.25rem; line-height: 1; }
 .ciclo-centro { color: var(--color-ed-olive); display: flex; justify-content: center; }
+
+/* ===== Depoimentos da imersão (Vualá) ===== */
+.vuala-grid {
+  display: grid;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.vuala-card {
+  border: 1px solid color-mix(in oklab, var(--color-ed-cream) 12%, transparent);
+  border-radius: 0 2rem 0 2rem;
+}
+
+@media (min-width: 768px) {
+  .vuala-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  .vuala-grid > :last-child {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: min(100%, 34rem);
+  }
+}
