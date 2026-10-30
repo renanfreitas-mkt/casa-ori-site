@@ -875,14 +875,6 @@ const ServicosEmpresasEdImpl = () => (
       </div>
     </section>
 
-    <section className="page-flow page-section py-10 md:py-14">
-      <div className="page-section-inner">
-        <div className="testimonial-solo">
-          <VualaCard depoimento={DEPOIMENTOS_VUALA[2]} />
-        </div>
-      </div>
-    </section>
-
 
     <div className="page-flow">
       <CtaFinalEd only="cnpj" />
