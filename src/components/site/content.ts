@@ -342,6 +342,53 @@ export const DEPOIMENTOS = [
   },
 ];
 
+/** Depoimentos reais da imersão de comunicação com a equipe da Vualá. */
+export const DEPOIMENTOS_VUALA = [
+  {
+    paragrafos: [
+      "A imersão foi ótima! Deu para aprender bastante de um jeito leve e dinâmico, e achei muito legal como tudo foi pensado para nossa realidade e nossas necessidades. Saímos com aprendizados que realmente fazem sentido para o nosso dia a dia e que podemos colocar em prática, tanto na comunicação entre a equipe quanto com os clientes.",
+      "Só tenho elogios!! Foi uma experiência muito boa e vou adorar se tiver mais vezes ❤️",
+    ],
+    autor: "Kelly",
+    contexto: "da equipe Vualá",
+    inicial: "K",
+  },
+  {
+    paragrafos: [
+      "A palestra com a Carol foi incrível! Mesmo ela estando palestrando para comunicadores, ela conseguiu abordar o conceito de comunicação de uma forma muito intencional e profunda, e isso enriqueceu ainda mais a nossa compreensão do tema.",
+      "Ela foi extremamente didática, a palestra é muito mais uma conversa do que uma exposição. Ela agrega as nossas experiências e vivências com o roteiro dela e isso gera um conhecimento bem mais completo, e já dá pra notar as mudanças positivas no nosso time depois dessa experiência!",
+    ],
+    autor: "Douglas B.",
+    contexto: "da equipe Vualá",
+    inicial: "D",
+  },
+  {
+    paragrafos: [
+      "Gostei muito da palestra da Carol! Acredito que foi um momento de bastante aprendizado, em que foram abordados pontos muito importantes sobre a comunicação, principalmente no ambiente de trabalho. Acho que seria interessante termos mais momentos como esse, até para que a gente possa aplicar essas questões no dia a dia da agência. Também gostei muito da forma como tivemos espaço para falar, compartilhar nossas questões e a forma como me senti ouvida também.",
+    ],
+    autor: "Carla",
+    contexto: "da equipe Vualá",
+    inicial: "C",
+  },
+  {
+    paragrafos: [
+      "Gostei muito da palestra. Acho legal a forma como a Carol se posicionou, ouviu todos e fez com que todos se sentissem acolhidos. Acho que devemos melhorar nossa comunicação para construir pontes e fazer um melhor trabalho, assim como aprender mais a ouvir para que possamos ser instruídos para um trabalho de excelência. Sinto que estamos mais atentos a isso, na forma de transmitir a mensagem para que fique mais clara pra cada um, mantendo o respeito. Acho que seria legal uma outra.",
+    ],
+    autor: "Jacqueline",
+    contexto: "da equipe Vualá",
+    inicial: "J",
+  },
+  {
+    paragrafos: [
+      "Pra mim, foi uma experiência ótima! Acho que palestras como essa fazem a gente refletir não só sobre as coisas dentro do trabalho, mas também sobre nós mesmos e nossas atitudes.",
+      "Acho muito válido ter momentos assim, que fazem a gente parar um pouco e pensar sobre coisas que às vezes passam despercebidas no dia a dia.",
+    ],
+    autor: "Karol",
+    contexto: "da equipe Vualá",
+    inicial: "K",
+  },
+];
+
 export const CTA_FINAL = {
   cpf: {
     titulo: "Para você",
@@ -431,6 +478,10 @@ export const V2_COPY = {
       "A empresa tenta resolver só o que consegue ver. Mas o que ainda está invisível?",
     lead: "A Casa Orí ajuda lideranças e equipes a investigar o que ainda não foi percebido, mas continua influenciando comportamentos, relações e resultados.",
     doresTitulo: "Como isso costuma acontecer na prática?",
+    depoimentosKicker: "Para empresas",
+    depoimentosTitulo: "O que a equipe da Vualá levou da imersão",
+    depoimentosTexto:
+      "Depoimentos de quem participou do encontro de comunicação que a Casa Orí conduziu dentro da empresa.",
   },
   podcast: {
     kicker: "Podcast",

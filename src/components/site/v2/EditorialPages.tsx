@@ -40,6 +40,7 @@ import {
   NOME,
   CAROL,
   DEPOIMENTOS,
+  DEPOIMENTOS_VUALA,
   CTA_FINAL,
   QUIZ_CPF_URL,
   QUIZ_CNPJ_URL,
@@ -129,6 +130,57 @@ function TestimonialEd({
       </Reveal>
       {card}
     </div>
+  );
+}
+
+/** Depoimento da imersão na Vualá — aceita mais de um parágrafo. */
+function VualaCard({
+  depoimento,
+  delay = 0,
+}: {
+  depoimento: {
+    paragrafos: string[];
+    autor: string;
+    contexto: string;
+    inicial: string;
+  };
+  delay?: number;
+}) {
+  return (
+    <Reveal delay={delay} className="h-full">
+      <aside className="home-testimonial vuala-card bg-ed-ink text-ed-cream">
+        <span
+          className="ed-display text-[40px] leading-none text-ed-butter"
+          aria-hidden="true"
+        >
+          “
+        </span>
+        <div className="mt-2 space-y-4">
+          {depoimento.paragrafos.map((p, i) => (
+            <p
+              key={i}
+              className="text-[15px] font-light leading-relaxed text-ed-cream/85"
+            >
+              {p}
+            </p>
+          ))}
+        </div>
+        <div className="mt-6 flex items-center gap-3">
+          <span
+            aria-hidden="true"
+            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border ed-display text-[18px] border-ed-butter/50 bg-ed-butter/15 text-ed-butter"
+          >
+            {depoimento.inicial}
+          </span>
+          <span className="flex flex-col">
+            <span className="ed-eyebrow text-ed-sand">{depoimento.autor}</span>
+            <span className="mt-1 text-[11px] font-light text-ed-cream/45">
+              {depoimento.contexto}
+            </span>
+          </span>
+        </div>
+      </aside>
+    </Reveal>
   );
 }
 
@@ -794,6 +846,23 @@ const ServicosEmpresasEdImpl = () => (
         <div className="mt-8">
           {SERV_CNPJ.map((s, i) => (
             <ServicoEd key={s.titulo} s={s} i={i} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section className="page-flow page-section">
+      <div className="page-wash page-wash-sand" aria-hidden="true" />
+      <div className="page-section-inner">
+        <EdHead
+          kicker={V2_COPY.paraEmpresas.depoimentosKicker}
+          title={V2_COPY.paraEmpresas.depoimentosTitulo}
+          lead={V2_COPY.paraEmpresas.depoimentosTexto}
+          className="mb-12"
+        />
+        <div className="vuala-grid">
+          {DEPOIMENTOS_VUALA.map((d, i) => (
+            <VualaCard key={d.autor} depoimento={d} delay={i * 70} />
           ))}
         </div>
       </div>
