@@ -842,7 +842,7 @@ const ServicosEmpresasEdImpl = () => (
       <div className="page-section-inner">
         <div className="testimonial-row">
           <Reveal delay={120} className="h-full">
-            <img src={fotoEmpresa1.url} alt="Carol Milhomens em palestra sobre o ciclo da comunicação" loading="lazy" className="testimonial-photo" />
+            <img src={fotoEmpresa1.url} alt="Carol Milhomens em palestra sobre o ciclo da comunicação" loading="lazy" className="testimonial-photo max-h-[520px] object-[center_30%]" />
           </Reveal>
           <VualaCard depoimento={DEPOIMENTOS_VUALA[1]} />
         </div>
@@ -869,7 +869,7 @@ const ServicosEmpresasEdImpl = () => (
         <div className="testimonial-row">
           <VualaCard depoimento={DEPOIMENTOS_VUALA[0]} />
           <Reveal delay={120} className="h-full">
-            <img src={fotoEmpresa2.url} alt="Carol Milhomens falando ao microfone durante um encontro" loading="lazy" className="testimonial-photo" />
+            <img src={fotoEmpresa2.url} alt="Carol Milhomens falando ao microfone durante um encontro" loading="lazy" className="testimonial-photo max-h-[520px] object-[center_30%]" />
           </Reveal>
         </div>
       </div>
