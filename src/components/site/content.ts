@@ -378,6 +378,12 @@ export const V2_COPY = {
       "É o formato que muda de acordo com a sua necessidade ou da sua empresa.",
     ctaCpf: "Quero entender o que está acontecendo comigo",
     ctaCnpj: "Quero entender o que está acontecendo com a minha empresa",
+    headline: "Entre o que você quis dizer e o que o outro entendeu existe um abismo.",
+    headlineApoio: "A Casa Orí trabalha nele.",
+    headlineServicos: [
+      "Atendimento terapêutico para pessoas.",
+      "Experiência de comunicação para empresas.",
+    ],
     heroPergunta: [
       "Você tenta resolver só o que consegue ver.",
       "Mas o que ainda está invisível?",
@@ -396,12 +402,31 @@ export const V2_COPY = {
   },
   /** Abertura das abas, para quem chega direto nelas. */
   paraVoce: {
+    frases: [
+      "“Você nunca me escuta.”",
+      "“Você entendeu tudo errado.”",
+      "“Eu só tava brincando.”",
+      "“Você tá exagerando.”",
+      "“Já falei mil vezes, e nada muda.”",
+      "“Pra mim era óbvio.”",
+      "“Deixa pra lá.”",
+      "“Eu penso em mil respostas depois que a conversa acaba.”",
+    ],
     destaque:
       "Você tenta resolver só o que consegue ver. Mas o que ainda está invisível?",
     lead: "A Casa Orí te ajuda a investigar o que ainda não foi percebido, mas continua influenciando a sua vida, as suas relações e as suas decisões.",
     doresTitulo: "Como isso costuma acontecer na prática?",
   },
   paraEmpresas: {
+    frases: [
+      "“Eu já expliquei isso mil vezes.”",
+      "“Eu pedi uma coisa e entregaram outra.”",
+      "“Pra mim era óbvio.”",
+      "“Eu falo e acham que é bronca.”",
+      "“Ninguém me traz solução, só problema.”",
+      "“Eu sempre sou o último a saber.”",
+      "“Expliquei a proposta, o cliente disse ‘vou pensar’ e sumiu.”",
+    ],
     destaque:
       "A empresa tenta resolver só o que consegue ver. Mas o que ainda está invisível?",
     lead: "A Casa Orí ajuda lideranças e equipes a investigar o que ainda não foi percebido, mas continua influenciando comportamentos, relações e resultados.",
