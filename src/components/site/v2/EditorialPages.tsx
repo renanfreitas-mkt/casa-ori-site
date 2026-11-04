@@ -14,7 +14,7 @@ import carolLaptop from "@/assets/carol-laptop.jpeg.asset.json";
 import carolPoltrona from "@/assets/carol-poltrona.jpeg.asset.json";
 // Carol_Home.jpeg — a foto da hero ("carol hero")
 import carolHero from "@/assets/carol-hero.jpg.asset.json";
-import carolCamisaPreta from "@/assets/carol-camisa-preta.png.asset.json";
+import carolCamisaPreta from "@/assets/carol-camisa-preta-recorte.png.asset.json";
 // quem_e_a_carol.jpeg — a foto da dobra "Quem conduz"
 import carolConduzindo from "@/assets/carol-conduzindo.jpg.asset.json";
 // foto da palestra usada ao lado do depoimento
@@ -484,16 +484,13 @@ const HomeEdImpl = () => (
       <section id="inicio" className="home-flow home-anchor home-hero-verde relative z-10 bg-ed-ink px-5 sm:px-8 lg:px-12 pt-20 md:pt-28 lg:pt-32 pb-0">
         <div className="home-hero-grid max-w-[1440px] mx-auto">
           <div className="home-hero-copy relative z-20 py-6 md:py-10">
-            <Reveal>
-              <span className="ed-eyebrow text-ed-sand/70">Casa Orí</span>
-            </Reveal>
             <Reveal delay={60}>
-              <h1 className="mt-6 headline-ref text-ed-sand max-w-[720px] text-[clamp(1.9rem,3.6vw+0.5rem,3.9rem)]">
-                <span className="block">Entre o que</span>
-                <span className="block">você quis dizer</span>
+              <h1 className="headline-ref text-ed-sand max-w-[720px] text-[clamp(1.9rem,3.6vw+0.5rem,3.9rem)]">
+                <span className="block">ENTRE O QUE</span>
+                <span className="block">VOCÊ QUIS DIZER</span>
                 <span className="block">E O QUE O OUTRO ENTENDEU</span>
                 <span className="block">
-                  existe um <span className="text-ed-cream font-normal">abismo.</span>
+                  EXISTE UM <span className="text-ed-cream font-normal">ABISMO.</span>
                 </span>
               </h1>
             </Reveal>
@@ -510,7 +507,7 @@ const HomeEdImpl = () => (
               </div>
             </Reveal>
             <Reveal delay={220}>
-              <div className="home-hero-actions mt-9 flex flex-col sm:flex-row flex-wrap items-start gap-3">
+              <div className="home-hero-actions mt-10 flex flex-row flex-wrap items-center gap-4">
                 <EdCTA href={QUIZ_CPF_URL} variant="butter">
                   {V2_COPY.home.ctaCpf}
                 </EdCTA>
