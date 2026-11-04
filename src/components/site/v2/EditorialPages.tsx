@@ -490,7 +490,7 @@ const HomeEdImpl = () => (
               <h1 className="mt-6 headline-ref text-ed-sand max-w-[720px] text-[clamp(1.9rem,3.6vw+0.5rem,3.9rem)]">
                 <span className="block">Entre o que</span>
                 <span className="block">você quis dizer</span>
-                <span className="block">e o que o outro entendeu</span>
+                <span className="block">E O QUE O OUTRO ENTENDEU</span>
                 <span className="block">
                   existe um <span className="text-ed-cream font-normal">abismo.</span>
                 </span>
