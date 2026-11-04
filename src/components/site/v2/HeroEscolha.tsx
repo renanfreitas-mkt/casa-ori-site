@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Check } from "lucide-react";
 import { HeroCasaOri } from "./HeroCasaOri";
 import { HeroRetrato } from "./HeroRetrato";
+import { HeroAbismo } from "./HeroAbismo";
 
 // Hero da home com seletor para a cliente escolher o modelo.
 // O seletor só aparece no link de escolha: /?escolher  (o site normal mostra a hero padrão, sem seletor).
@@ -10,6 +11,7 @@ import { HeroRetrato } from "./HeroRetrato";
 const MODELOS = [
   { id: "declaracao", nome: "Declaração", ideia: "Só texto sobre o verde animado, com o símbolo no canto" },
   { id: "retrato", nome: "Retrato", ideia: "Carol em close sobre o verde animado" },
+  { id: "abismo", nome: "Abismo", ideia: "Foto de um abismo em tela cheia, com vento no mato" },
 ] as const;
 
 type ModeloId = (typeof MODELOS)[number]["id"];
@@ -54,6 +56,8 @@ export function HeroEscolha({ cpfHref, cnpjHref }: { cpfHref: string; cnpjHref: 
   const hero =
     modelo === "retrato" ? (
       <HeroRetrato key="retrato" {...props} foto="/img/carol-close.webp" />
+    ) : modelo === "abismo" ? (
+      <HeroAbismo key="abismo" {...props} />
     ) : (
       <HeroCasaOri key="declaracao" {...props} />
     );
@@ -62,9 +66,9 @@ export function HeroEscolha({ cpfHref, cnpjHref }: { cpfHref: string; cnpjHref: 
     <>
       {hero}
 
-      {/* seletor — celular: no topo, abaixo do menu (embaixo ficam os botões da hero); desktop: canto inferior esquerdo */}
+      {/* seletor — no topo, abaixo do menu (centralizado no celular, à direita no desktop): embaixo ficam botões e pilares */}
       {escolhendo && (
-        <div className="fixed left-1/2 top-[4.75rem] z-[60] w-[calc(100%-2rem)] max-w-[22rem] -translate-x-1/2 font-['Roboto',sans-serif] md:bottom-6 md:left-6 md:top-auto md:translate-x-0">
+        <div className="fixed left-1/2 top-[4.75rem] z-[60] w-[calc(100%-2rem)] max-w-[22rem] -translate-x-1/2 font-['Roboto',sans-serif] md:left-auto md:right-6 md:top-[6.25rem] md:translate-x-0">
           <div className="overflow-hidden rounded-2xl border border-[#26533C]/15 bg-[#FEFEFE]/95 text-[#173A2A] shadow-[0_20px_50px_-15px_rgba(0,0,0,.45)] backdrop-blur-md">
             <button
               type="button"
