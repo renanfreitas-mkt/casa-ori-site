@@ -491,7 +491,7 @@ const HomeEdImpl = () => (
             alt="Carol Milhomens, terapeuta sistêmica e fundadora da Casa Orí"
             className="block w-full h-auto"
           />
-          <div className="hero-escolhas relative md:absolute md:left-[6.2%] md:top-[78%] grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 px-5 py-8 md:p-0">
+          <div className="hero-escolhas relative md:absolute md:left-[6.2%] md:top-[78%] grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 px-5 py-8 md:p-0 max-md:[&_a]:!whitespace-normal max-md:[&_a]:text-center max-md:[&_a]:max-w-full">
             <div className="flex flex-col items-start gap-3">
               <span className="text-ed-cream text-base lg:text-lg">Atendimento para você</span>
               <EdCTA href={QUIZ_CPF_URL} variant="butter">{V2_COPY.home.ctaCpf}</EdCTA>
