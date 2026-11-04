@@ -1048,3 +1048,8 @@ h1.headline-ref, .headline-ref {
 /* Abertura da Home em bloco verde, como na referência */
 .home-hero-verde .home-hero-photo-wrap,
 .home-hero-verde .home-hero-photo { border-radius: 0 !important; }
+
+/* Foto recortada (sem fundo) sobre o verde, como na referência */
+.home-hero-verde .home-hero-photo-wrap { background: transparent !important; overflow: visible; min-height: 0; }
+.home-hero-verde .home-hero-photo { object-fit: contain !important; object-position: bottom center; height: auto; min-height: 0; max-height: 640px; background: transparent; }
+.home-hero-verde .home-photo-caption { display: none; }

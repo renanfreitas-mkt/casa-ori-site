@@ -14,6 +14,7 @@ import carolLaptop from "@/assets/carol-laptop.jpeg.asset.json";
 import carolPoltrona from "@/assets/carol-poltrona.jpeg.asset.json";
 // Carol_Home.jpeg — a foto da hero ("carol hero")
 import carolHero from "@/assets/carol-hero.jpg.asset.json";
+import carolCamisaPreta from "@/assets/carol-camisa-preta.png.asset.json";
 // quem_e_a_carol.jpeg — a foto da dobra "Quem conduz"
 import carolConduzindo from "@/assets/carol-conduzindo.jpg.asset.json";
 // foto da palestra usada ao lado do depoimento
@@ -480,7 +481,7 @@ const HomeEdImpl = () => (
   <>
     {/* Abertura contínua: a fotografia atravessa a hero e as dores */}
     <div className="home-opening bg-ed-cream">
-      <section id="inicio" className="home-flow home-anchor home-hero-verde relative z-10 bg-ed-ink px-5 sm:px-8 lg:px-12 pt-20 md:pt-28 lg:pt-32 pb-16 md:pb-20">
+      <section id="inicio" className="home-flow home-anchor home-hero-verde relative z-10 bg-ed-ink px-5 sm:px-8 lg:px-12 pt-20 md:pt-28 lg:pt-32 pb-0">
         <div className="home-hero-grid max-w-[1440px] mx-auto">
           <div className="home-hero-copy relative z-20 py-6 md:py-10">
             <Reveal>
@@ -522,7 +523,7 @@ const HomeEdImpl = () => (
           <Reveal delay={180} className="home-hero-media">
             <div className="home-hero-photo-wrap">
               <img
-                src={carolHero.url}
+                src={carolCamisaPreta.url}
                 alt="Carol Milhomens, terapeuta sistêmica e fundadora da Casa Orí"
                 className="home-hero-photo"
               />
