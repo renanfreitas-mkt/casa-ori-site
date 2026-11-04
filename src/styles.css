@@ -1025,3 +1025,20 @@ html {
     width: min(100%, 34rem);
   }
 }
+
+/* Headline no estilo da referência: sem serifa leve, caixa alta */
+.headline-ref {
+  font-family: "Poppins", var(--font-sans);
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 1.02;
+}
+.headline-ref-apoio {
+  font-family: "Poppins", var(--font-sans);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+/* Formas retas nas páginas de serviços */
+.page-wash { border-radius: 0; }
+.home-services-wash { border-radius: 0; aspect-ratio: auto; }
