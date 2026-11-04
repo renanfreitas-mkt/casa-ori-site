@@ -14,7 +14,7 @@ import carolLaptop from "@/assets/carol-laptop.jpeg.asset.json";
 import carolPoltrona from "@/assets/carol-poltrona.jpeg.asset.json";
 // Carol_Home.jpeg — a foto da hero ("carol hero")
 import carolHero from "@/assets/carol-hero.jpg.asset.json";
-import headlineDesktop from "@/assets/headline-abismo-desktop.jpg.asset.json";
+import headlineDesktop from "@/assets/headline-abismo-desktop-2.jpg.asset.json";
 import headlineMobile from "@/assets/headline-abismo-mobile.jpg.asset.json";
 // quem_e_a_carol.jpeg — a foto da dobra "Quem conduz"
 import carolConduzindo from "@/assets/carol-conduzindo.jpg.asset.json";
@@ -486,25 +486,25 @@ const HomeEdImpl = () => (
         <h1 className="sr-only">
           Entre o que você quis dizer e o que o outro entendeu existe um abismo. {V2_COPY.home.headlineApoio}
         </h1>
-        <div className="relative mx-auto max-w-[1920px]">
+        <div className="relative mx-auto max-w-[1920px] md:w-fit">
           <img
             src={headlineDesktop.url}
             alt="Carol Milhomens, terapeuta sistêmica e fundadora da Casa Orí"
-            className="hidden md:block w-full h-auto"
+            className="hidden md:block h-auto w-full md:h-[min(calc(100vh-4rem),calc(100vw/1.7778))] md:w-auto"
           />
           <img
             src={headlineMobile.url}
             alt="Carol Milhomens, terapeuta sistêmica e fundadora da Casa Orí"
             className="md:hidden block w-full h-auto"
           />
-          <div className="hero-escolhas relative md:absolute md:left-[5%] md:right-auto md:top-[80%] md:w-[57%] grid grid-cols-1 gap-4 px-5 pt-5 pb-12 md:p-0 md:grid-cols-2 md:gap-x-0 max-md:[&_a]:!whitespace-normal max-md:[&_a]:text-center max-md:[&_a]:w-full max-md:[&_a]:min-h-[3.1rem] max-md:[&_a]:px-4 max-md:[&_a]:py-2.5 max-md:[&_a]:text-[11px] max-md:[&_a]:leading-snug">
+          <div className="hero-escolhas relative md:absolute md:left-[6.1%] md:right-auto md:top-[68%] grid grid-cols-1 gap-4 px-5 pt-5 pb-12 md:p-0 xl:grid-cols-[auto_auto] xl:gap-x-8 max-md:[&_a]:!whitespace-normal max-md:[&_a]:text-center max-md:[&_a]:w-full max-md:[&_a]:min-h-[3.1rem] max-md:[&_a]:px-4 max-md:[&_a]:py-2.5 max-md:[&_a]:text-[11px] max-md:[&_a]:leading-snug">
             <div className="flex flex-col items-start gap-2">
               <span className="text-ed-cream text-[12px] md:text-base lg:text-lg">Atendimento para você</span>
-              <EdCTA href={QUIZ_CPF_URL} variant="butter">{V2_COPY.home.ctaCpf}</EdCTA>
+              <EdCTA href={QUIZ_CPF_URL} variant="butter" className="hero-cta">{V2_COPY.home.ctaCpf}</EdCTA>
             </div>
             <div className="flex flex-col items-start gap-2">
               <span className="text-ed-cream text-[12px] md:text-base lg:text-lg">Atendimento para a sua empresa</span>
-              <EdCTA href={QUIZ_CNPJ_URL} variant="butter">{V2_COPY.home.ctaCnpj}</EdCTA>
+              <EdCTA href={QUIZ_CNPJ_URL} variant="butter" className="hero-cta">{V2_COPY.home.ctaCnpj}</EdCTA>
             </div>
           </div>
         </div>

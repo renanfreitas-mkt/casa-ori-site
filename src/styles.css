@@ -1061,3 +1061,13 @@ h1.headline-ref, .headline-ref {
 .home-hero-verde .home-hero-photo-wrap { background: transparent !important; overflow: visible; min-height: 0; }
 .home-hero-verde .home-hero-photo { object-fit: contain !important; object-position: bottom center; height: auto; min-height: 0; max-height: 800px; background: transparent; }
 .home-hero-verde .home-photo-caption { display: none; }
+
+/* Botões da abertura: escala contínua para caber no espaço verde livre */
+@media (min-width: 1024px) {
+  .hero-escolhas .hero-cta {
+    font-size: clamp(11px, 0.8vw, 14px);
+    padding-inline: clamp(14px, 1.05vw, 24px);
+    padding-block: clamp(9px, 0.75vw, 14px);
+    letter-spacing: 0.02em;
+  }
+}
