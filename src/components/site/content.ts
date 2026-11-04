@@ -428,8 +428,8 @@ export const V2_COPY = {
     headline: "Entre o que você quis dizer e o que o outro entendeu existe um abismo.",
     headlineApoio: "A Casa Orí trabalha nele.",
     headlineServicos: [
-      "Atendimento terapêutico para pessoas.",
-      "Experiência de comunicação para empresas.",
+      "Atendimentos terapêuticos para pessoas.",
+      "Treinamentos de comunicação para líderes e empresas.",
     ],
     heroPergunta: [
       "Você tenta resolver só o que consegue ver.",

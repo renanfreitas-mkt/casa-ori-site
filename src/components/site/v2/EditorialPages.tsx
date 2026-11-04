@@ -259,28 +259,42 @@ function CicloProblema() {
 function FrasesRotativas({ frases }: { frases: readonly string[] }) {
   const [i, setI] = useState(0);
   const [visivel, setVisivel] = useState(true);
+  const [tick, setTick] = useState(0);
+  const ir = (passo: number) => {
+    setVisivel(false);
+    setTimeout(() => {
+      setI((n) => (n + passo + frases.length) % frases.length);
+      setVisivel(true);
+    }, 350);
+  };
   useEffect(() => {
-    let t: ReturnType<typeof setTimeout>;
-    const id = setInterval(() => {
-      setVisivel(false);
-      t = setTimeout(() => {
-        setI((n) => (n + 1) % frases.length);
-        setVisivel(true);
-      }, 500);
-    }, 3800);
-    return () => {
-      clearInterval(id);
-      clearTimeout(t);
-    };
-  }, [frases.length]);
+    const id = setInterval(() => ir(1), 4500);
+    return () => clearInterval(id);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [frases.length, tick]);
+  const manual = (passo: number) => {
+    ir(passo);
+    setTick((t) => t + 1);
+  };
+  const btn =
+    "h-10 w-10 inline-flex items-center justify-center border border-ed-ink/30 text-ed-ink hover:bg-ed-ink hover:text-ed-cream transition-colors";
   return (
-    <h1
-      aria-live="polite"
-      className="ed-display text-ed-ink max-w-[620px] min-h-[2.3em] text-[clamp(1.8rem,3.2vw+0.6rem,3.2rem)] leading-[1.1] transition-all duration-500 ease-out"
-      style={{ opacity: visivel ? 1 : 0, transform: visivel ? "none" : "translateY(8px)" }}
-    >
-      {frases[i]}
-    </h1>
+    <div>
+      <h1
+        aria-live="polite"
+        className="headline-ref text-ed-forest/85 max-w-[640px] min-h-[3.2em] text-[clamp(1.7rem,3vw+0.5rem,3.2rem)] transition-all duration-300 ease-out"
+        style={{ opacity: visivel ? 1 : 0, transform: visivel ? "none" : "translateY(8px)" }}
+      >
+        {frases[i]}
+      </h1>
+      <div className="mt-5 flex items-center gap-3">
+        <button type="button" aria-label="Frase anterior" className={btn} onClick={() => manual(-1)}>←</button>
+        <button type="button" aria-label="Próxima frase" className={btn} onClick={() => manual(1)}>→</button>
+        <span className="ml-2 text-[13px] text-ed-ink/55 tabular-nums">
+          {i + 1} / {frases.length}
+        </span>
+      </div>
+    </div>
   );
 }
 
@@ -473,16 +487,17 @@ const HomeEdImpl = () => (
               <span className="ed-eyebrow text-ed-ink/55">Casa Orí</span>
             </Reveal>
             <Reveal delay={60}>
-              <h1 className="mt-6 ed-display text-ed-ink max-w-[680px] text-[clamp(1.7rem,3vw+0.6rem,3.1rem)] leading-[1.02]">
-                <span className="block">Entre o que você quis dizer</span>
+              <h1 className="mt-6 headline-ref text-ed-forest/80 max-w-[720px] text-[clamp(1.9rem,3.6vw+0.5rem,3.9rem)]">
+                <span className="block">Entre o que</span>
+                <span className="block">você quis dizer</span>
                 <span className="block">e o que o outro entendeu</span>
                 <span className="block">
-                  existe um <span className="text-ed-leaf">abismo.</span>
+                  existe um <span className="text-ed-ink font-normal">abismo.</span>
                 </span>
               </h1>
             </Reveal>
             <Reveal delay={140}>
-              <p className="mt-7 font-sans text-[20px] md:text-[24px] italic text-ed-forest">
+              <p className="mt-4 headline-ref-apoio text-[clamp(1.4rem,2.2vw+0.4rem,2.4rem)] text-ed-ink">
                 {V2_COPY.home.headlineApoio}
               </p>
             </Reveal>
