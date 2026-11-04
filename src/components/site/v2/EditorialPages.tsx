@@ -14,7 +14,7 @@ import carolLaptop from "@/assets/carol-laptop.jpeg.asset.json";
 import carolPoltrona from "@/assets/carol-poltrona.jpeg.asset.json";
 // Carol_Home.jpeg — a foto da hero ("carol hero")
 import carolHero from "@/assets/carol-hero.jpg.asset.json";
-import carolCamisaPreta from "@/assets/carol-camisa-preta-recorte.png.asset.json";
+import carolCamisaPreta from "@/assets/carol-headline.png.asset.json";
 // quem_e_a_carol.jpeg — a foto da dobra "Quem conduz"
 import carolConduzindo from "@/assets/carol-conduzindo.jpg.asset.json";
 // foto da palestra usada ao lado do depoimento
