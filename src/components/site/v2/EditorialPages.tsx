@@ -491,13 +491,13 @@ const HomeEdImpl = () => (
             alt="Carol Milhomens, terapeuta sistêmica e fundadora da Casa Orí"
             className="block w-full h-auto"
           />
-          <div className="hero-escolhas relative md:absolute md:left-[6.2%] md:top-[78%] grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 px-5 py-8 md:p-0 max-md:[&_a]:!whitespace-normal max-md:[&_a]:text-center max-md:[&_a]:max-w-full">
-            <div className="flex flex-col items-start gap-3">
-              <span className="text-ed-cream text-base lg:text-lg">Atendimento para você</span>
+          <div className="hero-escolhas relative md:absolute md:left-[6.2%] md:top-[78%] grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-8 px-5 py-6 md:p-0 max-md:[&_a]:!whitespace-normal max-md:[&_a]:text-center max-md:[&_a]:w-full max-md:[&_a]:min-h-[3.1rem] max-md:[&_a]:px-4 max-md:[&_a]:py-2.5 max-md:[&_a]:text-[11px] max-md:[&_a]:leading-snug">
+            <div className="flex flex-col items-start gap-2.5">
+              <span className="text-ed-cream text-sm md:text-base lg:text-lg">Atendimento para você</span>
               <EdCTA href={QUIZ_CPF_URL} variant="butter">{V2_COPY.home.ctaCpf}</EdCTA>
             </div>
-            <div className="flex flex-col items-start gap-3">
-              <span className="text-ed-cream text-base lg:text-lg">Atendimento para a sua empresa</span>
+            <div className="flex flex-col items-start gap-2.5">
+              <span className="text-ed-cream text-sm md:text-base lg:text-lg">Atendimento para a sua empresa</span>
               <EdCTA href={QUIZ_CNPJ_URL} variant="butter">{V2_COPY.home.ctaCnpj}</EdCTA>
             </div>
           </div>
