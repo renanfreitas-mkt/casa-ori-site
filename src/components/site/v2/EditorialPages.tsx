@@ -497,7 +497,7 @@ const HomeEdImpl = () => (
             alt="Carol Milhomens, terapeuta sistêmica e fundadora da Casa Orí"
             className="md:hidden block w-full h-auto"
           />
-          <div className="hero-escolhas relative md:absolute md:left-[6.1%] md:right-auto md:top-[68%] grid grid-cols-1 gap-4 px-5 pt-5 pb-12 md:p-0 md:grid-cols-2 md:gap-x-8 max-md:[&_a]:!whitespace-normal max-md:[&_a]:text-center max-md:[&_a]:w-full max-md:[&_a]:min-h-[3.1rem] max-md:[&_a]:px-4 max-md:[&_a]:py-2.5 max-md:[&_a]:text-[11px] max-md:[&_a]:leading-snug">
+          <div className="hero-escolhas relative lg:absolute lg:left-[6.1%] lg:right-auto lg:top-[68%] grid grid-cols-1 gap-4 px-5 pt-5 pb-12 lg:p-0 lg:grid-cols-2 lg:gap-x-8 max-lg:[&_a]:!whitespace-normal max-lg:[&_a]:text-center max-lg:[&_a]:w-full max-lg:[&_a]:min-h-[3.1rem] max-lg:[&_a]:px-4 max-lg:[&_a]:py-2.5 max-lg:[&_a]:text-[11px] max-lg:[&_a]:leading-snug">
             <div className="flex flex-col items-start gap-2">
               <span className="text-ed-cream text-[12px] md:text-base lg:text-lg">Atendimento para você</span>
               <EdCTA href={QUIZ_CPF_URL} variant="butter">{V2_COPY.home.ctaCpf}</EdCTA>
