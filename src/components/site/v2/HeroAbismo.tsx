@@ -22,7 +22,7 @@ export function HeroAbismo({ cpfHref, cnpjHref }: { cpfHref: string; cnpjHref: s
 
       {/* o abismo, com vento no mato */}
       {/* foco na pessoa à beira do abismo: no celular (recorte vertical) ela continua na tela */}
-      <AbismoVento src="/img/abismo.webp" focus={[0.33, 0.5]} className="absolute inset-0 -z-20" />
+      <AbismoVento src="/img/abismo.webp" focus={[0.28, 0.5]} className="absolute inset-0 -z-20" />
       {/* véus para leitura: esquerda e base mais escuras, como na referência */}
       <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(14,24,16,.72)_0%,rgba(14,24,16,.35)_42%,rgba(14,24,16,0)_70%)]" />
       <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(14,24,16,.35)_0%,rgba(14,24,16,0)_28%,rgba(14,24,16,0)_55%,rgba(14,24,16,.8)_100%)]" />

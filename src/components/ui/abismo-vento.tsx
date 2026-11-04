@@ -37,25 +37,27 @@ void main() {
   float zoom = 1.0 + 0.035 * (0.5 - 0.5 * cos(u_time * 0.045));
   scale /= zoom;
   vec2 uv = vec2(v_uv.x, 1.0 - v_uv.y);
-  uv = (uv - 0.5) * scale + mix(vec2(0.5), u_focus, 1.0 - scale);
+  // centraliza o recorte no ponto de foco, sem sair da foto
+  vec2 centro = clamp(u_focus, scale * 0.5, 1.0 - scale * 0.5);
+  uv = (uv - 0.5) * scale + centro;
 
   vec3 base = texture2D(u_img, uv).rgb;
   float lum = dot(base, vec3(0.299, 0.587, 0.114));
   // máscara do mato: verde dominante e claro o bastante
-  float green = smoothstep(0.015, 0.09, base.g - max(base.r, base.b));
-  float mato = green * smoothstep(0.10, 0.32, lum);
+  float green = smoothstep(0.008, 0.06, base.g - max(base.r, base.b));
+  float mato = green * smoothstep(0.05, 0.22, lum);
 
   // vento: rajadas que atravessam da esquerda para a direita
   float t = u_time;
   float rajada = 0.55 + 0.45 * sin(t * 0.35 + uv.x * 2.5);
   float n = fbm(uv * vec2(9.0, 14.0) + vec2(t * 0.55, t * 0.12));
   vec2 off = vec2(
-    (sin(uv.y * 90.0 + t * 2.2 + n * 6.0) * 0.0011 + (n - 0.5) * 0.0026) * rajada,
-    (n - 0.5) * 0.0009
+    (sin(uv.y * 90.0 + t * 2.2 + n * 6.0) * 0.0016 + (n - 0.5) * 0.0038) * rajada,
+    (n - 0.5) * 0.0013
   ) * mato;
   vec3 col = texture2D(u_img, uv + off).rgb;
   // o mato clareia um pouco quando a rajada passa (as folhas viram para a luz)
-  col *= 1.0 + mato * (n - 0.45) * 0.10 * rajada;
+  col *= 1.0 + mato * (n - 0.45) * 0.14 * rajada;
 
   // rio: brilho correndo
   float rio = smoothstep(0.62, 0.85, lum) * (1.0 - green);
