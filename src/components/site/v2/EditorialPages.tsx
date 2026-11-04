@@ -486,11 +486,11 @@ const HomeEdImpl = () => (
         <h1 className="sr-only">
           Entre o que você quis dizer e o que o outro entendeu existe um abismo. {V2_COPY.home.headlineApoio}
         </h1>
-        <div className="relative mx-auto max-w-[1920px]">
+        <div className="relative mx-auto max-w-[1920px] md:w-fit">
           <img
             src={headlineDesktop.url}
             alt="Carol Milhomens, terapeuta sistêmica e fundadora da Casa Orí"
-            className="hidden md:block w-full h-auto"
+            className="hidden md:block h-auto w-full md:h-[calc(100vh-4rem)] md:w-auto md:max-w-full"
           />
           <img
             src={headlineMobile.url}
