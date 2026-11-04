@@ -1065,9 +1065,9 @@ h1.headline-ref, .headline-ref {
 /* Botões da abertura: escala contínua para caber no espaço verde livre */
 @media (min-width: 1024px) {
   .hero-escolhas .hero-cta {
-    font-size: clamp(11px, 0.85vw, 14px);
-    padding-inline: clamp(16px, 1.2vw, 26px);
-    padding-block: clamp(9px, 0.8vw, 14px);
+    font-size: clamp(11px, 0.8vw, 14px);
+    padding-inline: clamp(14px, 1.05vw, 24px);
+    padding-block: clamp(9px, 0.75vw, 14px);
     letter-spacing: 0.02em;
   }
 }
