@@ -14,8 +14,7 @@ import carolLaptop from "@/assets/carol-laptop.jpeg.asset.json";
 import carolPoltrona from "@/assets/carol-poltrona.jpeg.asset.json";
 // Carol_Home.jpeg — a foto da hero ("carol hero")
 import carolHero from "@/assets/carol-hero.jpg.asset.json";
-import carolCamisaPreta from "@/assets/carol-headline-recortada.png.asset.json";
-import headlineAbismo from "@/assets/headline-abismo.png.asset.json";
+import headlineCompleta from "@/assets/headline-abismo-completa.jpg.asset.json";
 // quem_e_a_carol.jpeg — a foto da dobra "Quem conduz"
 import carolConduzindo from "@/assets/carol-conduzindo.jpg.asset.json";
 // foto da palestra usada ao lado do depoimento
@@ -482,43 +481,26 @@ const HomeEdImpl = () => (
   <>
     {/* Abertura contínua: a fotografia atravessa a hero e as dores */}
     <div className="home-opening bg-ed-cream">
-      <section id="inicio" className="home-flow home-anchor home-hero-verde relative z-10 bg-ed-ink px-5 sm:px-8 lg:px-12 pt-20 md:pt-28 lg:pt-32 pb-0">
-        <div className="home-hero-grid max-w-[1440px] mx-auto">
-          <div className="home-hero-copy relative z-20 py-6 md:py-10">
-            <Reveal delay={60}>
-              <h1 className="sr-only">
-                Entre o que você quis dizer e o que o outro entendeu existe um abismo. {V2_COPY.home.headlineApoio}
-              </h1>
-              <img
-                src={headlineAbismo.url}
-                alt=""
-                aria-hidden="true"
-                className="block w-full max-w-[800px] h-auto"
-              />
-            </Reveal>
-            <Reveal delay={220}>
-              <div className="home-hero-actions mt-10 flex flex-row flex-wrap items-center gap-4">
-                <EdCTA href={QUIZ_CPF_URL} variant="butter">
-                  {V2_COPY.home.ctaCpf}
-                </EdCTA>
-                <EdCTA href={QUIZ_CNPJ_URL} variant="butter">
-                  {V2_COPY.home.ctaCnpj}
-                </EdCTA>
-              </div>
-            </Reveal>
-          </div>
-          <Reveal delay={180} className="home-hero-media">
-            <div className="home-hero-photo-wrap">
-              <img
-                src={carolCamisaPreta.url}
-                alt="Carol Milhomens, terapeuta sistêmica e fundadora da Casa Orí"
-                className="home-hero-photo"
-              />
-              <span className="home-photo-caption ed-eyebrow text-ed-cream/80">
-                Escuta · direção · movimento
-              </span>
+      <section id="inicio" className="home-anchor relative z-10 bg-ed-ink pt-16 md:pt-20">
+        <h1 className="sr-only">
+          Entre o que você quis dizer e o que o outro entendeu existe um abismo. {V2_COPY.home.headlineApoio}
+        </h1>
+        <div className="relative mx-auto max-w-[1920px]">
+          <img
+            src={headlineCompleta.url}
+            alt="Carol Milhomens, terapeuta sistêmica e fundadora da Casa Orí"
+            className="block w-full h-auto"
+          />
+          <div className="hero-escolhas relative md:absolute md:left-[6.2%] md:top-[78%] grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 px-5 py-8 md:p-0">
+            <div className="flex flex-col items-start gap-3">
+              <span className="text-ed-cream text-base lg:text-lg">Atendimento para você</span>
+              <EdCTA href={QUIZ_CPF_URL} variant="butter">{V2_COPY.home.ctaCpf}</EdCTA>
             </div>
-          </Reveal>
+            <div className="flex flex-col items-start gap-3">
+              <span className="text-ed-cream text-base lg:text-lg">Atendimento para a sua empresa</span>
+              <EdCTA href={QUIZ_CNPJ_URL} variant="butter">{V2_COPY.home.ctaCnpj}</EdCTA>
+            </div>
+          </div>
         </div>
       </section>
 
