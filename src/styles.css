@@ -352,7 +352,7 @@
 
 @media (min-width: 768px) {
   .home-hero-grid {
-    grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+    grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
     gap: 3.5rem;
     min-height: 42rem;
   }
