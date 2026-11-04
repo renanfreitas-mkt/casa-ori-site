@@ -352,7 +352,7 @@
 
 @media (min-width: 768px) {
   .home-hero-grid {
-    grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+    grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
     gap: 3.5rem;
     min-height: 42rem;
   }
@@ -1051,5 +1051,5 @@ h1.headline-ref, .headline-ref {
 
 /* Foto recortada (sem fundo) sobre o verde, como na referência */
 .home-hero-verde .home-hero-photo-wrap { background: transparent !important; overflow: visible; min-height: 0; }
-.home-hero-verde .home-hero-photo { object-fit: contain !important; object-position: bottom center; height: auto; min-height: 0; max-height: 640px; background: transparent; }
+.home-hero-verde .home-hero-photo { object-fit: contain !important; object-position: bottom center; height: auto; min-height: 0; max-height: 800px; background: transparent; }
 .home-hero-verde .home-photo-caption { display: none; }
