@@ -1027,8 +1027,8 @@ html {
 }
 
 /* Headline no estilo da referência: sem serifa leve, caixa alta */
-.headline-ref {
-  font-family: "Poppins", var(--font-sans);
+h1.headline-ref, .headline-ref {
+  font-family: "Poppins", var(--font-sans) !important;
   font-weight: 300;
   text-transform: uppercase;
   letter-spacing: -0.02em;
@@ -1042,3 +1042,5 @@ html {
 /* Formas retas nas páginas de serviços */
 .page-wash { border-radius: 0; }
 .home-services-wash { border-radius: 0; aspect-ratio: auto; }
+
+.page-photo, .page-photo-hero { border-radius: 0 !important; }
