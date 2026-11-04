@@ -200,9 +200,10 @@
   writing-mode: vertical-rl;
 }
 
+/* A hero nova não invade mais esta seção: só um respiro curto antes do título. */
 .home-method-bridge {
   margin-top: 0;
-  padding-top: 11rem;
+  padding-top: 2rem;
 }
 
 
@@ -371,7 +372,7 @@
   .home-method-bridge {
     min-height: 27rem;
     margin-top: 0;
-    padding-top: 10rem;
+    padding-top: 2rem;
   }
 
 
@@ -396,7 +397,7 @@
   }
 
   .home-method-bridge {
-    padding-top: 9rem;
+    padding-top: 1rem;
   }
 
   .home-method-title {
@@ -542,11 +543,11 @@
   aspect-ratio: 589 / 143;
   height: auto;
   background-color: var(--color-ed-forest, #26533c);
-  -webkit-mask-image: url("/__l5e/assets-v1/28ac7be3-624b-4ece-8fe2-a801adb45fa6/casa-ori-assinatura.png");
+  -webkit-mask-image: url("/img/casa-ori-assinatura.png");
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-position: left center;
   -webkit-mask-size: contain;
-  mask-image: url("/__l5e/assets-v1/28ac7be3-624b-4ece-8fe2-a801adb45fa6/casa-ori-assinatura.png");
+  mask-image: url("/img/casa-ori-assinatura.png");
   mask-repeat: no-repeat;
   mask-position: left center;
   mask-size: contain;
@@ -637,11 +638,11 @@
   margin-top: -0.75rem;
   margin-bottom: -0.75rem;
   background-color: currentColor;
-  -webkit-mask-image: url("/__l5e/assets-v1/0a3ed356-646e-44f0-a03f-b58a07389aeb/seta-desenhada.png");
+  -webkit-mask-image: url("/img/seta-desenhada.png");
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-position: center;
   -webkit-mask-size: contain;
-  mask-image: url("/__l5e/assets-v1/0a3ed356-646e-44f0-a03f-b58a07389aeb/seta-desenhada.png");
+  mask-image: url("/img/seta-desenhada.png");
   mask-repeat: no-repeat;
   mask-position: center;
   mask-size: contain;
