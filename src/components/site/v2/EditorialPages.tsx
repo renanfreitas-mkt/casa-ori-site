@@ -490,7 +490,7 @@ const HomeEdImpl = () => (
           <img
             src={headlineDesktop.url}
             alt="Carol Milhomens, terapeuta sistêmica e fundadora da Casa Orí"
-            className="hidden md:block h-auto w-full md:h-[calc(100vh-4rem)] md:w-auto md:max-w-full"
+            className="hidden md:block h-auto w-full md:h-[min(calc(100vh-4rem),calc(100vw/1.7778))] md:w-auto"
           />
           <img
             src={headlineMobile.url}
