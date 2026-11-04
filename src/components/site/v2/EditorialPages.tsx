@@ -522,7 +522,7 @@ const HomeEdImpl = () => (
               <img
                 src={carolCamisaPreta.url}
                 alt="Carol Milhomens, terapeuta sistêmica e fundadora da Casa Orí"
-                className="home-hero-photo md:scale-[1.35] origin-bottom"
+                className="home-hero-photo scale-[1.3] md:scale-[1.7] origin-bottom"
               />
               <span className="home-photo-caption ed-eyebrow text-ed-cream/80">
                 Escuta · direção · movimento
