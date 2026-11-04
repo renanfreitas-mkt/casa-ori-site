@@ -15,6 +15,7 @@ import carolPoltrona from "@/assets/carol-poltrona.jpeg.asset.json";
 // Carol_Home.jpeg — a foto da hero ("carol hero")
 import carolHero from "@/assets/carol-hero.jpg.asset.json";
 import carolCamisaPreta from "@/assets/carol-headline-recortada.png.asset.json";
+import headlineAbismo from "@/assets/headline-abismo.png.asset.json";
 // quem_e_a_carol.jpeg — a foto da dobra "Quem conduz"
 import carolConduzindo from "@/assets/carol-conduzindo.jpg.asset.json";
 // foto da palestra usada ao lado do depoimento
@@ -485,26 +486,15 @@ const HomeEdImpl = () => (
         <div className="home-hero-grid max-w-[1440px] mx-auto">
           <div className="home-hero-copy relative z-20 py-6 md:py-10">
             <Reveal delay={60}>
-              <h1 className="headline-ref text-ed-sand max-w-[900px] md:[&>span]:whitespace-nowrap text-[clamp(1.9rem,3.6vw+0.5rem,3.9rem)]">
-                <span className="block">ENTRE O QUE</span>
-                <span className="block">VOCÊ QUIS DIZER</span>
-                <span className="block">E O QUE O OUTRO ENTENDEU</span>
-                <span className="block">
-                  EXISTE UM <span className="text-ed-cream font-normal">ABISMO.</span>
-                </span>
+              <h1 className="sr-only">
+                Entre o que você quis dizer e o que o outro entendeu existe um abismo. {V2_COPY.home.headlineApoio}
               </h1>
-            </Reveal>
-            <Reveal delay={140}>
-              <p className="mt-4 headline-ref-apoio text-[clamp(1.4rem,2.2vw+0.4rem,2.4rem)] text-ed-cream">
-                {V2_COPY.home.headlineApoio}
-              </p>
-            </Reveal>
-            <Reveal delay={180}>
-              <div className="mt-5 max-w-[490px] space-y-1 text-[16px] md:text-[18px] font-light leading-relaxed text-ed-cream/85">
-                {V2_COPY.home.headlineServicos.map((l) => (
-                  <p key={l}>{l}</p>
-                ))}
-              </div>
+              <img
+                src={headlineAbismo.url}
+                alt=""
+                aria-hidden="true"
+                className="block w-full max-w-[800px] h-auto"
+              />
             </Reveal>
             <Reveal delay={220}>
               <div className="home-hero-actions mt-10 flex flex-row flex-wrap items-center gap-4">
