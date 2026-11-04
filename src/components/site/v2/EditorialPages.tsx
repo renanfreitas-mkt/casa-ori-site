@@ -481,7 +481,7 @@ const HomeEdImpl = () => (
   <>
     {/* Abertura contínua: a fotografia atravessa a hero e as dores */}
     <div className="home-opening bg-ed-cream">
-      <section id="inicio" className="home-flow home-anchor home-hero-verde relative z-10 bg-ed-ink px-5 sm:px-8 lg:px-12 pt-20 md:pt-28 lg:pt-32 pb-16 md:pb-20">
+      <section id="inicio" className="home-flow home-anchor home-hero-verde relative z-10 bg-ed-ink px-5 sm:px-8 lg:px-12 pt-20 md:pt-28 lg:pt-32 pb-0">
         <div className="home-hero-grid max-w-[1440px] mx-auto">
           <div className="home-hero-copy relative z-20 py-6 md:py-10">
             <Reveal>
