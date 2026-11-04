@@ -485,7 +485,7 @@ const HomeEdImpl = () => (
         <div className="home-hero-grid max-w-[1440px] mx-auto">
           <div className="home-hero-copy relative z-20 py-6 md:py-10">
             <Reveal delay={60}>
-              <h1 className="headline-ref text-ed-sand max-w-[900px] [&>span]:whitespace-nowrap text-[clamp(1.9rem,3.6vw+0.5rem,3.9rem)]">
+              <h1 className="headline-ref text-ed-sand max-w-[900px] md:[&>span]:whitespace-nowrap text-[clamp(1.9rem,3.6vw+0.5rem,3.9rem)]">
                 <span className="block">ENTRE O QUE</span>
                 <span className="block">VOCÊ QUIS DIZER</span>
                 <span className="block">E O QUE O OUTRO ENTENDEU</span>
