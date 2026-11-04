@@ -44,7 +44,7 @@ export function HeroAbismo({ cpfHref, cnpjHref }: { cpfHref: string; cnpjHref: s
             </span>
           </h1>
           <p className="ori-up mt-5 max-w-[26rem] text-[14px] font-light leading-relaxed text-[#F0F1EB]/85 md:hidden" style={{ animationDelay: ".4s" }}>
-            A Casa Orí trabalha nele: terapia sistêmica para pessoas, comunicação e liderança para empresas.
+            A Casa Orí trabalha nele.
           </p>
         </div>
 
@@ -63,7 +63,7 @@ export function HeroAbismo({ cpfHref, cnpjHref }: { cpfHref: string; cnpjHref: s
 
           <div className="ori-up md:max-w-[24rem]" style={{ animationDelay: ".8s" }}>
             <p className="hidden text-[15px] font-light leading-relaxed text-[#F0F1EB]/90 md:block">
-              A Casa Orí trabalha nele: terapia sistêmica e desenvolvimento para enxergar o que ainda não está visível.
+              A Casa Orí trabalha nele.
             </p>
             <div className="mt-0 flex flex-wrap gap-3 md:mt-5">
               <a

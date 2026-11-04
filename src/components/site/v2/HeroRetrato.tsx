@@ -60,9 +60,6 @@ export function HeroRetrato({
           <p className="ori-up mt-3 text-[12px] font-normal uppercase tracking-[0.18em] text-[#C1B48A] md:hidden" style={{ animationDelay: ".5s" }}>
             A Casa Orí trabalha nele.
           </p>
-          <p className="ori-up mt-3 max-w-[22rem] text-[13px] font-light leading-relaxed text-[#FEFEFE]/80 md:mt-4 md:text-[14px]" style={{ animationDelay: ".55s" }}>
-            Terapia sistêmica para pessoas. Comunicação e liderança para empresas.
-          </p>
           <div className="ori-up mt-6 flex flex-wrap items-center justify-center gap-3 md:justify-start" style={{ animationDelay: ".7s" }}>
             <a
               href={cpfHref}
