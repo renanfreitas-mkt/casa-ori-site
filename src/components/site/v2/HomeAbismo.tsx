@@ -1,8 +1,9 @@
 import { useEffect, useState, type ReactNode } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
-import { ArrowUpRight, Instagram, Menu, MessageCircle, X } from "lucide-react";
+import { ArrowUpRight, Menu, X } from "lucide-react";
 import { Reveal } from "../Reveal";
 import { HeroAbismo } from "./HeroAbismo";
+import MeadowRiseFooter from "@/components/ui/meadow-rise-footer";
 import { links } from "./ui";
 import { resumo } from "./EditorialPages";
 import {
@@ -440,89 +441,89 @@ function PodcastInstagram() {
   );
 }
 
-/** O próximo passo — volta ao abismo: foto em tela cheia com véu escuro. */
-function ProximoPasso() {
+/* ---------------- fechamento + rodapé (Meadow Rise, na cara do abismo) ---------------- */
+
+// Céu enevoado com luz dourada e morros de musgo que escurecem até o verde do rodapé,
+// com um cânion cortando o meio — como a foto do abismo.
+const PALETA_ABISMO = {
+  sky: ["#cfd3c4", "#e6e3d2"] as [string, string],
+  haze: "#b9c0ad",
+  glow: "#fff1cf",
+  hills: [
+    ["#9aa592", "#828e7c"],
+    ["#7f8f6a", "#5f6e4c"],
+    ["#667b4a", "#465a31"],
+    ["#506736", "#334722"],
+    ["#3c5229", "#243518"],
+    ["#2a3d20", "#152112"],
+  ] as [string, string][],
+  ground: "#1B2A1E",
+  ink: "#1B2A1E",
+  sub: "#3a4636",
+  pill: "#263120",
+  pillInk: "#F0F1EB",
+  text: "#F0F1EB",
+  muted: "#a9b59b",
+  line: "rgba(240, 241, 235, 0.14)",
+};
+
+function CartoesProximoPasso() {
   const blocos = [
     { ...CTA_FINAL.cpf, href: QUIZ_CPF_URL },
     { ...CTA_FINAL.cnpj, href: QUIZ_CNPJ_URL },
   ];
   return (
-    <section id="contato" className="relative isolate overflow-hidden px-5 py-24 text-[#F0F1EB] sm:px-10 md:py-32 lg:px-14">
-      <img src="/img/abismo.webp" alt="" aria-hidden="true" loading="lazy" className="absolute inset-0 -z-20 h-full w-full object-cover object-[30%_50%]" />
-      <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(27,42,30,.82)_0%,rgba(27,42,30,.6)_45%,rgba(27,42,30,.9)_100%)]" />
-      <div className="mx-auto max-w-[1300px]">
-        <Reveal>
-          <Titulo claro className="text-center">
-            O próximo passo
-          </Titulo>
-        </Reveal>
-        <div className="mt-14 grid gap-6 md:grid-cols-2">
-          {blocos.map((c, i) => (
-            <Reveal key={c.titulo} delay={i * 100} className="h-full">
-              <div className="flex h-full flex-col rounded-[28px] border border-[#F0F1EB]/20 bg-[#1B2A1E]/45 p-8 backdrop-blur-sm md:p-10">
-                <span className="text-[12px] font-medium uppercase tracking-[0.16em] text-[#A9B59B]">{c.titulo}</span>
-                <p className="mt-5 flex-1 text-[16px] font-light leading-relaxed text-[#F0F1EB]/85">{c.texto}</p>
-                <div className="mt-8">
-                  <Pilula href={c.href} tom="claro">
-                    {c.cta}
-                  </Pilula>
-                </div>
-              </div>
-            </Reveal>
-          ))}
+    <div className="mx-auto grid w-full max-w-[920px] gap-4 text-left md:grid-cols-2 md:gap-5">
+      {blocos.map((c) => (
+        <div key={c.titulo} className="flex h-full flex-col rounded-[24px] border border-white/60 bg-white/55 p-6 shadow-[0_20px_50px_-30px_rgba(27,42,30,.6)] backdrop-blur-md md:p-7">
+          <span className="text-[12px] font-medium uppercase tracking-[0.16em] text-[#263120]/60">{c.titulo}</span>
+          <p className="mt-3 flex-1 text-[15px] font-light leading-relaxed text-[#1B2A1E]/85">{c.texto}</p>
+          <div className="mt-5">
+            <Pilula href={c.href}>{c.cta}</Pilula>
+          </div>
         </div>
-      </div>
-    </section>
+      ))}
+    </div>
   );
 }
 
-/* ---------------- rodapé ---------------- */
-
-function RodapeAbismo() {
+function FechamentoAbismo() {
   return (
-    <footer className={`bg-[#1B2A1E] px-5 pb-8 pt-16 text-[#F0F1EB] sm:px-10 lg:px-14 ${fonte}`}>
-      <div className="mx-auto max-w-[1300px]">
-        <div className="grid gap-10 text-[14px] font-light md:grid-cols-4">
-          <div className="md:col-span-2">
-            <img src={logoAsset.url} alt="Casa Orí" width={120} height={120} className="h-20 w-20 rounded-full object-cover ring-1 ring-[#F0F1EB]/20 md:h-24 md:w-24" />
-            <p className="mt-5 max-w-[320px] leading-relaxed text-[#F0F1EB]/70">
-              Terapia sistêmica, constelação familiar e desenvolvimento de equipes.
-              Asa Sul, Brasília — e online para todo o Brasil.
-            </p>
-          </div>
-          <div>
-            <p className="text-[11.5px] font-medium uppercase tracking-[0.18em] text-[#F0F1EB]/50">Navegar</p>
-            <ul className="mt-4 space-y-2">
-              {links.map((l) => (
-                <li key={l.to}>
-                  <Link to={l.to} className="text-[#F0F1EB]/75 hover:text-[#F0F1EB]">
-                    {l.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <p className="text-[11.5px] font-medium uppercase tracking-[0.18em] text-[#F0F1EB]/50">Contato</p>
-            <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="mt-4 block">
-              <img src={instagramHandleImg.url} alt="@suacasa.ori" className="w-full max-w-[190px] opacity-90 invert" />
-            </a>
-            <div className="mt-4 flex items-center gap-4">
-              <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-[#A9B59B]">
-                <Instagram size={18} />
-              </a>
-              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="hover:text-[#A9B59B]">
-                <MessageCircle size={18} />
-              </a>
-            </div>
-          </div>
-        </div>
-        <div className="mt-14 flex items-center gap-5 border-t border-[#F0F1EB]/10 pt-8">
-          <img src={logoAsset.url} alt="Casa Orí" width={160} height={160} className="h-14 w-14 rounded-full object-cover opacity-90" />
-          <p className="text-[12px] tracking-wide text-[#F0F1EB]/50">Casa Orí © 2026 · Carol Milhomens · @suacasa.ori</p>
-        </div>
-      </div>
-    </footer>
+    <div id="contato">
+      <MeadowRiseFooter
+        name=""
+        brandHref="/"
+        logo={<img src={logoAsset.url} alt="Casa Orí" width={64} height={64} className="h-16 w-16 rounded-full object-cover ring-1 ring-[#F0F1EB]/25" />}
+        heading="O próximo *passo*"
+        subheading=""
+        cta={null}
+        heroExtra={<CartoesProximoPasso />}
+        tagline="Terapia sistêmica, constelação familiar e desenvolvimento de equipes. Asa Sul, Brasília — e online para todo o Brasil."
+        brandExtra={
+          <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="mt-5 block">
+            <img src={instagramHandleImg.url} alt="@suacasa.ori" className="w-full max-w-[190px] opacity-90 invert" />
+          </a>
+        }
+        newsletter={false}
+        columns={[{ title: "Navegar", links: links.map((l) => ({ label: l.label, href: l.to })) }]}
+        socialTitle="Contato"
+        socials={[
+          { icon: "instagram", href: INSTAGRAM_URL, label: "Instagram" },
+          { icon: "whatsapp", href: WHATSAPP_URL, label: "WhatsApp" },
+        ]}
+        copyright="Casa Orí © 2026 · Carol Milhomens · @suacasa.ori"
+        legal={[]}
+        preset="meadow"
+        palette={PALETA_ABISMO}
+        seed={7}
+        mist={0.85}
+        drift={0.8}
+        canyon={1.5}
+        heroHeight="clamp(880px, 100svh, 960px)"
+        height="1320px"
+        maxWidth="1300px"
+      />
+    </div>
   );
 }
 
@@ -542,9 +543,8 @@ export function HomeAbismo() {
         <QuemConduz />
         <Servicos />
         <PodcastInstagram />
-        <ProximoPasso />
       </main>
-      <RodapeAbismo />
+      <FechamentoAbismo />
     </div>
   );
 }
