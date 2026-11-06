@@ -7,9 +7,22 @@ import { HeroCtas } from "./HeroCtas";
 // "abismo" em itálico serifado, o Sistema ORI embaixo à esquerda e os CTAs embaixo à direita.
 // TEXTOS: todos vêm do site (content.ts) exatamente como estão — aqui só muda o layout.
 
-export function HeroAbismo({ cpfHref, cnpjHref }: { cpfHref: string; cnpjHref: string }) {
+export function HeroAbismo({
+  cpfHref,
+  cnpjHref,
+  telaCheia = false,
+}: {
+  cpfHref: string;
+  cnpjHref: string;
+  /** true na HomeAbismo: o menu fica por cima da foto, então a hero ocupa a tela inteira */
+  telaCheia?: boolean;
+}) {
   return (
-    <section className="relative isolate h-[calc(100svh-4rem)] min-h-[620px] overflow-hidden rounded-b-[2.5rem] bg-[#1B2A1E] font-['Inter_Tight','Roboto',sans-serif] text-[#F0F1EB] antialiased md:h-[calc(100svh-5rem)] md:min-h-[660px] md:rounded-b-[4rem]">
+    <section
+      className={`relative isolate overflow-hidden rounded-b-[2.5rem] bg-[#1B2A1E] font-['Inter_Tight','Roboto',sans-serif] text-[#F0F1EB] antialiased md:rounded-b-[4rem] ${
+        telaCheia ? "h-[100svh] min-h-[640px] md:min-h-[700px]" : "h-[calc(100svh-4rem)] min-h-[620px] md:h-[calc(100svh-5rem)] md:min-h-[660px]"
+      }`}
+    >
       <style>{`
         @keyframes oriUp { from { opacity: 0; transform: translateY(14px) } to { opacity: 1; transform: none } }
         .ori-up { opacity: 0; animation: oriUp 1.2s cubic-bezier(.2,.7,.2,1) forwards }
@@ -28,7 +41,11 @@ export function HeroAbismo({ cpfHref, cnpjHref }: { cpfHref: string; cnpjHref: s
         Casa Orí
       </span>
 
-      <div className="relative z-10 mx-auto flex h-full w-full max-w-[1400px] flex-col justify-between px-5 pb-8 pt-24 sm:px-10 md:pb-10 md:pt-[14vh] lg:px-14">
+      <div
+        className={`relative z-10 mx-auto flex h-full w-full max-w-[1400px] flex-col justify-between px-5 pb-8 sm:px-10 md:pb-10 lg:px-14 ${
+          telaCheia ? "pt-36 md:pt-[22vh]" : "pt-24 md:pt-[14vh]"
+        }`}
+      >
         {/* título */}
         <div>
           <h1 className="font-['Inter_Tight','Roboto',sans-serif]! text-[clamp(1.55rem,6.9vw,4.4rem)] font-normal! normal-case! leading-[1.04] tracking-[-0.035em]! [text-shadow:0_2px_30px_rgba(0,0,0,.25)]">

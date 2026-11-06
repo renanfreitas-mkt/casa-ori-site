@@ -452,7 +452,7 @@ function PodcastInstagramEd() {
 
 /* ============================= HOME ============================= */
 
-function resumo(texto: string, limite = 96) {
+export function resumo(texto: string, limite = 96) {
   if (texto.length <= limite) return texto;
   const corte = texto.slice(0, limite);
   return `${corte.slice(0, corte.lastIndexOf(" "))}…`;
