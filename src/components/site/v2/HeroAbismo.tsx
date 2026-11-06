@@ -44,8 +44,8 @@ export function HeroAbismo({ cpfHref, cnpjHref }: { cpfHref: string; cnpjHref: s
           </p>
         </div>
 
-        {/* base: Sistema ORI à esquerda (textos do site), CTAs originais à direita */}
-        <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+        {/* base: CTAs sempre no canto inferior esquerdo (em qualquer tela); Sistema ORI à direita no desktop */}
+        <div className="flex flex-col gap-8 lg:flex-row-reverse lg:items-end lg:justify-between">
           <ul className="hidden space-y-4 lg:block">
             {EIXOS_HOME.map((e, i) => (
               <li key={e.nome} className="ori-up flex max-w-[20rem] items-start gap-4" style={{ animationDelay: `${0.5 + i * 0.1}s` }}>
@@ -59,7 +59,7 @@ export function HeroAbismo({ cpfHref, cnpjHref }: { cpfHref: string; cnpjHref: s
             ))}
           </ul>
 
-          <div className="ori-up" style={{ animationDelay: ".8s" }}>
+          <div className="ori-up self-start" style={{ animationDelay: ".8s" }}>
             <HeroCtas
               cpfHref={cpfHref}
               cnpjHref={cnpjHref}
