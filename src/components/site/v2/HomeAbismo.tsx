@@ -173,7 +173,7 @@ function MenuAbismo() {
 /** Talvez você reconheça — névoa, duas colunas; a de empresa em cartão oliva. */
 function Reconhecimento() {
   return (
-    <section className="bg-[#F0F1EB] px-5 py-20 text-[#263120] sm:px-10 md:py-28 lg:px-14">
+    <section className="bg-white px-5 py-20 text-[#263120] sm:px-10 md:py-28 lg:px-14">
       <div className="mx-auto max-w-[1300px]">
         <Reveal>
           <Kicker>Talvez você reconheça</Kicker>
@@ -184,7 +184,7 @@ function Reconhecimento() {
 
         <div className="mt-14 grid gap-6 md:mt-20 lg:grid-cols-2">
           <Reveal className="h-full">
-            <div className="h-full rounded-[28px] border border-[#263120]/12 bg-white/60 p-8 md:p-10">
+            <div className="h-full rounded-[28px] border border-[#263120]/12 bg-[#F5F6F2] p-8 md:p-10">
               <span className="text-[12px] font-medium uppercase tracking-[0.16em] text-[#263120]/60">Para você</span>
               <ul className="mt-7 divide-y divide-[#263120]/10">
                 {DORES_CPF.map((d) => (
@@ -253,7 +253,7 @@ function Depoimento() {
 /** Sistema ORI — névoa, três cartões com a letra em serifa itálica. */
 function SistemaOri() {
   return (
-    <section id="sistema-ori" className="bg-[#F0F1EB] px-5 py-20 text-[#263120] sm:px-10 md:py-28 lg:px-14">
+    <section id="sistema-ori" className="bg-white px-5 py-20 text-[#263120] sm:px-10 md:py-28 lg:px-14">
       <div className="mx-auto max-w-[1300px]">
         <div className="grid gap-8 lg:grid-cols-[1fr_1fr] lg:items-end">
           <div>
@@ -274,7 +274,7 @@ function SistemaOri() {
             <Reveal key={e.letra} delay={i * 60} className="h-full">
               <Link
                 to="/sistema-ori"
-                className="group flex h-full flex-col rounded-[28px] border border-[#263120]/12 bg-white/60 p-8 transition-colors duration-300 hover:border-[#263120]/40 hover:bg-white md:p-9"
+                className="group flex h-full flex-col rounded-[28px] border border-[#263120]/12 bg-[#F5F6F2] p-8 transition-colors duration-300 hover:border-[#263120]/40 hover:bg-white md:p-9"
               >
                 <span className={`${serifa} text-[64px] leading-none text-[#263120]`}>{e.letra}</span>
                 <span className="mt-4 text-[12px] font-medium uppercase tracking-[0.16em] text-[#263120]/55">{e.nome}</span>
@@ -350,7 +350,7 @@ function LinhaServico({ s, href }: { s: Servico; href: string }) {
 /** Caminhos possíveis — névoa; intro fixa à esquerda e lista à direita. */
 function Servicos() {
   return (
-    <section id="servicos" className="bg-[#F0F1EB] px-5 py-20 text-[#263120] sm:px-10 md:py-28 lg:px-14">
+    <section id="servicos" className="bg-white px-5 py-20 text-[#263120] sm:px-10 md:py-28 lg:px-14">
       <div className="mx-auto grid max-w-[1300px] items-start gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
         <div className="lg:sticky lg:top-28">
           <Reveal>
@@ -394,16 +394,16 @@ function Servicos() {
   );
 }
 
-/** Podcast e Instagram — oliva, dois cartões lado a lado. */
+/** Podcast e Instagram — fundo branco, dois cartões lado a lado. */
 function PodcastInstagram() {
   return (
-    <section className="bg-[#263120] px-5 py-20 text-[#F0F1EB] sm:px-10 md:py-28 lg:px-14">
+    <section className="bg-white px-5 py-20 text-[#263120] sm:px-10 md:py-28 lg:px-14">
       <div className="mx-auto grid max-w-[1300px] gap-6 lg:grid-cols-2">
         <Reveal className="h-full">
-          <div className="flex h-full flex-col rounded-[28px] border border-[#F0F1EB]/12 bg-[#1B2A1E]/60 p-8 md:p-10">
-            <Kicker claro>{V2_COPY.podcast.kicker}</Kicker>
+          <div className="flex h-full flex-col rounded-[28px] border border-[#263120]/12 bg-[#F5F6F2] p-8 md:p-10">
+            <Kicker>{V2_COPY.podcast.kicker}</Kicker>
             <h2 className={`${fonte} mt-6 text-[clamp(1.7rem,3vw,2.4rem)] font-normal leading-[1.08] tracking-[-0.03em]`}>{V2_COPY.podcast.titulo}</h2>
-            <p className="mt-5 text-[15.5px] font-light leading-relaxed text-[#F0F1EB]/75">{V2_COPY.podcast.texto}</p>
+            <p className="mt-5 text-[15.5px] font-light leading-relaxed text-[#263120]/70">{V2_COPY.podcast.texto}</p>
             <div className="mt-7 overflow-hidden rounded-[18px]">
               <iframe
                 title="Podcast da Casa Orí no Spotify"
@@ -416,18 +416,18 @@ function PodcastInstagram() {
               />
             </div>
             <div className="mt-7">
-              <Pilula href={PODCAST_URL} tom="contornoClaro">
+              <Pilula href={PODCAST_URL} tom="contorno">
                 {V2_COPY.podcast.cta}
               </Pilula>
             </div>
           </div>
         </Reveal>
         <Reveal delay={100} className="h-full">
-          <div className="flex h-full flex-col rounded-[28px] border border-[#F0F1EB]/12 bg-[#1B2A1E]/60 p-8 md:p-10">
-            <Kicker claro>{V2_COPY.instagram.kicker}</Kicker>
+          <div className="flex h-full flex-col rounded-[28px] border border-[#263120]/12 bg-[#F5F6F2] p-8 md:p-10">
+            <Kicker>{V2_COPY.instagram.kicker}</Kicker>
             <h2 className={`${fonte} mt-6 text-[clamp(1.7rem,3vw,2.4rem)] font-normal leading-[1.08] tracking-[-0.03em]`}>{V2_COPY.instagram.titulo}</h2>
-            <p className="mt-5 text-[15.5px] font-light leading-relaxed text-[#F0F1EB]/75">{V2_COPY.instagram.texto}</p>
-            <div className="mt-7 flex flex-1 flex-col justify-between rounded-[18px] bg-[#F0F1EB] px-7 py-8">
+            <p className="mt-5 text-[15.5px] font-light leading-relaxed text-[#263120]/70">{V2_COPY.instagram.texto}</p>
+            <div className="mt-7 flex flex-1 flex-col justify-between rounded-[18px] border border-[#263120]/10 bg-white px-7 py-8">
               <img src={instagramHandleImg.url} alt={INSTAGRAM_HANDLE} className="w-full max-w-[300px]" />
               <div className="mt-6">
                 <Pilula href={INSTAGRAM_URL}>{V2_COPY.instagram.cta}</Pilula>
@@ -530,10 +530,10 @@ function RodapeAbismo() {
 
 export function HomeAbismo() {
   return (
-    <div className={`min-h-screen overflow-x-hidden bg-[#F0F1EB] ${fonte} antialiased`} style={{ color: C.oliva }}>
+    <div className={`min-h-screen overflow-x-hidden bg-white ${fonte} antialiased`} style={{ color: C.oliva }}>
       <MenuAbismo />
       <main>
-        <section id="inicio" className="relative z-10 bg-[#F0F1EB]">
+        <section id="inicio" className="relative z-10 bg-white">
           <HeroAbismo cpfHref={QUIZ_CPF_URL} cnpjHref={QUIZ_CNPJ_URL} telaCheia />
         </section>
         <Reconhecimento />
