@@ -1,15 +1,11 @@
-import { ArrowUpRight, Compass, Heart, Home } from "lucide-react";
 import { AbismoVento } from "@/components/ui/abismo-vento";
+import { EIXOS_HOME, V2_COPY } from "@/components/site/content";
+import { HeroCtas } from "./HeroCtas";
 
 // Hero "Abismo": a foto do cânion em tela cheia, com vento leve no mato (src/components/ui/abismo-vento.tsx).
 // Composição inspirada em páginas editoriais de bem-estar: título grande à esquerda com a palavra
-// "abismo" em itálico serifado, três pilares embaixo à esquerda e chamada + botões embaixo à direita.
-
-const PILARES = [
-  { Icone: Heart, titulo: "Escuta sem julgamento", texto: "Acolhimento e presença em cada atendimento." },
-  { Icone: Compass, titulo: "Sistema ORI", texto: "Observa, reorganiza e integra o que ainda não está visível." },
-  { Icone: Home, titulo: "Para você e sua empresa", texto: "Presencial em Brasília e online." },
-];
+// "abismo" em itálico serifado, o Sistema ORI embaixo à esquerda e os CTAs embaixo à direita.
+// TEXTOS: todos vêm do site (content.ts) exatamente como estão — aqui só muda o layout.
 
 export function HeroAbismo({ cpfHref, cnpjHref }: { cpfHref: string; cnpjHref: string }) {
   return (
@@ -37,50 +33,39 @@ export function HeroAbismo({ cpfHref, cnpjHref }: { cpfHref: string; cnpjHref: s
         <div>
           <h1 className="font-['Inter_Tight','Roboto',sans-serif]! text-[clamp(1.55rem,6.9vw,4.4rem)] font-normal! normal-case! leading-[1.04] tracking-[-0.035em]! [text-shadow:0_2px_30px_rgba(0,0,0,.25)]">
             <span className="ori-up block" style={{ animationDelay: ".1s" }}>Entre o que você quis dizer</span>
-            <span className="ori-up block" style={{ animationDelay: ".18s" }}>e o que o outro entendeu,</span>
+            <span className="ori-up block" style={{ animationDelay: ".18s" }}>e o que o outro entendeu</span>
             <span className="ori-up block" style={{ animationDelay: ".26s" }}>
               existe um{" "}
               <em className="font-['Instrument_Serif',serif] text-[1.12em] font-normal italic tracking-[-0.01em]">abismo.</em>
             </span>
           </h1>
-          <p className="ori-up mt-5 max-w-[26rem] text-[14px] font-light leading-relaxed text-[#F0F1EB]/85 md:hidden" style={{ animationDelay: ".4s" }}>
-            A Casa Orí trabalha nele.
+          <p className="ori-up mt-5 max-w-[26rem] text-[14px] font-light leading-relaxed text-[#F0F1EB]/85 md:text-[17px]" style={{ animationDelay: ".4s" }}>
+            {V2_COPY.home.headlineApoio}
           </p>
         </div>
 
-        {/* base: pilares à esquerda, chamada e botões à direita */}
-        <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
-          <ul className="hidden space-y-5 md:block">
-            {PILARES.map(({ Icone, titulo, texto }, i) => (
-              <li key={titulo} className="ori-up flex max-w-[19rem] items-start gap-4" style={{ animationDelay: `${0.5 + i * 0.1}s` }}>
-                <Icone className="mt-0.5 h-5 w-5 shrink-0 text-[#F0F1EB]/90" strokeWidth={1.4} />
+        {/* base: Sistema ORI à esquerda (textos do site), CTAs originais à direita */}
+        <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+          <ul className="hidden space-y-4 lg:block">
+            {EIXOS_HOME.map((e, i) => (
+              <li key={e.nome} className="ori-up flex max-w-[20rem] items-start gap-4" style={{ animationDelay: `${0.5 + i * 0.1}s` }}>
+                <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full border border-[#F0F1EB]/50 text-[11px] font-medium text-[#F0F1EB]">
+                  {e.letra}
+                </span>
                 <p className="text-[13.5px] font-light leading-snug text-[#F0F1EB]/80">
-                  <span className="text-[#F0F1EB]">{titulo}</span> {texto}
+                  <span className="text-[#F0F1EB]">{e.nome}</span> {e.titulo}
                 </p>
               </li>
             ))}
           </ul>
 
-          <div className="ori-up md:max-w-[24rem]" style={{ animationDelay: ".8s" }}>
-            <p className="hidden text-[15px] font-light leading-relaxed text-[#F0F1EB]/90 md:block">
-              A Casa Orí trabalha nele.
-            </p>
-            <div className="mt-0 flex flex-wrap gap-3 md:mt-5">
-              <a
-                href={cpfHref}
-                className="group inline-flex h-11 items-center gap-2 rounded-full bg-[#263120]/90 px-5 text-[13.5px] font-normal text-[#F0F1EB] backdrop-blur-sm transition-colors duration-300 hover:bg-[#F0F1EB] hover:text-[#263120]"
-              >
-                Atendimento para você
-                <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:rotate-45" strokeWidth={1.6} />
-              </a>
-              <a
-                href={cnpjHref}
-                className="group inline-flex h-11 items-center gap-2 rounded-full bg-[#263120]/90 px-5 text-[13.5px] font-normal text-[#F0F1EB] backdrop-blur-sm transition-colors duration-300 hover:bg-[#F0F1EB] hover:text-[#263120]"
-              >
-                Para empresas
-                <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:rotate-45" strokeWidth={1.6} />
-              </a>
-            </div>
+          <div className="ori-up" style={{ animationDelay: ".8s" }}>
+            <HeroCtas
+              cpfHref={cpfHref}
+              cnpjHref={cnpjHref}
+              rotuloClass="text-[#F0F1EB]/85 [text-shadow:0_1px_10px_rgba(0,0,0,.5)]"
+              botaoClass="bg-[#263120]/90 text-[#F0F1EB] backdrop-blur-sm hover:bg-[#F0F1EB] hover:text-[#263120]"
+            />
           </div>
         </div>
       </div>

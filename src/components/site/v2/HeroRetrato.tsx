@@ -1,4 +1,4 @@
-import { ArrowUpRight } from "lucide-react";
+import { HeroCtas } from "./HeroCtas";
 import { ShaderBackground } from "@/components/ui/sih";
 
 // Hero "Retrato": Carol em close no centro, com luz de recorte atrás,
@@ -60,23 +60,13 @@ export function HeroRetrato({
           <p className="ori-up mt-3 text-[12px] font-normal uppercase tracking-[0.18em] text-[#C1B48A] md:hidden" style={{ animationDelay: ".5s" }}>
             A Casa Orí trabalha nele.
           </p>
-          <div className="ori-up mt-6 flex flex-wrap items-center justify-center gap-3 md:justify-start" style={{ animationDelay: ".7s" }}>
-            <a
-              href={cpfHref}
-              className="group inline-flex h-[52px] items-center gap-4 rounded-full bg-[#FEFEFE] py-1.5 pl-6 pr-1.5 text-[14px] font-normal text-[#173A2A] shadow-[0_10px_30px_-12px_rgba(0,0,0,.5)] transition-colors duration-300 hover:bg-[#F3EBD0]"
-            >
-              <span className="md:hidden">Para você</span>
-              <span className="hidden md:inline">Atendimento para você</span>
-              <span className="grid h-10 w-10 place-items-center rounded-full bg-[#C1B48A] text-[#173A2A] transition-transform duration-300 group-hover:rotate-45">
-                <ArrowUpRight className="h-4 w-4" strokeWidth={2} />
-              </span>
-            </a>
-            <a
-              href={cnpjHref}
-              className="inline-flex h-[52px] items-center rounded-full border border-[#FEFEFE]/45 bg-[#173A2A]/30 px-6 text-[14px] font-normal text-[#FEFEFE] backdrop-blur-sm transition-colors duration-300 hover:border-[#FEFEFE] hover:bg-[#FEFEFE]/10"
-            >
-              Para empresas
-            </a>
+          <div className="ori-up mt-6 w-full md:w-auto" style={{ animationDelay: ".7s" }}>
+            <HeroCtas
+              cpfHref={cpfHref}
+              cnpjHref={cnpjHref}
+              botaoClass="bg-[#FEFEFE] text-[#173A2A] shadow-[0_10px_30px_-12px_rgba(0,0,0,.5)] hover:bg-[#F3EBD0]"
+              botao2Class="border border-[#FEFEFE]/45 bg-[#173A2A]/40 text-[#FEFEFE] backdrop-blur-sm hover:border-[#FEFEFE] hover:bg-[#FEFEFE]/10"
+            />
           </div>
         </div>
 
@@ -86,9 +76,6 @@ export function HeroRetrato({
             A Casa Orí
             <br />
             trabalha nele.
-          </p>
-          <p className="ori-up ml-auto mt-3 max-w-[19rem] text-[12px] font-light leading-relaxed text-[#FEFEFE]/85 [text-shadow:0_1px_12px_rgba(0,0,0,.7)] md:text-[13px]" style={{ animationDelay: "1.05s" }}>
-            Desde 2019, conduzindo pessoas e empresas a enxergar o que ainda não está visível.
           </p>
         </div>
       </div>

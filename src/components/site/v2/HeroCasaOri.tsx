@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import { HeroCtas } from "./HeroCtas";
 import { ShaderBackground } from "@/components/ui/sih";
 
 // Hero da home — "Declaração": a frase inteira como uma afirmação, alinhada à esquerda,
@@ -78,24 +78,13 @@ export function HeroCasaOri({ cpfHref, cnpjHref }: { cpfHref: string; cnpjHref: 
         </div>
 
         {/* botões: levam aos quizzes de pessoa e de empresa */}
-        <div
-          className="ori-up mt-12 flex w-full flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:items-center sm:gap-4"
-          style={{ animationDelay: ".8s" }}
-        >
-          <a
-            href={cpfHref}
-            className="group inline-flex h-[52px] items-center justify-center gap-2.5 rounded-full bg-[#C1B48A] px-8 text-[14px] font-medium tracking-[0.03em] text-[#1F4A35] transition-colors duration-300 hover:bg-[#FEFEFE]"
-          >
-            Atendimento para você
-            <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" strokeWidth={1.75} />
-          </a>
-          <a
-            href={cnpjHref}
-            className="group inline-flex h-[52px] items-center justify-center gap-2.5 rounded-full border border-[#FEFEFE]/40 px-8 text-[14px] font-normal tracking-[0.03em] text-[#FEFEFE] transition-colors duration-300 hover:border-[#FEFEFE] hover:bg-[#FEFEFE] hover:text-[#1F4A35]"
-          >
-            Atendimento para empresas
-            <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" strokeWidth={1.75} />
-          </a>
+        <div className="ori-up mt-12 w-full md:w-auto" style={{ animationDelay: ".8s" }}>
+          <HeroCtas
+            cpfHref={cpfHref}
+            cnpjHref={cnpjHref}
+            botaoClass="bg-[#C1B48A] font-medium text-[#1F4A35] hover:bg-[#FEFEFE]"
+            botao2Class="border border-[#FEFEFE]/40 text-[#FEFEFE] hover:border-[#FEFEFE] hover:bg-[#FEFEFE] hover:text-[#1F4A35]"
+          />
         </div>
       </div>
     </section>
