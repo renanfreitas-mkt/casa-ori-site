@@ -304,12 +304,13 @@ function QuemConduz() {
       <img src="/img/abismo.webp" alt="" aria-hidden="true" loading="lazy" className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-[0.12] [filter:blur(2px)]" />
       <div className="relative mx-auto grid max-w-[1300px] items-center gap-12 md:grid-cols-[0.9fr_1.1fr] md:gap-20">
         <Reveal>
-          <div className="mx-auto max-w-[460px] overflow-hidden rounded-t-full rounded-b-[28px]">
+          {/* foto quase quadrada, cantos arredondados; recorte centrado na Carol */}
+          <div className="mx-auto max-w-[500px] overflow-hidden rounded-[32px]">
             <img
               src={carolPoltrona.url}
               alt="Carol Milhomens sentada em uma poltrona na Casa Orí"
               loading="lazy"
-              className="aspect-[4/5] w-full object-cover [filter:saturate(.88)_contrast(1.03)]"
+              className="aspect-[1/1] w-full object-cover object-[50%_62%] [filter:saturate(.88)_contrast(1.03)] md:aspect-[5/6]"
             />
           </div>
         </Reveal>
