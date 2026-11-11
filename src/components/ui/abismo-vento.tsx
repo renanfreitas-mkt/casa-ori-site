@@ -21,6 +21,7 @@ uniform vec2 u_res;      // tamanho do canvas
 uniform vec2 u_imgSize;  // tamanho da foto
 uniform float u_time;
 uniform vec2 u_focus;    // ponto da foto que fica sempre visível no recorte (0..1)
+uniform float u_flip;    // 1.0 = foto espelhada na horizontal
 
 float hash(vec2 p) { p = fract(p * vec2(123.34, 456.21)); p += dot(p, p + 45.32); return fract(p.x * p.y); }
 float noise(vec2 p) {
@@ -40,6 +41,8 @@ void main() {
   // centraliza o recorte no ponto de foco, sem sair da foto
   vec2 centro = clamp(u_focus, scale * 0.5, 1.0 - scale * 0.5);
   uv = (uv - 0.5) * scale + centro;
+  // espelhada: o foco e o recorte valem para a imagem já invertida
+  uv.x = mix(uv.x, 1.0 - uv.x, u_flip);
 
   vec3 base = texture2D(u_img, uv).rgb;
   float lum = dot(base, vec3(0.299, 0.587, 0.114));
@@ -75,11 +78,14 @@ export function AbismoVento({
   src,
   className,
   focus = [0.5, 0.5],
+  espelhar = false,
 }: {
   src: string
   className?: string
   /** ponto da foto (0..1) que deve continuar visível quando a tela corta as laterais */
   focus?: [number, number]
+  /** inverte a foto na horizontal (o foco é dado já na imagem invertida) */
+  espelhar?: boolean
 }) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
@@ -116,8 +122,10 @@ export function AbismoVento({
       imgSize: gl.getUniformLocation(prog, "u_imgSize"),
       time: gl.getUniformLocation(prog, "u_time"),
       focus: gl.getUniformLocation(prog, "u_focus"),
+      flip: gl.getUniformLocation(prog, "u_flip"),
     }
     gl.uniform2f(u.focus, focus[0], focus[1])
+    gl.uniform1f(u.flip, espelhar ? 1 : 0)
 
     let raf = 0
     let disposed = false
@@ -186,7 +194,7 @@ export function AbismoVento({
       gl.deleteBuffer(buf)
       gl.deleteProgram(prog)
     }
-  }, [src, focus[0], focus[1]])
+  }, [src, focus[0], focus[1], espelhar])
 
   return (
     <div className={className}>
@@ -196,7 +204,10 @@ export function AbismoVento({
         alt=""
         aria-hidden="true"
         className="absolute inset-0 h-full w-full object-cover"
-        style={{ objectPosition: `${focus[0] * 100}% ${focus[1] * 100}%` }}
+        style={{
+          objectPosition: `${(espelhar ? 1 - focus[0] : focus[0]) * 100}% ${focus[1] * 100}%`,
+          transform: espelhar ? "scaleX(-1)" : undefined,
+        }}
       />
       <canvas
         ref={canvasRef}

@@ -14,9 +14,14 @@ export function HeroCtas({
   rotuloClass = "text-[#FEFEFE]/85",
   botaoClass = "bg-[#C1B48A] text-[#173A2A] hover:bg-[#FEFEFE]",
   botao2Class,
+  rotuloCpf = ROTULO_CPF,
+  rotuloCnpj = ROTULO_CNPJ,
 }: {
   cpfHref: string;
   cnpjHref: string;
+  /** rótulos acima dos botões (padrão: os do site; a home do abismo usa os que a cliente passou) */
+  rotuloCpf?: string;
+  rotuloCnpj?: string;
   align?: "start" | "center";
   rotuloClass?: string;
   botaoClass?: string;
@@ -24,8 +29,8 @@ export function HeroCtas({
   botao2Class?: string;
 }) {
   const itens = [
-    { rotulo: ROTULO_CPF, texto: V2_COPY.home.ctaCpf, href: cpfHref, cls: botaoClass },
-    { rotulo: ROTULO_CNPJ, texto: V2_COPY.home.ctaCnpj, href: cnpjHref, cls: botao2Class ?? botaoClass },
+    { rotulo: rotuloCpf, texto: V2_COPY.home.ctaCpf, href: cpfHref, cls: botaoClass },
+    { rotulo: rotuloCnpj, texto: V2_COPY.home.ctaCnpj, href: cnpjHref, cls: botao2Class ?? botaoClass },
   ];
   return (
     <div
@@ -33,7 +38,8 @@ export function HeroCtas({
     >
       {itens.map((c) => (
         <div key={c.rotulo} className={`flex flex-col gap-1.5 ${align === "center" ? "items-center" : "items-start"}`}>
-          <span className={`text-[12px] font-light tracking-[0.02em] md:text-[13px] ${rotuloClass}`}>{c.rotulo}</span>
+          {/* recuo igual ao do texto do botão (pl-5), para os dois começarem na mesma linha vertical */}
+          <span className={`max-w-[22rem] text-[12px] lg:max-w-none font-light tracking-[0.02em] md:text-[13px] ${align === "center" ? "" : "pl-5"} ${rotuloClass}`}>{c.rotulo}</span>
           <a
             href={c.href}
             className={`group inline-flex min-h-11 w-full items-center justify-between gap-3 rounded-full py-2.5 pl-5 pr-4 text-left text-[13px] leading-snug transition-colors duration-300 sm:w-auto md:text-[13.5px] ${c.cls}`}

@@ -3,7 +3,7 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { Reveal } from "../Reveal";
 import { HeroAbismo } from "./HeroAbismo";
-import MeadowRiseFooter from "@/components/ui/meadow-rise-footer";
+import { AbismoVento } from "@/components/ui/abismo-vento";
 import { links } from "./ui";
 import { resumo } from "./EditorialPages";
 import {
@@ -28,7 +28,6 @@ import {
 import carolAnotacoes from "@/assets/carol-anotacoes.jpg.asset.json";
 import carolPoltrona from "@/assets/carol-poltrona.jpeg.asset.json";
 import logoAsset from "@/assets/casa-ori-logo.jpg.asset.json";
-import instagramHandleImg from "@/assets/instagram-handle.png.asset.json";
 
 /*
  * HOME NA ESTÉTICA DO ABISMO — aparece só quando a hero "Abismo" é escolhida no seletor (/?escolher&hero=abismo).
@@ -185,8 +184,8 @@ function Reconhecimento() {
 
         <div className="mt-14 grid gap-6 md:mt-20 lg:grid-cols-2">
           <Reveal className="h-full">
-            <div className="h-full rounded-[28px] border border-[#263120]/12 bg-[#F5F6F2] p-8 md:p-10">
-              <span className="text-[12px] font-medium uppercase tracking-[0.16em] text-[#263120]/60">Para você</span>
+            <div className="h-full rounded-[28px] border border-[#26533C]/12 bg-[#F3F6F1] p-8 md:p-10">
+              <span className="text-[12px] font-medium uppercase tracking-[0.16em] text-[#26533C]/70">Para você</span>
               <ul className="mt-7 divide-y divide-[#263120]/10">
                 {DORES_CPF.map((d) => (
                   <li key={d} className="py-4 text-[15.5px] font-light leading-relaxed text-[#263120]/80 first:pt-0 last:pb-0">
@@ -197,11 +196,12 @@ function Reconhecimento() {
             </div>
           </Reveal>
           <Reveal delay={100} className="h-full">
-            <div className="h-full rounded-[28px] bg-[#263120] p-8 text-[#F0F1EB] md:p-10">
-              <span className="text-[12px] font-medium uppercase tracking-[0.16em] text-[#F0F1EB]/60">Para sua empresa</span>
-              <ul className="mt-7 divide-y divide-[#F0F1EB]/10">
+            {/* verde-musgo: mais claro que o verde-noite da hero */}
+            <div className="h-full rounded-[28px] bg-[#4F7A5C] p-8 text-white md:p-10">
+              <span className="text-[12px] font-medium uppercase tracking-[0.16em] text-white/70">Para sua empresa</span>
+              <ul className="mt-7 divide-y divide-white/15">
                 {DORES_CNPJ.map((d) => (
-                  <li key={d} className="py-4 text-[15.5px] font-light leading-relaxed text-[#F0F1EB]/85 first:pt-0 last:pb-0">
+                  <li key={d} className="py-4 text-[15.5px] font-light leading-relaxed text-white/90 first:pt-0 last:pb-0">
                     {d}
                   </li>
                 ))}
@@ -218,7 +218,7 @@ function Reconhecimento() {
 function Depoimento() {
   const d = DEPOIMENTOS[0];
   return (
-    <section className="bg-[#263120] px-5 py-20 text-[#F0F1EB] sm:px-10 md:py-28 lg:px-14">
+    <section className="bg-[#34604A] px-5 py-20 text-[#F0F1EB] sm:px-10 md:py-28 lg:px-14">
       <div className="mx-auto grid max-w-[1300px] items-center gap-10 md:grid-cols-[0.85fr_1.15fr] md:gap-16">
         <Reveal>
           <div className="overflow-hidden rounded-[28px]">
@@ -232,10 +232,10 @@ function Depoimento() {
         </Reveal>
         <Reveal delay={120}>
           <figure>
-            <span aria-hidden="true" className={`${serifa} block text-[90px] leading-[0.6] text-[#A9B59B]`}>
+            <span aria-hidden="true" className={`${serifa} block text-[72px] leading-[0.6] text-[#C9DCC4]`}>
               “
             </span>
-            <blockquote className={`${serifa} mt-4 text-[clamp(1.35rem,2.4vw,2rem)] leading-[1.35] text-[#F0F1EB]/90`}>
+            <blockquote className={`${serifa} mt-4 text-[clamp(1.15rem,1.8vw,1.55rem)] leading-[1.45] text-[#F0F1EB]/92`}>
               {d.texto}
             </blockquote>
             <figcaption className="mt-8 flex items-center gap-3">
@@ -275,10 +275,10 @@ function SistemaOri() {
             <Reveal key={e.letra} delay={i * 60} className="h-full">
               <Link
                 to="/sistema-ori"
-                className="group flex h-full flex-col rounded-[28px] border border-[#263120]/12 bg-[#F5F6F2] p-8 transition-colors duration-300 hover:border-[#263120]/40 hover:bg-white md:p-9"
+                className="group flex h-full flex-col rounded-[28px] border border-[#26533C]/15 bg-[#E6EEE2] p-8 transition-colors duration-300 hover:border-[#26533C]/45 hover:bg-[#DCE8D6] md:p-9"
               >
-                <span className={`${serifa} text-[64px] leading-none text-[#263120]`}>{e.letra}</span>
-                <span className="mt-4 text-[12px] font-medium uppercase tracking-[0.16em] text-[#263120]/55">{e.nome}</span>
+                <span className={`${serifa} text-[64px] leading-none text-[#26533C]`}>{e.letra}</span>
+                <span className="mt-4 text-[12px] font-medium uppercase tracking-[0.16em] text-[#26533C]">{e.nome}</span>
                 <h3 className={`${fonte} mt-6 text-[21px] font-normal leading-snug tracking-[-0.015em]`}>{e.titulo}</h3>
                 <p className="mt-4 text-[15px] font-light leading-relaxed text-[#263120]/70">{e.tensao}</p>
               </Link>
@@ -299,7 +299,7 @@ function SistemaOri() {
 /** Quem conduz — oliva, foto da Carol em arco e texto ao lado. */
 function QuemConduz() {
   return (
-    <section id="carol" className="relative overflow-hidden bg-[#1B2A1E] px-5 py-20 text-[#F0F1EB] sm:px-10 md:py-28 lg:px-14">
+    <section id="carol" className="relative overflow-hidden bg-[#26533C] px-5 py-20 text-[#F0F1EB] sm:px-10 md:py-28 lg:px-14">
       {/* névoa do abismo bem sutil ao fundo */}
       <img src="/img/abismo.webp" alt="" aria-hidden="true" loading="lazy" className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-[0.12] [filter:blur(2px)]" />
       <div className="relative mx-auto grid max-w-[1300px] items-center gap-12 md:grid-cols-[0.9fr_1.1fr] md:gap-20">
@@ -336,7 +336,7 @@ function QuemConduz() {
 
 function LinhaServico({ s, href }: { s: Servico; href: string }) {
   return (
-    <article className="grid gap-2 border-b border-[#263120]/15 py-6 md:grid-cols-[0.9fr_1.1fr] md:gap-8">
+    <article className="grid gap-2 border-b border-[#263120]/12 py-6 last:border-b-0 md:grid-cols-[0.8fr_1.2fr] md:gap-6">
       <h3 className={`${fonte} text-[21px] font-normal leading-snug tracking-[-0.015em] text-[#263120]`}>{s.titulo}</h3>
       <div>
         <p className="text-[15px] font-light leading-relaxed text-[#263120]/70">{resumo(s.ancora)}</p>
@@ -349,60 +349,68 @@ function LinhaServico({ s, href }: { s: Servico; href: string }) {
   );
 }
 
-/** Caminhos possíveis — névoa; intro fixa à esquerda e lista à direita. */
+/** Caminhos possíveis — névoa; intro em cima e as duas listas lado a lado
+ *  (esquerda sempre "Para você", direita sempre "Para sua empresa", como nas dores). */
 function Servicos() {
   return (
-    <section id="servicos" className="bg-white px-5 py-20 text-[#263120] sm:px-10 md:py-28 lg:px-14">
-      <div className="mx-auto grid max-w-[1300px] items-start gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
-        <div className="lg:sticky lg:top-28">
-          <Reveal>
-            <Kicker>Serviços</Kicker>
-          </Reveal>
-          <Reveal delay={80}>
-            <Titulo className="mt-6">Caminhos possíveis</Titulo>
-          </Reveal>
+    <section id="servicos" className="bg-[#F3F6F1] px-5 py-20 text-[#263120] sm:px-10 md:py-28 lg:px-14">
+      <div className="mx-auto max-w-[1300px]">
+        <div className="grid gap-8 lg:grid-cols-[1fr_1fr] lg:items-end">
+          <div>
+            <Reveal>
+              <Kicker>Serviços</Kicker>
+            </Reveal>
+            <Reveal delay={80}>
+              <Titulo className="mt-6">Caminhos possíveis</Titulo>
+            </Reveal>
+          </div>
           <Reveal delay={160}>
-            <p className="mt-6 max-w-[30rem] text-[16px] font-light leading-relaxed text-[#263120]/75 md:text-[17px]">{V2_COPY.servicos.introducao}</p>
-          </Reveal>
-          <Reveal delay={220}>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Pilula href="/para-voce">Para você</Pilula>
-              <Pilula href="/para-empresas" tom="contorno">
-                Para empresas
-              </Pilula>
-            </div>
+            <p className="max-w-[34rem] text-[16px] font-light leading-relaxed text-[#263120]/75 md:text-[17px]">{V2_COPY.servicos.introducao}</p>
           </Reveal>
         </div>
-        <div className="space-y-12">
-          <div>
-            <span className="text-[12px] font-medium uppercase tracking-[0.16em] text-[#263120]/55">Para você</span>
-            <div className="mt-3 border-t border-[#263120]/15">
-              {SERV_CPF.map((s) => (
-                <LinhaServico key={s.titulo} s={s} href="/para-voce" />
-              ))}
+
+        <div className="mt-14 grid gap-6 lg:grid-cols-2">
+          <Reveal className="h-full">
+            <div className="flex h-full flex-col rounded-[28px] border border-[#26533C]/12 bg-white p-8 md:p-10">
+              <span className="text-[12px] font-medium uppercase tracking-[0.16em] text-[#26533C]/70">Para você</span>
+              <div className="mt-3 flex-1">
+                {SERV_CPF.map((s) => (
+                  <LinhaServico key={s.titulo} s={s} href="/para-voce" />
+                ))}
+              </div>
+              <div className="mt-8">
+                <Pilula href="/para-voce">Para você</Pilula>
+              </div>
             </div>
-          </div>
-          <div>
-            <span className="text-[12px] font-medium uppercase tracking-[0.16em] text-[#263120]/55">Para sua empresa</span>
-            <div className="mt-3 border-t border-[#263120]/15">
-              {SERV_CNPJ.map((s) => (
-                <LinhaServico key={s.titulo} s={s} href="/para-empresas" />
-              ))}
+          </Reveal>
+          <Reveal delay={100} className="h-full">
+            <div className="flex h-full flex-col rounded-[28px] border border-[#26533C]/12 bg-white p-8 md:p-10">
+              <span className="text-[12px] font-medium uppercase tracking-[0.16em] text-[#26533C]/70">Para sua empresa</span>
+              <div className="mt-3 flex-1">
+                {SERV_CNPJ.map((s) => (
+                  <LinhaServico key={s.titulo} s={s} href="/para-empresas" />
+                ))}
+              </div>
+              <div className="mt-8">
+                <Pilula href="/para-empresas" tom="contorno">
+                  Para empresas
+                </Pilula>
+              </div>
             </div>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>
   );
 }
 
-/** Podcast e Instagram — fundo branco, dois cartões lado a lado. */
+/** Podcast e Instagram — dois cartões lado a lado em verde claro. */
 function PodcastInstagram() {
   return (
     <section className="bg-white px-5 py-20 text-[#263120] sm:px-10 md:py-28 lg:px-14">
       <div className="mx-auto grid max-w-[1300px] gap-6 lg:grid-cols-2">
         <Reveal className="h-full">
-          <div className="flex h-full flex-col rounded-[28px] border border-[#263120]/12 bg-[#F5F6F2] p-8 md:p-10">
+          <div className="flex h-full flex-col rounded-[28px] border border-[#26533C]/12 bg-[#E6EEE2] p-8 md:p-10">
             <Kicker>{V2_COPY.podcast.kicker}</Kicker>
             <h2 className={`${fonte} mt-6 text-[clamp(1.7rem,3vw,2.4rem)] font-normal leading-[1.08] tracking-[-0.03em]`}>{V2_COPY.podcast.titulo}</h2>
             <p className="mt-5 text-[15.5px] font-light leading-relaxed text-[#263120]/70">{V2_COPY.podcast.texto}</p>
@@ -425,14 +433,24 @@ function PodcastInstagram() {
           </div>
         </Reveal>
         <Reveal delay={100} className="h-full">
-          <div className="flex h-full flex-col rounded-[28px] border border-[#263120]/12 bg-[#F5F6F2] p-8 md:p-10">
+          <div className="flex h-full flex-col rounded-[28px] border border-[#26533C]/12 bg-[#E6EEE2] p-8 md:p-10">
             <Kicker>{V2_COPY.instagram.kicker}</Kicker>
             <h2 className={`${fonte} mt-6 text-[clamp(1.7rem,3vw,2.4rem)] font-normal leading-[1.08] tracking-[-0.03em]`}>{V2_COPY.instagram.titulo}</h2>
             <p className="mt-5 text-[15.5px] font-light leading-relaxed text-[#263120]/70">{V2_COPY.instagram.texto}</p>
-            <div className="mt-7 flex flex-1 flex-col justify-between rounded-[18px] border border-[#263120]/10 bg-white px-7 py-8">
-              <img src={instagramHandleImg.url} alt={INSTAGRAM_HANDLE} className="w-full max-w-[300px]" />
-              <div className="mt-6">
-                <Pilula href={INSTAGRAM_URL}>{V2_COPY.instagram.cta}</Pilula>
+            <div className="mt-7 flex flex-1 flex-col justify-between gap-8 rounded-[18px] bg-[#26533C] px-7 py-8 text-[#F0F1EB]">
+              <a
+                href={INSTAGRAM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${fonte} flex items-center gap-3 text-[clamp(1.6rem,3vw,2.3rem)] font-light tracking-[-0.03em] transition-opacity hover:opacity-80`}
+              >
+                <IconeInstagram className="h-8 w-8 shrink-0 text-[#C9DCC4]" />
+                {INSTAGRAM_HANDLE}
+              </a>
+              <div>
+                <Pilula href={INSTAGRAM_URL} tom="claro">
+                  {V2_COPY.instagram.cta}
+                </Pilula>
               </div>
             </div>
           </div>
@@ -442,31 +460,30 @@ function PodcastInstagram() {
   );
 }
 
-/* ---------------- fechamento + rodapé (Meadow Rise, na cara do abismo) ---------------- */
+/* ---------------- fechamento + rodapé (foto real do abismo sob véu verde) ---------------- */
 
-// Céu enevoado com luz dourada e morros de musgo que escurecem até o verde do rodapé,
-// com um cânion cortando o meio — como a foto do abismo.
-const PALETA_ABISMO = {
-  sky: ["#cfd3c4", "#e6e3d2"] as [string, string],
-  haze: "#b9c0ad",
-  glow: "#fff1cf",
-  hills: [
-    ["#9aa592", "#828e7c"],
-    ["#7f8f6a", "#5f6e4c"],
-    ["#667b4a", "#465a31"],
-    ["#506736", "#334722"],
-    ["#3c5229", "#243518"],
-    ["#2a3d20", "#152112"],
-  ] as [string, string][],
-  ground: "#1B2A1E",
-  ink: "#1B2A1E",
-  sub: "#3a4636",
-  pill: "#263120",
-  pillInk: "#F0F1EB",
-  text: "#F0F1EB",
-  muted: "#a9b59b",
-  line: "rgba(240, 241, 235, 0.14)",
-};
+function IconeInstagram({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} aria-hidden="true">
+      <g fill="none" stroke="currentColor" strokeWidth="1.7">
+        <rect x="3.5" y="3.5" width="17" height="17" rx="4.8" />
+        <circle cx="12" cy="12" r="3.9" />
+        <circle cx="17.2" cy="6.8" r="0.4" fill="currentColor" />
+      </g>
+    </svg>
+  );
+}
+
+function IconeWhatsapp({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} aria-hidden="true">
+      <g fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M4.2 19.8l1.1-3.9A8.2 8.2 0 1 1 8.4 18.9l-4.2.9Z" />
+        <path d="M9.1 8.4c.2-.4.5-.5.8-.5h.5c.2 0 .4.1.5.4l.6 1.5c.1.2 0 .5-.1.7l-.5.6c.6 1.1 1.4 1.9 2.5 2.5l.6-.5c.2-.2.5-.2.7-.1l1.5.6c.3.1.4.3.4.5v.5c0 .3-.1.6-.5.8-.6.4-1.6.6-2.9 0a8 8 0 0 1-3.7-3.7c-.6-1.3-.4-2.3.1-2.9Z" />
+      </g>
+    </svg>
+  );
+}
 
 function CartoesProximoPasso() {
   const blocos = [
@@ -475,14 +492,16 @@ function CartoesProximoPasso() {
   ];
   return (
     <div className="mx-auto grid w-full max-w-[920px] gap-4 text-left md:grid-cols-2 md:gap-5">
-      {blocos.map((c) => (
-        <div key={c.titulo} className="flex h-full flex-col rounded-[24px] border border-white/60 bg-white/55 p-6 shadow-[0_20px_50px_-30px_rgba(27,42,30,.6)] backdrop-blur-md md:p-7">
-          <span className="text-[12px] font-medium uppercase tracking-[0.16em] text-[#263120]/60">{c.titulo}</span>
-          <p className="mt-3 flex-1 text-[15px] font-light leading-relaxed text-[#1B2A1E]/85">{c.texto}</p>
-          <div className="mt-5">
-            <Pilula href={c.href}>{c.cta}</Pilula>
+      {blocos.map((c, i) => (
+        <Reveal key={c.titulo} delay={120 + i * 100} className="h-full">
+          <div className="flex h-full flex-col rounded-[24px] border border-white/60 bg-white/80 p-6 shadow-[0_20px_50px_-30px_rgba(27,42,30,.6)] backdrop-blur-md md:p-7">
+            <span className="text-[12px] font-medium uppercase tracking-[0.16em] text-[#26533C]/70">{c.titulo}</span>
+            <p className="mt-3 flex-1 text-[15px] font-light leading-relaxed text-[#1B2A1E]/85">{c.texto}</p>
+            <div className="mt-5">
+              <Pilula href={c.href}>{c.cta}</Pilula>
+            </div>
           </div>
-        </div>
+        </Reveal>
       ))}
     </div>
   );
@@ -490,41 +509,78 @@ function CartoesProximoPasso() {
 
 function FechamentoAbismo() {
   return (
-    <div id="contato">
-      <MeadowRiseFooter
-        name=""
-        brandHref="/"
-        logo={<img src={logoAsset.url} alt="Casa Orí" width={64} height={64} className="h-16 w-16 rounded-full object-cover ring-1 ring-[#F0F1EB]/25" />}
-        heading="O próximo *passo*"
-        subheading=""
-        cta={null}
-        heroExtra={<CartoesProximoPasso />}
-        tagline="Terapia sistêmica, constelação familiar e desenvolvimento de equipes. Asa Sul, Brasília — e online para todo o Brasil."
-        brandExtra={
-          <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="mt-5 block">
-            <img src={instagramHandleImg.url} alt="@suacasa.ori" className="w-full max-w-[190px] opacity-90 invert" />
-          </a>
-        }
-        newsletter={false}
-        columns={[{ title: "Navegar", links: links.map((l) => ({ label: l.label, href: l.to })) }]}
-        socialTitle="Contato"
-        socials={[
-          { icon: "instagram", href: INSTAGRAM_URL, label: "Instagram" },
-          { icon: "whatsapp", href: WHATSAPP_URL, label: "WhatsApp" },
-        ]}
-        copyright="Casa Orí © 2026 · Carol Milhomens · @suacasa.ori"
-        legal={[]}
-        preset="meadow"
-        palette={PALETA_ABISMO}
-        seed={7}
-        mist={0.85}
-        drift={0.8}
-        canyon={1.5}
-        heroHeight="clamp(880px, 100svh, 960px)"
-        height="1320px"
-        maxWidth="1300px"
-      />
-    </div>
+    <footer id="contato" className="text-[#F0F1EB]">
+      {/* O próximo passo: a mesma foto do topo, mais aberta, sob um véu verde transparente */}
+      <section className="relative isolate overflow-hidden px-5 py-28 sm:px-10 md:py-36 lg:px-14">
+        <AbismoVento src="/img/abismo.webp" focus={[0.6, 0.3]} className="absolute inset-0 -z-20" />
+        <div aria-hidden className="absolute inset-0 -z-10 bg-[#26533C]/30" />
+        <div aria-hidden className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(27,42,30,.45)_0%,rgba(27,42,30,0)_30%,rgba(27,42,30,0)_70%,#1B2A1E_100%)]" />
+        <div className="mx-auto max-w-[1300px] text-center">
+          <Reveal>
+            <h2 className={`${fonte} text-[clamp(2.4rem,6vw,4.6rem)] font-light leading-[1.02] tracking-[-0.04em]`}>
+              O próximo <em className={serifa}>passo</em>
+            </h2>
+          </Reveal>
+          <div className="mt-12 md:mt-14">
+            <CartoesProximoPasso />
+          </div>
+        </div>
+      </section>
+
+      {/* rodapé */}
+      <div className="bg-[#1B2A1E] px-5 pb-10 pt-16 sm:px-10 md:pt-20 lg:px-14">
+        <div className="mx-auto grid max-w-[1300px] gap-12 md:grid-cols-[1.1fr_1.9fr] md:gap-14">
+          <div>
+            <Link to="/" className="inline-block">
+              <img src={logoAsset.url} alt="Casa Orí" width={64} height={64} className="h-16 w-16 rounded-full object-cover ring-1 ring-[#F0F1EB]/25" />
+            </Link>
+            <p className="mt-6 max-w-[24rem] text-[15px] font-light leading-relaxed text-[#F0F1EB]/70">
+              Terapia sistêmica, constelação familiar e desenvolvimento de equipes. Asa Sul, Brasília — e online para todo o Brasil.
+            </p>
+            <a
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${fonte} mt-5 inline-block text-[22px] font-light tracking-[-0.02em] text-[#F0F1EB]/90 transition-opacity hover:opacity-75`}
+            >
+              @suacasa.ori
+            </a>
+          </div>
+          <nav aria-label="Rodapé" className="grid grid-cols-2 gap-10">
+            <div>
+              <h3 className="text-[12px] font-medium uppercase tracking-[0.16em] text-[#a9b59b]">Navegar</h3>
+              <ul className="mt-5 space-y-3">
+                {links.map((l) => (
+                  <li key={l.to}>
+                    <a href={l.to} className="text-[15px] font-light text-[#F0F1EB]/85 transition-colors hover:text-white">
+                      {l.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-[12px] font-medium uppercase tracking-[0.16em] text-[#a9b59b]">Contato</h3>
+              <ul className="mt-5 flex gap-3">
+                <li>
+                  <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="grid h-11 w-11 place-items-center rounded-full border border-[#F0F1EB]/20 transition-colors hover:bg-[#F0F1EB]/10">
+                    <IconeInstagram className="h-[17px] w-[17px]" />
+                  </a>
+                </li>
+                <li>
+                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="grid h-11 w-11 place-items-center rounded-full border border-[#F0F1EB]/20 transition-colors hover:bg-[#F0F1EB]/10">
+                    <IconeWhatsapp className="h-[17px] w-[17px]" />
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+        <div className="mx-auto mt-16 max-w-[1300px] border-t border-[#F0F1EB]/14 pt-6">
+          <p className="text-[13px] font-light text-[#F0F1EB]/55">Casa Orí © 2026 · Carol Milhomens · @suacasa.ori</p>
+        </div>
+      </div>
+    </footer>
   );
 }
 

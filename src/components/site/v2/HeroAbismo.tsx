@@ -31,34 +31,37 @@ export function HeroAbismo({
 
       {/* o abismo, com vento no mato */}
       {/* foco na pessoa à beira do abismo: no celular (recorte vertical) ela continua na tela */}
-      <AbismoVento src="/img/abismo.webp" focus={[0.28, 0.5]} className="absolute inset-0 -z-20" />
+      {/* foto espelhada: a pessoa fica à direita, longe do título */}
+      <AbismoVento src="/img/abismo.webp" focus={[0.74, 0.5]} espelhar className="absolute inset-0 -z-20" />
       {/* véus para leitura: esquerda e base mais escuras, como na referência */}
       <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(14,24,16,.72)_0%,rgba(14,24,16,.35)_42%,rgba(14,24,16,0)_70%)]" />
       <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(14,24,16,.35)_0%,rgba(14,24,16,0)_28%,rgba(14,24,16,0)_55%,rgba(14,24,16,.8)_100%)]" />
-
-      {/* nome discreto à direita, como a assinatura da referência */}
-      <span className="ori-up absolute right-6 top-[30%] hidden text-[13px] font-light tracking-[0.02em] text-[#F0F1EB]/85 md:block lg:right-10" style={{ animationDelay: ".6s" }}>
-        Casa Orí
-      </span>
 
       <div
         className={`relative z-10 mx-auto flex h-full w-full max-w-[1400px] flex-col justify-between px-5 pb-8 sm:px-10 md:pb-10 lg:px-14 ${
           telaCheia ? "pt-36 md:pt-[22vh]" : "pt-24 md:pt-[14vh]"
         }`}
       >
-        {/* título */}
-        <div>
-          <h1 className="font-['Inter_Tight','Roboto',sans-serif]! text-[clamp(1.55rem,6.9vw,4.4rem)] font-normal! normal-case! leading-[1.04] tracking-[-0.035em]! [text-shadow:0_2px_30px_rgba(0,0,0,.25)]">
-            <span className="ori-up block" style={{ animationDelay: ".1s" }}>Entre o que você quis dizer</span>
-            <span className="ori-up block" style={{ animationDelay: ".18s" }}>e o que o outro entendeu</span>
-            <span className="ori-up block" style={{ animationDelay: ".26s" }}>
+        {/* título (o espaço embaixo é da frase sob "abismo") */}
+        <div className="sm:pb-12">
+          <h1 className="font-['Inter_Tight','Roboto',sans-serif]! text-[clamp(1.6rem,7.2vw,4.6rem)] font-normal! normal-case! leading-[1.04] tracking-[-0.035em]! [text-shadow:0_2px_30px_rgba(0,0,0,.25)]">
+            <span className="ori-up block" style={{ animationDelay: ".1s" }}>Entre o que</span>
+            <span className="ori-up block" style={{ animationDelay: ".16s" }}>você quis dizer</span>
+            <span className="ori-up block" style={{ animationDelay: ".22s" }}>e o que o outro entendeu</span>
+            <span className="ori-up block" style={{ animationDelay: ".28s" }}>
               existe um{" "}
-              <em className="font-['Instrument_Serif',serif] text-[1.12em] font-normal italic tracking-[-0.01em]">abismo.</em>
+              {/* "A Casa Orí trabalha nele" fica logo abaixo de "abismo": é dentro dele que a Casa trabalha */}
+              <span className="sm:relative sm:inline-block">
+                <em className="font-['Instrument_Serif',serif] text-[1.12em] font-normal italic tracking-[-0.01em]">abismo.</em>
+                <span
+                  className="ori-up mt-3 block font-['Inter_Tight','Roboto',sans-serif] text-[clamp(1rem,1.7vw,1.4rem)] font-light not-italic leading-snug tracking-[-0.01em] text-[#F0F1EB] sm:absolute sm:left-[0.06em] sm:top-full sm:mt-2 sm:whitespace-nowrap"
+                  style={{ animationDelay: ".45s" }}
+                >
+                  {V2_COPY.home.headlineApoio}
+                </span>
+              </span>
             </span>
           </h1>
-          <p className="ori-up mt-5 max-w-[26rem] text-[14px] font-light leading-relaxed text-[#F0F1EB]/85 md:text-[17px]" style={{ animationDelay: ".4s" }}>
-            {V2_COPY.home.headlineApoio}
-          </p>
         </div>
 
         {/* base: CTAs sempre no canto inferior esquerdo (em qualquer tela); Sistema ORI à direita no desktop */}
@@ -80,6 +83,8 @@ export function HeroAbismo({
             <HeroCtas
               cpfHref={cpfHref}
               cnpjHref={cnpjHref}
+              rotuloCpf="Atendimento terapêutico para você"
+              rotuloCnpj="Treinamento de comunicação para a liderança da sua empresa"
               rotuloClass="text-[#F0F1EB]/85 [text-shadow:0_1px_10px_rgba(0,0,0,.5)]"
               botaoClass="bg-[#263120]/90 text-[#F0F1EB] backdrop-blur-sm hover:bg-[#F0F1EB] hover:text-[#263120]"
             />
