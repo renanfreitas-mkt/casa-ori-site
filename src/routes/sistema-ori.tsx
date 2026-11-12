@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { OriEd } from "@/components/site/v2/EditorialPages";
-import { EdNav, EdFooter } from "@/components/site/v2/ui";
+import { OriAbismo } from "@/components/site/v2/PaginasAbismo";
+import { LayoutAbismo } from "@/components/site/v2/abismo-ui";
 
 const title = "Sistema ORI — Casa Orí";
 const description =
@@ -24,12 +24,8 @@ export const Route = createFileRoute("/sistema-ori")({
 
 function SistemaOriPage() {
   return (
-    <div className="theme-editorial bg-ed-cream min-h-screen overflow-x-hidden">
-      <EdNav />
-      <main>
-        <OriEd />
-      </main>
-      <EdFooter />
-    </div>
+    <LayoutAbismo passo={false}>
+      <OriAbismo />
+    </LayoutAbismo>
   );
 }

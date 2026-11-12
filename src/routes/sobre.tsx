@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { SobreEd } from "@/components/site/v2/EditorialPages";
-import { EdNav, EdFooter } from "@/components/site/v2/ui";
+import { SobreAbismo } from "@/components/site/v2/PaginasAbismo";
+import { LayoutAbismo } from "@/components/site/v2/abismo-ui";
 
 const title = "Sobre — Carol Milhomens | Casa Orí";
 const description =
@@ -24,12 +24,8 @@ export const Route = createFileRoute("/sobre")({
 
 function SobrePage() {
   return (
-    <div className="theme-editorial bg-ed-cream min-h-screen overflow-x-hidden">
-      <EdNav />
-      <main>
-        <SobreEd />
-      </main>
-      <EdFooter />
-    </div>
+    <LayoutAbismo passo={false}>
+      <SobreAbismo />
+    </LayoutAbismo>
   );
 }

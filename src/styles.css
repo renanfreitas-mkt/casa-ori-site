@@ -949,22 +949,25 @@ html {
 }
 
 /* ---------------- Quiz de Autoconhecimento ---------------- */
+/* paleta e tipografia do abismo (verde da Casa Orí, névoa, Inter Tight + Instrument Serif) */
 .quiz {
-  --q-verde: var(--color-ed-ink);
-  --q-verde-claro: var(--color-ed-leaf);
-  --q-areia: var(--color-ed-butter);
-  --q-areia-claro: var(--color-ed-sand);
-  --q-branco: var(--color-ed-cream);
-  --q-texto: var(--color-ed-ink);
-  --q-texto-suave: var(--color-ed-olive);
-  font-family: var(--font-sans);
+  --q-verde: #26533C;
+  --q-verde-claro: #8FB89A;
+  --q-areia: #C9DCC4;
+  --q-areia-claro: #F3F6F1;
+  --q-branco: #F0F1EB;
+  --q-texto: #263120;
+  --q-texto-suave: #5B6B58;
+  font-family: "Inter Tight", "Roboto", sans-serif;
   transition: background-color 0.6s ease, color 0.6s ease;
 }
 .quiz-script {
-  font-family: var(--font-display); font-weight: 400; text-transform: uppercase;
-  line-height: 1.05; letter-spacing: 0; text-wrap: balance;
+  font-family: "Instrument Serif", serif; font-style: italic; font-weight: 400; text-transform: none;
+  line-height: 1.08; letter-spacing: -0.01em; text-wrap: balance;
 }
-.quiz h2, .quiz h3 { font-family: var(--font-display); font-weight: 400; text-transform: uppercase; }
+.quiz h2, .quiz h3 { font-family: "Inter Tight", "Roboto", sans-serif; font-weight: 400; text-transform: none; letter-spacing: -0.02em; }
+.quiz h2.quiz-script, .quiz p.quiz-script { font-family: "Instrument Serif", serif; }
+.quiz-btn { font-family: "Inter Tight", "Roboto", sans-serif; }
 .quiz-step { animation: quiz-in 0.4s ease both; }
 .quiz-fade { animation: quiz-fade 0.6s ease both; }
 @keyframes quiz-in { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: none; } }
@@ -979,7 +982,7 @@ html {
 .quiz-input:focus { border-bottom-color: var(--q-branco); }
 .quiz-btn {
   display: inline-flex; width: 100%; align-items: center; justify-content: center;
-  border-radius: 999px; padding: 1rem 1.75rem; font-size: 15px; font-weight: 500;
+  border-radius: 999px; padding: 1rem 1.75rem; font-size: 15px; font-weight: 400;
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 .quiz-btn:hover { opacity: 0.9; }

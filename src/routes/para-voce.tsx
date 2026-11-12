@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ServicosPessoasEd } from "@/components/site/v2/EditorialPages";
-import { EdNav, EdFooter } from "@/components/site/v2/ui";
+import { ParaVoceAbismo } from "@/components/site/v2/PaginasAbismo";
+import { LayoutAbismo } from "@/components/site/v2/abismo-ui";
 
 const title = "Para você — Casa Orí";
 const description =
@@ -24,12 +24,8 @@ export const Route = createFileRoute("/para-voce")({
 
 function ParaVocePage() {
   return (
-    <div className="theme-editorial bg-ed-cream min-h-screen overflow-x-hidden">
-      <EdNav />
-      <main>
-        <ServicosPessoasEd />
-      </main>
-      <EdFooter />
-    </div>
+    <LayoutAbismo passo="cpf">
+      <ParaVoceAbismo />
+    </LayoutAbismo>
   );
 }

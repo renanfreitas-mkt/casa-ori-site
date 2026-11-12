@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ServicosEmpresasEd } from "@/components/site/v2/EditorialPages";
-import { EdNav, EdFooter } from "@/components/site/v2/ui";
+import { ParaEmpresasAbismo } from "@/components/site/v2/PaginasAbismo";
+import { LayoutAbismo } from "@/components/site/v2/abismo-ui";
 
 const title = "Para empresas — Casa Orí";
 const description =
@@ -24,12 +24,8 @@ export const Route = createFileRoute("/para-empresas")({
 
 function ParaEmpresasPage() {
   return (
-    <div className="theme-editorial bg-ed-cream min-h-screen overflow-x-hidden">
-      <EdNav />
-      <main>
-        <ServicosEmpresasEd />
-      </main>
-      <EdFooter />
-    </div>
+    <LayoutAbismo passo="cnpj">
+      <ParaEmpresasAbismo />
+    </LayoutAbismo>
   );
 }

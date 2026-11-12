@@ -1,7 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { HomeEd } from "@/components/site/v2/EditorialPages";
-import { EdNav, EdFooter } from "@/components/site/v2/ui";
-import { EscolhaProvider, SeletorHero, useEscolha } from "@/components/site/v2/HeroEscolha";
 import { HomeAbismo } from "@/components/site/v2/HomeAbismo";
 
 const title = "Casa Orí — Terapia sistêmica e desenvolvimento";
@@ -24,26 +21,7 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
+// A home oficial é a do abismo (a home antiga e o seletor de hero continuam no código, sem uso).
 function Index() {
-  return (
-    <EscolhaProvider>
-      <PaginaHome />
-      <SeletorHero />
-    </EscolhaProvider>
-  );
-}
-
-// "Abismo" (só no link de escolha) troca a home inteira; as outras opções mudam só a hero.
-function PaginaHome() {
-  const { modelo } = useEscolha();
-  if (modelo === "abismo") return <HomeAbismo />;
-  return (
-    <div className="theme-editorial bg-ed-cream min-h-screen overflow-x-hidden">
-      <EdNav />
-      <main>
-        <HomeEd />
-      </main>
-      <EdFooter />
-    </div>
-  );
+  return <HomeAbismo />;
 }
