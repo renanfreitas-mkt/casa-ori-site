@@ -45,8 +45,8 @@ export function HeroAbismo({
         {/* título (o espaço embaixo é da frase sob "abismo") */}
         <div className="sm:pb-12">
           <h1 className="font-['Inter_Tight','Roboto',sans-serif]! text-[clamp(1.6rem,7.2vw,4.6rem)] font-normal! normal-case! leading-[1.04] tracking-[-0.035em]! [text-shadow:0_2px_30px_rgba(0,0,0,.25)]">
-            <span className="ori-up block" style={{ animationDelay: ".1s" }}>Entre o que</span>
-            <span className="ori-up block" style={{ animationDelay: ".16s" }}>você quis dizer</span>
+            <span className="ori-up block" style={{ animationDelay: ".1s" }}>Entre</span>
+            <span className="ori-up block" style={{ animationDelay: ".16s" }}>o que você quis dizer</span>
             <span className="ori-up block" style={{ animationDelay: ".22s" }}>e o que o outro entendeu</span>
             <span className="ori-up block" style={{ animationDelay: ".28s" }}>
               existe um{" "}
