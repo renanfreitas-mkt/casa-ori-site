@@ -26,7 +26,6 @@ import {
   type Servico,
 } from "../content";
 import carolAnotacoes from "@/assets/carol-anotacoes.jpg.asset.json";
-import carolPoltrona from "@/assets/carol-poltrona.jpeg.asset.json";
 import logoAsset from "@/assets/casa-ori-logo.jpg.asset.json";
 
 /*
@@ -307,10 +306,10 @@ function QuemConduz() {
           {/* foto quase quadrada, cantos arredondados; recorte centrado na Carol */}
           <div className="mx-auto max-w-[500px] overflow-hidden rounded-[32px]">
             <img
-              src={carolPoltrona.url}
-              alt="Carol Milhomens sentada em uma poltrona na Casa Orí"
+              src="/img/carol-quem-conduz.webp"
+              alt="Carol Milhomens"
               loading="lazy"
-              className="aspect-[1/1] w-full object-cover object-[50%_62%] [filter:saturate(.88)_contrast(1.03)] md:aspect-[5/6]"
+              className="aspect-[1/1] w-full object-cover object-[50%_76%] md:aspect-[5/6]"
             />
           </div>
         </Reveal>
