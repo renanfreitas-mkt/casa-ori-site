@@ -1,4 +1,4 @@
-import { useEffect, useState, type ReactNode } from "react";
+import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { Reveal } from "../Reveal";
@@ -27,6 +27,23 @@ export const C = {
   nevoa: "#F0F1EB",
   salvia: "#A9B59B",
 };
+
+/* ---------------- tema da página ----------------
+ * "pf" (padrão): verdes claros e cantos arredondados.
+ * "pj" (Para empresas): verdes escuros e cantos mais retos — mais sóbrio, corporativo. */
+export type Tema = "pf" | "pj";
+const TemaCtx = createContext<Tema>("pf");
+export const useTema = () => useContext(TemaCtx);
+/** raio dos cantos conforme o tema: cartão, foto e botão */
+export function useCantos() {
+  const pj = useTema() === "pj";
+  return {
+    pj,
+    cartao: pj ? "rounded-[6px]" : "rounded-[28px]",
+    foto: pj ? "rounded-[6px]" : "rounded-[28px]",
+    botao: pj ? "rounded-[4px]" : "rounded-full",
+  };
+}
 
 export const fonte = "font-['Inter_Tight','Roboto',sans-serif]";
 export const serifa = "font-['Instrument_Serif',serif] font-normal italic";
@@ -70,7 +87,8 @@ export function Pilula({
     contorno: "border border-[#263120]/35 text-[#263120] hover:bg-[#263120] hover:text-[#F0F1EB]",
     contornoClaro: "border border-[#F0F1EB]/40 text-[#F0F1EB] hover:bg-[#F0F1EB] hover:text-[#263120]",
   } as const;
-  const cls = `group inline-flex min-h-11 items-center gap-2.5 rounded-full px-5 py-2.5 text-left text-[13.5px] leading-snug transition-colors duration-300 ${estilos[tom]}`;
+  const { botao } = useCantos();
+  const cls = `group inline-flex min-h-11 items-center gap-2.5 ${botao} px-5 py-2.5 text-left text-[13.5px] leading-snug transition-colors duration-300 ${estilos[tom]}`;
   const conteudo = (
     <>
       {children}
@@ -249,6 +267,7 @@ export function IconeWhatsapp({ className = "" }: { className?: string }) {
 export type Passo = "ambos" | "cpf" | "cnpj";
 
 export function CartoesProximoPasso({ so = "ambos" }: { so?: Passo }) {
+  const { pj } = useCantos();
   const blocos = [
     ...(so !== "cnpj" ? [{ ...CTA_FINAL.cpf, href: QUIZ_CPF_URL }] : []),
     ...(so !== "cpf" ? [{ ...CTA_FINAL.cnpj, href: QUIZ_CNPJ_URL }] : []),
@@ -257,7 +276,7 @@ export function CartoesProximoPasso({ so = "ambos" }: { so?: Passo }) {
     <div className={`mx-auto grid w-full gap-4 text-left md:gap-5 ${blocos.length > 1 ? "max-w-[920px] md:grid-cols-2" : "max-w-[560px]"}`}>
       {blocos.map((c, i) => (
         <Reveal key={c.titulo} delay={120 + i * 100} className="h-full">
-          <div className="flex h-full flex-col rounded-[24px] border border-white/60 bg-white/80 p-6 shadow-[0_20px_50px_-30px_rgba(27,42,30,.6)] backdrop-blur-md md:p-7">
+          <div className={`flex h-full flex-col ${pj ? "rounded-[6px]" : "rounded-[24px]"} border border-white/60 bg-white/80 p-6 shadow-[0_20px_50px_-30px_rgba(27,42,30,.6)] backdrop-blur-md md:p-7`}>
             <span className="text-[12px] font-medium uppercase tracking-[0.16em] text-[#26533C]/70">{c.titulo}</span>
             <p className="mt-3 flex-1 text-[15px] font-light leading-relaxed text-[#1B2A1E]/85">{c.texto}</p>
             <div className="mt-5">
@@ -273,13 +292,14 @@ export function CartoesProximoPasso({ so = "ambos" }: { so?: Passo }) {
 /** "O próximo passo" sobre a foto do abismo + rodapé. passo={false}: só o rodapé
  *  (para as páginas que já terminam com um fechamento próprio). */
 export function FechamentoAbismo({ passo = "ambos" }: { passo?: Passo | false }) {
+  const { pj } = useCantos();
   return (
     <footer id="contato" className="text-[#F0F1EB]">
       {/* O próximo passo: a mesma foto do topo, mais aberta, sob um véu verde transparente */}
       {passo && (
       <section className="relative isolate overflow-hidden px-5 py-28 sm:px-10 md:py-36 lg:px-14">
         <AbismoVento src="/img/abismo.webp" focus={[0.6, 0.3]} className="absolute inset-0 -z-20" />
-        <div aria-hidden className="absolute inset-0 -z-10 bg-[#26533C]/30" />
+        <div aria-hidden className={`absolute inset-0 -z-10 ${pj ? "bg-[#0B2219]/55" : "bg-[#26533C]/30"}`} />
         <div aria-hidden className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(27,42,30,.45)_0%,rgba(27,42,30,0)_30%,rgba(27,42,30,0)_70%,#1B2A1E_100%)]" />
         <div className="mx-auto max-w-[1300px] text-center">
           <Reveal>
@@ -354,13 +374,15 @@ export function FechamentoAbismo({ passo = "ambos" }: { passo?: Passo | false })
 /* ---------------- moldura das páginas ---------------- */
 
 /** Menu + conteúdo + fechamento, igual à home. */
-export function LayoutAbismo({ children, passo = "ambos" }: { children: ReactNode; passo?: Passo | false }) {
+export function LayoutAbismo({ children, passo = "ambos", tema = "pf" }: { children: ReactNode; passo?: Passo | false; tema?: Tema }) {
   return (
-    <div className={`min-h-screen overflow-x-hidden bg-white ${fonte} antialiased`} style={{ color: C.oliva }}>
+    <TemaCtx.Provider value={tema}>
+    <div className={`min-h-screen overflow-x-hidden ${tema === "pj" ? "bg-[#0B2219]" : "bg-white"} ${fonte} antialiased`} style={{ color: C.oliva }}>
       <MenuAbismo />
       <main>{children}</main>
       <FechamentoAbismo passo={passo} />
     </div>
+    </TemaCtx.Provider>
   );
 }
 
@@ -395,14 +417,15 @@ export function HeroPagina({
   /** conteúdo largo abaixo do texto (ex.: cartões de vidro) */
   extra?: ReactNode;
 }) {
+  const { pj, foto } = useCantos();
   return (
-    <section className="relative isolate flex min-h-[60svh] flex-col justify-center overflow-hidden rounded-b-[2.5rem] bg-[#1B2A1E] px-5 pb-16 pt-32 text-[#F0F1EB] sm:px-10 md:rounded-b-[4rem] md:pb-24 md:pt-40 lg:px-14">
+    <section className={`relative isolate flex min-h-[60svh] flex-col justify-center overflow-hidden ${pj ? "rounded-b-[10px]" : "rounded-b-[2.5rem] md:rounded-b-[4rem]"} bg-[#1B2A1E] px-5 pb-16 pt-32 text-[#F0F1EB] sm:px-10 md:pb-24 md:pt-40 lg:px-14`}>
       {fundo ?? <FundoAbismo focus={focus} espelhar={espelhar} />}
       <div className={`mx-auto grid w-full max-w-[1300px] items-center gap-12 ${image ? "md:grid-cols-[1.15fr_0.85fr] md:gap-16" : ""}`}>
         <div>{children}</div>
         {image && (
           <Reveal delay={160}>
-            <div className="mx-auto max-w-[460px] overflow-hidden rounded-[32px] shadow-[0_30px_80px_-40px_rgba(0,0,0,.7)]">
+            <div className={`mx-auto max-w-[460px] overflow-hidden ${pj ? foto : "rounded-[32px]"} shadow-[0_30px_80px_-40px_rgba(0,0,0,.7)]`}>
               <img src={image} alt={alt ?? ""} className="aspect-[4/5] w-full object-cover [filter:saturate(.9)_contrast(1.03)]" />
             </div>
           </Reveal>
@@ -443,8 +466,8 @@ export function FrasesRotativas({ frases }: { frases: readonly string[] }) {
     ir(passo);
     setTick((t) => t + 1);
   };
-  const btn =
-    "grid h-10 w-10 place-items-center rounded-full border border-[#F0F1EB]/35 text-[#F0F1EB] transition-colors hover:bg-[#F0F1EB] hover:text-[#263120]";
+  const { botao } = useCantos();
+  const btn = `grid h-10 w-10 place-items-center ${botao} border border-[#F0F1EB]/35 text-[#F0F1EB] transition-colors hover:bg-[#F0F1EB] hover:text-[#263120]`;
   return (
     <div>
       <h1
@@ -534,12 +557,13 @@ export function VualaAbismo({
   alt?: string;
   fotoDireita?: boolean;
 }) {
+  const { pj, foto } = useCantos();
   return (
-    <section className="bg-[#34604A] px-5 py-20 text-[#F0F1EB] sm:px-10 md:py-28 lg:px-14">
+    <section className={`${pj ? "bg-[#0B2219]" : "bg-[#34604A]"} px-5 py-20 text-[#F0F1EB] sm:px-10 md:py-28 lg:px-14`}>
       <div className="mx-auto grid max-w-[1300px] items-center gap-10 md:grid-cols-[0.85fr_1.15fr] md:gap-16">
         {image && (
           <Reveal className={fotoDireita ? "md:order-2" : ""}>
-            <div className="overflow-hidden rounded-[28px]">
+            <div className={`overflow-hidden ${foto}`}>
               <img src={image} alt={alt ?? ""} loading="lazy" className="aspect-[4/5] max-h-[620px] w-full object-cover object-[center_30%] [filter:saturate(.85)_contrast(1.03)]" />
             </div>
           </Reveal>
@@ -557,7 +581,7 @@ export function VualaAbismo({
               ))}
             </div>
             <figcaption className="mt-8 flex items-center gap-3">
-              <span aria-hidden="true" className={`${serifa} grid h-11 w-11 shrink-0 place-items-center rounded-full border border-[#F0F1EB]/30 text-[20px] not-italic`}>
+              <span aria-hidden="true" className={`${serifa} grid h-11 w-11 shrink-0 place-items-center ${pj ? "rounded-[4px]" : "rounded-full"} border border-[#F0F1EB]/30 text-[20px] not-italic`}>
                 {depoimento.inicial}
               </span>
               <span className="flex flex-col">

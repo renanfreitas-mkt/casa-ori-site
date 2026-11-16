@@ -11,6 +11,7 @@ import {
   Pilula,
   PodcastInstagram,
   SecaoClara,
+  useCantos,
   Titulo,
   TituloPagina,
   VualaAbismo,
@@ -121,22 +122,38 @@ function AberturaAbismo({
   );
 }
 
+/** Seção da página: clara (PF) ou em verde escuro (PJ). */
+function Secao({ children, nevoa = false }: { children: ReactNode; nevoa?: boolean }) {
+  const { pj } = useCantos();
+  if (!pj) return <SecaoClara fundo={nevoa ? "nevoa" : "branco"}>{children}</SecaoClara>;
+  return (
+    <section className={`${nevoa ? "bg-[#163A29]" : "bg-[#0F2E21]"} px-5 py-20 text-[#F0F1EB] sm:px-10 md:py-28 lg:px-14`}>
+      <div className="mx-auto max-w-[1300px]">{children}</div>
+    </section>
+  );
+}
+
 /** Dores em cartões (duas colunas). */
 function DoresAbismo({ kicker, titulo, itens, escuro = false }: { kicker: string; titulo: string; itens: readonly string[]; escuro?: boolean }) {
+  const { pj, cartao } = useCantos();
   return (
-    <SecaoClara>
+    <Secao>
       <Reveal>
-        <Kicker>{kicker}</Kicker>
+        <Kicker claro={pj}>{kicker}</Kicker>
       </Reveal>
       <Reveal delay={80}>
-        <Titulo className="mt-6 max-w-[18ch]">{titulo}</Titulo>
+        <Titulo claro={pj} className="mt-6 max-w-[18ch]">{titulo}</Titulo>
       </Reveal>
       <ul className="mt-12 grid gap-4 md:mt-16 md:grid-cols-2">
         {itens.map((d, i) => (
           <Reveal key={d} delay={i * 50} as="li">
             <div
-              className={`h-full rounded-[24px] px-7 py-6 text-[15.5px] font-light leading-relaxed ${
-                escuro ? "bg-[#4F7A5C] text-white/90" : "border border-[#26533C]/12 bg-[#F3F6F1] text-[#263120]/80"
+              className={`h-full ${pj ? cartao : "rounded-[24px]"} px-7 py-6 text-[15.5px] font-light leading-relaxed ${
+                pj
+                  ? "border border-[#F0F1EB]/12 bg-[#1D4A34] text-white/90"
+                  : escuro
+                    ? "bg-[#4F7A5C] text-white/90"
+                    : "border border-[#26533C]/12 bg-[#F3F6F1] text-[#263120]/80"
               }`}
             >
               {d}
@@ -144,28 +161,29 @@ function DoresAbismo({ kicker, titulo, itens, escuro = false }: { kicker: string
           </Reveal>
         ))}
       </ul>
-    </SecaoClara>
+    </Secao>
   );
 }
 
 /** Um serviço completo: título e formato à esquerda; âncora e parágrafos à direita. */
 function ServicoAbismo({ s, i }: { s: Servico; i: number }) {
+  const { pj } = useCantos();
   return (
     <Reveal delay={i * 60}>
-      <article className="grid gap-6 border-t border-[#263120]/12 py-10 md:grid-cols-[minmax(0,360px)_1fr] md:gap-12 md:py-12">
+      <article className={`grid gap-6 border-t ${pj ? "border-[#F0F1EB]/15" : "border-[#263120]/12"} py-10 md:grid-cols-[minmax(0,360px)_1fr] md:gap-12 md:py-12`}>
         <div>
-          <h3 className={`${fonte} text-[26px] font-normal leading-snug tracking-[-0.02em] text-[#263120] md:text-[30px]`}>{s.titulo}</h3>
-          <p className="mt-4 text-[13px] leading-relaxed text-[#263120]/55">{s.formato}</p>
+          <h3 className={`${fonte} text-[26px] font-normal leading-snug tracking-[-0.02em] ${pj ? "text-[#F0F1EB]" : "text-[#263120]"} md:text-[30px]`}>{s.titulo}</h3>
+          <p className={`mt-4 text-[13px] leading-relaxed ${pj ? "text-[#F0F1EB]/55" : "text-[#263120]/55"}`}>{s.formato}</p>
         </div>
         <div>
-          <p className={`${serifa} text-[21px] leading-relaxed text-[#26533C] md:text-[24px]`}>{s.ancora}</p>
+          <p className={`${serifa} text-[21px] leading-relaxed ${pj ? "text-[#C9DCC4]" : "text-[#26533C]"} md:text-[24px]`}>{s.ancora}</p>
           {s.paragrafos.map((p) => (
-            <p key={p} className="mt-5 text-[15px] font-light leading-relaxed text-[#263120]/72 md:text-[16px]">
+            <p key={p} className={`mt-5 text-[15px] font-light leading-relaxed ${pj ? "text-[#F0F1EB]/75" : "text-[#263120]/72"} md:text-[16px]`}>
               {p}
             </p>
           ))}
           <div className="mt-7">
-            <Pilula href={WHATSAPP_URL} tom="contorno">
+            <Pilula href={WHATSAPP_URL} tom={pj ? "contornoClaro" : "contorno"}>
               Quero saber mais
             </Pilula>
           </div>
@@ -176,20 +194,21 @@ function ServicoAbismo({ s, i }: { s: Servico; i: number }) {
 }
 
 function ListaServicos({ kicker, titulo, itens }: { kicker: string; titulo: string; itens: readonly Servico[] }) {
+  const { pj } = useCantos();
   return (
-    <SecaoClara fundo="nevoa">
+    <Secao nevoa>
       <Reveal>
-        <Kicker>{kicker}</Kicker>
+        <Kicker claro={pj}>{kicker}</Kicker>
       </Reveal>
       <Reveal delay={80}>
-        <Titulo className="mt-6 max-w-[680px]">{titulo}</Titulo>
+        <Titulo claro={pj} className="mt-6 max-w-[680px]">{titulo}</Titulo>
       </Reveal>
       <div className="mt-12">
         {itens.map((s, i) => (
           <ServicoAbismo key={s.titulo} s={s} i={i} />
         ))}
       </div>
-    </SecaoClara>
+    </Secao>
   );
 }
 

@@ -24,7 +24,7 @@ export const Route = createFileRoute("/para-empresas")({
 
 function ParaEmpresasPage() {
   return (
-    <LayoutAbismo passo="cnpj">
+    <LayoutAbismo passo="cnpj" tema="pj">
       <ParaEmpresasAbismo />
     </LayoutAbismo>
   );
