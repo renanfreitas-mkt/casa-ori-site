@@ -299,7 +299,7 @@ export function FechamentoAbismo({ passo = "ambos" }: { passo?: Passo | false })
       {passo && (
       <section className="relative isolate overflow-hidden px-5 py-28 sm:px-10 md:py-36 lg:px-14">
         <AbismoVento src="/img/abismo.webp" focus={[0.6, 0.3]} className="absolute inset-0 -z-20" />
-        <div aria-hidden className={`absolute inset-0 -z-10 ${pj ? "bg-[#0B2219]/55" : "bg-[#26533C]/30"}`} />
+        <div aria-hidden className={`absolute inset-0 -z-10 ${pj ? "bg-[#1B3F2D]/40" : "bg-[#26533C]/30"}`} />
         <div aria-hidden className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(27,42,30,.45)_0%,rgba(27,42,30,0)_30%,rgba(27,42,30,0)_70%,#1B2A1E_100%)]" />
         <div className="mx-auto max-w-[1300px] text-center">
           <Reveal>
@@ -377,7 +377,7 @@ export function FechamentoAbismo({ passo = "ambos" }: { passo?: Passo | false })
 export function LayoutAbismo({ children, passo = "ambos", tema = "pf" }: { children: ReactNode; passo?: Passo | false; tema?: Tema }) {
   return (
     <TemaCtx.Provider value={tema}>
-    <div className={`min-h-screen overflow-x-hidden ${tema === "pj" ? "bg-[#0B2219]" : "bg-white"} ${fonte} antialiased`} style={{ color: C.oliva }}>
+    <div className={`min-h-screen overflow-x-hidden bg-white ${fonte} antialiased`} style={{ color: C.oliva }}>
       <MenuAbismo />
       <main>{children}</main>
       <FechamentoAbismo passo={passo} />
@@ -559,7 +559,7 @@ export function VualaAbismo({
 }) {
   const { pj, foto } = useCantos();
   return (
-    <section className={`${pj ? "bg-[#0B2219]" : "bg-[#34604A]"} px-5 py-20 text-[#F0F1EB] sm:px-10 md:py-28 lg:px-14`}>
+    <section className={`${pj ? "bg-[#24503A]" : "bg-[#34604A]"} px-5 py-20 text-[#F0F1EB] sm:px-10 md:py-28 lg:px-14`}>
       <div className="mx-auto grid max-w-[1300px] items-center gap-10 md:grid-cols-[0.85fr_1.15fr] md:gap-16">
         {image && (
           <Reveal className={fotoDireita ? "md:order-2" : ""}>
