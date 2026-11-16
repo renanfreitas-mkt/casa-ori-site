@@ -1,4 +1,5 @@
 import { useState, type ReactNode } from "react";
+import { ShaderBackground } from "@/components/ui/sih";
 import { Reveal } from "../Reveal";
 import { QuizModal } from "../quiz/QuizFlow";
 import {
@@ -51,6 +52,10 @@ import logoAsset from "@/assets/casa-ori-logo.jpg.asset.json";
  * Só muda o layout.
  */
 
+// Animação de seda no topo: Para você num verde mais claro, Para empresas num verde mais escuro.
+const SEDA_PF = ["#163A29", "#3E7A58", "#8CC48E", "#E6F2D2"];
+const SEDA_PJ = ["#040E0A", "#0F2E21", "#26533C", "#5E8A68"];
+
 const lead = "text-[16px] font-light leading-relaxed md:text-[18px]";
 
 /* ---------------- peças das páginas ---------------- */
@@ -65,7 +70,7 @@ function AberturaAbismo({
   onCta,
   image,
   alt,
-  focus,
+  paleta,
 }: {
   kicker: string;
   frases: readonly string[];
@@ -75,11 +80,25 @@ function AberturaAbismo({
   onCta?: () => void;
   image: string;
   alt: string;
-  focus?: [number, number];
+  /** cores da animação de seda ao fundo (do mais escuro ao mais claro) */
+  paleta: string[];
 }) {
   return (
-    // foto espelhada como na home: a pessoa fica à direita, atrás da foto da página, longe do texto
-    <HeroPagina image={image} alt={alt} focus={focus ?? [0.74, 0.5]} espelhar>
+    <HeroPagina
+      image={image}
+      alt={alt}
+      fundo={
+        <>
+          <ShaderBackground paleta={paleta} className="absolute inset-0 -z-20" />
+          {/* véu à esquerda para o texto branco ler bem sobre a seda */}
+          <div aria-hidden className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(10,24,16,.55)_0%,rgba(10,24,16,.25)_45%,rgba(10,24,16,0)_75%)]" />
+          {/* no celular o texto ocupa a largura toda: véu uniforme um pouco mais forte */}
+          <div aria-hidden className="absolute inset-0 -z-10 bg-[rgba(10,24,16,.38)] md:hidden" />
+          {/* faixa escura discreta no alto, para o menu ler bem quando a seda clareia */}
+          <div aria-hidden className="absolute inset-x-0 top-0 -z-10 h-40 bg-[linear-gradient(180deg,rgba(10,24,16,.45)_0%,rgba(10,24,16,0)_100%)]" />
+        </>
+      }
+    >
       <Reveal>
         <Kicker claro>{kicker}</Kicker>
       </Reveal>
@@ -201,6 +220,7 @@ export function ParaVoceAbismo() {
         onCta={() => setQuizAberto(true)}
         image={cartasConstelacao.url}
         alt="Cartas de constelação familiar sobre a mesa durante um atendimento da Casa Orí"
+        paleta={SEDA_PF}
       />
       <DoresAbismo kicker="Talvez você reconheça" titulo={V2_COPY.paraVoce.doresTitulo} itens={DORES_CPF} />
       <ListaServicos kicker="Para você" titulo="Processos no seu ritmo" itens={SERV_CPF} />
@@ -223,6 +243,7 @@ export function ParaEmpresasAbismo() {
         ctaHref={QUIZ_CNPJ_URL}
         image={carolConduzindo.url}
         alt="Carol Milhomens conduzindo um encontro com uma equipe"
+        paleta={SEDA_PJ}
       />
       <DoresAbismo kicker="Talvez a sua empresa reconheça" titulo={V2_COPY.paraEmpresas.doresTitulo} itens={DORES_CNPJ} escuro />
       <VualaAbismo depoimento={DEPOIMENTOS_VUALA[1]} image={fotoEmpresa1.url} alt="Carol Milhomens em palestra sobre o ciclo da comunicação" />

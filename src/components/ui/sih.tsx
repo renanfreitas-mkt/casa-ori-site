@@ -288,24 +288,24 @@ const hex = (h: string): [number, number, number] => [
   parseInt(h.slice(5, 7), 16) / 255,
 ]
 
-// Paleta Casa Orí (do mais escuro ao mais claro). Para trocar, edite só aqui.
+// Paleta padrão Casa Orí (do mais escuro ao mais claro). Cada uso pode passar a sua com a prop `paleta`.
 const PALETTE = ["#173A2A", "#1F4A35", "#26533C", "#2E5C44", "#5F7D62"]
 
 const UNIFORMS = {
   colors: [...PALETTE, ...Array(8 - PALETTE.length).fill(PALETTE[PALETTE.length - 1])].map(hex),
   colorCount: PALETTE.length,
   scale: 1.280,
-  intensity: 0.380,
+  intensity: 0.470,
   paramA: 0.500,
   warp: 0.000,
   detail: 2.400,
-  contrast: 0.900,
+  contrast: 0.978,
   brightness: 0.000,
-  saturation: 0.900,
+  saturation: 1.000,
   hue: 0.0000,
-  vignette: 0.200,
+  vignette: 0.000,
   blur: 0.0000,
-  grain: 0.025,
+  grain: 0.014,
   seed: 707.0,
   rotate: 0.0000,
   offsetX: 0.000,
@@ -315,13 +315,14 @@ const UNIFORMS = {
   cursorEffect: 2.0,
   cursorStrength: 0.650,
   cursorRadius: 0.460,
-  oklab: 1.0,
-  timeScale: 0.140,
+  oklab: 0.0,
+  timeScale: 0.290,
 }
 
 const pendingContextReleases = new WeakMap<HTMLCanvasElement, number>()
 
-export function ShaderBackground({ className }: { className?: string }) {
+/** paleta: 2 a 8 cores em "#RRGGBB", do mais escuro ao mais claro (padrão: PALETTE). */
+export function ShaderBackground({ className, paleta = PALETTE }: { className?: string; paleta?: string[] }) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
   useEffect(() => {
@@ -370,7 +371,9 @@ export function ShaderBackground({ className }: { className?: string }) {
       space: gl.getUniformLocation(program, "u_space"),
       cursor: gl.getUniformLocation(program, "u_cursor"),
     }
-    gl.uniform3fv(uni.colors, new Float32Array(UNIFORMS.colors.flat()))
+    const cores = paleta.slice(0, 8)
+    const colorCount = cores.length
+    gl.uniform3fv(uni.colors, new Float32Array([...cores, ...Array(8 - cores.length).fill(cores[cores.length - 1])].map(hex).flat()))
     gl.uniform4f(
       uni.shape,
       UNIFORMS.scale,
@@ -542,7 +545,7 @@ export function ShaderBackground({ className }: { className?: string }) {
         width,
         height,
         ((now - start) / 1000) * UNIFORMS.timeScale + 8.0,
-        UNIFORMS.colorCount,
+        colorCount,
       )
       gl.uniform4f(
         uni.space,
@@ -595,7 +598,8 @@ export function ShaderBackground({ className }: { className?: string }) {
       }, 0)
       pendingContextReleases.set(canvas, releaseTimer)
     }
-  }, [])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [paleta.join(",")])
 
   return (
     <canvas ref={canvasRef} className={className} style={{ display: "block", width: "100%", height: "100%" }} />

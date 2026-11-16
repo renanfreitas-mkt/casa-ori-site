@@ -383,8 +383,11 @@ export function HeroPagina({
   focus = [0.5, 0.5],
   espelhar = false,
   extra,
+  fundo,
 }: {
   children: ReactNode;
+  /** fundo próprio no lugar da foto do abismo (ex.: a animação de seda nas páginas Para você / Para empresas) */
+  fundo?: ReactNode;
   image?: string;
   alt?: string;
   focus?: [number, number];
@@ -394,7 +397,7 @@ export function HeroPagina({
 }) {
   return (
     <section className="relative isolate flex min-h-[60svh] flex-col justify-center overflow-hidden rounded-b-[2.5rem] bg-[#1B2A1E] px-5 pb-16 pt-32 text-[#F0F1EB] sm:px-10 md:rounded-b-[4rem] md:pb-24 md:pt-40 lg:px-14">
-      <FundoAbismo focus={focus} espelhar={espelhar} />
+      {fundo ?? <FundoAbismo focus={focus} espelhar={espelhar} />}
       <div className={`mx-auto grid w-full max-w-[1300px] items-center gap-12 ${image ? "md:grid-cols-[1.15fr_0.85fr] md:gap-16" : ""}`}>
         <div>{children}</div>
         {image && (
