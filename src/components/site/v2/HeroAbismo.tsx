@@ -1,5 +1,5 @@
 import { AbismoVento } from "@/components/ui/abismo-vento";
-import { EIXOS_HOME, V2_COPY } from "@/components/site/content";
+import { V2_COPY } from "@/components/site/content";
 import { HeroCtas } from "./HeroCtas";
 
 // Hero "Abismo": a foto do cânion em tela cheia, com vento leve no mato (src/components/ui/abismo-vento.tsx).
@@ -64,21 +64,8 @@ export function HeroAbismo({
           </h1>
         </div>
 
-        {/* base: CTAs sempre no canto inferior esquerdo (em qualquer tela); Sistema ORI à direita no desktop */}
-        <div className="flex flex-col gap-8 lg:flex-row-reverse lg:items-end lg:justify-between">
-          <ul className="hidden space-y-4 lg:block">
-            {EIXOS_HOME.map((e, i) => (
-              <li key={e.nome} className="ori-up flex max-w-[20rem] items-start gap-4" style={{ animationDelay: `${0.5 + i * 0.1}s` }}>
-                <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full border border-[#F0F1EB]/50 text-[11px] font-medium text-[#F0F1EB]">
-                  {e.letra}
-                </span>
-                <p className="text-[13.5px] font-light leading-snug text-[#F0F1EB]/80">
-                  <span className="text-[#F0F1EB]">{e.nome}</span> {e.titulo}
-                </p>
-              </li>
-            ))}
-          </ul>
-
+        {/* base: CTAs sempre no canto inferior esquerdo (em qualquer tela). A descrição do método saiu da hero (pedido da Carol). */}
+        <div className="flex flex-col gap-8">
           <div className="ori-up self-start" style={{ animationDelay: ".8s" }}>
             <HeroCtas
               cpfHref={cpfHref}

@@ -532,3 +532,116 @@ export const V2_COPY = {
       "Se você já sabe o que precisa e quer agendar direto, é só chamar no WhatsApp. Online ou presencial, conforme sua necessidade.",
   },
 } as const;
+
+/* =====================================================================
+ * HOME — textos da revisão da Carol (correção do site, nov/2026).
+ * Valem só para a home; as outras páginas continuam com os textos acima.
+ * ===================================================================== */
+export const HOME = {
+  pratica: {
+    kicker: "Talvez você reconheça esse abismo",
+    titulo: "Como costuma acontecer na prática?",
+    cpf: [
+      "Acha que está sendo claro, mas o outro entende tudo ao contrário.",
+      "Repete a mesma coisa mil vezes, e nada muda.",
+      "Tenta explicar o que sente e ouve que está exagerando.",
+      "Acha que foi educado, mas o outro recebe como ataque.",
+      "Não entende como o outro não enxerga o que, para você, é tão óbvio.",
+      "Cansa de explicar, deixa pra lá, mas continua se irritando porque nada muda.",
+      "Diz sim quando queria dizer não, e o outro entende que está tudo bem.",
+    ],
+    cnpj: [
+      "Comunica a estratégia, mas cada área executa uma versão diferente dela.",
+      "Acha que é claro ao delegar, mas a entrega chega diferente do esperado.",
+      "Deixa de dizer o que parece óbvio, e essa falha de comunicação vira retrabalho.",
+      "Sai da reunião achando que todos estão de acordo, mas o combinado não sai do papel.",
+      "Só fica sabendo dos problemas quando já viraram prejuízo.",
+      "Acha que dá feedbacks assertivos, mas a equipe entende como cobrança.",
+      "Explica o valor da proposta, mas o cliente só enxerga o preço.",
+    ],
+  },
+  transicao: "O abismo não se resolve com esforço. Resolve-se com método.",
+  metodo: {
+    titulo: "Método Autoral",
+    lateral: ["Um método, três movimentos.", "O contexto muda. A travessia, não."],
+    eixos: [
+      {
+        letra: "O",
+        nome: "Observa",
+        pergunta: "O que existe nesse abismo?",
+        texto:
+          "Identificamos o que se perde entre o que você diz e o que o outro entende: os padrões que se repetem, o que você acredita estar comunicando e o que ainda não consegue enxergar do outro.",
+      },
+      {
+        letra: "R",
+        nome: "Reorganiza",
+        pergunta: "O que muda na forma como você se entende, fala e escuta?",
+        texto:
+          "A partir do que foi identificado, reorganizamos com você a forma como interpreta, reage e se posiciona diante do outro para que a comunicação entre vocês aconteça de fato.",
+      },
+      {
+        letra: "I",
+        nome: "Integra",
+        pergunta: "E como sustentar essa mudança no dia a dia?",
+        texto:
+          "A partir do que foi reorganizado, acompanhamos e adaptamos essas mudanças à sua rotina e ao seu ritmo, até que se sustentem na prática.",
+      },
+    ],
+  },
+  depoimentoLuana: {
+    texto:
+      "Carol tem uma sensibilidade anciã pra acolher, perceber e sentir o outro, além de possuir uma habilidade única quando o assunto é Comunicação. Conduz conversas desafiadoras com uma leveza que só ela tem e ensina apenas pela presença e exemplo.",
+    autor: "Luana F.",
+    inicial: "L",
+  },
+  quemConduz: [
+    "Antes de se tornar o meu trabalho, esse abismo também fez parte da minha vida.",
+    "Durante muito tempo, me esforcei para resolver o que se perdia entre mim e o outro. Mas foi vivendo isso que entendi que só esforço não bastava. Faltava entender o que estava acontecendo nesse abismo e um jeito de atravessá-lo.",
+    "Essa busca virou a minha forma de trabalhar e deu origem ao Sistema ORI, que reúne a minha vivência, os estudos e a prática profissional.",
+    "Desde 2019, conduzo pessoas e empresas nessa travessia, entendendo o que se perde entre elas e o outro para construir novas formas de se comunicar.",
+  ],
+  servicos: {
+    lateral: "Do atendimento individual ao treinamento dentro das empresas, cada situação pede um caminho diferente.",
+    cpf: [
+      { titulo: "Terapia Sistêmica", texto: "Para organizar o que parece uma confusão só." },
+      { titulo: "Constelação Familiar", texto: "Para o que afeta a sua vida sem você saber." },
+      { titulo: "Vivência Guiada", texto: "Um momento para desacelerar e sentir." },
+    ],
+    cnpj: [
+      { titulo: "Palestras", texto: "Para abrir a conversa que a empresa ainda não teve." },
+      { titulo: "Encontro de Comunicação", texto: "Quando a comunicação falha, tudo falha junto." },
+      { titulo: "Encontro para Liderança", texto: "Você é a sua empresa, ou você tem uma empresa?" },
+      { titulo: "Liderança Aplicada", texto: "Não basta saber o que fazer, é preciso saber liderar as pessoas que fazem." },
+    ],
+  },
+  depoimentoBruna: {
+    texto:
+      "Carol tem o dom de perceber, sentir e agir com uma sensibilidade única. Ela acolhe sem julgamentos, escuta com presença e conduz cada atendimento com muita paciência, respeito e sabedoria. No final, a sensação é de que chegamos de um jeito e saímos completamente diferentes: mais leves, conscientes e alinhados com nós mesmos.",
+    autor: "Bruna C.",
+    inicial: "B",
+  },
+  conversa: {
+    titulo: "A conversa continua",
+    instagram: {
+      kicker: "Instagram",
+      titulo: "Reflexões",
+      texto: "Para enxergar o que passa despercebido na comunicação e nas relações.",
+      cta: "Seguir no Instagram",
+    },
+    podcast: {
+      kicker: "Podcast",
+      titulo: "No Meio do Caminho",
+      texto: "Conversas sobre comunicação, comportamento e relações.",
+      cta: "Ouvir no Spotify",
+    },
+  },
+  final: {
+    titulo: "Comece a travessia",
+    cpf: { titulo: "Para você", texto: "Já cansou de repetir a mesma coisa mil vezes, e nada mudar?", cta: "Quero resolver isso agora" },
+    cnpj: {
+      titulo: "Para sua empresa",
+      texto: "Já cansou de ficar sabendo dos problemas só depois que viraram prejuízo?",
+      cta: "Quero resolver isso na minha empresa",
+    },
+  },
+} as const;

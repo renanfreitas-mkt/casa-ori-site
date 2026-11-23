@@ -266,9 +266,11 @@ export function IconeWhatsapp({ className = "" }: { className?: string }) {
 
 export type Passo = "ambos" | "cpf" | "cnpj";
 
-export function CartoesProximoPasso({ so = "ambos" }: { so?: Passo }) {
+export type CartaoFinal = { titulo: string; texto: string; cta: string; href: string };
+
+export function CartoesProximoPasso({ so = "ambos", cartoes }: { so?: Passo; cartoes?: CartaoFinal[] }) {
   const { pj } = useCantos();
-  const blocos = [
+  const blocos = cartoes ?? [
     ...(so !== "cnpj" ? [{ ...CTA_FINAL.cpf, href: QUIZ_CPF_URL }] : []),
     ...(so !== "cpf" ? [{ ...CTA_FINAL.cnpj, href: QUIZ_CNPJ_URL }] : []),
   ];
@@ -291,24 +293,40 @@ export function CartoesProximoPasso({ so = "ambos" }: { so?: Passo }) {
 
 /** "O próximo passo" sobre a foto do abismo + rodapé. passo={false}: só o rodapé
  *  (para as páginas que já terminam com um fechamento próprio). */
-export function FechamentoAbismo({ passo = "ambos" }: { passo?: Passo | false }) {
+export function FechamentoAbismo({
+  passo = "ambos",
+  titulo,
+  cartoes,
+  imagem = "/img/abismo.webp",
+}: {
+  passo?: Passo | false;
+  /** título próprio no lugar de "O próximo passo" (a home usa "Comece a travessia") */
+  titulo?: ReactNode;
+  cartoes?: CartaoFinal[];
+  /** foto de fundo (a home usa a versão sem a pessoa) */
+  imagem?: string;
+}) {
   const { pj } = useCantos();
   return (
     <footer id="contato" className="text-[#F0F1EB]">
       {/* O próximo passo: a mesma foto do topo, mais aberta, sob um véu verde transparente */}
       {passo && (
       <section className="relative isolate overflow-hidden px-5 py-28 sm:px-10 md:py-36 lg:px-14">
-        <AbismoVento src="/img/abismo.webp" focus={[0.6, 0.3]} className="absolute inset-0 -z-20" />
+        <AbismoVento src={imagem} focus={[0.6, 0.3]} className="absolute inset-0 -z-20" />
         <div aria-hidden className={`absolute inset-0 -z-10 ${pj ? "bg-[#1B3F2D]/40" : "bg-[#26533C]/30"}`} />
         <div aria-hidden className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(27,42,30,.45)_0%,rgba(27,42,30,0)_30%,rgba(27,42,30,0)_70%,#1B2A1E_100%)]" />
         <div className="mx-auto max-w-[1300px] text-center">
           <Reveal>
             <h2 className={`${fonte} text-[clamp(2.4rem,6vw,4.6rem)] font-light leading-[1.02] tracking-[-0.04em]`}>
-              O próximo <em className={serifa}>passo</em>
+              {titulo ?? (
+                <>
+                  O próximo <em className={serifa}>passo</em>
+                </>
+              )}
             </h2>
           </Reveal>
           <div className="mt-12 md:mt-14">
-            <CartoesProximoPasso so={passo} />
+            <CartoesProximoPasso so={passo} cartoes={cartoes} />
           </div>
         </div>
       </section>
