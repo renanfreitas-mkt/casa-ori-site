@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ParaVoceAbismo } from "@/components/site/v2/PaginasAbismo";
-import { LayoutAbismo } from "@/components/site/v2/abismo-ui";
+import { LayoutAbismo, serifa } from "@/components/site/v2/abismo-ui";
+import { PAGINAS, WHATSAPP_URL } from "@/components/site/content";
 
 const title = "Para você — Casa Orí";
 const description =
@@ -24,7 +25,17 @@ export const Route = createFileRoute("/para-voce")({
 
 function ParaVocePage() {
   return (
-    <LayoutAbismo passo="cpf">
+    <LayoutAbismo passo="cpf"
+      fechamento={{
+        imagem: "/img/abismo-sem-homem.webp",
+        titulo: (
+          <>
+            Comece a <em className={serifa}>travessia</em>
+          </>
+        ),
+        cartoes: [{ ...PAGINAS.pf.final, href: WHATSAPP_URL }],
+      }}
+    >
       <ParaVoceAbismo />
     </LayoutAbismo>
   );

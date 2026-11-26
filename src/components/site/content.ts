@@ -347,7 +347,7 @@ export const DEPOIMENTOS_VUALA = [
   {
     paragrafos: [
       "A imersão foi ótima! Deu para aprender bastante de um jeito leve e dinâmico, e achei muito legal como tudo foi pensado para nossa realidade e nossas necessidades. Saímos com aprendizados que realmente fazem sentido para o nosso dia a dia e que podemos colocar em prática, tanto na comunicação entre a equipe quanto com os clientes.",
-      "Só tenho elogios!! Foi uma experiência muito boa e vou adorar se tiver mais vezes ❤️",
+      "Só tenho elogios!! Foi uma experiência muito boa e vou adorar se tiver mais vezes.",
     ],
     autor: "Kelly",
     contexto: "da equipe Vualá",
@@ -645,3 +645,95 @@ export const HOME = {
     },
   },
 } as const;
+/* =====================================================================
+ * PÁGINAS "PARA VOCÊ" E "PARA EMPRESAS" — revisão da Carol (nov/2026).
+ * Serviços e depoimentos enviados por ela; topos e dores dos finais aprovados pelo Renan.
+ * ===================================================================== */
+export type ServicoNovo = { titulo: string; formato: string; ancora: string; texto: string };
+
+export const PAGINAS = {
+  pf: {
+    lead: "Entre o que você diz e o que o outro entende, algo se perde. A Casa Orí te ajuda a enxergar o que existe nesse abismo e a encontrar outro jeito de se comunicar.",
+    servicosCta: "Quero saber mais",
+    servicos: [
+      {
+        titulo: "Terapia Sistêmica",
+        formato: "Acompanhamento contínuo · Presencial ou online · Sessões semanais ou quinzenais · 1 hora",
+        ancora: "Para organizar o que parece uma confusão só.",
+        texto:
+          "Em um processo contínuo, você traz tudo o que está pesando, como uma relação que desgastou, uma decisão que não consegue tomar, o excesso de autocobrança, a sensação de não dar mais conta e de não ver saída. Ao longo das sessões, identificamos as raízes de cada uma dessas situações e você passa a lidar com elas de outro jeito. As mudanças são colocadas em prática na sua rotina, entre uma sessão e outra, e ajustadas conforme as dificuldades aparecem.",
+      },
+      {
+        titulo: "Constelação Familiar",
+        formato: "Atendimento pontual · Presencial ou online · Até 2h · Tema específico",
+        ancora: "Para o que afeta a sua vida sem você saber.",
+        texto:
+          "Em uma sessão pontual, você traz uma situação específica que até hoje não conseguiu mudar, como um sintoma no corpo que sempre volta, um trabalho que te faz duvidar da sua capacidade, relacionamentos que terminam sempre do mesmo jeito ou conflitos com a família que nunca se resolvem. Essa dificuldade de mudar pode ser explicada pela história da sua família, e é essa explicação que identificamos durante a sessão. A partir dela você sai com clareza do que fazer para seguir de outro jeito. Se houver outro tema, ele pode ser trabalhado em uma nova sessão.",
+      },
+      {
+        titulo: "Vivência Guiada",
+        formato: "Encontro em grupo · Presencial · Formato e duração definidos conforme o tema",
+        ancora: "Um momento para desacelerar e sentir.",
+        texto:
+          "É um encontro de escuta, troca e dinâmicas em grupo, com um tema escolhido a cada vez. É na experiência com o outro que a gente se enxerga, se entende e se reconhece melhor.",
+      },
+    ] as ServicoNovo[],
+    depoimentoComFoto: {
+      texto:
+        "Sempre tive vontade de constelar, porém batia um medo do que poderia vir. Foi quando conheci a Carol e tudo foi fluindo. Fiquei tão apaixonada que já constelei 3 vezes e a cada sessão percebo algo novo, uma nova barreira vencida, um novo ciclo se abrindo. Se eu falar que é fácil, estaria mentindo, mas com certeza foi uma das melhores decisões que tomei. Amadurecer e evoluir é duro, porém é gratificante ver as mudanças e, sem dúvida nenhuma, a Carol torna o processo mais calmo. Não sei como agradecer tanta orientação e carinho! Só sei que só grata ao universo por cruzar com a Carol nessa caminhada da vida.",
+      autor: "Juliana S.",
+      inicial: "J",
+    },
+    depoimento: {
+      texto:
+        "Eu queria que todas as pessoas do universo tivessem o atendimento da Carol! Sempre fugi da terapia e do enfrentamento do autoconhecimento, mas a Carol faz tudo ficar mais fácil e fluido. Desde o início das nossas sessões, fiquei impressionada com sua abordagem cuidadosa e integral, que vem promovendo meu bem-estar físico e emocional. Sua habilidade em combinar técnicas tradicionais com métodos holísticos e personalizados para cada paciente tem sido extremamente benéfico para mim. Carol, seu trabalho não tem sido fundamental só para meu bem-estar, também tem sido uma fonte de inspiração. Sou muito grata por tido a oportunidade de deixar você cuidar de mim e me ajudar nessa caminhada.",
+      autor: "Marina L.",
+      inicial: "M",
+    },
+    final: {
+      titulo: "Para você",
+      texto: "Já cansou de achar que está sendo claro e o outro entender tudo ao contrário?",
+      cta: "Quero resolver isso agora",
+    },
+  },
+  pj: {
+    lead: "Entre o que a liderança comunica e o que a equipe executa, algo se perde. A Casa Orí ajuda a enxergar o que existe nesse abismo e a transformar a comunicação em resultado.",
+    servicosCta: "Quero conversar sobre esse formato",
+    servicos: [
+      {
+        titulo: "Palestras",
+        formato: "Presencial ou online · 1h a 1h30 · Para equipes e eventos corporativos",
+        ancora: "Para abrir a conversa que a empresa ainda não teve.",
+        texto:
+          "Cada palestra é construída em torno de um tema escolhido com a empresa, como liderança, comunicação assertiva, gestão de conflitos ou inteligência emocional, entre outros. Os exemplos vêm do dia a dia daquela equipe. O objetivo não é esgotar o assunto, mas abrir a primeira camada dele. A partir daí, a empresa decide o quanto quer ir mais fundo.",
+      },
+      {
+        titulo: "Encontro de Comunicação",
+        formato: "Presencial ou online · 4 horas · 5 a 20 pessoas",
+        ancora: "Quando a comunicação falha, tudo falha junto.",
+        texto:
+          "Em um encontro de quatro horas, parte-se do ciclo da comunicação: quem fala, quem escuta e o que se perde entre os dois. Com dinâmicas e exemplos do próprio dia a dia da empresa, a equipe amplia a percepção sobre a forma como cada um comunica, escuta e interpreta.",
+      },
+      {
+        titulo: "Encontro para Liderança",
+        formato: "Presencial ou online · 4 horas · Para líderes e gestores",
+        ancora: "Você é a sua empresa, ou você tem uma empresa?",
+        texto:
+          "Quando a sua identidade se confunde com a da empresa, delegar vira ameaça. Qualquer crítica ao negócio parece uma crítica a você. Defender a empresa passa a ser defender a si mesmo. O encontro trabalha essa separação. Com isso, as decisões deixam de ser sobre se proteger e passam a ser sobre o que a empresa realmente precisa para crescer.",
+      },
+      {
+        titulo: "Liderança Aplicada",
+        formato: "Encontros semanais de cerca de 2 horas · Presencial · 3 meses · Para lideranças e gestores",
+        ancora: "Não basta saber o que fazer, é preciso saber liderar as pessoas que fazem.",
+        texto:
+          "O processo começa com um diagnóstico: uma conversa inicial para entender a realidade do negócio. Com base nela, o programa é adaptado à rotina e à dinâmica da empresa. Durante três meses, os temas de liderança e comunicação são trabalhados a partir de situações reais e aplicados no dia a dia, com acompanhamento e ajustes ao longo de todo o período. O programa busca que a liderança amplie a sua percepção e consiga dar continuidade ao que foi aplicado.",
+      },
+    ] as ServicoNovo[],
+    final: {
+      titulo: "Para sua empresa",
+      texto: "Já cansou de sair da reunião com tudo combinado e ver nada sair do papel?",
+      cta: "Quero resolver isso na minha empresa",
+    },
+  },
+  rodape: "Terapia sistêmica, constelação familiar e treinamento de comunicação e liderança para equipes. Asa Sul, Brasília (DF) — presencial e online para todo o Brasil.",
+};

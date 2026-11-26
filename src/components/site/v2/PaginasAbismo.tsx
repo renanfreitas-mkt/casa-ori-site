@@ -23,8 +23,8 @@ import {
   DEPOIMENTOS,
   DEPOIMENTOS_VUALA,
   DIFERENCIAIS,
-  DORES_CNPJ,
-  DORES_CPF,
+  HOME,
+  PAGINAS,
   EIXOS,
   GANHOS,
   NA_VIDA,
@@ -34,14 +34,11 @@ import {
   PREMISSAS,
   QUIZ_CNPJ_URL,
   QUIZ_CPF_URL,
-  SERV_CNPJ,
-  SERV_CPF,
   V2_COPY,
   WHATSAPP_URL,
-  type Servico,
+  type ServicoNovo,
 } from "../content";
 import carolLaptop from "@/assets/carol-laptop.jpeg.asset.json";
-import carolConduzindo from "@/assets/carol-conduzindo.jpg.asset.json";
 import cartasConstelacao from "@/assets/cartas-constelacao.jpg.asset.json";
 import fotoEmpresa1 from "@/assets/empresa-DSC00558.jpg.asset.json";
 import fotoEmpresa2 from "@/assets/empresa-DSC00574.jpg.asset.json";
@@ -69,8 +66,6 @@ function AberturaAbismo({
   cta,
   ctaHref,
   onCta,
-  image,
-  alt,
   paleta,
 }: {
   kicker: string;
@@ -79,22 +74,31 @@ function AberturaAbismo({
   cta: string;
   ctaHref?: string;
   onCta?: () => void;
-  image: string;
-  alt: string;
   /** cores da animação de seda ao fundo (do mais escuro ao mais claro) */
   paleta: string[];
 }) {
+  const { cartao } = useCantos();
   return (
     <HeroPagina
-      image={image}
-      alt={alt}
+      lado={
+        // vidro escuro discreto: o texto lê bem mesmo quando a seda clareia atrás dele
+        <Reveal delay={180}>
+          <div className={`${cartao} border border-white/10 bg-[rgba(10,24,16,.38)] p-6 shadow-[0_20px_60px_-30px_rgba(0,0,0,.6)] backdrop-blur-md md:p-8`}>
+            <p className={`max-w-[30rem] text-[#F0F1EB]/92 ${lead}`}>{texto}</p>
+            <div className="mt-7">
+              <Pilula href={onCta ? undefined : ctaHref} onClick={onCta} tom="claro">
+                {cta}
+              </Pilula>
+            </div>
+          </div>
+        </Reveal>
+      }
       fundo={
         <>
           <ShaderBackground paleta={paleta} className="absolute inset-0 -z-20" />
-          {/* véu à esquerda para o texto branco ler bem sobre a seda */}
-          <div aria-hidden className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(10,24,16,.55)_0%,rgba(10,24,16,.25)_45%,rgba(10,24,16,0)_75%)]" />
-          {/* no celular o texto ocupa a largura toda: véu uniforme um pouco mais forte */}
-          <div aria-hidden className="absolute inset-0 -z-10 bg-[rgba(10,24,16,.38)] md:hidden" />
+          {/* topo horizontal: texto dos dois lados, então o véu cobre a largura toda para o branco ler bem sobre a seda */}
+          <div aria-hidden className="absolute inset-0 -z-10 bg-[rgba(10,24,16,.42)]" />
+          <div aria-hidden className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(10,24,16,.25)_0%,rgba(10,24,16,0)_45%,rgba(10,24,16,.25)_100%)]" />
           {/* faixa escura discreta no alto, para o menu ler bem quando a seda clareia */}
           <div aria-hidden className="absolute inset-x-0 top-0 -z-10 h-40 bg-[linear-gradient(180deg,rgba(10,24,16,.45)_0%,rgba(10,24,16,0)_100%)]" />
         </>
@@ -106,16 +110,6 @@ function AberturaAbismo({
       <Reveal delay={60}>
         <div className="mt-7">
           <FrasesRotativas frases={frases} />
-        </div>
-      </Reveal>
-      <Reveal delay={180}>
-        <p className={`mt-8 max-w-[34rem] text-[#F0F1EB]/80 ${lead}`}>{texto}</p>
-      </Reveal>
-      <Reveal delay={240}>
-        <div className="mt-9">
-          <Pilula href={onCta ? undefined : ctaHref} onClick={onCta} tom="claro">
-            {cta}
-          </Pilula>
         </div>
       </Reveal>
     </HeroPagina>
@@ -160,7 +154,7 @@ function DoresAbismo({ kicker, titulo, itens, escuro = false }: { kicker: string
 }
 
 /** Um serviço completo: título e formato à esquerda; âncora e parágrafos à direita. */
-function ServicoAbismo({ s, i }: { s: Servico; i: number }) {
+function ServicoAbismo({ s, i, cta }: { s: ServicoNovo; i: number; cta: string }) {
   return (
     <Reveal delay={i * 60}>
       <article className={`grid gap-6 border-t border-[#263120]/12 py-10 md:grid-cols-[minmax(0,360px)_1fr] md:gap-12 md:py-12`}>
@@ -170,14 +164,10 @@ function ServicoAbismo({ s, i }: { s: Servico; i: number }) {
         </div>
         <div>
           <p className={`${serifa} text-[21px] leading-relaxed text-[#26533C] md:text-[24px]`}>{s.ancora}</p>
-          {s.paragrafos.map((p) => (
-            <p key={p} className={`mt-5 text-[15px] font-light leading-relaxed text-[#263120]/72 md:text-[16px]`}>
-              {p}
-            </p>
-          ))}
+          <p className="mt-5 text-[15px] font-light leading-relaxed text-[#263120]/72 md:text-[16px]">{s.texto}</p>
           <div className="mt-7">
             <Pilula href={WHATSAPP_URL} tom="contorno">
-              Quero saber mais
+              {cta}
             </Pilula>
           </div>
         </div>
@@ -186,7 +176,7 @@ function ServicoAbismo({ s, i }: { s: Servico; i: number }) {
   );
 }
 
-function ListaServicos({ kicker, titulo, itens }: { kicker: string; titulo: string; itens: readonly Servico[] }) {
+function ListaServicos({ kicker, titulo, itens, cta }: { kicker: string; titulo: string; itens: readonly ServicoNovo[]; cta: string }) {
   return (
     <Secao nevoa>
       <Reveal>
@@ -197,7 +187,7 @@ function ListaServicos({ kicker, titulo, itens }: { kicker: string; titulo: stri
       </Reveal>
       <div className="mt-12">
         {itens.map((s, i) => (
-          <ServicoAbismo key={s.titulo} s={s} i={i} />
+          <ServicoAbismo key={s.titulo} s={s} i={i} cta={cta} />
         ))}
       </div>
     </Secao>
@@ -226,16 +216,20 @@ export function ParaVoceAbismo() {
       <AberturaAbismo
         kicker="Para você"
         frases={V2_COPY.paraVoce.frases}
-        texto={V2_COPY.paraVoce.lead}
+        texto={PAGINAS.pf.lead}
         cta={V2_COPY.contato.cpfCta}
         onCta={() => setQuizAberto(true)}
-        image={cartasConstelacao.url}
-        alt="Cartas de constelação familiar sobre a mesa durante um atendimento da Casa Orí"
         paleta={SEDA_PF}
       />
-      <DoresAbismo kicker="Talvez você reconheça" titulo={V2_COPY.paraVoce.doresTitulo} itens={DORES_CPF} />
-      <ListaServicos kicker="Para você" titulo="Processos no seu ritmo" itens={SERV_CPF} />
-      <DepoimentoAbismo depoimento={DEPOIMENTOS[1]} />
+      <DoresAbismo kicker={HOME.pratica.kicker} titulo={HOME.pratica.titulo} itens={HOME.pratica.cpf} />
+      {/* depoimento de constelação com a foto das cartas que a Carol usa na constelação */}
+      <DepoimentoAbismo
+        depoimento={PAGINAS.pf.depoimentoComFoto}
+        image={cartasConstelacao.url}
+        alt="Mãos da Carol segurando as cartas usadas na constelação familiar"
+      />
+      <ListaServicos kicker="Serviços" titulo="Processos no seu ritmo" itens={PAGINAS.pf.servicos} cta={PAGINAS.pf.servicosCta} />
+      <DepoimentoAbismo depoimento={PAGINAS.pf.depoimento} />
       <QuizModal open={quizAberto} onClose={() => setQuizAberto(false)} />
     </>
   );
@@ -249,16 +243,14 @@ export function ParaEmpresasAbismo() {
       <AberturaAbismo
         kicker="Para empresas"
         frases={V2_COPY.paraEmpresas.frases}
-        texto={V2_COPY.paraEmpresas.lead}
+        texto={PAGINAS.pj.lead}
         cta={V2_COPY.contato.cnpjCta}
         ctaHref={QUIZ_CNPJ_URL}
-        image={carolConduzindo.url}
-        alt="Carol Milhomens conduzindo um encontro com uma equipe"
         paleta={SEDA_PJ}
       />
-      <DoresAbismo kicker="Talvez a sua empresa reconheça" titulo={V2_COPY.paraEmpresas.doresTitulo} itens={DORES_CNPJ} escuro />
+      <DoresAbismo kicker={HOME.pratica.kicker} titulo={HOME.pratica.titulo} itens={HOME.pratica.cnpj} escuro />
       <VualaAbismo depoimento={DEPOIMENTOS_VUALA[1]} image={fotoEmpresa1.url} alt="Carol Milhomens em palestra sobre o ciclo da comunicação" />
-      <ListaServicos kicker="Para sua empresa" titulo="Formatos de trabalho" itens={SERV_CNPJ} />
+      <ListaServicos kicker="Serviços" titulo="Formatos de trabalho" itens={PAGINAS.pj.servicos} cta={PAGINAS.pj.servicosCta} />
       <VualaAbismo depoimento={DEPOIMENTOS_VUALA[0]} image={fotoEmpresa2.url} alt="Carol Milhomens falando ao microfone durante um encontro" fotoDireita />
     </>
   );

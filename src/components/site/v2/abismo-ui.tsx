@@ -6,6 +6,7 @@ import { AbismoVento } from "@/components/ui/abismo-vento";
 import { links } from "./ui";
 import {
   CTA_FINAL,
+  PAGINAS,
   INSTAGRAM_HANDLE,
   INSTAGRAM_URL,
   PODCAST_EMBED_URL,
@@ -82,7 +83,7 @@ export function Pilula({
   onClick?: () => void;
 }) {
   const estilos = {
-    escuro: "bg-[#263120] text-[#F0F1EB] hover:bg-[#1B2A1E]",
+    escuro: "bg-[#34604A] text-[#F0F1EB] hover:bg-[#26533C]",
     claro: "bg-[#F0F1EB] text-[#263120] hover:bg-white",
     contorno: "border border-[#263120]/35 text-[#263120] hover:bg-[#263120] hover:text-[#F0F1EB]",
     contornoClaro: "border border-[#F0F1EB]/40 text-[#F0F1EB] hover:bg-[#F0F1EB] hover:text-[#263120]",
@@ -340,13 +341,13 @@ export function FechamentoAbismo({
               <img src={logoAsset.url} alt="Casa Orí" width={64} height={64} className="h-16 w-16 rounded-full object-cover ring-1 ring-[#F0F1EB]/25" />
             </Link>
             <p className="mt-6 max-w-[24rem] text-[15px] font-light leading-relaxed text-[#F0F1EB]/70">
-              Terapia sistêmica, constelação familiar e desenvolvimento de equipes. Asa Sul, Brasília — e online para todo o Brasil.
+              {PAGINAS.rodape}
             </p>
             <a
               href={INSTAGRAM_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${fonte} mt-5 inline-block text-[22px] font-light tracking-[-0.02em] text-[#F0F1EB]/90 transition-opacity hover:opacity-75`}
+              className={`${fonte} mt-4 inline-block text-[15px] font-light text-[#F0F1EB]/75 transition-opacity hover:opacity-100`}
             >
               @suacasa.ori
             </a>
@@ -392,13 +393,24 @@ export function FechamentoAbismo({
 /* ---------------- moldura das páginas ---------------- */
 
 /** Menu + conteúdo + fechamento, igual à home. */
-export function LayoutAbismo({ children, passo = "ambos", tema = "pf" }: { children: ReactNode; passo?: Passo | false; tema?: Tema }) {
+export function LayoutAbismo({
+  children,
+  passo = "ambos",
+  tema = "pf",
+  fechamento,
+}: {
+  children: ReactNode;
+  passo?: Passo | false;
+  tema?: Tema;
+  /** título, cartões e foto próprios no fechamento (Para você / Para empresas usam "Comece a travessia") */
+  fechamento?: { titulo?: ReactNode; cartoes?: CartaoFinal[]; imagem?: string };
+}) {
   return (
     <TemaCtx.Provider value={tema}>
     <div className={`min-h-screen overflow-x-hidden bg-white ${fonte} antialiased`} style={{ color: C.oliva }}>
       <MenuAbismo />
       <main>{children}</main>
-      <FechamentoAbismo passo={passo} />
+      <FechamentoAbismo passo={passo} {...fechamento} />
     </div>
     </TemaCtx.Provider>
   );
@@ -424,6 +436,7 @@ export function HeroPagina({
   espelhar = false,
   extra,
   fundo,
+  lado,
 }: {
   children: ReactNode;
   /** fundo próprio no lugar da foto do abismo (ex.: a animação de seda nas páginas Para você / Para empresas) */
@@ -434,13 +447,16 @@ export function HeroPagina({
   espelhar?: boolean;
   /** conteúdo largo abaixo do texto (ex.: cartões de vidro) */
   extra?: ReactNode;
+  /** coluna da direita (topo horizontal das páginas Para você / Para empresas) */
+  lado?: ReactNode;
 }) {
   const { pj, foto } = useCantos();
   return (
     <section className={`relative isolate flex min-h-[60svh] flex-col justify-center overflow-hidden ${pj ? "rounded-b-[10px]" : "rounded-b-[2.5rem] md:rounded-b-[4rem]"} bg-[#1B2A1E] px-5 pb-16 pt-32 text-[#F0F1EB] sm:px-10 md:pb-24 md:pt-40 lg:px-14`}>
       {fundo ?? <FundoAbismo focus={focus} espelhar={espelhar} />}
-      <div className={`mx-auto grid w-full max-w-[1300px] items-center gap-12 ${image ? "md:grid-cols-[1.15fr_0.85fr] md:gap-16" : ""}`}>
+      <div className={`mx-auto grid w-full max-w-[1300px] items-center gap-12 ${image ? "md:grid-cols-[1.15fr_0.85fr] md:gap-16" : lado ? "gap-10 lg:grid-cols-[1.35fr_0.65fr] lg:items-end lg:gap-16" : ""}`}>
         <div>{children}</div>
+        {lado && <div className="lg:pb-2">{lado}</div>}
         {image && (
           <Reveal delay={160}>
             <div className={`mx-auto max-w-[460px] overflow-hidden ${pj ? foto : "rounded-[32px]"} shadow-[0_30px_80px_-40px_rgba(0,0,0,.7)]`}>
@@ -490,7 +506,7 @@ export function FrasesRotativas({ frases }: { frases: readonly string[] }) {
     <div>
       <h1
         aria-live="polite"
-        className={`${fonte} min-h-[3.3em] max-w-[16ch] text-[clamp(2rem,4.6vw,3.8rem)] font-normal leading-[1.06] tracking-[-0.035em] text-[#F0F1EB] transition-all duration-300 ease-out [text-shadow:0_2px_30px_rgba(0,0,0,.25)]`}
+        className={`${fonte} min-h-[2.2em] max-w-[22ch] text-[clamp(1.9rem,4.2vw,3.6rem)] font-normal leading-[1.06] tracking-[-0.035em] text-[#F0F1EB] transition-all duration-300 ease-out [text-shadow:0_2px_30px_rgba(0,0,0,.25)]`}
         style={{ opacity: visivel ? 1 : 0, transform: visivel ? "none" : "translateY(8px)" }}
       >
         {frases[i]}
@@ -537,7 +553,7 @@ export function DepoimentoAbismo({
         <span aria-hidden="true" className={`${serifa} block text-[72px] leading-[0.6] text-[#C9DCC4]`}>
           “
         </span>
-        <blockquote className={`${serifa} mt-4 text-[clamp(1.15rem,1.8vw,1.55rem)] leading-[1.45] text-[#F0F1EB]/92`}>{depoimento.texto}</blockquote>
+        <blockquote className={`${fonte} mt-4 text-[clamp(1.05rem,1.5vw,1.3rem)] font-light leading-[1.6] text-[#F0F1EB]/92`}>{depoimento.texto}</blockquote>
         <figcaption className="mt-8 flex items-center gap-3">
           <span aria-hidden="true" className={`${serifa} grid h-11 w-11 place-items-center rounded-full border border-[#F0F1EB]/30 text-[20px] not-italic`}>
             {depoimento.inicial}
@@ -578,11 +594,11 @@ export function VualaAbismo({
   const { pj, foto } = useCantos();
   return (
     <section className={`${pj ? "bg-[#24503A]" : "bg-[#34604A]"} px-5 py-20 text-[#F0F1EB] sm:px-10 md:py-28 lg:px-14`}>
-      <div className="mx-auto grid max-w-[1300px] items-center gap-10 md:grid-cols-[0.85fr_1.15fr] md:gap-16">
+      <div className={`mx-auto grid max-w-[1300px] items-center gap-10 md:gap-16 ${fotoDireita ? "md:grid-cols-[1.3fr_0.7fr]" : "md:grid-cols-[0.7fr_1.3fr]"}`}>
         {image && (
           <Reveal className={fotoDireita ? "md:order-2" : ""}>
             <div className={`overflow-hidden ${foto}`}>
-              <img src={image} alt={alt ?? ""} loading="lazy" className="aspect-[4/5] max-h-[620px] w-full object-cover object-[center_30%] [filter:saturate(.85)_contrast(1.03)]" />
+              <img src={image} alt={alt ?? ""} loading="lazy" className="aspect-[4/3] w-full object-cover object-[center_30%] [filter:saturate(.85)_contrast(1.03)] md:aspect-[1/1]" />
             </div>
           </Reveal>
         )}

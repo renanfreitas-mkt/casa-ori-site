@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ParaEmpresasAbismo } from "@/components/site/v2/PaginasAbismo";
-import { LayoutAbismo } from "@/components/site/v2/abismo-ui";
+import { LayoutAbismo, serifa } from "@/components/site/v2/abismo-ui";
+import { PAGINAS, WHATSAPP_URL } from "@/components/site/content";
 
 const title = "Para empresas — Casa Orí";
 const description =
@@ -24,7 +25,17 @@ export const Route = createFileRoute("/para-empresas")({
 
 function ParaEmpresasPage() {
   return (
-    <LayoutAbismo passo="cnpj" tema="pj">
+    <LayoutAbismo passo="cnpj" tema="pj"
+      fechamento={{
+        imagem: "/img/abismo-sem-homem.webp",
+        titulo: (
+          <>
+            Comece a <em className={serifa}>travessia</em>
+          </>
+        ),
+        cartoes: [{ ...PAGINAS.pj.final, href: WHATSAPP_URL }],
+      }}
+    >
       <ParaEmpresasAbismo />
     </LayoutAbismo>
   );
